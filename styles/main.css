@@ -17,6 +17,16 @@
   --secondary-700: #374151;
   --secondary-800: #1f2937;
   --secondary-900: #111827;
+
+  --text-2xl: 700 24px/32px "Pretendard";
+  --text-xl: 700 20px/32px "Pretendard";
+  --text-2lg: 700 18px/26px "Pretendard";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
