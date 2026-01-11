@@ -1,0 +1,11 @@
+/* 공통 스타일링 */
+html,
+body {
+    font-family: 'Pretendard';
+}
+
+:root{
+    --black {color:#000}
+
+    --primary01: #3692ff;
+}

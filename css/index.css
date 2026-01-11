@@ -1,0 +1,135 @@
+/* common */
+.btn-small-48 {
+    padding:11px 23px;
+    background:var(--primary01);
+    text-align: center;
+    color:#f3f4f6;
+    border-radius: 8px;
+}
+
+.btn-large {
+    padding:16px 124px;
+    background:var(--primary01);
+    text-align: center;
+    color:#f3f4f6;
+    border-radius: 40px;
+    font-size:16px;
+}
+
+body {font-family: 'Pretendard'; letter-spacing: -1; color:#374151;}
+
+/* index */
+header {
+    width:1120px;
+    margin:0 auto;
+}
+
+.gnb {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.landing-header {
+    background:#CFE5FF;
+    padding-top:200px;
+    
+}
+
+.landing-header-inner {
+    width:1110px;
+    margin:0 auto;
+    display:flex;
+    align-items: center;
+}
+
+.landing-content {
+    display:flex;
+    flex-direction: column;
+    gap:32px;
+}
+
+.landing-content h1 {
+    font-weight: 700;
+    font-size:40px;
+    line-height: 1.4em;
+    
+}
+
+.landing-section {
+    max-width:988px;
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+}
+
+.landing-section .landing-section-content:nth-child(2) {
+    flex-direction: row-reverse;
+}
+
+.landing-section .landing-section-content:nth-child(2) .landing-section-text-box{
+    text-align: right;
+}
+
+.landing-section-content {
+    margin:138px 0;
+    display:flex;
+    justify-content: center;
+    gap:60px;
+    background:#fcfcfc
+}
+.landing-section-content .landing-section-text-box{
+    display:flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.landing-section-content .landing-section-text-box span {
+    color:#3692FF;
+    font-family: serif;
+    font-weight: 800;
+    margin-bottom:12px;
+}
+
+.landing-section-content .landing-section-text-box h2{
+    font-size:40px;
+    font-weight: 700;
+    margin-bottom:24px;
+}
+
+.landing-section-content .landing-section-text-box p {
+    font-size:24px;
+    font-weight: 500;
+}
+
+footer {
+    background:#111827;
+}
+footer .footer-inner {
+    width:1110px;
+    margin:0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:32px 0 108px;
+}
+
+footer .footer-inner .footer-info {
+    color:#9CA3AF;
+}
+
+footer .footer-inner ul {
+    display:flex;
+    gap:30px;
+}
+
+footer .footer-inner ul a {
+    color:#9CA3AF
+}
+
+footer .footer-inner .sns {
+    display:flex;
+    gap:12px;
+}
