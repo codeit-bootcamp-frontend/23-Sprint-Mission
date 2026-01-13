@@ -53,7 +53,7 @@ body {
 #landingBanner {
   background-color: #cfe5ff;
   height: 540px;
-  background-image: url(assets/landing.png);
+  background-image: url(assets/landing.svg);
   background-size: 746px 340px;
   background-repeat: no-repeat;
   background-position: 70% 100%;
@@ -132,7 +132,7 @@ span {
 #footerBanner {
   background-color: #cfe5ff;
   height: 540px;
-  background-image: url(assets/footer.png);
+  background-image: url(assets/footer.svg);
   background-size: 746px 397px;
   background-repeat: no-repeat;
   background-position: 70% 100%;
