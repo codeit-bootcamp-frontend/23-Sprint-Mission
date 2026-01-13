@@ -76,6 +76,7 @@
 #landingHeader {
   font-weight: 700;
   font-size: 40px;
+  line-height: 140%;
 }
 
 #landingBtn {
@@ -148,6 +149,8 @@
   width: 295px;
   height: 112px;
   font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
 }
 
 #footer {
