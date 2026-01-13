@@ -1,8 +1,20 @@
 :root {
-  --active: #3692ff;
-  --hover: #1967d6;
-  --click: #1251aa;
-  --inactive: #9ca3af;
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+  --error: #f74747;
+  --bg-blue: #cfe5ff;
+  --bg-gray: #fcfcfc;
+  --bg-white: #ffffff;
+  --secondary-50: #f9fafb;
+  --secondary-100: #f3f4f6;
+  --secondary-200: #e5e7eb;
+  --secondary-400: #9ca3af;
+  --secondary-500: #6b7280;
+  --secondary-600: #4b5563;
+  --secondary-700: #374151;
+  --secondary-800: #1f2937;
+  --secondary-900: #111827;
 }
 
 html {
@@ -12,25 +24,25 @@ html {
 
 body {
   margin: 0;
-  background-color: #ffffff;
+  background-color: var(--bg-white);
   max-width: 1920px;
 }
 
 .button {
-  background-color: var(--active);
+  background-color: var(--primary-100);
   border: none;
   border-radius: 8px;
-  color: #ffffff;
+  color: var(--bg-white);
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
 }
 .button:hover {
-  background-color: var(--hover);
+  background-color: var(--primary-200);
 }
 .button:active {
-  background-color: var(--click);
+  background-color: var(--primary-300);
 }
 
 #header {
@@ -51,7 +63,7 @@ body {
 }
 
 #landingBanner {
-  background-color: #cfe5ff;
+  background-color: var(--bg-blue);
   height: 540px;
   background-image: url(assets/landing.svg);
   background-size: 746px 340px;
@@ -94,7 +106,7 @@ body {
   width: 988px;
   justify-content: center;
   align-items: center;
-  background-color: #fcfcfc;
+  background-color: var(--bg-gray);
   border-radius: 12px;
   margin: 138px 0;
 }
@@ -118,7 +130,7 @@ body {
 }
 
 span {
-  color: var(--active);
+  color: var(--primary-100);
   font-weight: 800;
   font-size: 18px;
   line-height: 26px;
@@ -126,11 +138,11 @@ span {
 
 #line {
   height: 130px;
-  background-color: #fcfcfc;
+  background-color: var(--bg-gray);
 }
 
 #footerBanner {
-  background-color: #cfe5ff;
+  background-color: var(--bg-blue);
   height: 540px;
   background-image: url(assets/footer.svg);
   background-size: 746px 397px;
@@ -148,7 +160,7 @@ span {
 }
 
 #footer {
-  background-color: #111827;
+  background-color: var(--secondary-900);
   height: 160px;
   display: flex;
   justify-content: space-around;
@@ -158,7 +170,7 @@ span {
 #footer a {
   font-weight: 400;
   font-size: 16px;
-  color: var(--inactive);
+  color: var(--secondary-400);
   text-decoration: none;
 }
 
