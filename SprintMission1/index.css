@@ -1,3 +1,5 @@
+@import "global.css";
+
 :root {
   --primary-100: #3692ff;
   --primary-200: #1967d6;
@@ -15,17 +17,6 @@
   --secondary-700: #374151;
   --secondary-800: #1f2937;
   --secondary-900: #111827;
-}
-
-html {
-  word-break: keep-all;
-  font-family: Pretendard, sans-serif;
-}
-
-body {
-  margin: 0;
-  background-color: var(--bg-white);
-  max-width: 1920px;
 }
 
 .button {
