@@ -1,8 +1,8 @@
 :root {
-  --active: #3692FF;
-  --hover: #1967D6;
-  --click: #1251AA;
-  --inactive: #9CA3AF;
+  --active: #3692ff;
+  --hover: #1967d6;
+  --click: #1251aa;
+  --inactive: #9ca3af;
 }
 
 html {
@@ -12,162 +12,162 @@ html {
 
 body {
   margin: 0;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   max-width: 1920px;
 }
 
 .button {
-    background-color: var(--active);
-    border: none;
-    border-radius: 8px;
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+  background-color: var(--active);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 .button:hover {
-    background-color: var(--hover);
+  background-color: var(--hover);
 }
 .button:active {
-    background-color: var(--click);
+  background-color: var(--click);
 }
 
 #header {
-    display: flex;
-    align-items: center;
-    padding: 9px 400px;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 9px 400px;
+  justify-content: space-between;
 }
 
 #header > * {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #loginBtn {
-    width: 128px;
-    height: 48px;
-    padding: 12px 23px;
+  width: 128px;
+  height: 48px;
+  padding: 12px 23px;
 }
 
 #landingBanner {
-    background-color: #CFE5FF;
-    height: 540px;
-    background-image: url(assets/landing.png);
-    background-size: 746px 340px;
-    background-repeat: no-repeat;
-    background-position: 70% 100%;
+  background-color: #cfe5ff;
+  height: 540px;
+  background-image: url(assets/landing.png);
+  background-size: 746px 340px;
+  background-repeat: no-repeat;
+  background-position: 70% 100%;
 }
 
 #landingContents {
-    width: 357px;
-    height: 260px;
-    position: relative;
-    top: 210px;
-    left: 405px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  width: 357px;
+  height: 260px;
+  position: relative;
+  top: 210px;
+  left: 405px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 #landingHeader {
-    font-weight: 700;
-    font-size: 40px;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 #landingBtn {
-    border-radius: 40px;
-    width: 357px;
-    height: 56px; 
+  border-radius: 40px;
+  width: 357px;
+  height: 56px;
 }
 
 #infos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #infoItem {
-    display: flex;
-    height: 444px;
-    width: 988px;
-    justify-content: center;
-    align-items: center;
-    background-color: #FCFCFC;
-    border-radius: 12px;
-    margin: 138px 0;
+  display: flex;
+  height: 444px;
+  width: 988px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfc;
+  border-radius: 12px;
+  margin: 138px 0;
 }
 
 #infoContent {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-left: 60px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 60px;
 }
 
 #temp {
-    margin: 0;
+  margin: 0;
 }
 
 .left {
-    margin-left: none;
-    margin-right: 60px;
-    align-items: flex-end;
+  margin-left: none;
+  margin-right: 60px;
+  align-items: flex-end;
 }
 
 span {
-    color: var(--active);
-    font-weight: 800;
-    font-size: 18px;
-    line-height: 26px;
+  color: var(--active);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 26px;
 }
 
 #line {
-    height: 130px;
-    background-color: #FCFCFC;
+  height: 130px;
+  background-color: #fcfcfc;
 }
 
 #footerBanner {
-    background-color: #CFE5FF;
-    height: 540px;
-    background-image: url(assets/footer.png);
-    background-size: 746px 397px;
-    background-repeat: no-repeat;
-    background-position: 70% 100%;   
+  background-color: #cfe5ff;
+  height: 540px;
+  background-image: url(assets/footer.png);
+  background-size: 746px 397px;
+  background-repeat: no-repeat;
+  background-position: 70% 100%;
 }
 
 #footerBannerContent {
-    position: relative;
-    top: 310px;
-    left: 405px;
-    width: 295px;
-    height: 112px;
-    font-weight: 700;
+  position: relative;
+  top: 310px;
+  left: 405px;
+  width: 295px;
+  height: 112px;
+  font-weight: 700;
 }
 
 #footer {
-    background-color: #111827;
-    height: 160px;
-    display: flex;
-    justify-content: space-around;
-    padding-top: 35px;
+  background-color: #111827;
+  height: 160px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 35px;
 }
 
 #footer a {
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--inactive);
-    text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--inactive);
+  text-decoration: none;
 }
 
 #footerNav {
-    display: flex;
-    gap: 30px
+  display: flex;
+  gap: 30px;
 }
 
 #logos {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }
