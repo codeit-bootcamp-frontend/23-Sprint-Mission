@@ -1,40 +1,5 @@
-<<<<<<< HEAD
 @import "reset.css";
 @import "global.css";
-
-=======
-* {
-    box-sizing: border-box;
-}
-
-html {
-    font-family: 'Pretendard', 'Abhaya Libre', sans-serif;
-    word-break: keep-all;
-}
-
-body {
-    margin: 0;
-}
-
-/* 헤더 영역 */
-header {
-    width: 100%;
-    height: 70px;
-    text-align: center;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav {
-    width:1120px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
->>>>>>> ac274f8 (Create Sprint Mission 1)
 
 .login {
     width: 128px;
@@ -118,11 +83,7 @@ article {
     font-family: 'Abhaya Libre'
 }
 
-<<<<<<< HEAD
 h1, h2 {
-=======
-h2 {
->>>>>>> ac274f8 (Create Sprint Mission 1)
     font-size: 40px;
     font-weight: 700;
     line-height: 140%;
