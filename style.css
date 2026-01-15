@@ -1,34 +1,6 @@
-* {
-    box-sizing: border-box;
-}
+@import "reset.css";
+@import "global.css";
 
-html {
-    font-family: 'Pretendard', 'Abhaya Libre', sans-serif;
-    word-break: keep-all;
-}
-
-body {
-    margin: 0;
-}
-
-/* 헤더 영역 */
-header {
-    width: 100%;
-    height: 70px;
-    text-align: center;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav {
-    width:1120px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .login {
     width: 128px;
@@ -112,7 +84,7 @@ article {
     font-family: 'Abhaya Libre'
 }
 
-h2 {
+h1, h2 {
     font-size: 40px;
     font-weight: 700;
     line-height: 140%;
