@@ -1,12 +1,8 @@
+@import "global.css";
+
 body {
   margin: 0;
   font-family: Pretendard;
-}
-
-/* a태그 밑에 밑줄 없애기 */
-
-a {
-  text-decoration: none;
 }
 
 /* 클릭 요소 포인터 표시 */
@@ -68,7 +64,7 @@ a {
 
 /* 판다 전체 영역 */
 
-.panda {
+.panda-top-main {
   background-color: #e8f3ff;
   display: flex;
   justify-content: center;

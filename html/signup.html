@@ -30,15 +30,50 @@
 
           <div class="input-group">
             <label for="password">비밀번호</label>
-            <input type="password" id="password" />
+            <div class="input-group-password">
+              <input type="password" id="password" />
+              <img
+                class="password-image"
+                src="../images/password_image.png"
+                alt="비밀번호가림 이미지"
+              />
+            </div>
           </div>
 
           <div class="input-group">
             <label for="password-check">비밀번호 확인</label>
-            <input type="password" id="password-check" />
+            <div class="input-group-password">
+              <input type="password" id="password-check" />
+              <img
+                class="password-image"
+                src="../images/password_image2.png"
+                alt="비밀번호가림 이미지"
+              />
+            </div>
           </div>
 
           <button type="submit" class="login-button">회원가입</button>
+
+          <div class="social-login">
+            <span class="social-title">간편 로그인하기</span>
+
+            <div class="social-icons">
+              <a
+                href="https://www.google.com/"
+                target="_blank"
+                class="social-icon google"
+              >
+                <img src="../images/google.png" alt="구글 로그인" />
+              </a>
+              <a
+                href="https://www.kakaocorp.com/page/"
+                target="_blank"
+                class="social-icon kakao"
+              >
+                <img src="../images/kakao.png" alt="카카오 로그인" />
+              </a>
+            </div>
+          </div>
         </form>
 
         <!-- 로그인 이동 -->

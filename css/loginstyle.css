@@ -1,7 +1,4 @@
-/* a태그 밑에 밑줄 없애기 */
-a {
-  text-decoration: none;
-}
+@import "global.css";
 
 .login-page {
   width: 100%;
@@ -70,6 +67,29 @@ a {
   background-color: #f5f5f5;
 }
 
+.input-group-password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group-password input {
+  width: 100%; /*  input도 꽉 채우기 */
+  box-sizing: border-box;
+  padding-right: 40px; /* 아이콘 자리 */
+}
+
+.password-image {
+  width: 24px;
+  height: 24px;
+  padding: 0 12px;
+  position: absolute;
+  right: 0; /* 오른쪽 끝 */
+  top: 50%;
+  transform: translateY(-50%); /* 세로 중앙 */
+  cursor: pointer;
+}
+
 /* 로그인 버튼 */
 
 .login-button {
@@ -90,6 +110,49 @@ a {
   cursor: pointer;
 }
 
+/* 간편로그인 */
+
+.social-login {
+  height: 74px;
+  padding: 0 24px;
+
+  background-color: #f1f5ff;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center; /* 세로 중앙 */
+  justify-content: space-between; /* 좌우 배치 */
+}
+
+.social-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon img {
+  width: 48px;
+  height: 48px;
+}
+
 /* 회원가입 안내 */
 
 .signup-text {
@@ -107,4 +170,3 @@ a {
   flex-direction: column;
   gap: 16px;
 }
-

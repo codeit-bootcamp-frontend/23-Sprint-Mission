@@ -4,6 +4,7 @@
   로그인 페이지, 회원가입 페이지 모두 로고 위 상단 여백이 동일합니다. ✔ <br>
 - “회원 가입”버튼 클릭 시 “/signup” 페이지로 이동합니다. ✔ <br>
 - “로그인”버튼 클릭 시 (“/login”) 페이지로 이동합니다. ✔ <br>
+- SNS 아이콘들은 클릭시 각각 아래 페이지로 이동합니다. “https://www.google.com/”, “https://www.kakaocorp.com/page/” ✔ <br>
 
 ### 기본
 
@@ -13,16 +14,16 @@
 
 - 폴더 중첩 해결 ✔ <br>
 - VScode 프리티어 활용 ✔ <br>
-- onclick보다 <a> 태그를 사용 ✔ <br>
-- <div>를 제외한 <h>, <section> 등을 활용  ✔ <br>
-- 불필요한 스타일 삭제 ✔ <br>
+- 비밀번호 input 요소 오른쪽에 눈모양 아이콘을 추가 ✔ <br>
+- login.html, sign.html 간편 로그인 추가 ✔ <br>
+- 구글, 카카오 이미지 클릭시 각각 페이지로 이동 ✔ <br>
+- 헷갈리는 class 이름 수정 (panda -> panda-top-main) ✔ <br>
+- global.css 추가 ✔ <br>
+- 같은 유형의 섹션 태그 수정 ✔ <br>
 
 ## 스크린샷
 
-[![Sprint1 첫번째 이미지](이미지url)](https://github.com/douk9909/23-Sprint-Mission/blob/Basic-%EA%B9%80%EB%8F%84%EC%9A%B1/1.png)
-[![Sprint1 두번째 이미지](이미지url)](https://github.com/douk9909/23-Sprint-Mission/blob/Basic-%EA%B9%80%EB%8F%84%EC%9A%B1/2.png)
 
 ## 주강사님에게
 
-- 최대한 여러가지 속성 사용을 위해 필요없는 코드가 꽤 있을 수 있습니다.
-- 셀프 코드 리뷰를 통해 질문 이어가겠습니다.
+- 코드리뷰 항상 감사드립니다! 도움이 많이 되고 있습니다 ✔
