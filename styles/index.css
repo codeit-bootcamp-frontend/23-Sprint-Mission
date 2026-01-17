@@ -177,7 +177,7 @@
     font-weight: 400;
 }
 
-.faq {
+.faq > a {
     color: var(--secondary-200);
     font-size: 16px;
     font-weight: 400;
@@ -188,6 +188,7 @@
     height: 20;
     display: flex;
     gap: 9px;
+    list-style: none;
 }
 
 a {
