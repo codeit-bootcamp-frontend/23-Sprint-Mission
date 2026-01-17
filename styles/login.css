@@ -1,0 +1,164 @@
+.login-all {
+  height: 100vh;
+  margin: 0 auto;
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22.24px;
+  text-decoration: none;
+}
+.logo > img {
+  width: 103.58px;
+}
+.logo > p {
+  font-family: ROKAF Sans;
+  font-weight: 700;
+  font-size: 66.34px;
+  line-height: 100%;
+  vertical-align: middle;
+  color: var(--primary-100);
+}
+
+.login-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+}
+.login-main > form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.login-main fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+fieldset label {
+  font-family: Pretendard;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: var(--secondary-800);
+}
+
+fieldset .input {
+  height: 56px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--secondary-100);
+  padding: 0 24px;
+  color: var(--secondary-800);
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  vertical-align: middle;
+}
+
+.input::placeholder {
+  font-size: 16px;
+}
+
+.input:focus {
+  outline: 1px solid var(--primary-100);
+}
+
+#password {
+  font: large Verdana, sans-serif;
+  width: 100%;
+}
+.password_box {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+.password_box img {
+  position: absolute;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  right: 0;
+}
+
+form > button {
+  height: 56px;
+  background-color: var(--primary-100);
+  border-radius: 40px;
+  border: none;
+  color: var(--secondary-100);
+  font-family: Pretendard;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.simple-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 23px;
+  width: 100%;
+  height: 74px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+}
+
+.simple-login-text_app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.simple-login-text_app > p {
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--secondary-800);
+}
+.app-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.sign-up p {
+  color: var(--secondary-800);
+  font-family: Pretendard;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.sign-up a {
+  color: var(--primary-100);
+}
+
+#password_confirm {
+  font: large Verdana, sans-serif;
+  width: 100%;
+}
