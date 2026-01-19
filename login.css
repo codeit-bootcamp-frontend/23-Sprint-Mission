@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.login .logo {
+  width: 396px;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.labels,
+.inputs,
+.login-container > button {
+  width: 100%;
+}
+
+.labels {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  color: var(--secondary-800);
+}
+
+.inputs {
+  padding: 16px 60px 16px 20px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: var(--secondary-100);
+  border: 2px solid var(--secondary-100);
+  color: var(--secondary-800);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.inputs:focus {
+  outline: none;
+  border: 2px solid #3182f6;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper > button {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  border: none;
+  padding: 0;
+}
+
+.login-button {
+  height: 56px;
+  border-radius: 40px;
+  padding: 16px 124px;
+  background-color: var(--primary-100);
+  border: none;
+  color: var(--secondary-100);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: var(--primary-200);
+}
+
+.login-button:active {
+  background-color: var(--primary-300);
+}
+
+.login-button:disabled {
+  background-color: var(--primary-400);
+}
+
+.easy-login {
+  padding: 16px 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 74px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+}
+
+.easy-login-logos {
+  display: flex;
+  gap: 16px;
+}
+
+.easy-login-logos > img {
+  width: 42px;
+  height: 42px;
+}
+
+.sign-up-wrapper {
+  text-align: center;
+  color: var(--secondary-800);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.signup {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-100);
+}
