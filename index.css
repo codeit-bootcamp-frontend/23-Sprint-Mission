@@ -185,7 +185,7 @@
   height: 397px;
 }
 
-footer {
+.footer {
   background-color: var(--secondary-900);
   height: 160px;
   width: 100%;
