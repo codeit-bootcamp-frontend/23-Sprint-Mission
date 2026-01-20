@@ -1,0 +1,57 @@
+.bold {
+    font-weight: 700;
+}
+
+.semibold {
+    font-weight: 600;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.regular {
+    font-weight: 400;
+}
+
+.text-3xl {
+    font-size: 32px;
+    line-height: 42px;
+}
+
+.text-2xl {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.text-xl {
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.text-2lg {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.text-lg {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.text-md {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.text-sm {
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.text-xs {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+

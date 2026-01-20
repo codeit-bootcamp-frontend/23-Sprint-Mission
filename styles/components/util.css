@@ -1,0 +1,23 @@
+.w-full {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.gap-4 {
+    gap: 16px;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}

@@ -1,3 +1,5 @@
+@import url(/styles/reset.css);
+
 :root {
   --primary-100: #3692ff;
   --primary-200: #1967d6;
@@ -20,9 +22,13 @@
 
   /* Text */
 
-  --text-lg: 700 16px/26px "Pretendard";
-  --text-2lg: 700 18px/26px "Pretendard";
-  --text-2xl: 700 24px/32px "Pretendard";
+  --text-lg-bold: 700 16px/26px "Pretendard";
+  --text-lg-medium: 500 16px/26px "Pretendard";
+  --text-lg-regular: 400 16px/26px "Pretendard";
+  --text-2lg-bold: 700 18px/26px "Pretendard";
+  --text-2lg-semibold: 600 18px/26px "Pretendard";
+  --text-2xl-bold: 700 24px/32px "Pretendard";
+  --text-2xl-semibold: 600 24px/32px "Pretendard";
 }
 
 html,

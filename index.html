@@ -1,115 +1,146 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>판다마켓</title>
-  <link rel="stylesheet" as="style" crossorigin
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
-  <link rel="stylesheet" href="./styles/reset.css" />
-  <link rel="stylesheet" href="./styles/global.css" />
-  <link rel="stylesheet" href="./index.css" />
-</head>
-
-<body>
-  <!-- <h1>판다마켓 중고거래</h1> -->
-  <header class="gnb">
-    <nav class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>판다마켓</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- <h1>판다마켓 중고거래</h1> -->
+    <header class="gnb">
       <a href="/">
         <img src="./images/logo.svg" alt="판다마켓 로고" />
       </a>
-      <a class="btn-small-48 login-button" href="/login">로그인</a>
-    </nav>
-  </header>
+      <a
+        class="btn-small-48 login-button bg-primary-100 secondary-100 semibold text-lg hover:bg-primary-200"
+        href="/login"
+        >로그인</a
+      >
+    </header>
 
-  <main>
-    <section class="landing-header">
-      <div>
-        <div class="landing-header-content">
-          <h1 class="landing-heading">일상의 모든 물건을 거래해보세요</h1>
-          <a class="btn-large">구경하러 가기</a>
+    <main>
+      <section class="landing-header bg-blue">
+        <div>
+          <div class="landing-header-content">
+            <h1 class="landing-heading secondary-700">
+              일상의 모든 물건을 거래해보세요
+            </h1>
+            <a
+              href="/items"
+              class="btn-large bg-primary-100 secondary-50 text-xl hover:bg-primary-200"
+              >구경하러 가기</a
+            >
+          </div>
+          <img src="./images/landing/landing-content-header.svg" />
         </div>
-        <img src="./images/landing/landing-content-header.svg" />
+      </section>
+
+      <div class="landing-body bg-white">
+        <section class="landing-section bg-gray">
+          <img src="./images/landing/landing-section-1.svg" alt="" />
+
+          <div class="landing-section-content w-274">
+            <span class="text-2lg semibold primary-100">Hot Item</span>
+            <div>
+              <h2 class="landing-heading secondary-700">
+                인기 상품을 확인해 보세요
+              </h2>
+              <p class="text-2xl medium secondary-700">
+                가장 HOT한 중고거래 물품을 판다 마켓에서 확인해 보세요
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="landing-section flex-reverse bg-gray">
+          <img src="./images/landing/landing-section-2.svg" alt="" />
+
+          <div class="landing-section-content w-288 text-right">
+            <span class="text-2lg semibold primary-100">Search</span>
+            <div>
+              <h2 class="landing-heading secondary-700">
+                구매를 원하는 상품을 검색하세요
+              </h2>
+              <p class="text-2xl medium secondary-700">
+                구매하고 싶은 물품은 검색해서 쉽게 찾아보세요
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="landing-section bg-gray">
+          <img src="./images/landing/landing-section-3.svg" alt="" />
+
+          <div class="landing-section-content w-335">
+            <span class="text-2lg semibold primary-100">Register</span>
+            <div>
+              <h2 class="landing-heading secondary-700">
+                판매를 원하는 상품을 등록하세요
+              </h2>
+              <p class="text-2xl medium secondary-700">
+                어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <div class="landing-body">
-      <section class="landing-section">
-        <img src="./images/landing/landing-section-1.svg" alt="" />
-
-        <div class="landing-section-content w-274">
-          <span>Hot Item</span>
-          <div>
-            <h2 class="landing-heading">인기 상품을 확인해 보세요</h2>
-            <p>가장 HOT한 중고거래 물품을 판다 마켓에서 확인해 보세요</p>
+      <section class="landing-footer bg-blue">
+        <div>
+          <div class="landing-footer-content">
+            <h2 class="landing-heading secondary-700 w-335">
+              믿을 수 있는 판다마켓 중고 거래
+            </h2>
           </div>
+          <img src="./images/landing/landing-content-footer.svg" />
         </div>
       </section>
-      <section class="landing-section flex-reverse">
-        <img src="./images/landing/landing-section-2.svg" alt="" />
+    </main>
 
-        <div class="landing-section-content w-288 text-right">
-          <span>Search</span>
-          <div>
-            <h2 class="landing-heading">구매를 원하는 상품을 검색하세요</h2>
-            <p>구매하고 싶은 물품은 검색해서 쉽게 찾아보세요</p>
-          </div>
-        </div>
-      </section>
-      <section class="landing-section">
-        <img src="./images/landing/landing-section-3.svg" alt="" />
+    <footer class="footer bg-secondary-900 secondary-400">
+      <div>©codeit - 2024</div>
 
-        <div class="landing-section-content w-335">
-          <span>Register</span>
-          <div>
-            <h2 class="landing-heading">판매를 원하는 상품을 등록하세요</h2>
-            <p>어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요</p>
-          </div>
-        </div>
-      </section>
-    </div>
+      <div class="footer_links">
+        <a href="./privacy.html" class="secondary-200"> Privacy Policy </a>
 
-    <section class="landing-footer">
-      <div>
-        <div class="landing-footer-content">
-          <h2 class="landing-heading">믿을 수 있는 판다마켓 중고 거래</h2>
-        </div>
-        <img src="./images/landing/landing-content-footer.svg" />
+        <a href="./faq.html" class="secondary-200"> FAQ </a>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div>
-      ©codeit - 2024
-    </div>
-
-    <div class="footer_links">
-      <a href="./privacy.html">
-        Privacy Policy
-      </a>
-
-      <a href="./faq.html">
-        FAQ
-      </a>
-    </div>
-
-    <div class="icon">
-      <a href="https://facebook.com" target="_blank">
-        <img src="./images/icon/ic_facebook.svg" alt="facebook">
-      </a>
-      <a href="https://twitter.com" target="_blank">
-        <img src="./images/icon/ic_twitter.svg" alt="twitter">
-      </a>
-      <a href="https://youtube.com" target="_blank">
-        <img src="./images/icon/ic_youtube.svg" alt="youtube">
-      </a>
-      <a href="https://instagram.com" target="_blank">
-        <img src="./images/icon/ic_instagram.svg" alt="instagram">
-      </a>
-    </div>
-  </footer>
-</body>
-
+      <ul class="footer-social">
+        <li>
+          <a href="https://facebook.com" target="_blank">
+            <img
+              src="./images/icon/facebook.svg"
+              alt="facebook"
+              class="white"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com" target="_blank">
+            <img src="./images/icon/twitter.svg" alt="twitter" class="white" />
+          </a>
+        </li>
+        <li>
+          <a href="https://youtube.com" target="_blank">
+            <img src="./images/icon/youtube.svg" alt="youtube" class="white" />
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com" target="_blank">
+            <img
+              src="./images/icon/instagram.svg"
+              alt="instagram"
+              class="white"
+            />
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
 </html>

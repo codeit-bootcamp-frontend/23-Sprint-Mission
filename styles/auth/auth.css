@@ -1,0 +1,59 @@
+@import url("/styles/components/button.css");
+@import url("/styles/components/input.css");
+@import url("/styles/components/typography.css");
+@import url("/styles/components/color.css");
+@import url("/styles/components/util.css");
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  margin: 0 auto;
+
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth-logo {
+  width: 396px;
+  height: 132px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+  width: 100%;
+}
+
+.auth-label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.oauth-container {
+  width: 100%;
+  padding: 24px 23px;
+  background-color: var(--bg-blue);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 8px;
+}
+
+.eyes {
+  position: absolute;
+
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
