@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/global.css" type="text/css" />
+    <link rel="stylesheet" href="styles/signup.css" type="text/css" />
+    <title>판다마켓 - 회원가입</title>
+  </head>
+  <body>
+    <main id="main">
+      <img id="logo" src="assets/logo.svg" width="396px" height="132px" />
+      <form id="signupForm">
+        <label id="label" for="emailInput">이메일</label>
+        <div id="emailInputBox">
+          <input id="emailInput" placeholder="codeit@email.com" />
+        </div>
+        <br />
+        <label id="label" for="nameInput">닉네임</label>
+        <div id="nameInputBox">
+          <input id="nameInput" placeholder="판다" />
+        </div>
+        <br />
+        <label id="label" for="pwInput">비밀번호</label>
+        <div id="pwInputBox">
+          <input
+            id="pwInput"
+            placeholder="비밀번호를 입력해주세요."
+            type="password"
+          />
+          <img src="assets/visibility_off.svg" width="24px" height="24px" />
+        </div>
+        <br />
+        <label id="label" for="pwconfirmInput">비밀번호 확인</label>
+        <div id="pwconfirmInputBox">
+          <input id="pwconfirmInput" placeholder="비밀번호를 입력해주세요." />
+          <img src="assets/visibility_on.svg" width="24px" height="24px" />
+        </div>
+        <button id="signupBtn">회원가입</button>
+      </form>
+
+      <div id="socialLogin">
+        <span id="socialInfo">간편 로그인하기</span>
+        <ul id="logoBox">
+          <a href="https://www.google.com/">
+            <img alt="구글 로그인 버튼" src="assets/snslogos/googlelogo.svg" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img
+              alt="카카오톡 로그인 버튼"
+              src="assets/snslogos/kakaologo.svg"
+            />
+          </a>
+        </ul>
+      </div>
+      <span id="footInfo"
+        >이미 회원이신가요?
+        <a id="loginLink" href="/login.html">로그인</a></span
+      >
+    </main>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+.button {
+  background-color: var(--primary-100);
+  border: none;
+  border-radius: 8px;
+  color: var(--bg-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.button:hover {
+  background-color: var(--primary-200);
+}
+.button:active {
+  background-color: var(--primary-300);
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  padding: 9px 400px;
+  justify-content: space-between;
+  position: fixed;
+  background-color: var(--bg-white);
+  box-sizing: border-box;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+#header > * {
+  cursor: pointer;
+}
+
+#loginBtn {
+  width: 128px;
+  height: 48px;
+  padding: 12px 23px;
+}
+
+#landingBanner {
+  background-color: var(--bg-blue);
+  height: 540px;
+  background-image: url(../assets/landing.svg);
+  background-size: 746px 340px;
+  background-repeat: no-repeat;
+  background-position: 70% 100%;
+}
+
+#landingContents {
+  width: 357px;
+  height: 260px;
+  position: relative;
+  top: 210px;
+  left: 405px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+#landingHeader {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
+}
+
+#landingBtn {
+  border-radius: 40px;
+  width: 357px;
+  height: 56px;
+}
+
+#infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#infoItem {
+  display: flex;
+  height: 444px;
+  width: 988px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-gray);
+  border-radius: 12px;
+  margin: 138px 0;
+}
+
+#infoContent {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 60px;
+}
+
+#temp {
+  margin: 0;
+}
+
+.left {
+  margin-left: none;
+  margin-right: 60px;
+  align-items: flex-end;
+}
+
+.itemHeader {
+  color: var(--primary-100);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+#line {
+  height: 130px;
+  background-color: var(--bg-gray);
+}
+
+#footerBanner {
+  background-color: var(--bg-blue);
+  height: 540px;
+  background-image: url(../assets/footer.svg);
+  background-size: 746px 397px;
+  background-repeat: no-repeat;
+  background-position: 70% 100%;
+}
+
+#footerBannerContent {
+  position: relative;
+  top: 310px;
+  left: 405px;
+  width: 295px;
+  height: 112px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
+}
+
+#footer {
+  background-color: var(--secondary-900);
+  height: 160px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 35px;
+}
+
+#footer a {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--secondary-400);
+  text-decoration: none;
+}
+
+#footerNav {
+  display: flex;
+  gap: 30px;
+}
+
+#logos {
+  display: flex;
+  gap: 12px;
+}
