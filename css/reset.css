@@ -1,0 +1,13 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Pretendard', 'Abhaya Libre', sans-serif;
+    word-break: keep-all;
+}
+
+body {
+    margin: 0;
+}

@@ -1,0 +1,36 @@
+/*컬러 팔레트*/
+:root{
+    --blue : #3692FF;
+    --grey900: #111827;
+    --grey800: #1f2937;
+    --grey700: #374151;
+    --grey600: #4b5563;
+    --grey500: #6b7280;
+    --grey400: #9ca3af;
+    --grey200: #e5e7eb;
+    --grey100: #f3f4f6;
+    --grey50: #f9fafb;
+
+}
+
+
+/* 헤더 영역 */
+.header {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#ffffff;
+    position:fixed;
+}
+
+.nav {
+    width:1120px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
