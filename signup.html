@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>판다마켓: 로그인</title>
+    <title>판다마켓: 회원가입</title>
 
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/main.css" />
@@ -11,17 +11,20 @@
   </head>
   <body>
     <section class="container">
-      <a href="./index.html">
+      <a href="../index.html">
         <img class="logo" src="./assets/images/Img_logo.svg" />
       </a>
       <div class="contents-container">
         <form class="input-wrapper">
           <label class="labels" for="email">이메일</label>
-          <input name="email" class="inputs" type="email" id="email" />
+          <input name="email" class="inputs" id="email" type="email" />
+
+          <label class="labels" for="name">닉네임</label>
+          <input name="name" class="inputs" id="name" type="text" />
 
           <label class="labels" for="pwd">비밀번호</label>
           <div class="password-wrapper">
-            <input name="password" class="inputs" type="password" id="pwd" />
+            <input name="pwd" class="inputs" id="pwd" type="password" />
             <button type="button" class="visibility">
               <img
                 src="./assets/images/Img_visibility.svg"
@@ -30,7 +33,18 @@
             </button>
           </div>
 
-          <button class="main-button" type="submit">로그인</button>
+          <label class="labels" for="check">비밀번호 확인</label>
+          <div class="password-wrapper">
+            <input name="check" class="inputs" id="check" type="password" />
+            <button type="button" class="visibility">
+              <img
+                src="./assets/images/Img_visibility2.svg"
+                alt="invisible-logo"
+              />
+            </button>
+          </div>
+
+          <button class="main-button" type="submit">회원가입</button>
         </form>
 
         <div class="easy-login">
@@ -46,8 +60,8 @@
         </div>
 
         <p class="footer-wrapper">
-          판다마켓이 처음이신가요?
-          <a class="signupOrLogin" href="./signup.html">회원가입</a>
+          이미 회원이신가요?
+          <a class="signupOrLogin" href="./login.html">로그인</a>
         </p>
       </div>
     </section>
