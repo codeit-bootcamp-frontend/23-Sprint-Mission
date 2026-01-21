@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+}
+
+.panda-img {
+  width: 103.53px;
+  height: 103.88px;
+  top: 12.98px;
+}
+
+.panda-text {
+  width: 266px;
+  height: 90px;
+  top: 23.98px;
+  left: 125.77px;
+  font-weight: 700;
+  font-size: 66.34px;
+  color: #3692FF;
+  text-decoration: none;
+  margin-left: 22.4px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 396px;
+  height: 132px;
+  margin-left: 122px;
+  margin-right: 122px;
+}
+
+/* nav stichy 포함하기 */
+nav {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+section {
+  width: 640px;
+  height: 446px;
+  gap: 24px;
+}
+
+.section-input {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  height: 300px;
+  gap: 24px;
+}
+
+.password-eye, .password-check-eye {
+  position: relative;
+}
+
+.eye-icon, .eye-check-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-check {
+  margin: 24px 0px;
+}
+
+.email-txt, .nickname-txt, .password-txt, .password-check-txt {
+  width: auto;
+  height: 26px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1F2937;
+  bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.email-input, .nickname-input, .password-input, .password-check-input {
+  background-color: #F3F4F6;
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  border-style: none;
+  gap: 10px;
+}
+
+.all-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 220px;
+  gap: 24px;
+}
+
+.signup-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  border-radius: 40px;
+  padding: 16px 124px;
+  gap: 10px;
+  background-color: #3692FF;
+  color: #F3F4F6;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.try-go-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 74px;
+  border-radius: 8px;
+  gap: 10px;
+  text-decoration: none;
+}
+
+
+.sns-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.sns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+}
+
+.easy-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 74px;
+  border-radius: 8px;
+  padding: 16px 23px;
+  gap: 10px;
+  text-decoration: none;
+  background-color: #E6F2FF;
+}
+
+.sign-txt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 24px;
+  gap: 4px;
+}
+
+.first-time {
+  color: #1F2937;
+  width: auto;
+  height: 24px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.sign-up-btn {
+  color: #3692FF;
+  width: auto;
+  height: 17px;
+  line-height: 100%;
+}
+
+input {
+  color: #1F2937;
+  width: 100%;
+  height: 26px;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 16px 24px;
+  border-style: none;
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
