@@ -1,307 +1,400 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 body {
-    /* 위의 두개 설정하면 브라우저 기본 마진, 패딩 초기화 */
-    color: #374151;
-    font-family: 'Pretendard', sans-serif;
+  /* 위의 두개 설정하면 브라우저 기본 마진, 패딩 초기화 */
+  color: #374151;
+  font-family: "Pretendard", sans-serif;
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: calc(100vw - 800px);
-    /* 100vw는 현재 뷰포트 너비, 위와같이 하면 항상 400px좌우 여백 너비 남음 */
-    margin: 0 auto;
-    /* 가운데 중앙 정렬 */
-    padding: 6px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: calc(100vw - 800px);
+  /* 100vw는 현재 뷰포트 너비, 위와같이 하면 항상 400px좌우 여백 너비 남음 */
+  margin: 0 auto;
+  /* 가운데 중앙 정렬 */
+  padding: 6px 0px;
 }
 
 .login-btn {
-    width: 128px;
-    height: 48px;
-    background-color: #3692ff;
-    border-radius: 8px;
-    border: none;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 26px;
-    cursor: pointer;
+  width: 128px;
+  height: 48px;
+  background-color: #3692ff;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 26px;
+  cursor: pointer;
 }
 
 a .login-btn {
-    text-decoration: none;
-    display: inline-block;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .see-btn {
-    height: 48px;
-    background-color: #3692ff;
-    border-radius: 40px;
-    border: none;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 12px 24px;
-    white-space: nowrap;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    text-decoration: none;
+  height: 48px;
+  background-color: #3692ff;
+  border-radius: 40px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  white-space: nowrap;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-decoration: none;
 }
 
 .section-wrapper {
-    width: 100%;
-    background-color: #CFE5FF;
+  width: 100%;
+  background-color: #cfe5ff;
 }
 
-.section1, .section5 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-    height: 540px;
-    max-width: calc(100vw - 800px);
-    margin: 0 auto;
+.section1,
+.section5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 540px;
+  max-width: calc(100vw - 800px);
+  margin: 0 auto;
 }
 
-.section1-inner, .section5-inner{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.section1-inner,
+.section5-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.section1-block{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 300px;
-    gap: 30px;
-    margin-bottom: 30px;
-    align-self: flex-start;
-    /* 따로 이 요소만 위쪽으로 옮기고 싶을때, align-self추가 하면 됨 */
-    margin-top: -40px;
+.section1-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 300px;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-self: flex-start;
+  /* 따로 이 요소만 위쪽으로 옮기고 싶을때, align-self추가 하면 됨 */
+  margin-top: -40px;
 }
 
 .section1-block a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .section5-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 300px;
-    gap: 30px;
-    margin-bottom: 50px;
-    align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+  gap: 30px;
+  margin-bottom: 50px;
+  align-self: flex-start;
 }
 
-.section1-title, .section5-title {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 140%;
+.section1-title,
+.section5-title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
 }
 
 .section2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 540px;
-    max-width: calc(100vw - 800px);
-    margin: 0 auto;
-    padding: 138px 466px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 540px;
+  max-width: calc(100vw - 800px);
+  margin: 0 auto;
+  padding: 138px 466px;
 }
 
 .section2-inner {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    max-width: 998px;
-    background-color: #fcfcfc;
-    margin-left: -170px;
-    padding-right: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 998px;
+  background-color: #fcfcfc;
+  margin-left: -170px;
+  padding-right: 24px;
 }
 
 .section2-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 300px;
-    gap: 24px;
-    padding-right: 24px;
-    flex: 1;
-    min-width: 319px;
-    margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+  gap: 24px;
+  padding-right: 24px;
+  flex: 1;
+  min-width: 319px;
+  margin-left: 80px;
 }
 
 .section2-title {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 140%;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
 }
 
 .section2-sub-title {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .section-label {
-    font-family: 'Pretendard', 'Abhaya Libre', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    font-style: normal;
-    line-height: 23px;
-    color: #3692ff;
+  font-family: "Pretendard", "Abhaya Libre", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 23px;
+  color: #3692ff;
 }
 
 .section3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 540px;
-    max-width: calc(100vw - 800px);
-    margin: 0 auto;
-    padding: 138px 466px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 540px;
+  max-width: calc(100vw - 800px);
+  margin: 0 auto;
+  padding: 138px 466px;
 }
 
 .section3-inner {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    max-width: 998px;
-    background-color: #fcfcfc;
-    margin-left: -170px;
-    padding-right: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 998px;
+  background-color: #fcfcfc;
+  margin-left: -170px;
+  padding-right: 24px;
 }
 
 .section3-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    height: 300px;
-    gap: 24px;
-    min-width: 319px;
-    flex: 1;
-    text-align: right;
-    padding-left: 24px;
-    margin-right: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 300px;
+  gap: 24px;
+  min-width: 319px;
+  flex: 1;
+  text-align: right;
+  padding-left: 24px;
+  margin-right: 80px;
 }
 
 .section3-title {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 140%;
-}   
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
+}
 
 .section3-sub-title {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .section4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 540px;
-    max-width: calc(100vw - 800px);
-    margin: 0 auto;
-    padding: 138px 466px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 540px;
+  max-width: calc(100vw - 800px);
+  margin: 0 auto;
+  padding: 138px 466px;
 }
 
 .section4-inner {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    max-width: 998px;
-    background-color: #fcfcfc;
-    margin-left: -170px;
-    padding-right: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 998px;
+  background-color: #fcfcfc;
+  margin-left: -170px;
+  padding-right: 24px;
 }
 
 .section4-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    height: 300px;
-    gap: 24px;
-    flex: 1;
-    min-width: 319px;
-    margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 300px;
+  gap: 24px;
+  flex: 1;
+  min-width: 319px;
+  margin-left: 60px;
 }
 
 .section4-title {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 140%;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
 }
 
 .section4-sub-title {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
-    white-space: nowrap;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  white-space: nowrap;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    background-color: #111827;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #111827;
 }
 
 .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: calc(100vw - 800px);
-    margin: 0 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: calc(100vw - 800px);
+  margin: 0 0 30px;
 }
 
 .social-toggle {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .icons {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .footer-text-group {
-    display: flex;
-    gap: 20px;
-    color: #E5E7EB;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  gap: 20px;
+  color: #e5e7eb;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-text-group a {
-    color: #E5E7EB;
-    /* 아래 코드는 링크 밑에 밑줄 없애는 코드 */
-    text-decoration: none; 
-    cursor: pointer;
+  color: #e5e7eb;
+  /* 아래 코드는 링크 밑에 밑줄 없애는 코드 */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* login page 스타일 시작 */
+.login-full-section {
+  width: 100vw;
+  min-width: 520px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 640px;
+  margin-top: 4rem;
+  gap: 24px;
+}
+
+.login-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.email-area,
+.password-area {
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+
+  width: 100%;
+  height: 48px;
+  padding: 0 12px; /* input은 세로 padding보다 이렇게 주는 게 깔끔 */
+  box-sizing: border-box;
+
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+}
+
+.login-form-btn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  background-color: #3692ff;
+  border-radius: 40px;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.newuser-text-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.register-form-btn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  background-color: #3692ff;
+  border-radius: 40px;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 auto;
 }
