@@ -99,3 +99,14 @@
   text-decoration-line: underline;
   color: var(--primary-blue);
 }
+
+@media (max-width: 767px) {
+  .signup-container {
+    padding: 16px;
+    max-width: 400px;
+  }
+
+  .signup-form-logo {
+    width: 198px;
+  }
+}

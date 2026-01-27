@@ -15,7 +15,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 400px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .header-login-btn {
@@ -74,11 +75,13 @@
 }
 
 .section-main {
-  padding: 138px 466px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 138px 0;
 }
 
 .section-main-inner {
+  width: 988px;
   display: flex;
   justify-content: space-between;
   gap: 64px;
@@ -137,6 +140,8 @@
 }
 
 .footer-container {
+  display: flex;
+  justify-content: center;
   height: 160px;
   background-color: var(--secondary-900);
   padding-top: 30px;
@@ -146,7 +151,6 @@
   display: flex;
   justify-content: space-between;
   width: 1120px;
-  margin: 0 auto;
 }
 
 .footer-inner-left {
@@ -162,4 +166,146 @@
 .footer-inner-right {
   display: flex;
   gap: 12px;
+}
+
+/* Tablet: 1199px 이하일 때 적용 */
+@media (max-width: 1199px) {
+  .section-top {
+    height: auto;
+  }
+
+  .section-top-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 140px;
+    width: auto;
+    padding-top: 64px;
+  }
+
+  .section-top-inner img {
+    width: 744px;
+    height: 340px;
+  }
+
+  .main {
+    padding: 0 24px;
+  }
+
+  .section-main {
+    display: block;
+  }
+  .section-main-inner {
+    width: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .section-main-inner img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-main-inner-right h2 {
+    font: 700 32px / 42px "Pretendard";
+    color: var(--secondary-700);
+  }
+
+  .section-main-inner-right p {
+    font: 500 18px / 26px "Pretendard";
+    color: var(--secondary-700);
+  }
+
+  .section-main-inner.reverse {
+    flex-direction: column;
+  }
+
+  .section-bottom {
+    height: auto;
+  }
+
+  .section-bottom-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-bottom-inner img {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-bottom-inner h2 {
+    padding: 200px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+/* Mobile: 767px 이하일 때 적용 */
+@media (max-width: 767px) {
+  .header-inner {
+    padding: 0 16px;
+  }
+
+  .section-top-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 240px;
+  }
+
+  .section-top-inner-left h1 {
+    font: 700 32px / 140% "Pretendard";
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .section-top-inner img {
+    width: auto;
+    height: 204px;
+  }
+
+  .main {
+    padding: 0 16px;
+  }
+
+  .section-bottom-inner h2 {
+    padding: 200px 0 100px;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 32px 64px;
+  }
+
+  .footer-inner-center {
+    order: 1;
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-inner-right {
+    order: 2;
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-inner-left {
+    order: 3;
+    width: 100%;
+    margin-top: 24px;
+    text-align: left;
+  }
 }
