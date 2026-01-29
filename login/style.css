@@ -8,6 +8,11 @@ body {
   font-family: Pretendard;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   width: 100%;
   max-width: var(--640px);
@@ -40,7 +45,7 @@ body {
 }
 
 .login-container {
-  padding: var(--10px);
+  padding: var(--16px) var(--24px);
   background: var(--gray-100);
   width: 100%;
   height: var(--56px);
@@ -79,6 +84,9 @@ input:focus {
 }
 
 .password-blink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   border: none;
   background: var(--gray-100);
@@ -87,7 +95,7 @@ input:focus {
 .login-button {
   width: 100%;
   margin: var(--10px) 0 var(--25px);
-  background: var(--blue);
+  background: var(--gray-400);
   border: none;
   padding: 0.75em 1em;
   border-radius: var(--40px);
@@ -96,6 +104,10 @@ input:focus {
   font-size: var(--20px);
   line-height: var(--32px);
   cursor: pointer;
+}
+
+.login-accept-button {
+  background-color: var(--blue);
 }
 
 .easy-login-container {
@@ -136,6 +148,23 @@ input:focus {
 
 .final-footer > p > a {
   color: var(--blue);
+}
+
+.error-message {
+  padding-left: 16px;
+  color: var(--error-red);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  min-height: 18px;
+}
+
+.error-border {
+  border: 1px solid var(--error-red);
+}
+
+.accept-border {
+  border: 1px solid var(--blue);
 }
 
 @media (max-width: 47.938em) {

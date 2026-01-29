@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -7,40 +7,47 @@
     <link rel="stylesheet" href="/global.css" />
     <title>로그인 | 판다마켓</title>
   </head>
+
   <body>
     <div class="wrapper">
       <header class="top-header">
         <img src="/images/logo.svg" alt="판다마켓 로고" />
-        <a href="/"><h1 class="logo-name">판다마켓</h1></a>
+        <a href="/">
+          <h1 class="logo-name">판다마켓</h1>
+        </a>
       </header>
       <main>
         <form>
           <div class="login-input">
             <label class="label-input" for="id">이메일</label>
-            <div class="login-container">
+            <div id="id-container" class="login-container">
               <input
                 class="id-input"
                 type="email"
                 id="id"
                 placeholder="이메일을 입력해주세요"
+                autocomplete="username"
               />
             </div>
+            <p class="error-message"></p>
           </div>
           <div class="login-input">
             <label class="label-input" for="password">비밀번호</label>
-            <div class="login-container">
+            <div id="password-container" class="login-container">
               <input
                 class="password-input"
                 type="password"
                 id="password"
                 placeholder="비밀번호를 입력해주세요"
+                autocomplete="current-password"
               />
               <button class="password-blink" type="button">
-                <img src="/images/blink.svg" />
+                <img src="/images/non-blink.svg" />
               </button>
             </div>
+            <p class="error-message"></p>
           </div>
-          <button class="login-button" type="submit">로그인</button>
+          <button class="login-button" type="submit" disabled>로그인</button>
         </form>
         <div class="easy-login-container">
           <div>간편 로그인하기</div>
@@ -61,5 +68,6 @@
         <p>판다마켓이 처음이신가요? <a href="/signup/">회원가입</a></p>
       </footer>
     </div>
+    <script src="./login.js"></script>
   </body>
 </html>
