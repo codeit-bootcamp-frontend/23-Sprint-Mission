@@ -6,7 +6,7 @@ header {
   border-bottom: 1px solid #dfdfdf;
 }
 
-header nav {
+header .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,12 +15,12 @@ header nav {
   padding: 0 200px;
 }
 
-header nav .logo-btn {
+header .wrap .logo-btn {
   width: 153px;
   height: 51px;
 }
 
-header nav .login-btn {
+header .wrap .login-btn {
   width: 128px;
   height: 48px;
   background-color: var(--primary-100);
@@ -32,7 +32,7 @@ header nav .login-btn {
   line-height: 48px;
 }
 
-header nav .login-btn:hover {
+header .wrap .login-btn:hover {
   background-color: var(--primary-200);
 }
 
