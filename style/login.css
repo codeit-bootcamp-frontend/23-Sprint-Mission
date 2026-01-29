@@ -3,7 +3,7 @@
 .login-body {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .login-container {
@@ -98,4 +98,15 @@
   font: 500 14px / 17px "Pretendard";
   text-decoration-line: underline;
   color: var(--primary-blue);
+}
+
+@media (max-width: 767px) {
+  .login-container {
+    padding: 16px;
+    max-width: 400px;
+  }
+
+  .login-form-logo {
+    width: 198px;
+  }
 }
