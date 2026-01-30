@@ -39,28 +39,26 @@
   flex-direction: column;
   gap: 24px;
 }
-.login-main fieldset {
+.login-main .input-box {
   border: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-fieldset label {
+.input-box {
   font-family: Pretendard;
   font-weight: 700;
-  font-style: Bold;
   font-size: 18px;
   line-height: 26px;
-  letter-spacing: 0%;
   color: var(--secondary-800);
 }
 
-fieldset .input {
+.input-box .input {
   height: 56px;
   border-radius: 12px;
   border: none;
   background-color: var(--secondary-100);
-  padding: 0 24px;
+  padding: 0 52px 0 24px;
   color: var(--secondary-800);
   font-family: Pretendard;
   font-weight: 400;
@@ -78,7 +76,9 @@ fieldset .input {
 }
 
 #password {
-  font: large Verdana, sans-serif;
+  font:
+    large Verdana,
+    sans-serif;
   width: 100%;
 }
 .password_box {
@@ -91,11 +91,13 @@ fieldset .input {
   top: 50%;
   transform: translate(-100%, -50%);
   right: 0;
+  cursor: pointer;
+  z-index: 1;
 }
 
 form > button {
   height: 56px;
-  background-color: var(--primary-100);
+  background-color: var(--secondary-400);
   border-radius: 40px;
   border: none;
   color: var(--secondary-100);
@@ -159,6 +161,60 @@ form > button {
 }
 
 #password_confirm {
-  font: large Verdana, sans-serif;
+  font:
+    large Verdana,
+    sans-serif;
   width: 100%;
+}
+
+.signup-all {
+  height: 100%;
+  margin: 60px auto;
+}
+
+/* 테블릿,모바일 반응형웹 */
+@media (min-width: 375px) and (max-width: 1199px) {
+  .login-all {
+    margin: 190px auto;
+    height: 100%;
+  }
+  .signup-all {
+    height: 100%;
+    margin: 48px auto;
+  }
+}
+
+/* 모바일 반응형웹 설정 */
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  .login-all {
+    margin: 80px 16px;
+    height: 100%;
+    max-width: 400px;
+    gap: 24px;
+  }
+  .logo {
+    gap: 11.12px;
+  }
+  .logo > img {
+    width: 51.76px;
+  }
+  .logo > p {
+    font-size: 33.17px;
+  }
+  .input-box .label-login {
+    font-size: 14px;
+  }
+  .login-main .input-box {
+    gap: 8px;
+  }
+  .login-main > form {
+    gap: 16px;
+  }
+  .input-box {
+    font-size: 14px;
+  }
 }

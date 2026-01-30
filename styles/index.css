@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 400px;
+  padding: 9px 24px;
   position: sticky;
   top: 0;
   background-color: var(--bg-white);
@@ -88,6 +88,7 @@
   font-size: 40px;
   line-height: 140%;
   letter-spacing: 0;
+  width: 295px;
 }
 .main_write_button > button {
   height: 56px;
@@ -111,7 +112,6 @@
 .content {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   gap: 64px;
   margin: 138px 0;
@@ -147,6 +147,8 @@ section {
   color: #374151;
   margin-bottom: 16px;
   margin: 0 0 24px;
+  width: 293px;
+  word-break: keep-all;
 }
 .main_text1 > p {
   font-family: Pretendard;
@@ -203,6 +205,8 @@ footer {
 
 .FAQ {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 30px;
 }
 
@@ -213,5 +217,142 @@ footer {
 
 .icons {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 12px;
+}
+.icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*반응형 웹페이지 */
+/* 테블릿 */
+@media (min-width: 375px) and (max-width: 1199px) {
+  .main_container {
+    height: 100%;
+    width: 100%;
+  }
+  .main_write_button {
+    align-items: center;
+  }
+  .main_write_button > h1 {
+    text-align: center;
+    width: 100%;
+  }
+  .main_write_button > button {
+    width: 357px;
+    margin: 24px 0 0;
+  }
+  .main_content {
+    width: 100%;
+    padding-top: 84px;
+  }
+  .main_content > img {
+    width: 100%;
+  }
+  .main_content,
+  .text_image {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .main_content {
+    gap: calc(211px - 12vw);
+  }
+  .all-section {
+    margin: 24px 24px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+  }
+
+  .content {
+    flex-direction: column;
+    margin: 0;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .content > img {
+    width: 100%;
+  }
+
+  .subtitle {
+    margin-bottom: 16px;
+    font-family: Pretendard;
+    font-size: 18px;
+  }
+  .content2 {
+    align-items: flex-end;
+  }
+  .main_text1 > h2 {
+    width: 100%;
+    font-size: 32px;
+  }
+  .main_text1 > p {
+    font-size: 18px;
+  }
+  .buttom_container {
+    height: 100%;
+    width: 100%;
+    padding-top: 10vw;
+  }
+  .buttom_content {
+    gap: 6vw;
+    text-align: center;
+    width: 100%;
+  }
+  .buttom_content > img {
+    width: 100%;
+  }
+  .footer {
+    width: 536px;
+  }
+}
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .header_bar {
+    padding: 9px 16px;
+  }
+  .main_content {
+    width: 100%;
+    padding-top: 48px;
+  }
+  .main_write_button {
+    width: 240px;
+  }
+  .main_write_button > h1 {
+    font-size: 32px;
+  }
+  .main_write_button > button {
+    width: 100%;
+    padding: 0;
+    font-size: 18px;
+    height: 48px;
+  }
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .main_text1 > h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .main_text1 > p {
+    font-size: 18px;
+  }
+  .buttom_write > h2 {
+    font-size: 32px;
+  }
+  .footer {
+    width: 311px;
+    flex-wrap: wrap;
+  }
+  .footer > p {
+    order: 3;
+    margin-top: 60px;
+  }
 }
