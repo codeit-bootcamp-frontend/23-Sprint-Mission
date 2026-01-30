@@ -134,3 +134,50 @@
   font-weight: 500;
   text-decoration: underline;
 }
+
+/* Tablet: 768px 이상 ~ 1199px 이하 */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .section-form {
+    padding: 48px 0;
+  }
+}
+
+/* Mobile: 375px 이상 ~ 767px 이하 */
+@media (max-width: 767px) and (min-width: 375px) {
+  .section-form {
+    width: 100%;
+    max-width: 432px;
+    padding: 24px 16px;
+  }
+
+  .section-form .box-img {
+    margin: 0 0 24px;
+  }
+
+  .section-form .box-img a {
+    width: 198px;
+    height: 66px;
+  }
+
+  .section-form .box-img img {
+    width: 198px;
+    height: 66px;
+  }
+
+  .section-form .box-form form > div {
+    margin: 0 0 16px;
+  }
+
+  .section-form .box-form form > div.input-password img {
+    position: absolute;
+    right: 24px;
+    bottom: 16px;
+    cursor: pointer;
+  }
+
+  .section-form .box-form form label {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
