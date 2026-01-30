@@ -148,7 +148,8 @@
   padding-top: 35px;
 }
 
-#footer a {
+#footer a,
+#footer span {
   font-weight: 400;
   font-size: 16px;
   color: var(--secondary-400);
