@@ -1,20 +1,5 @@
 @charset "utf-8";
 
-/* Color Palette */
-:root {
-    --blue: #3692FF;
-    --gray900: #111827;
-    --gray800: #1F2937;
-    --gray700: #374151;
-    --gray600: #4B5563;
-    --gray500: #6B7280;
-    --gray400: #9CA3AF;
-    --gray200: #E5E7EB;
-    --gray100: #F3F4F6;
-    --gray50: #F9FAFB;
-}
-
-
 .signup-header {
     width: 640px;
     margin: 60px auto 40px;
@@ -41,10 +26,9 @@
 
 .form-signup {
     width: 640px;
-    height: 98px;
+    height: 120px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
 }
 
@@ -64,10 +48,20 @@
     margin: 10px 0;
 }
 
+.error-msg {
+    font-size: 0.75rem;
+    color: var(--red);
+    margin-left: 10px;
+}
+
+.input-error {
+    outline: 1px solid var(--red);
+}
+
 .signup-toggle {
     position: absolute;
     right: 20px;
-    top: 35px;
+    top: 37px;
     transform: translateY(50%);
     border: none;
     background: none;
@@ -79,10 +73,20 @@
     height: 56px;
     line-height: 56px;
     margin: 0 0 20px;
-    background-color: var(--blue);
+    background-color: var(--gray400);
     border-radius: 40px;
     text-align: center;
     color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    cursor: default;
+    pointer-events: none;
+}
+
+.signup-btn.active {
+    background-color: var(--blue);
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .social-login {
@@ -115,10 +119,6 @@
     Mobile
 ============ */
 @media (max-width: 767px) and (min-width: 375px) {
-    html, body, main {
-        min-width: 375px;
-        width: 100%;
-    }
 
     .signup-header {
         width: 343px;
@@ -142,12 +142,13 @@
 
     .form-signup {
         width: 343px;
-        height: 88px;
+        height: 110px;
     }
 
     .form-signup label {
         height: 24px;
         line-height: 24px;
+        font-size: 0.9rem;
     }
 
     .signup-toggle {
@@ -163,7 +164,13 @@
         margin: 0 auto 30px;
     }
 
+    .error-msg {
+        margin-left: 12px;
+        font-size: 0.9rem;
+    }
+
     .auth-footer {
         font-size: 0.8rem;
+        height: 100px;
     }
 }

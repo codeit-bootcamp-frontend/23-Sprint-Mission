@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/reset.css" type="text/css" rel="stylesheet">
         <link href="css/login.css" type="text/css" rel="stylesheet">
+        <link href="css/color.css" type="text/css" rel="stylesheet">
         <title>판다마켓</title>
     </head>
     <body>
@@ -18,16 +19,18 @@
             <form>
                 <div class="form-login">
                     <label for="user-email">이메일</label>
-                    <input type="email" id="user-email" name="user-email" placeholder="이메일을 입력해주세요" required>
+                    <input type="email" id="user-email" name="user-email" placeholder="이메일을 입력해주세요">
+                    <p class="error-msg" id="email-error"></p>
                 </div>
                 <div class="form-login">
                     <label for="user-pw">비밀번호</label>
-                    <input type="password" id="user-pw" name="user-pw" placeholder="비밀번호를 입력해주세요" required>
+                    <input type="password" id="user-pw" name="user-pw" placeholder="비밀번호를 입력해주세요">
                     <button type="button" class="login-toggle" aria-label="비밀번호 보기">
                         <img src="images/sign_images/password-hidden.svg">
                     </button>
+                    <p class="error-msg" id="pw-error"></p>
                 </div>
-                <a class="login-login-btn" href="#">로그인</a>
+                <button type="button" class="login-login-btn">로그인</button>
             </form>
 
             <div class="social-login">
@@ -50,5 +53,7 @@
                 판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a>
             </div>
         </main>
+
+        <script src="javascript/login.js"></script>
     </body>
 </html>
