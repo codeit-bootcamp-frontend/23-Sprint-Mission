@@ -12,85 +12,99 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="style/global.css" />
-    <link rel="stylesheet" href="style/signup.css" />
+    <link rel="stylesheet" href="style/auth.css" />
 
     <title>판다마켓</title>
   </head>
-  <body>
-    <main class="signup-body">
-      <div class="signup-container">
-        <a href="index.html">
-          <img
-            src="./img/login-form-logo.svg"
-            alt="판다마켓 로고"
-            class="signup-form-logo"
+  <body class="auth-body">
+    <main class="auth-container">
+      <a href="index.html">
+        <img
+          src="./img/login-form-logo.svg"
+          alt="판다마켓 로고"
+          class="auth-logo"
+        />
+      </a>
+
+      <form class="auth-form" id="signupForm">
+        <div class="auth-input-container">
+          <label for="email">이메일</label>
+          <input
+            type="email"
+            id="email"
+            class="auth-input"
+            placeholder="이메일을 입력해주세요"
           />
-        </a>
+          <span class="auth-error-msg hidden"></span>
+        </div>
 
-        <form class="signup-form">
-          <div class="signup-form-input-container">
-            <label for="email">이메일</label>
-            <input type="email" id="email" />
-          </div>
+        <div class="auth-input-container">
+          <label for="nickname">닉네임</label>
+          <input
+            type="text"
+            id="nickname"
+            class="auth-input"
+            placeholder="닉네임을 입력해주세요"
+          />
+          <span class="auth-error-msg hidden"></span>
+        </div>
 
-          <div class="signup-form-input-container">
-            <label for="nickname">닉네임</label>
-            <input type="text" id="nickname" />
-          </div>
-
-          <div class="signup-form-input-container">
-            <label for="password">비밀번호</label>
-            <input type="password" id="password" class="add-padding-right" />
+        <div class="auth-input-container">
+          <label for="password">비밀번호</label>
+          <div class="auth-password-wrapper">
+            <input
+              type="password"
+              id="password"
+              class="auth-input"
+              placeholder="8자 이상 입력해주세요"
+            />
             <img
               src="./img/btn/btn_visibility_off_24px.svg"
               alt="비밀번호 보이기"
-              class="signup-form-input-visibility"
+              class="auth-visibility-icon"
             />
           </div>
+          <span class="auth-error-msg hidden"></span>
+        </div>
 
-          <div class="signup-form-input-container">
-            <label for="passwordCheck">비밀번호 확인</label>
+        <div class="auth-input-container">
+          <label for="passwordCheck">비밀번호 확인</label>
+          <div class="auth-password-wrapper">
             <input
               type="password"
               id="passwordCheck"
-              class="add-padding-right"
+              class="auth-input"
+              placeholder="비밀번호를 다시 입력해주세요"
+              minlength="8"
             />
             <img
               src="./img/btn/btn_visibility_off_24px.svg"
               alt="비밀번호 보이기"
-              class="signup-form-input-visibility"
+              class="auth-visibility-icon"
             />
           </div>
+          <span class="auth-error-msg hidden"></span>
+        </div>
 
-          <button type="submit" class="signup-form-btn">로그인</button>
+        <button type="submit" class="auth-submit-btn" disabled>회원가입</button>
 
-          <div class="signup-form-sns-container">
-            <span>간편 로그인하기</span>
-            <div class="signup-form-sns-icons">
-              <a href="https://www.google.com/">
-                <img
-                  src="./img/icons/ic_google.svg"
-                  alt="구글 바로가기"
-                  width="42px"
-                  height="42px"
-                />
-              </a>
-              <a href="https://www.kakaocorp.com/page/">
-                <img
-                  src="./img/icons/ic_kakao.svg"
-                  alt="카카오 바로가기"
-                  width="42px"
-                  height="42px"
-                />
-              </a>
-            </div>
+        <div class="auth-sns-container">
+          <span class="auth-sns-label">간편 회원가입하기</span>
+          <div class="auth-sns-icons">
+            <a href="https://www.google.com/"
+              ><img src="./img/icons/ic_google.svg" alt="구글"
+            /></a>
+            <a href="https://www.kakaocorp.com/"
+              ><img src="./img/icons/ic_kakao.svg" alt="카카오"
+            /></a>
           </div>
+        </div>
 
-          <div class="signup-form-welcome-container">
-            이미 회원이신가요? <a href="/login.html">로그인</a>
-          </div>
-        </form>
-      </div>
+        <div class="auth-footer">
+          이미 회원이신가요? <a href="login.html">로그인</a>
+        </div>
+      </form>
     </main>
+    <script type="module" src="/js/signup.js"></script>
   </body>
 </html>

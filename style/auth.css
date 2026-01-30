@@ -1,43 +1,46 @@
 @import url(/style/global.css);
 
-.login-body {
+.auth-body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
 }
 
-.login-container {
+.auth-container {
   width: 640px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.login-form-logo {
+.auth-logo {
   display: block;
   margin: 0 auto;
   margin-bottom: 40px;
+  width: 210px;
 }
 
-.login-form {
+.auth-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
 }
 
-.login-form-input-container {
+.auth-input-container {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.login-form-input-container label {
+.auth-input-container label {
   font: 700 18px / 26px "Pretendard";
   color: var(--secondary-800);
   margin-bottom: 16px;
 }
 
-.login-form-input-container input {
+.auth-input {
+  width: 100%;
   padding: 15px 24px;
   border-radius: 12px;
   border: 0;
@@ -46,34 +49,36 @@
   color: var(--secondary-800);
 }
 
-.login-form-input-msg {
+.auth-password-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.auth-input.add-padding-right {
+  padding-right: 52px;
+}
+
+.auth-error-msg {
   font: 600 14px / 24px "Pretendard";
   margin-top: 10px;
   padding-left: 16px;
   color: #f74747;
 }
 
-.login-form-input-container > .add-padding-right {
-  padding-right: 52px;
+.auth-input.input-error {
+  outline: 1px solid #f74747;
 }
 
-.login-form-input-container-password-container {
-  position: relative;
-  display: flex;
-}
-
-.login-form-input-container-password-container input {
-  width: 640px;
-}
-
-.login-form-input-visibility {
+.auth-visibility-icon {
   position: absolute;
   right: 20px;
-  top: 16px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
+  z-index: 10;
 }
 
-.login-form-btn {
+.auth-submit-btn {
   padding: 12px 0;
   background-color: var(--primary-blue);
   border: 0;
@@ -81,14 +86,15 @@
   font: 600 20px / 32px "Pretendard";
   color: var(--secondary-100);
   cursor: pointer;
+  width: 100%;
 }
 
-.login-form-btn:disabled {
+.auth-submit-btn:disabled {
   background-color: var(--secondary-400);
   cursor: not-allowed;
 }
 
-.login-form-sns-container {
+.auth-sns-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,27 +103,32 @@
   border-radius: 8px;
 }
 
-.login-form-sns-container-span {
-  font: 500 16px/26px "Pretendard";
+.auth-sns-label {
+  font: 500 16px / 26px "Pretendard";
   color: var(--secondary-800);
 }
 
-.login-form-sns-icons {
+.auth-sns-icons {
   display: flex;
   gap: 16px;
 }
 
-.login-form-welcome-container,
-.login-form-welcome-container a {
+.auth-sns-icons img {
+  width: 42px;
+  height: 42px;
+}
+
+.auth-footer {
   text-align: center;
   font: 500 14px / 24px "Pretendard";
   color: var(--secondary-800);
 }
 
-.login-form-welcome-container a {
+.auth-footer a {
   font: 500 14px / 17px "Pretendard";
   text-decoration-line: underline;
   color: var(--primary-blue);
+  margin-left: 8px;
 }
 
 .hidden {
@@ -125,12 +136,12 @@
 }
 
 @media (max-width: 767px) {
-  .login-container {
+  .auth-container {
     padding: 16px;
     max-width: 400px;
   }
 
-  .login-form-logo {
+  .auth-logo {
     width: 198px;
   }
 }
