@@ -33,13 +33,17 @@
   cursor: pointer;
 }
 
+.logoImg {
+  display: block;
+}
+
 #loginBtn {
   width: 128px;
   height: 48px;
   padding: 12px 23px;
 }
 
-#landingBanner {
+.landingBanner {
   background-color: var(--bg-blue);
   height: 540px;
   background-image: url(../assets/landing.svg);
@@ -48,7 +52,7 @@
   background-position: 70% 100%;
 }
 
-#landingContents {
+.landingContents {
   width: 357px;
   height: 260px;
   position: relative;
@@ -59,7 +63,7 @@
   gap: 32px;
 }
 
-#landingHeader {
+.landingHeader {
   font-weight: 700;
   font-size: 40px;
   line-height: 140%;
@@ -71,14 +75,14 @@
   height: 56px;
 }
 
-#infos {
+.infos {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-#infoItem {
+.infoItem {
   display: flex;
   height: 444px;
   width: 988px;
@@ -89,7 +93,7 @@
   margin: 138px 0;
 }
 
-#infoContent {
+.infoContent {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -97,9 +101,10 @@
   margin-left: 60px;
 }
 
-#temp {
+.temp {
   margin: 0;
 }
+
 .left {
   display: flex;
   flex-direction: column;
@@ -115,12 +120,12 @@
   line-height: 26px;
 }
 
-#line {
+.line {
   height: 130px;
   background-color: var(--bg-gray);
 }
 
-#footerBanner {
+.footerBanner {
   background-color: var(--bg-blue);
   height: 540px;
   background-image: url(../assets/footer.svg);
@@ -129,7 +134,7 @@
   background-position: 70% 100%;
 }
 
-#footerBannerContent {
+.footerBannerContent {
   position: relative;
   top: 310px;
   left: 405px;

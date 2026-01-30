@@ -9,10 +9,10 @@
   </head>
   <body>
     <main id="main">
-      <img id="logo" src="assets/logo.svg" width="396px" height="132px" />
+      <img class="logo" src="assets/logo.svg" width="396px" height="132px" />
       <form id="signupForm">
-        <label id="label" for="emailInput">이메일</label>
-        <div id="emailInputBox">
+        <label class="label" for="emailInput">이메일</label>
+        <div class="emailInputBox">
           <input
             id="emailInput"
             placeholder="codeit@email.com"
@@ -21,13 +21,13 @@
           />
         </div>
         <br />
-        <label id="label" for="nameInput">닉네임</label>
-        <div id="nameInputBox">
+        <label class="label" for="nameInput">닉네임</label>
+        <div class="nameInputBox">
           <input id="nameInput" placeholder="판다" name="nickname" required />
         </div>
         <br />
-        <label id="label" for="pwInput">비밀번호</label>
-        <div id="pwInputBox">
+        <label class="label" for="pwInput">비밀번호</label>
+        <div class="pwInputBox">
           <input
             id="pwInput"
             placeholder="비밀번호를 입력해주세요."
@@ -38,8 +38,8 @@
           <img src="assets/visibility_off.svg" width="24px" height="24px" />
         </div>
         <br />
-        <label id="label" for="pwconfirmInput">비밀번호 확인</label>
-        <div id="pwconfirmInputBox">
+        <label class="label" for="pwconfirmInput">비밀번호 확인</label>
+        <div class="pwconfirmInputBox">
           <input
             id="pwconfirmInput"
             type="password"
@@ -52,9 +52,9 @@
         <button id="signupBtn">회원가입</button>
       </form>
 
-      <div id="socialLogin">
-        <span id="socialInfo">간편 로그인하기</span>
-        <ul id="logoBox">
+      <div class="socialLogin">
+        <span class="socialInfo">간편 로그인하기</span>
+        <ul class="logoBox">
           <a href="https://www.google.com/">
             <img alt="구글 로그인 버튼" src="assets/snslogos/googlelogo.svg" />
           </a>
@@ -66,7 +66,7 @@
           </a>
         </ul>
       </div>
-      <span id="footInfo"
+      <span class="footInfo"
         >이미 회원이신가요?
         <a id="loginLink" href="/login.html">로그인</a></span
       >
