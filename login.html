@@ -29,23 +29,32 @@
         <form class="login-form">
           <div class="login-form-input-container">
             <label for="email">이메일</label>
-            <input type="email" id="email" />
+            <input class="email-input" type="email" id="email" />
+            <span class="login-form-input-msg hidden">asd</span>
           </div>
 
           <div class="login-form-input-container">
             <label for="password">비밀번호</label>
-            <input type="password" id="password" class="add-padding-right" />
-            <img
-              src="./img/btn/btn_visibility_off_24px.svg"
-              alt="비밀번호 보이기"
-              class="login-form-input-visibility"
-            />
+            <div class="login-form-input-container-password-container">
+              <input
+                class="password-input add-padding-right"
+                type="password"
+                id="password"
+                minlength="8"
+              />
+              <img
+                src="./img/btn/btn_visibility_off_24px.svg"
+                alt="비밀번호 보이기"
+                class="login-form-input-visibility"
+              />
+            </div>
+            <span class="login-form-input-msg hidden"></span>
           </div>
 
-          <button type="submit" class="login-form-btn">로그인</button>
+          <button type="submit" class="login-form-btn" disabled>로그인</button>
 
           <div class="login-form-sns-container">
-            <span>간편 로그인하기</span>
+            <span class="login-form-sns-container-span">간편 로그인하기</span>
             <div class="login-form-sns-icons">
               <a href="https://www.google.com/">
                 <img
@@ -72,5 +81,6 @@
         </form>
       </div>
     </main>
+    <script type="module" src="/js/login.js"></script>
   </body>
 </html>
