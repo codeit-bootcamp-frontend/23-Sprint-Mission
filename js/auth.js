@@ -1,6 +1,10 @@
 const authForm = document.querySelector(".auth-form");
 const loginBtn = document.querySelector(".auth-submit-btn");
 const visibilityIcons = document.querySelectorAll(".auth-visibility-icon");
+const emailInput = authForm.querySelector("#email");
+const nicknameInput = authForm.querySelector("#nickname");
+const passwordInput = authForm.querySelector("#password");
+const passwordCheckInput = authForm.querySelector("#passwordCheck");
 
 const handleInputFocusOut = (e) => {
   const target = e.target;
@@ -10,7 +14,6 @@ const handleInputFocusOut = (e) => {
   const errMsgElement = container.querySelector(".auth-error-msg");
   const value = target.value.trim();
 
-  const passwordInput = authForm.querySelector("#password");
   const originalPassword = passwordInput ? passwordInput.value : "";
 
   const msg = generateErrMsg(value, target.id, originalPassword);
@@ -30,11 +33,6 @@ const handleAuthSubmit = (e) => {
 };
 
 const updateButtonStatus = () => {
-  const emailInput = authForm.querySelector("#email");
-  const nicknameInput = authForm.querySelector("#nickname");
-  const passwordInput = authForm.querySelector("#password");
-  const passwordCheckInput = authForm.querySelector("#passwordCheck");
-
   const isEmailValid = validateEmail(emailInput.value);
   const isPasswordValid = passwordInput.value.length >= 8;
 
