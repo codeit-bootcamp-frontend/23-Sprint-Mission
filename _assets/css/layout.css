@@ -1,0 +1,75 @@
+/***** header *****/
+.header{
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #fff;
+}
+.header .inner{
+    padding: 0 16px;
+    margin: 0 auto;
+    max-width: 1152px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo{
+    width: 153px;
+    height: auto;
+}
+.header .logo a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.header .logo svg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.header .btn-login{
+    padding: 11px 43px;
+    font-size: 16px;
+    line-height: 1.625;
+    font-weight: 600;
+    background: var(--color-primary1);
+    color: #fff;
+    border-radius: 8px;
+}
+
+
+/***** footer *****/
+.footer{
+    padding: 32px 0 108px;
+    background: var(--color-secondary1);
+    font-size: 16px;
+    line-height: 1;
+}
+.footer .inner{
+    padding: 0 16px;
+    margin: 0 auto;
+    max-width: 1152px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer .copyright{
+    color: var(--color-secondary6);
+}
+.footer .util-area{
+    display: flex;
+    gap: 30px;
+}
+.footer .link-util{
+    color: var(--color-secondary7);
+}
+.footer .sns-list{
+    display: flex;
+    gap: 12px;
+}
+.footer .sns-item{}
+.footer .sns-item svg{}
