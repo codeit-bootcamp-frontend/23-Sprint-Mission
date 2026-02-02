@@ -30,7 +30,7 @@ footer {
   flex-wrap: wrap;
 }
 
-#footerm {
+.footerMenu {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -39,19 +39,20 @@ footer {
   gap: 30px;
 }
 
-#footerm a {
+.footerMenu a {
   color: #e5e7eb;
   text-decoration: none;
 }
 
-#copyr {
+.copyright {
   color: #9ca3af;
 }
 
-#socialm {
+.socialMedia {
   display: flex;
   gap: 12px;
 }
+
 
 /* PC 기본 */
 @media (min-width: 1199px) {

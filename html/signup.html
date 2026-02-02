@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>회원가입 | 판다마켓</title>
-    <link rel="stylesheet" href="../css/loginstyle.css" />
+    <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
     <main class="login-page">
@@ -17,7 +17,7 @@
         </header>
 
         <!-- 회원가입 폼 -->
-        <form class="login-form">
+        <form class="signup-form" id="signup-form">
           <div class="input-group">
             <label for="email">이메일</label>
             <input
@@ -25,6 +25,12 @@
               id="email"
               placeholder="이메일을 입력해 주세요"
             />
+            <span id="emailEmptyError" class="error-message"
+              >이메일을 입력해 주세요</span
+            >
+            <span id="emailInvalidError" class="error-message"
+              >잘못된 이메일 형식입니다</span
+            >
           </div>
 
           <div class="input-group">
@@ -34,6 +40,9 @@
               id="nickname"
               placeholder="닉네임을 입력해 주세요"
             />
+            <span id="nicknameEmptyError" class="error-message"
+              >닉네임을 입력해주세요</span
+            >
           </div>
 
           <div class="input-group">
@@ -46,10 +55,16 @@
               />
               <img
                 class="password-image"
-                src="../images/password_image.png"
+                src="../images/icon-close-eye.png"
                 alt="비밀번호가림 이미지"
               />
             </div>
+            <span id="passwordEmptyError" class="error-message"
+              >비밀번호를 입력해 주세요</span
+            >
+            <span id="passwordInvalidError" class="error-message"
+              >비밀번호를 8자 이상 입력해 주세요</span
+            >
           </div>
 
           <div class="input-group">
@@ -62,10 +77,16 @@
               />
               <img
                 class="password-image"
-                src="../images/password_image2.png"
+                src="../images/icon-close-eye.png"
                 alt="비밀번호가림 이미지"
               />
             </div>
+            <span id="passwordConfirmationInitError" class="error-message"
+              >조건에 맞는 비밀번호를 입력해 주세요.</span
+            >
+            <span id="passwordConfirmationError" class="error-message"
+              >비밀번호가 일치하지 않습니다.</span
+            >
           </div>
 
           <button type="submit" class="login-button">회원가입</button>
@@ -99,5 +120,6 @@
         </p>
       </section>
     </main>
+    <script src="../scripts/auth.js"></script>
   </body>
 </html>
