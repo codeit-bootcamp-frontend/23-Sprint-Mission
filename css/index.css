@@ -1,12 +1,13 @@
 /* ==================== header ==================== */
 header {
   position: fixed;
+  z-index: 1;
   width: 100%;
   background-color: var(--bg-white);
   border-bottom: 1px solid #dfdfdf;
 }
 
-header nav {
+header .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,12 +16,12 @@ header nav {
   padding: 0 200px;
 }
 
-header nav .logo-btn {
+header .wrap .logo-btn {
   width: 153px;
   height: 51px;
 }
 
-header nav .login-btn {
+header .wrap .login-btn {
   width: 128px;
   height: 48px;
   background-color: var(--primary-100);
@@ -32,7 +33,7 @@ header nav .login-btn {
   line-height: 48px;
 }
 
-header nav .login-btn:hover {
+header .wrap .login-btn:hover {
   background-color: var(--primary-200);
 }
 
@@ -204,4 +205,293 @@ footer .footer-icon li a {
   display: block;
   width: 20px;
   height: 20px;
+}
+
+/* Tablet: 768px 이상 ~ 1199px 이하 */
+@media (max-width: 1199px) and (min-width: 768px) {
+  /* ==================== header ==================== */
+  header .wrap {
+    padding: 0 24px;
+  }
+
+  /* ==================== main - section01, section05 공통 ==================== */
+  .section-blue .wrap {
+    width: 100%;
+  }
+
+  .section-blue .box {
+    display: block;
+  }
+
+  .section-blue .box .box-txt {
+    text-align: center;
+  }
+
+  .section-blue .box .box-txt a {
+    margin: 24px auto 0;
+  }
+
+  .section-blue .box .box-img {
+    margin: 0 auto;
+  }
+
+  /* ==================== main - section02, section03, section04 공통 ==================== */
+  .section-white {
+    background-color: var(--bg-gray);
+  }
+
+  .section-white .wrap {
+    width: 100%;
+    height: auto;
+    padding: 24px;
+  }
+
+  .section-white .box {
+    display: block;
+  }
+
+  .section-white .box .box-img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .section-white .box .box-img img {
+    width: 100%;
+  }
+
+  .section-white .box .box-txt {
+    margin: 24px 0 0;
+  }
+
+  .section-white .box .box-txt h2 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .section-white .box .box-txt h2 br {
+    display: none;
+  }
+
+  .section-white .box .box-txt h3 {
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  .section-white .box .box-txt p {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  /* ==================== main - section01 ==================== */
+  .section01 .wrap {
+    height: 771px;
+  }
+
+  .section01 .box .box-txt {
+    padding: 0 0 211px;
+  }
+
+  .section01 .box .box-txt h1 br {
+    display: none;
+  }
+
+  /* ==================== main - section02 ==================== */
+  .section02 .box {
+    padding: 0;
+  }
+
+  /* ==================== main - section03 ==================== */
+  .section03 .box {
+    padding: 0;
+  }
+
+  /* ==================== main - section04 ==================== */
+  .section04 {
+    margin: 0 0 32px;
+  }
+
+  .section04 .box .box-img {
+    width: 100%;
+  }
+
+  /* ==================== main - section05 ==================== */
+  .section05 .wrap {
+    height: 927px;
+  }
+
+  .section05 .box .box-txt {
+    padding: 0 0 217px;
+  }
+
+  /* ==================== footer ==================== */
+  footer {
+    padding: 32px 104px 0;
+  }
+
+  footer .wrap {
+    width: 100%;
+  }
+}
+
+/* Mobile: 375px 이상 ~ 767px 이하 */
+@media (max-width: 767px) and (min-width: 375px) {
+  /* ==================== header ==================== */
+  header .wrap {
+    padding: 0 16px;
+  }
+
+  /* ==================== main - 공통 ==================== */
+  .box .box-txt h1,
+  .box .box-txt h2 {
+    font-size: 32px;
+  }
+
+  /* ==================== main - section01, section05 공통 ==================== */
+  .section-blue .wrap {
+    width: 100%;
+    height: 540px;
+  }
+
+  .section-blue .box {
+    display: block;
+  }
+
+  .section-blue .box .box-txt {
+    padding: 0 0 132px;
+    text-align: center;
+  }
+
+  .section-blue .box .box-txt a {
+    width: 240px;
+    height: 48px;
+    margin: 18px auto 0;
+    font-size: 18px;
+    line-height: 48px;
+  }
+
+  /* ==================== main - section02, section03, section04 공통 ==================== */
+  .section-white {
+    background-color: var(--bg-gray);
+  }
+
+  .section-white .wrap {
+    width: 100%;
+    height: auto;
+    padding: 20px 16px;
+  }
+
+  .section-white .box {
+    display: block;
+  }
+
+  .section-white .box .box-img {
+    width: 100%;
+    height: auto;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+
+  .section-white .box .box-img img {
+    width: 100%;
+  }
+
+  .section-white .box .box-txt {
+    margin: 24px 0 0;
+  }
+
+  .section-white .box .box-txt h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .section-white .box .box-txt h2 br {
+    display: none;
+  }
+
+  .section-white .box .box-txt h3 {
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+
+  .section-white .box .box-txt p {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  /* ==================== main - section01 ==================== */
+  .section01 .box .box-img {
+    position: relative;
+    width: 100%;
+    height: 204px;
+    overflow: hidden;
+  }
+
+  .section01 .box .box-img img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 448px;
+    height: 204px;
+    margin: 0 0 0 -224px;
+  }
+
+  /* ==================== main - section02 ==================== */
+  .section02 {
+    margin: 36px 0 0;
+  }
+
+  .section02 .box {
+    padding: 0;
+  }
+
+  /* ==================== main - section03 ==================== */
+  .section03 .box {
+    padding: 0;
+  }
+
+  /* ==================== main - section04 ==================== */
+  .section04 {
+    margin: 0 0 67px;
+  }
+
+  .section04 .box .box-img {
+    width: 100%;
+  }
+
+  /* ==================== main - section05 ==================== */
+  .section05 .box .box-img {
+    position: relative;
+    width: 100%;
+    height: 198px;
+    overflow: hidden;
+  }
+
+  .section05 .box .box-img img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 375px;
+    height: 198px;
+    margin: 0 0 0 -187.5px;
+  }
+
+  /* ==================== footer ==================== */
+  footer {
+    height: 100%;
+    padding: 32px 32px 30px;
+  }
+
+  footer .wrap {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+
+  footer p {
+    flex-basis: 100%;
+    order: 1;
+  }
 }
