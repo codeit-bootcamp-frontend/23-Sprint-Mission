@@ -1,23 +1,6 @@
 @charset "utf-8";
 
-html, body {
-    color: var(--gray700);
-    min-width: 1200px;
-}
 
-/* Color Palette */
-:root {
-    --blue: #3692FF;
-    --gray900: #111827;
-    --gray800: #1F2937;
-    --gray700: #374151;
-    --gray600: #4B5563;
-    --gray500: #6B7280;
-    --gray400: #9CA3AF;
-    --gray200: #E5E7EB;
-    --gray100: #F3F4F6;
-    --gray50: #F9FAFB;
-}
 
 /* header */
 .main-header {
@@ -91,6 +74,7 @@ html, body {
 
 .banner-top-notice h2 {
     width: 300px;
+    color: var(--gray700);
 }
 
 .banner-top-notice a {
@@ -145,6 +129,7 @@ html, body {
     width: 320px;
     height: 240px;
     line-height: 45px;
+    color: var(--gray700);
 }
 
 .detail-title {
@@ -190,6 +175,7 @@ html, body {
     font-size: 2.2rem;
     font-weight: 600;
     line-height: 50px;
+    color: var(--gray700);
 }
 
 /* footer */
@@ -209,7 +195,7 @@ html, body {
     justify-content: space-between;
 }
 
-.copy {
+.copyright {
     color: var(--gray400);
 }
 
@@ -248,11 +234,6 @@ html, body {
     Tablet
 ============ */
 @media (max-width: 1199px) and (min-width: 768px) {
-
-    html, body, main {
-        min-width: 744px;
-        width: 100%;
-    }
 
     .header-top {
         max-width: 696px;
@@ -388,11 +369,6 @@ html, body {
     Mobile
 ============ */
 @media (max-width: 767px) and (min-width: 375px) {
-
-    html, body, main {
-        min-width: 375px;
-        width: 100%;
-    }
 
    .header-top {
         max-width: 343px;
@@ -539,7 +515,7 @@ html, body {
         justify-content: space-between;
     }
 
-    .copy {
+    .copyright {
         height: 20px;
         margin-top: 40px;
     }
@@ -548,7 +524,7 @@ html, body {
         height: 20px;
     }
 
-    .footer-contents:first-child .copy {
+    .footer-contents:first-child .copyright {
         order: 3;
     }
 
