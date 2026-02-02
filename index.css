@@ -8,6 +8,7 @@
 }
 
 .gnb > nav {
+  max-width: 1120px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -67,6 +68,8 @@
 }
 
 .intro-container-text > h1 {
+  color: var(--secondary-700);
+  width: 357px;
   font-size: 40px;
   font-weight: 700;
 }
@@ -97,7 +100,8 @@
   color: var(--secondary-100);
 }
 
-.intro > img {
+.intro-container > img {
+  max-width: 746px;
   width: 100%;
 }
 
@@ -119,6 +123,10 @@
   padding: 0 24px;
   gap: 64px;
   background-color: var(--bg-gray);
+}
+
+.card.reverse {
+  flex-direction: row-reverse;
 }
 
 .card-description {
@@ -174,6 +182,7 @@
 }
 
 .banner-wrapper p {
+  color: var(--secondary-700);
   font-size: 40px;
   font-weight: 700;
   line-height: 140%;
@@ -222,6 +231,130 @@ footer {
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
+  .gnb {
+    width: 100%;
+    padding: 10px 24px;
+  }
+
+  .intro {
+    height: 771px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+  }
+
+  .intro-container {
+    max-width: none;
+    width: 100%;
+    padding: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .intro-container-text {
+    height: 136px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    gap: 24px;
+    width: 512px;
+  }
+
+  .intro-container > img {
+    max-width: 100%;
+  }
+
+  .intro-container-text > h1 {
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    background-color: var(--bg-gray);
+  }
+
+  .card.reverse {
+    flex-direction: column;
+  }
+
+  .card > img {
+    width: 100%;
+  }
+
+  .sections {
+    height: auto;
+    padding: 24px;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .card-description {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-description > span {
+    font-size: 18px;
+  }
+  .card-description > h2 {
+    font-size: 32px;
+  }
+
+  .card-description > p {
+    font-size: 18px;
+  }
+
+  .card.reverse {
+    text-align: right;
+  }
+
+  .sections.last {
+    margin-bottom: 0;
+  }
+
+  .banner {
+    height: 927px;
+    padding-top: 200px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: auto;
+  }
+
+  .banner-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+
+  .banner-wrapper p {
+    justify-content: center;
+    width: 295px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer {
+    padding: 32px 104px 64px 104px;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
