@@ -40,7 +40,7 @@
 
 ## 스크린샷
 
-"https://app.netlify.com/projects/23-doukkim-sprint23-pandamarket/overview"
+"https://23-doukkim-sprint4.netlify.app/"
 
 ## 주강사님에게
 
