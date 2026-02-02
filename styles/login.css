@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 640px;
+  height: 618px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pandaLogo {
+  width: 396px;
+  height: 132px;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.email-label,
+.pass-label {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+.email-input,
+.pass-input {
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px 14px;
+  border-radius: 12px;
+  border: 2px solid #f3f4f6;
+  background-color: var(--color-secondary100);
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-secondary800);
+}
+
+.pass-input {
+  padding: 16px 24px;
+}
+
+.login-button {
+  width: 640px;
+  height: 56px;
+  border-radius: 40px;
+  border: none;
+  background-color: var(--color-primary100);
+  color: var(--color-secondary100);
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-login {
+  margin-top: 24px;
+  width: 640px;
+  height: 74px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  border: 1px solid #e6f2ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 23px;
+}
+
+.social-text {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #1f2937;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.signup {
+  width: 197px;
+  height: 24px;
+  margin: 24px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.signup-text {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f2937;
+}
+
+.signup-page {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #3692ff;
+  text-decoration: underline;
+}
