@@ -1,0 +1,157 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+#logo{
+    width:153px;
+    height: 51px;
+    cursor: pointer;
+}
+
+header{
+    height: 70pox;
+    padding: 9px 400px;
+}
+
+#head{
+    display: flex;
+    justify-content: space-between;
+}
+
+#login-btn{
+    width: 128px;
+    height: 48px;
+    border-radius: 8px;
+    border-color: #3692FF;
+    background-color: #3692FF;
+    color: #ffffff;
+    padding: 12px 23px;
+    cursor: pointer
+}
+
+#main1{
+    background-color:#CFE5FF;
+    height: 540px;
+    gap:140%;
+    position: relative;
+}
+
+#main1 #pandaHi{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 200px;
+    left: 405px;
+    
+}
+
+#main1 p{
+    font-size:40px;
+    font-weight: 700;
+
+}
+#main1 #go{
+    height: 56px;
+    width: 357px;
+    padding: 16px 124px;
+    color: #ffffff;
+    border-color: #3692FF;
+    background-color: #3692FF;
+    border-radius: 40px;
+    font-weight: 600;
+    gap:32px;
+    cursor: pointer;
+}
+
+#main2, #main3, #main4{
+    height:720px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.main-box{
+    width:988px;
+    height: 444px;
+    display: flex;
+    align-items: center;
+    background-color: #FCFCFC;
+    gap: 64px;
+    padding:138px 
+}
+
+.text-box{
+    display: flex;
+    flex-direction: column;
+    padding-right:24px;
+    gap: 12px;
+}
+
+.subtitle {
+    color: #3692FF;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.title{
+    color:#374151;
+    font-weight: 700;
+    font-size:40px;
+    line-height: 140%;;
+}
+
+.content{
+    font-family: Pretendard;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+
+}
+
+#align{
+    text-align: right;
+}
+
+#main-box{
+    display: flex;
+    align-items: center;
+
+}
+
+#main5{
+    height:540px;
+    background-color: #CFE5FF;
+    position: relative;
+}   
+
+#pandaBye{
+    display: flex;
+    align-items: center;
+    height: 397px;
+    position:absolute;
+    bottom: 0;
+    left: 405px;
+
+}
+
+#pandaBye p{
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 40px;
+    line-height: 140%;
+}
+
+footer{
+    height: 160px;
+    background-color: #111827;
+    position: relative;
+}   
+
+footer img{
+    position: absolute;
+    top: 40px;
+    right: 200px;
+}
