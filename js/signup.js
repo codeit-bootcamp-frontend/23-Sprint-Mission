@@ -18,7 +18,7 @@ form.emailInput.addEventListener("focusout", () => {
     form.showError(form.emailInput, "잘못된 이메일 형식입니다.");
   }
 
-  form.checkButton(signupButton);
+  checkSignupButton(signupButton);
 });
 
 // 포커스 아웃일 떄 닉네임 에러
@@ -31,7 +31,7 @@ nicknameInput.addEventListener("focusout", () => {
     form.showError(nicknameInput, "닉네임을 입력해주세요.");
   }
 
-  form.checkButton(signupButton);
+  checkSignupButton(signupButton);
 });
 
 // 포커스 아웃일 떄 비밀번호 에러
@@ -46,7 +46,7 @@ form.passwordInput.addEventListener("focusout", () => {
     form.showError(form.passwordInput, "비밀번호를 8자 이상 입력해주세요.");
   }
 
-  form.checkButton(signupButton);
+  checkSignupButton(signupButton);
 });
 
 // 포커스 아웃일 떄 비밀번호 확인 에러
@@ -62,7 +62,7 @@ passwordCheckInput.addEventListener("focusout", () => {
     form.showError(passwordCheckInput, "비밀번호가 일치하지 않습니다.");
   }
 
-  form.checkButton(signupButton);
+  checkSignupButton(signupButton);
 });
 
 // 눈 모양 아이콘 클릭시 비밀번호 보이기/가리기
@@ -81,3 +81,32 @@ signupForm.addEventListener("submit", (e) => {
     location.href = "login.html";
   }
 });
+
+// 회원가입 버튼을 활성화하기 위해 검증하는 함수
+function checkSignupButton(btn) {
+  const emailValue = form.emailInput.value.trim();
+  const emailErrorText = form.emailInput.parentElement.querySelector(".error-txt");
+  const nicknameValue = nicknameInput.value.trim();
+  const nicknameErrorText = nicknameInput.parentElement.querySelector(".error-txt");
+  const passwordValue = form.passwordInput.value.trim();
+  const passwordErrorText = form.passwordInput.parentElement.querySelector(".error-txt");
+  const passwordCheckValue = passwordCheckInput.value.trim();
+  const passwordCheckErrorText = passwordCheckInput.parentElement.querySelector(".error-txt");
+
+  if (
+    emailValue !== "" && // 값이 없을 경우
+    form.emailRegex.test(emailValue) && // 이메일 형식이 맞을 경우
+    nicknameValue !== "" &&
+    passwordValue !== "" &&
+    passwordValue.length >= 8 && // 비밀번호가 8자 이상일 경우
+    passwordValue === passwordCheckValue && // 비밀번호와 비밀번호 확인이 같을 경우
+    !emailErrorText && // 오류 메세지가 없을 경우
+    !nicknameErrorText &&
+    !passwordErrorText &&
+    !passwordCheckErrorText
+  ) {
+    btn.disabled = false; // 회원가입 버튼 활성화
+  } else {
+    btn.disabled = true; // 회원가입 버튼 비활성화
+  }
+}

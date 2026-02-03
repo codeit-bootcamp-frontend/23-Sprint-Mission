@@ -39,24 +39,3 @@ export function togglePassword(input, icon) {
     icon.alt = "비밀번호 가리기 아이콘";
   }
 }
-
-// 버튼을 활성화하기 위해 검증하는 함수
-export function checkButton(btn) {
-  const emailValue = emailInput.value.trim(); // 입력값에서 앞뒤 공백을 제거한 문자열
-  const emailErrorText = emailInput.parentElement.querySelector(".error-txt");
-  const passwordValue = passwordInput.value.trim();
-  const passwordErrorText = passwordInput.parentElement.querySelector(".error-txt");
-
-  if (
-    emailValue !== "" && // 값이 있을 경우
-    emailRegex.test(emailValue) && // 이메일 형식이 맞을 경우
-    passwordValue !== "" && // 값이 있을 경우
-    passwordValue.length >= 8 && // password가 8자 이상일 경우
-    !emailErrorText && // 이메일 오류 메세지가 없을 경우
-    !passwordErrorText // 비밀번호 오류 메세지가 없을 경우
-  ) {
-    btn.disabled = false; // 로그인 버튼 활성화
-  } else {
-    btn.disabled = true; // 로그인 버튼 비활성화
-  }
-}

@@ -17,7 +17,7 @@ form.emailInput.addEventListener("focusout", () => {
     form.showError(form.emailInput, "잘못된 이메일 형식입니다.");
   }
 
-  form.checkButton(loginButton);
+  checkLoginButton(loginButton);
 });
 
 // 포커스 아웃일 떄 비밀번호 에러
@@ -34,7 +34,7 @@ form.passwordInput.addEventListener("focusout", () => {
     form.showError(form.passwordInput, "비밀번호를 8자 이상 입력해주세요.");
   }
 
-  form.checkButton(loginButton);
+  checkLoginButton(loginButton);
 });
 
 // 눈 모양 아이콘 클릭시 비밀번호 보이기/가리기
@@ -50,3 +50,24 @@ loginForm.addEventListener("submit", (e) => {
     location.href = "items.html";
   }
 });
+
+// 로그인 버튼을 활성화하기 위해 검증하는 함수
+function checkLoginButton(btn) {
+  const emailValue = form.emailInput.value.trim();
+  const emailErrorText = form.emailInput.parentElement.querySelector(".error-txt");
+  const passwordValue = form.passwordInput.value.trim();
+  const passwordErrorText = form.passwordInput.parentElement.querySelector(".error-txt");
+
+  if (
+    emailValue !== "" && // 값이 없을 경우
+    form.emailRegex.test(emailValue) && // 이메일 형식이 맞을 경우
+    passwordValue !== "" &&
+    passwordValue.length >= 8 && // 비밀번호가 8자 이상일 경우
+    !emailErrorText && // 오류 메세지가 없을 경우
+    !passwordErrorText
+  ) {
+    btn.disabled = false; // 로그인 버튼 활성화
+  } else {
+    btn.disabled = true; // 로그인 버튼 비활성화
+  }
+}
