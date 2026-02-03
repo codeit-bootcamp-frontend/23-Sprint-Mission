@@ -1,0 +1,27 @@
+:root{
+    --color-primary1: #3692FF;
+    --color-primary2: #1967D6;
+    --color-primary3: #1251AA;
+
+    --color-secondary1: #111827;
+    --color-secondary2: #1F2937;
+    --color-secondary3: #374151;
+    --color-secondary4: #4B5563;
+    --color-secondary5: #6B7280;
+    --color-secondary6: #9CA3AF;
+    --color-secondary7: #E5E7EB;
+    --color-secondary8: #F3F4F6;
+    --color-secondary9: #F9FAFB;
+}
+
+.blind{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+}
+
+html,body{
+    font-family: 'Pretendard', sans-serif;
+}
