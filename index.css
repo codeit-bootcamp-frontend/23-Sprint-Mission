@@ -10,7 +10,13 @@ a {
 header{
   width: 1120px;
   margin: 9.5px auto;
+  position: sticky;
+  top: 9.5px;
+  
+  
 }
+
+
 
 
 .header-content{
@@ -157,4 +163,34 @@ footer{
 
 .text-right {
   text-align: right;
+}
+
+.footer-content{
+  display: flex;
+  padding: 32px;
+  width: 1120px;
+  margin: auto;
+  justify-content: space-between;
+
+}
+
+.icon{
+  display: flex;
+  width:116px;
+  justify-content: space-between;
+
+}
+
+.Pricy_FAQ{
+  width: 159px;
+  display: flex;
+  justify-content: space-between;
+}
+
+img[src*="PrivacyPolicy"] {
+  width: 100px;
+}
+
+img[src*="FAQ"] {
+  width: 29px;
 }
