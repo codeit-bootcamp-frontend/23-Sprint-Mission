@@ -337,7 +337,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    width: auto;
+    width: 100%;
   }
 
   .banner-wrapper img {
