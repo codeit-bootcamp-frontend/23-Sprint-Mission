@@ -53,3 +53,6 @@ a {
 	box-sizing: border-box;
 }
 
+img {
+	vertical-align: middle;
+}
