@@ -18,7 +18,7 @@
 #header {
   display: flex;
   align-items: center;
-  padding: 9px 400px;
+  padding: 9px 200px;
   justify-content: space-between;
   position: fixed;
   background-color: var(--bg-white);
@@ -49,24 +49,27 @@
   background-image: url(../assets/landing.svg);
   background-size: 746px 340px;
   background-repeat: no-repeat;
-  background-position: 70% 100%;
+  background-position: calc(50% + 310px) 100%;
+  /* 70% -> 절반에서 310px 밀기로 변경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
 }
 
 .landingContents {
-  width: 357px;
-  height: 260px;
-  position: relative;
-  top: 210px;
-  left: 405px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
 
 .landingHeader {
   font-weight: 700;
   font-size: 40px;
   line-height: 140%;
+  margin-bottom: 32px;
 }
 
 #landingBtn {
@@ -79,38 +82,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 100px 0;
 }
 
 .infoItem {
   display: flex;
-  height: 444px;
-  width: 988px;
-  justify-content: center;
+  width: 100%;
+  max-width: 988px;
+  justify-content: space-between;
   align-items: center;
-  background-color: var(--bg-gray);
-  border-radius: 12px;
-  margin: 138px 0;
+  margin: 60px 0;
+}
+
+.infoItem img {
+  width: 579px;
+  height: 444px;
 }
 
 .infoContent {
-  width: 400px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-left: 60px;
-}
-
-.temp {
-  margin: 0;
 }
 
 .left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   text-align: right;
-  margin-right: 60px;
+  align-items: flex-end;
 }
 
 .itemHeader {
@@ -121,8 +119,9 @@
 }
 
 .line {
-  height: 130px;
+  height: 1px;
   background-color: var(--bg-gray);
+  width: 100%;
 }
 
 .footerBanner {
@@ -131,15 +130,16 @@
   background-image: url(../assets/footer.svg);
   background-size: 746px 397px;
   background-repeat: no-repeat;
-  background-position: 70% 100%;
+  background-position: calc(50% + 310px) 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footerBannerContent {
-  position: relative;
-  top: 310px;
-  left: 405px;
-  width: 295px;
-  height: 112px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
   font-weight: 700;
   font-size: 40px;
   line-height: 140%;
@@ -149,8 +149,10 @@
   background-color: var(--secondary-900);
   height: 160px;
   display: flex;
-  justify-content: space-around;
-  padding-top: 35px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  box-sizing: border-box;
 }
 
 #footer a,
@@ -169,4 +171,6 @@
 #logos {
   display: flex;
   gap: 12px;
+  padding: 0;
+  margin: 0;
 }
