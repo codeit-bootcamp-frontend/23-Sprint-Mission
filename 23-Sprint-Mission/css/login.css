@@ -1,0 +1,265 @@
+@import "global.css";
+
+.login-page {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffffff;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 640px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  border-radius: 16px;
+}
+
+.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.logo-icon {
+  width: 104px;
+  height: 104px;
+}
+
+.logo-text {
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 66.34px;
+  font-weight: 700;
+  color: #3692ff;
+  line-height: 1;
+  text-decoration: none;
+}
+
+/* 입력창 */
+
+.input-group {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #1f2937;
+}
+
+.input-group input {
+  height: 48px;
+  padding: 0 12px;
+
+  border-radius: 8px;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.error-message {
+  color: #f74747;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: 8px;
+  display: none;
+  padding-left: 16px;
+}
+
+.input-group-password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group-password input {
+  width: 100%; /*  input도 꽉 채우기 */
+  box-sizing: border-box;
+  padding-right: 40px; /* 아이콘 자리 */
+}
+
+.password-toggle-button {
+  position: absolute;
+  right: 24px;
+}
+
+.password-image {
+  width: 24px;
+  height: 24px;
+  padding: 0 12px;
+  position: absolute;
+  right: 0; /* 오른쪽 끝 */
+  top: 50%;
+  transform: translateY(-50%); /* 세로 중앙 */
+  cursor: pointer;
+}
+
+/* 로그인 버튼 */
+
+.login-button {
+  width: 100%;
+  max-width: 640px;
+  height: 56px;
+
+  padding: 16px 124px;
+  border-radius: 40px;
+
+  margin-top: 16px;
+
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-button:disabled {
+  background-color: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* 간편로그인 */
+
+.social-login {
+  height: 74px;
+  padding: 0 24px;
+
+  background-color: #f1f5ff;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center; /* 세로 중앙 */
+  justify-content: space-between; /* 좌우 배치 */
+}
+
+.social-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon img {
+  width: 48px;
+  height: 48px;
+}
+
+/* 회원가입 안내 */
+
+.signup-text {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0;
+
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 1199px) {
+  .login-card {
+    padding: 32px;
+  }
+
+  .logo-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-text {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .login-page {
+    padding: 24px 16px;
+    align-items: flex-start;
+  }
+
+  .login-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .login-header {
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .logo-text {
+    font-size: 32px;
+  }
+
+  .input-group {
+    font-size: 14px;
+  }
+
+  .input-group input {
+    height: 44px;
+  }
+
+  .login-button {
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .social-login {
+    padding: 12px 16px;
+    height: auto;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .signup-text {
+    font-size: 13px;
+  }
+}
