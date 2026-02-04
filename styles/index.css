@@ -179,8 +179,33 @@
     padding: 9px 24px;
   }
 
-  #footer {
-    padding: 0 24px;
+  .landingBanner,
+  .footerBanner {
+    height: auto;
+    min-height: 540px;
+    padding: 80px 0 0;
+    background-size: 600px auto;
+    background-position: center bottom;
+    align-items: flex-start;
+  }
+
+  .landingContents,
+  .footerBannerContent {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .landingHeader,
+  .footerBannerContent {
+    font-size: 32px;
+  }
+
+  .landingHeader br,
+  .footerBannerContent br,
+  .infoContent br {
+    display: none;
   }
 
   .infos {
@@ -209,10 +234,6 @@
     align-items: flex-start;
   }
 
-  .infoContent br {
-    display: none;
-  }
-
   .left {
     text-align: left;
     align-items: flex-end;
@@ -220,6 +241,17 @@
 }
 
 @media (max-width: 767px) {
+  .landingBanner,
+  .footerBanner {
+    padding-top: 50px;
+  }
+
+  .landingHeader,
+  .footerBannerContent {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
   #footer {
     display: flex;
     flex-wrap: wrap;
