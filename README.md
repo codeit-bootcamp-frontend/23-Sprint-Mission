@@ -50,3 +50,29 @@
 
   스프린트미션 3 코드리뷰 주소
   ("https://github.com/codeit-bootcamp-frontend/23-Sprint-Mission/pull/53")
+-랜딩 페이지의 url path는 루트(‘/’) 입니다. ✔ <br>
+-title은 “판다마켓”으로 설정해 주세요. ✔ <br>
+-클릭으로 기능이 동작해야 하는 경우, 사용자가 클릭할 수 있는 요소임을 알 수 있도록 cursor: pointer를 설정해 주세요. ✔ <br>
+-“판다마켓” 클릭 시 루트 페이지(‘/’)로 이동시켜주세요. ✔ <br>
+-“구경하러 가기" 클릭 시 (“/items”)페이지로 이동시켜주세요.(빈 페이지) ✔ <br>
+-“로그인”버튼 클릭 시 로그인 페이지(‘/login’)로 이동합니다. ✔ <br>
+-“구경하러가기”버튼 클릭 시(’/items’)로 이동합니다. ✔ <br>
+
+### 기본
+
+- [요구사항 모두 구현]
+
+### 심화
+
+- [알아보기 쉽게 주석처리]
+
+## 스크린샷
+
+[![image](이미지url)](https://github.com/douk9909/23-Sprint-Mission/blob/Basic-%EA%B9%80%EB%8F%84%EC%9A%B1/1.png)
+[![image](이미지url)](https://github.com/douk9909/23-Sprint-Mission/blob/Basic-%EA%B9%80%EB%8F%84%EC%9A%B1/2.png)
+
+
+## 주강사님에게
+
+- 최대한 여러가지 속성 사용을 위해 필요없는 코드가 꽤 있을 수 있습니다.
+- 셀프 코드 리뷰를 통해 질문 이어가겠습니다.
