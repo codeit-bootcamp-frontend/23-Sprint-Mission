@@ -64,9 +64,21 @@
   display: flex;
   gap: 16px;
 }
+
+/* 회원가입 */
 .join-info {
   font-size: 14px;
 }
 .join-info > a {
   color: var(--blue);
+}
+
+/* 태블릿 영역은 데스크톱과 동일*/
+/* 모바일 화면 */
+@media screen and (375px <= width <= 767px) {
+  .login-wrap {
+    width: 100%;
+    margin: 24px 0;
+    padding: 0 16px;
+  }
 }
