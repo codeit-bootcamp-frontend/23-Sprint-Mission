@@ -174,3 +174,13 @@
   padding: 0;
   margin: 0;
 }
+
+@media (max-width: 1199px) {
+  #header {
+    padding: 9px 24px;
+  }
+
+  #footer {
+    padding: 0 24px;
+  }
+}
