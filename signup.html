@@ -20,7 +20,7 @@
         <p>판다마켓</p>
       </a>
 
-      <div class="login-main">
+      <div class="signup-main main-form">
         <form>
           <div class="input-box">
             <label for="useremail">이메일</label>
@@ -33,6 +33,7 @@
               autocomplete="off"
               required
             />
+            <span class="error-text err-email"></span>
           </div>
           <div class="input-box">
             <label for="nickname">닉네임</label>
@@ -45,6 +46,7 @@
               autocomplete="off"
               required
             />
+            <span class="error-text err-nickname"></span>
           </div>
           <div class="input-box">
             <label for="password">비밀번호</label>
@@ -57,8 +59,12 @@
                 placeholder="비밀번호를 입력해주세요."
                 required
               />
-              <img src="./images/login/password_close_eye_btn.svg" />
+              <img
+                class="eye-image"
+                src="./images/login/password_close_eye_btn.svg"
+              />
             </div>
+            <span class="error-text err-password"></span>
           </div>
           <div class="input-box">
             <label for="password_confirm">비밀번호 확인</label>
@@ -71,10 +77,21 @@
                 placeholder="비밀번호를 입력해주세요."
                 required
               />
-              <img src="./images/login/password_open_eye_btn.svg" />
+              <img
+                class="eye-image"
+                src="./images/login/password_close_eye_btn.svg"
+              />
             </div>
+            <span class="error-text err-password_confirm"></span>
           </div>
-          <button type="submit">로그인</button>
+          <button
+            class="go-signup"
+            onclick="if (!this.disabled) location.href = '/login.html';"
+            type="button"
+            disabled
+          >
+            회원가입
+          </button>
         </form>
 
         <div class="simple-login">
@@ -97,5 +114,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="./javaScript/login-signup/signup.js"></script>
   </body>
 </html>

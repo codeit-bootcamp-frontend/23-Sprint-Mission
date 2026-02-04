@@ -20,9 +20,9 @@
         <p>판다마켓</p>
       </a>
 
-      <div class="login-main">
+      <div class="login-main main-form">
         <form>
-          <div class="input-box">
+          <div class="input-box email-box">
             <label class="label-login" for="useremail">이메일</label>
             <input
               id="useremail"
@@ -33,7 +33,9 @@
               autocomplete="off"
               required
             />
+            <span class="error-text err-email"></span>
           </div>
+
           <div class="input-box">
             <label class="label-login" for="password">비밀번호</label>
             <div class="password_box">
@@ -45,10 +47,21 @@
                 placeholder="비밀번호를 입력해주세요."
                 required
               />
-              <img src="./images/login/password_close_eye_btn.svg" />
+              <img
+                class="eye-image"
+                src="./images/login/password_close_eye_btn.svg"
+              />
             </div>
           </div>
-          <button type="submit">로그인</button>
+          <span class="error-text err-password"></span>
+          <button
+            class="go-login"
+            type="button"
+            onclick="if (!this.disabled) location.href = '/items';"
+            disabled
+          >
+            로그인
+          </button>
         </form>
 
         <div class="simple-login">
@@ -71,5 +84,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="./javaScript/login-signup/login.js"></script>
   </body>
 </html>

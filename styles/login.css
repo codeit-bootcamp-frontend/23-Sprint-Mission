@@ -15,6 +15,7 @@
   align-items: center;
   gap: 22.24px;
   text-decoration: none;
+  user-select: none;
 }
 .logo > img {
   width: 103.58px;
@@ -28,18 +29,21 @@
   color: var(--primary-100);
 }
 
-.login-main {
+.label-login {
+  user-select: none;
+}
+.main-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 24px;
 }
-.login-main > form {
+.main-form > form {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.login-main .input-box {
+.main-form .input-box {
   border: none;
   display: flex;
   flex-direction: column;
@@ -51,6 +55,7 @@
   font-size: 18px;
   line-height: 26px;
   color: var(--secondary-800);
+  user-select: none;
 }
 
 .input-box .input {
@@ -95,7 +100,20 @@
   z-index: 1;
 }
 
-form > button {
+.go-login {
+  height: 56px;
+  background-color: var(--secondary-400);
+  border-radius: 40px;
+  border: none;
+  color: var(--secondary-100);
+  font-family: Pretendard;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.go-signup {
   height: 56px;
   background-color: var(--secondary-400);
   border-radius: 40px;
@@ -172,6 +190,29 @@ form > button {
   margin: 60px auto;
 }
 
+/* 이메일 유효성 검사 */
+.error-text {
+  color: #f74747;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  display: none;
+  margin-top: -8px;
+  margin-left: 16px;
+}
+
+.err-inputbox {
+  outline: 1px solid #f74747;
+}
+
+.able-login {
+  background-color: var(--primary-100);
+}
+
+.go-login:disabled {
+  background-color: var(--secondary-400);
+}
+
 /* 테블릿,모바일 반응형웹 */
 @media (min-width: 375px) and (max-width: 1199px) {
   .login-all {
@@ -208,10 +249,10 @@ form > button {
   .input-box .label-login {
     font-size: 14px;
   }
-  .login-main .input-box {
+  .main-form .input-box {
     gap: 8px;
   }
-  .login-main > form {
+  .main-form > form {
     gap: 16px;
   }
   .input-box {

@@ -77,12 +77,12 @@
   gap: 7px;
 }
 
-.main_write_button {
+.main_header {
   display: flex;
   flex-direction: column;
   justify-content: flex-starts;
 }
-.main_write_button > h1 {
+.main_header > h1 {
   font-family: pretendard;
   font-weight: 700;
   font-size: 40px;
@@ -90,7 +90,7 @@
   letter-spacing: 0;
   width: 295px;
 }
-.main_write_button > button {
+.main_header > button {
   height: 56px;
   background: var(--primary-100);
   border-radius: 40px;
@@ -233,14 +233,14 @@ footer {
     height: 100%;
     width: 100%;
   }
-  .main_write_button {
+  .main_header {
     align-items: center;
   }
-  .main_write_button > h1 {
+  .main_header > h1 {
     text-align: center;
     width: 100%;
   }
-  .main_write_button > button {
+  .main_header > button {
     width: 357px;
     margin: 24px 0 0;
   }
@@ -321,13 +321,13 @@ footer {
     width: 100%;
     padding-top: 48px;
   }
-  .main_write_button {
+  .main_header {
     width: 240px;
   }
-  .main_write_button > h1 {
+  .main_header > h1 {
     font-size: 32px;
   }
-  .main_write_button > button {
+  .main_header > button {
     width: 100%;
     padding: 0;
     font-size: 18px;
