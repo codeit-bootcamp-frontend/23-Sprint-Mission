@@ -50,7 +50,6 @@
   background-size: 746px 340px;
   background-repeat: no-repeat;
   background-position: calc(50% + 310px) 100%;
-  /* 70% -> 절반에서 310px 밀기로 변경 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,6 +182,41 @@
   #footer {
     padding: 0 24px;
   }
+
+  .infos {
+    padding: 60px 24px;
+  }
+
+  .infoItem {
+    flex-direction: column !important;
+    margin: 40px 0;
+    gap: 32px;
+    max-width: 100%;
+    align-items: flex-start;
+  }
+
+  .infoItem img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    order: 1;
+  }
+
+  .infoContent {
+    width: 100%;
+    order: 2;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .infoContent br {
+    display: none;
+  }
+
+  .left {
+    text-align: left;
+    align-items: flex-end;
+  }
 }
 
 @media (max-width: 767px) {
@@ -197,6 +231,14 @@
 
   #footerNav {
     order: 1;
+    display: flex;
+    gap: 40px;
+  }
+
+  #footerNav a,
+  #footer > span {
+    font-size: 18px;
+    font-weight: 600;
   }
 
   #logos {
@@ -208,5 +250,9 @@
     width: 100%;
     margin-top: 60px;
     display: block;
+  }
+
+  .infoContent h2 {
+    font-size: 24px;
   }
 }
