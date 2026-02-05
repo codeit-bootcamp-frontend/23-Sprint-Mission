@@ -76,6 +76,7 @@ img[src*="logo"] {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 4px;
 }
 
 .sign-up a {
@@ -130,6 +131,14 @@ img[src*="logo"] {
   .form-group {
     gap: 8px;
   }
+
+  .password-input {
+    width: 368px;
+  }
+
+  .password-input-repeat {
+    width: 368px;
+  }
 }
 
 .error {
@@ -141,7 +150,6 @@ img[src*="logo"] {
   font: 600 14px/24px "Pretendard";
   margin-top: -8px;
   margin-left: 16px;
-
 }
 .disabled {
   background-color: #9ca3af;
@@ -168,14 +176,11 @@ img[src*="logo"] {
   transform: translateY(-50%);
 }
 
-.eyeBtn{
+.eyeBtn {
   cursor: pointer;
-
 }
 
-.password-wrapper .error-text{
+.password-wrapper .error-text {
   position: absolute;
-  top: calc(100% + 16px);  
-
-
+  top: calc(100% + 16px);
 }

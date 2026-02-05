@@ -36,13 +36,11 @@ img[src*="logo"] {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-
 }
 
 .form-group input {
@@ -110,10 +108,12 @@ img[src*="logo"] {
   .form-group input {
     padding: 15px 24px;
   }
+  .password-wrapper {
+    width: 640px;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-  
   .login-content {
     width: 100%;
     max-width: 400px;
@@ -142,8 +142,15 @@ img[src*="logo"] {
   .form-group {
     gap: 8px;
   }
-}
 
+  .password-input {
+    width: 368px;
+  }
+
+  .password-input-repeat {
+    width: 368px;
+  }
+}
 
 .error {
   border: 1px solid red;
@@ -154,7 +161,6 @@ img[src*="logo"] {
   font: 600 14px/24px "Pretendard";
   margin-top: -8px;
   margin-left: 16px;
-
 }
 .disabled {
   background-color: #9ca3af;
@@ -181,18 +187,15 @@ img[src*="logo"] {
   transform: translateY(-50%);
 }
 
-.eyeBtn{
+.eyeBtn {
   cursor: pointer;
-
 }
 
-.password-wrapper .error-text{
+.password-wrapper .error-text {
   position: absolute;
-  top: calc(100% + 16px);  
-
-
+  top: calc(100% + 16px);
 }
 
-.form-group:nth-child(4){
+.form-group:nth-child(4) {
   margin-top: 50px;
 }
