@@ -1,15 +1,23 @@
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
-const loginBtn = document.querySelector(".login-button");
+const signBtn = document.querySelector(".signup-button");
+const nicknameInput = document.querySelector("#nickname");
+const rePasswordInput = document.querySelector("#re-password");
 
 const emailError = document.createElement("p");
 const passwordError = document.createElement("p");
+const nicknameError = document.createElement("p");
+const rePasswordError = document.createElement("p");
 
 emailError.classList.add("error-text");
 passwordError.classList.add("error-text");
+nicknameError.classList.add("error-text");
+rePasswordError.classList.add("error-text");
 
 emailInput.parentNode.appendChild(emailError);
 passwordInput.parentNode.appendChild(passwordError);
+nicknameInput.parentNode.appendChild(nicknameError);
+rePasswordInput.parentNode.appendChild(rePasswordError);
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -35,7 +43,21 @@ function validateEmail() {
     isEmail = true;
   }
   updateButtonState();
+}
 
+function validateNickname() {
+  const nicknameValue = nicknameInput.value.trim();
+
+  if (nicknameValue === "") {
+    nicknameError.textContent = "닉네임을 입력해주세요";
+    nicknameInput.classList.add("error");
+    isNickname = false;
+  } else {
+    nicknameError.textContent = "";
+    nicknameInput.classList.remove("error");
+    isNickname = true;
+  }
+  updateButtonState();
 }
 
 function validatePassword() {
@@ -57,37 +79,62 @@ function validatePassword() {
   updateButtonState();
 }
 
-function updateButtonState() {
-  loginBtn.disabled = !(isEmail && isPassword);
-
-  if (loginBtn.disabled == true) {
-    loginBtn.classList.add("disabled");
+function validateRepassword() {
+  const passwordValue = passwordInput.value.trim();
+  const rePasswordValue = rePasswordInput.value.trim();
+if (rePasswordValue !== passwordValue) {
+    rePasswordError.textContent = "비밀번호가 일치하지 않습니다.";
+    rePasswordInput.classList.add("error");
+    isRePassword = false;
   } else {
-    loginBtn.classList.remove("disabled");
+    rePasswordError.textContent = "";
+    rePasswordInput.classList.remove("error");
+    isRePassword = true;
+  }
+  updateButtonState();
+}
+
+function updateButtonState() {
+  signBtn.disabled = !(isEmail && isPassword && isNickname && isRePassword);
+
+  if (signBtn.disabled == true) {
+    signBtn.classList.add("disabled");
+  } else {
+    signBtn.classList.remove("disabled");
   }
 }
 
 emailInput.addEventListener("focusout", validateEmail);
 emailInput.addEventListener("input", validateEmail);
 
+nicknameInput.addEventListener("focusout", validateNickname);
+nicknameInput.addEventListener("input", validateNickname);
+
 passwordInput.addEventListener("focusout", validatePassword);
 passwordInput.addEventListener("input", validatePassword);
 
-loginBtn.addEventListener("click", (e) => {
-  if (loginBtn.disabled) return;
+rePasswordInput.addEventListener("focusout",validateRepassword);
+rePasswordInput.addEventListener("input",validateRepassword);
 
-  window.location.href = "/items";
+signBtn.addEventListener("click", (e) => {
+  if (signBtn.disabled) return;
+
+  window.location.href = "login.html";
 });
 
-const eyeBtn = document.querySelector(".toggle-eye");
-eyeBtn.classList.add("eyeBtn");
+const eyeBtn = document.querySelectorAll(".toggle-eye");
 
-eyeBtn.addEventListener("click", () => {
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    eyeBtn.src = "images/login_page/eyes-open.svg";
+
+eyeBtn.forEach((eye) => {
+  eye.classList.add("eyeBtn");
+
+  eye.addEventListener("click", () => {
+    const input = eye.previousElementSibling;
+    input.type = input.type === "password" ? "text" : "password";
+    if (input.type === "password") {
+    eye.src = "images/login_page/eyes-close.svg";
   } else {
-    passwordInput.type = "password";
-    eyeBtn.src = "images/login_page/eyes-close.svg";
+    eye.src = "images/login_page/eyes-open.svg";
   }
+  });
 });

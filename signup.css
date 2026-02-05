@@ -35,13 +35,14 @@ img[src*="logo"] {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+  
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+
 }
 
 .form-group input {
@@ -76,6 +77,7 @@ img[src*="logo"] {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 4px;
 }
 
 .sign-up a {
@@ -83,11 +85,12 @@ img[src*="logo"] {
 }
 
 .password-input {
-
+  width: 640px;
   background-position: right 24px center;
 }
 
 .password-input-repeat {
+  width: 640px;
 
   background-position: right 24px center;
 }
@@ -157,12 +160,12 @@ img[src*="logo"] {
   background-color: #9ca3af;
 }
 
-.login-button {
+.signup-button {
   cursor: pointer;
-  margin-top: 24px;
+  margin-top: 50px;
 }
 
-.login-button.disabled {
+.signup-button.disabled {
   cursor: not-allowed;
 }
 
@@ -188,4 +191,8 @@ img[src*="logo"] {
   top: calc(100% + 16px);  
 
 
+}
+
+.form-group:nth-child(4){
+  margin-top: 50px;
 }
