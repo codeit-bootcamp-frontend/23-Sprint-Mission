@@ -15,6 +15,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 let isEmail = false;
 let isPassword = false;
+updateButtonState();
 
 function validateEmail() {
   const emailValue = emailInput.value.trim();

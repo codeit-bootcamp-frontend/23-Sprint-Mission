@@ -26,6 +26,8 @@ let isPassword = false;
 let isRePassword = false;
 let isNickname = false;
 
+updateButtonState();
+
 function validateEmail() {
   const emailValue = emailInput.value.trim();
 

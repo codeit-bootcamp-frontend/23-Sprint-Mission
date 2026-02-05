@@ -133,12 +133,10 @@ img[src*="logo"] {
   }
 
   .password-input {
-    width: 368px;
+    width: 100%;
   }
 
-  .password-input-repeat {
-    width: 368px;
-  }
+
 }
 
 .error {
