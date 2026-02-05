@@ -31,6 +31,7 @@
             required
             autofocus
           />
+          <p class="error_msg email--error_msg"></p>
         </div>
         <div class="input_item">
           <label for="password">비밀번호</label>
@@ -45,9 +46,12 @@
               <img
                 src="img/icon/password_hidden_icon.svg"
                 alt="password_hidden_icon"
+                data-visible="img/icon/password_visible_icon.svg"
+                data-hidden="img/icon/password_hidden_icon.svg"
               />
             </button>
           </div>
+          <p class="error_msg password--error_msg"></p>
         </div>
         <button type="submit" class="submit-login_btn btn" disabled>
           로그인
@@ -71,5 +75,6 @@
         <a href="./signup.html" class="signup_btn">회원가입</a>
       </div>
     </div>
+    <script type="module" src="./script/pages/login.js"></script>
   </body>
 </html>

@@ -17,13 +17,6 @@
   background-color: var(--primary-200);
 }
 
-.main-login_btn {
-  padding: 11.5px 23px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-}
-
 .submit-login_btn {
   padding: 16px 124px;
 }
