@@ -53,6 +53,13 @@
 .btn_login,
 .btn_join {
   margin-bottom: 24px;
+  width: 100%;
+  padding: 16px 124px;
+  background: var(--primary01);
+  text-align: center;
+  color: #f3f4f6;
+  border-radius: 40px;
+  font-size: 16px;
 }
 
 .quick-login {
@@ -81,4 +88,15 @@
 .line-join .btn {
   color: var(--primary01);
   text-decoration: underline;
+}
+
+@media all and (max-width: 767px) {
+  .login-inner {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 16px;
+  }
+  .login-input-box .login-input {
+    width: 100%;
+  }
 }

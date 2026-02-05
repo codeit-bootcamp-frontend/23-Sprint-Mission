@@ -1,4 +1,7 @@
 /* common */
+.btn {
+  border: none;
+}
 .btn-small-48 {
   padding: 11px 23px;
   background: var(--primary01);
@@ -78,7 +81,6 @@ header {
   display: flex;
   justify-content: center;
   gap: 60px;
-  background: #fcfcfc;
 }
 .landing-section-content .landing-section-text-box {
   display: flex;
@@ -134,4 +136,71 @@ footer .footer-inner ul a {
 footer .footer-inner .sns {
   display: flex;
   gap: 12px;
+}
+
+@media all and (max-width: 1199px) {
+  .btn-large {
+    max-width: 357px;
+  }
+  .gnb {
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .landing-header {
+    padding-top: 84px;
+  }
+  .landing-header-inner {
+    width: 100%;
+    flex-direction: column;
+    gap: 211px;
+  }
+  .landing-content {
+    align-items: center;
+  }
+  .landing-content h1 {
+    text-align: center;
+  }
+  .landing-section {
+    padding: 24px;
+    gap: 52px;
+  }
+  .landing-section-content {
+    margin: 0;
+    flex-direction: column;
+  }
+  .landing-section-content img {
+    width: 100%;
+  }
+
+  .landing-section .landing-section-content:nth-child(2) {
+    flex-direction: column;
+  }
+  .landing-section-content .landing-section-text-box h2 br {
+    display: none;
+  }
+
+  footer .footer-inner {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .btn-large {
+    width: 240px;
+    padding: 16px 0;
+  }
+  .gnb {
+    padding: 0 16px;
+  }
+  .landing-header {
+    padding-top: 48px;
+  }
+  .landing-header-inner {
+    gap: 132px;
+  }
+  .landing-section {
+    padding: 52px 16px 83px;
+  }
 }
