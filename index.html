@@ -4,11 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>판다마켓</title>
+    <meta property="og:title" content="판다 마켓" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://sprintmission-yjw-pandamarket.netlify.app/"
+    />
+    <meta
+      property="og:image"
+      content="https://sprintmission-yjw-pandamarket.netlify.app/images/preview.png"
+    />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="global.css" />
   </head>
 
   <body>
@@ -18,7 +31,7 @@
           <a href="/">
             <img src="images/logo.svg" alt="판다마켓 로고" />
           </a>
-          <a class="login-button" href="/login">로그인</a>
+          <a class="login-button" href="login.html">로그인</a>
         </div>
       </nav>
     </header>
@@ -26,7 +39,7 @@
     <main>
       <section class="landing-header">
         <div class="section-content">
-          <div>
+          <div class="text-btn">
             <h1>일상의 모든 물건을 거래해보세요</h1>
             <a href="/items">구경하러 가기</a>
           </div>
@@ -82,7 +95,7 @@
         <img src="images/codeit_text.svg" />
         <div class="Pricy_FAQ">
           <a href="/pricy">
-            <img src="images/PrivacyPolicy.svg" />
+            <span>Pricy Policy</span>
           </a>
           <a href="faq">
             <img src="images/FAQ.svg" />

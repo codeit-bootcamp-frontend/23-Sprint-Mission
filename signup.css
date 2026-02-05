@@ -2,20 +2,19 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
 }
 
 img[src*="logo"] {
   width: 396px;
-
 }
-.login-container{
-    margin-top:40px;
+.login-container {
+  margin-top: 40px;
 }
 
-.login-content{
-    margin: 60px 640px;
-    width:640px;
+.login-content {
+  margin: 60px 640px;
+  width: 640px;
 }
 
 .login-content > a {
@@ -23,14 +22,14 @@ img[src*="logo"] {
   justify-content: center;
 }
 
-.signup-button{
-    background-color: #3692FF;
-    text-align: center;
-    border-radius: 40px;
-    width: 640px;
-    height: 56px;
-    color: #F3F4F6;
-    font:600 20px/32px "Pretendard";
+.signup-button {
+  background-color: #3692ff;
+  text-align: center;
+  border-radius: 40px;
+  width: 640px;
+  height: 56px;
+  color: #f3f4f6;
+  font: 600 20px/32px "Pretendard";
 }
 
 .form-group {
@@ -39,68 +38,107 @@ img[src*="logo"] {
   gap: 16px;
 }
 
-.login-form{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .form-group input {
-
-  padding: 12px;
-  background-color: #F3F4F6;
+  padding: 15px 24px;
+  background-color: #f3f4f6;
   border-radius: 12px;
+  height: 56px;
 }
 
-.form-group label{
-    font:700 18px/26px "Pretendard";
+.form-group label {
+  font: 700 18px/26px "Pretendard";
 }
 
-.social-login{
-    background-color: #E6F2FF;
-    width: 640px;
-    height: 74px;
-    margin:24px auto;
-    border-radius: 8px;
-    padding:16px 23px;
-    
+.social-login {
+  background-color: #e6f2ff;
+  width: 640px;
+  height: 74px;
+  margin: 24px auto;
+  border-radius: 8px;
+  padding: 16px 23px;
 }
 
-.social-login-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 42px;
-    align-items: center;
+.social-login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 42px;
+  align-items: center;
 }
 
-
-.sign-up{
-  display:flex;
+.sign-up {
+  display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
 
-.sign-up a{
-  color:#3692FF;
+.sign-up a {
+  color: #3692ff;
 }
 
-.password-input{
-  background-image: url('images/login_page/eyes-close.svg');
+.password-input {
+  background-image: url("images/login_page/eyes-close.svg");
   background-repeat: no-repeat;
   background-position: right 24px center;
 }
 
-.password-input-repeat{
-  background-image: url('images/login_page/eyes-open.svg');
+.password-input-repeat {
+  background-image: url("images/login_page/eyes-open.svg");
   background-repeat: no-repeat;
   background-position: right 24px center;
- 
 }
 
-.icon-container{
+.icon-container {
   display: flex;
   justify-content: space-between;
-  width:100px;
+  width: 100px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .login-content {
+    margin: 48px auto;
+    width: 640px;
+  }
+
+  .form-group input {
+    padding: 15px 24px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  
+  .login-content {
+    width: 100%;
+    max-width: 400px;
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+  img[src*="logo"] {
+    width: 100%;
+  }
+
+  .signup-button {
+    width: 100%;
+  }
+
+  .social-login {
+    width: 100%;
+  }
+
+  .form-group input {
+    padding: 15px 24px;
+  }
+  .login-form {
+    gap: 16px;
+  }
+
+  .form-group {
+    gap: 8px;
+  }
 }
