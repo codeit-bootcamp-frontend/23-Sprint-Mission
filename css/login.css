@@ -1,0 +1,84 @@
+/* login page */
+.section-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-logo {
+  display: block;
+  margin-bottom: 40px;
+  padding: 15px 0;
+}
+
+.login-logo img {
+  display: block;
+  margin: 0 auto;
+  width: 396px;
+}
+
+.login-input-box .login-label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.login-input-box .login-input {
+  position: relative;
+  width: 640px;
+  margin-bottom: 24px;
+}
+
+.login-input-box .login-input input {
+  border: none;
+  background: var(--gray-100);
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 12px;
+  height: 56px;
+  padding: 0 24px;
+  line-height: 56px;
+  width: 100%;
+}
+
+.input-text-show {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn_login,
+.btn_join {
+  margin-bottom: 24px;
+}
+
+.quick-login {
+  background: #e6f2ff;
+  height: 74px;
+  padding: 0 23px;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quick-login-button > a {
+  margin-left: 16px;
+}
+
+.line-join {
+  text-align: center;
+  margin-top: 24px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.line-join .btn {
+  color: var(--primary01);
+  text-decoration: underline;
+}
