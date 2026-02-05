@@ -20,44 +20,49 @@
         <div class="login-form">
           <div class="form-group">
             <label for="email">이메일</label>
-            <input id="email" type="email" placeholder="이메일을 입력해주세요" />
+            <input
+              id="email"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+            />
           </div>
 
           <div class="form-group">
             <label for="password">비밀번호</label>
-            <input id="password" type="email" placeholder="비밀번호를 입력해주세요" class="password-input" />
+            <div class="password-wrapper">
+              <input
+                id="password"
+                type="password"
+                placeholder="비밀번호를 입력해주세요"
+                class="password-input"
+              />
+              <img src="images/login_page/eyes-close.svg" class="toggle-eye" />
+            </div>
           </div>
 
-          <button class="login-button">
-            
-              로그인    
-            
-          </button>
+          <button class="login-button" type="button">로그인</button>
         </div>
 
         <div class="social-login">
           <div class="social-login-container">
-            <p>
-                간편 로그인하기
-            </p>
+            <p>간편 로그인하기</p>
             <div class="icon-container">
               <a href="https://www.google.com/">
-                  <img src="images/ic_img/ic_google.svg">
+                <img src="images/ic_img/ic_google.svg" />
               </a>
               <a href="https://www.kakaocorp.com/page/">
-                  <img src="images/ic_img/ic_kakao.svg">
+                <img src="images/ic_img/ic_kakao.svg" />
               </a>
             </div>
-
           </div>
         </div>
 
         <div class="sign-up">
-          <span>판다마켓이 처음이신가요?
+          <span>판다마켓이 처음이신가요?</span>
           <a href="signup.html">회원가입</a>
         </div>
-
       </div>
     </div>
+    <script src="login.js"></script>
   </body>
 </html>
