@@ -22,6 +22,22 @@ body {
   gap: 12px;
 }
 
+/* 스타일을 위한 박스들 클래스로 변경 */
+.emailInputBox,
+.nameInputBox,
+.pwInputBox,
+.pwconfirmInputBox {
+  height: 56px;
+  border-radius: 12px;
+  background-color: var(--secondary-100);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+/* 기존 signupForm div/input 규칙 유지 */
 #signupForm div {
   height: 56px;
   border-radius: 12px;
@@ -32,12 +48,19 @@ body {
   justify-content: space-between;
   padding: 0 24px;
 }
+
 #signupForm input {
   border: none;
   background-color: var(--secondary-100);
   width: 80%;
   height: 100%;
   font-size: 16px;
+}
+
+/* 중복되는 라벨 스타일 */
+.label {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 #signupBtn {
@@ -50,9 +73,10 @@ body {
   border: none;
   color: var(--bg-white);
   margin: 16px 0 32px 0;
+  cursor: pointer;
 }
 
-#socialLogin {
+.socialLogin {
   height: 74px;
   width: 90%;
   display: flex;
@@ -61,4 +85,41 @@ body {
   background-color: #e6f2ff;
   padding: 16px 23px;
   margin-bottom: 32px;
+}
+
+.socialInfo {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.logoBox {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footInfo {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#loginLink {
+  color: var(--primary-100);
+  text-decoration: underline;
+}
+
+@media (max-width: 1199px) {
+  #main {
+    width: 100%;
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  #main {
+    width: 100%;
+    max-width: 400px;
+  }
 }
