@@ -1,3 +1,4 @@
+// 요소 선택 변수
 const emailInput = document.querySelector("#emailInput");
 const emailContainer = document.querySelector("#emailInputContainer");
 const emailError = document.querySelector("#emailError");
@@ -16,6 +17,8 @@ const pwconfirmError = document.querySelector("#pwconfirmError");
 
 const submitBtn =
   document.querySelector("#loginBtn") || document.querySelector("#signupBtn");
+
+// login, signup 공통
 
 function checkEmailFormat(email) {
   if (!email.includes("@")) return false;
@@ -113,6 +116,8 @@ submitBtn.addEventListener("click", (e) => {
     window.location.href = "/login.html";
   }
 });
+
+// signup 한정
 
 if (nameInput) {
   nameInput.addEventListener("input", updateButtonState);
