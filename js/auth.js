@@ -53,6 +53,15 @@ function updateButtonState() {
   submitBtn.disabled = !totalCheck;
 }
 
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (submitBtn.id === "loginBtn") {
+    window.location.href = "/items.html";
+  } else if (submitBtn.id === "signupBtn") {
+    window.location.href = "/login.html";
+  }
+});
+
 emailInput.addEventListener("input", updateButtonState);
 pwInput.addEventListener("input", updateButtonState);
 
