@@ -22,6 +22,17 @@ body {
   gap: 12px;
 }
 
+.emailInputBox.error {
+  border: 1px solid red;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 14px;
+  margin-top: -8px;
+  display: none;
+}
+
 /* 스타일을 위한 박스들 클래스로 변경 */
 .emailInputBox,
 .nameInputBox,
@@ -35,6 +46,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  box-sizing: border-box;
+  outline: none;
 }
 
 /* 기존 signupForm div/input 규칙 유지 */

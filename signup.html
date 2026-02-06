@@ -12,7 +12,7 @@
       <img class="logo" src="assets/logo.svg" width="396px" height="132px" />
       <form id="signupForm">
         <label class="label" for="emailInput">이메일</label>
-        <div class="emailInputBox">
+        <div class="emailInputBox" id="emailInputContainer">
           <input
             id="emailInput"
             placeholder="codeit@email.com"
@@ -21,6 +21,7 @@
             required
           />
         </div>
+        <p id="emailError" class="errorMsg"></p>
         <br />
         <label class="label" for="nameInput">닉네임</label>
         <div class="nameInputBox">
@@ -72,5 +73,6 @@
         <a id="loginLink" href="/login.html">로그인</a></span
       >
     </main>
+    <script src="/js/auth.js"></script>
   </body>
 </html>
