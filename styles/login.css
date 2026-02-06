@@ -126,6 +126,10 @@ body {
   color: var(--bg-white);
 }
 
+.pwInputBox img {
+  cursor: pointer;
+}
+
 @media (max-width: 1199px) {
   #main {
     width: 100%;

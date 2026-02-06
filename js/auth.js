@@ -53,6 +53,30 @@ function updateButtonState() {
   submitBtn.disabled = !totalCheck;
 }
 
+function togglePasswordVisibility(input, icon) {
+  if (input.type === "password") {
+    input.type = "text";
+    icon.src = "assets/visibility_on.svg";
+  } else {
+    input.type = "password";
+    icon.src = "assets/visibility_off.svg";
+  }
+}
+
+const pwIcon = pwContainer.querySelector("img");
+
+pwIcon.addEventListener("click", () =>
+  togglePasswordVisibility(pwInput, pwIcon),
+);
+
+if (pwconfirmContainer) {
+  const pwconfirmIcon = pwconfirmContainer.querySelector("img");
+
+  pwconfirmIcon.addEventListener("click", () =>
+    togglePasswordVisibility(pwconfirmInput, pwconfirmIcon),
+  );
+}
+
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (submitBtn.id === "loginBtn") {
