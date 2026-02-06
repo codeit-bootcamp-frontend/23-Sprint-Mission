@@ -25,6 +25,16 @@ function checkEmailFormat(email) {
   return true;
 }
 
+function togglePasswordVisibility(input, icon) {
+  if (input.type === "password") {
+    input.type = "text";
+    icon.src = "assets/visibility_on.svg";
+  } else {
+    input.type = "password";
+    icon.src = "assets/visibility_off.svg";
+  }
+}
+
 function updateButtonState() {
   const emailCheck =
     checkEmailFormat(emailInput.value) &&
@@ -53,38 +63,10 @@ function updateButtonState() {
   submitBtn.disabled = !totalCheck;
 }
 
-function togglePasswordVisibility(input, icon) {
-  if (input.type === "password") {
-    input.type = "text";
-    icon.src = "assets/visibility_on.svg";
-  } else {
-    input.type = "password";
-    icon.src = "assets/visibility_off.svg";
-  }
-}
-
 const pwIcon = pwContainer.querySelector("img");
-
 pwIcon.addEventListener("click", () =>
   togglePasswordVisibility(pwInput, pwIcon),
 );
-
-if (pwconfirmContainer) {
-  const pwconfirmIcon = pwconfirmContainer.querySelector("img");
-
-  pwconfirmIcon.addEventListener("click", () =>
-    togglePasswordVisibility(pwconfirmInput, pwconfirmIcon),
-  );
-}
-
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (submitBtn.id === "loginBtn") {
-    window.location.href = "/items.html";
-  } else if (submitBtn.id === "signupBtn") {
-    window.location.href = "/login.html";
-  }
-});
 
 emailInput.addEventListener("input", updateButtonState);
 pwInput.addEventListener("input", updateButtonState);
@@ -123,6 +105,15 @@ pwInput.addEventListener("focusout", () => {
   updateButtonState();
 });
 
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (submitBtn.id === "loginBtn") {
+    window.location.href = "/items.html";
+  } else if (submitBtn.id === "signupBtn") {
+    window.location.href = "/login.html";
+  }
+});
+
 if (nameInput) {
   nameInput.addEventListener("input", updateButtonState);
   nameInput.addEventListener("focusout", () => {
@@ -139,6 +130,11 @@ if (nameInput) {
 }
 
 if (pwconfirmInput) {
+  const pwconfirmIcon = pwconfirmContainer.querySelector("img");
+  pwconfirmIcon.addEventListener("click", () =>
+    togglePasswordVisibility(pwconfirmInput, pwconfirmIcon),
+  );
+
   pwconfirmInput.addEventListener("input", updateButtonState);
   pwconfirmInput.addEventListener("focusout", () => {
     const value = pwconfirmInput.value;
