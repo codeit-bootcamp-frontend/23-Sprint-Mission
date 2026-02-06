@@ -14,7 +14,10 @@ const pwconfirmInput = document.querySelector("#pwconfirmInput");
 const pwconfirmContainer = document.querySelector("#pwconfirmInputContainer");
 const pwconfirmError = document.querySelector("#pwconfirmError");
 
-function checkEmail(email) {
+const submitBtn =
+  document.querySelector("#loginBtn") || document.querySelector("#signupBtn");
+
+function checkEmailFormat(email) {
   if (!email.includes("@")) return false;
   const parts = email.split("@");
   if (parts.length !== 2) return false;
@@ -22,13 +25,44 @@ function checkEmail(email) {
   return true;
 }
 
+function updateButtonState() {
+  const emailCheck =
+    checkEmailFormat(emailInput.value) &&
+    !emailContainer.classList.contains("error") &&
+    emailInput.value !== "";
+  const pwCheck =
+    pwInput.value.length >= 8 && !pwContainer.classList.contains("error");
+
+  let totalCheck = emailCheck && pwCheck;
+
+  if (nameInput) {
+    const nameCheck =
+      nameInput.value.trim() !== "" &&
+      !nameContainer.classList.contains("error");
+    totalCheck = totalCheck && nameCheck;
+  }
+
+  if (pwconfirmInput) {
+    const confirmCheck =
+      pwconfirmInput.value === pwInput.value &&
+      pwconfirmInput.value !== "" &&
+      !pwconfirmContainer.classList.contains("error");
+    totalCheck = totalCheck && confirmCheck;
+  }
+
+  submitBtn.disabled = !totalCheck;
+}
+
+emailInput.addEventListener("input", updateButtonState);
+pwInput.addEventListener("input", updateButtonState);
+
 emailInput.addEventListener("focusout", () => {
   const value = emailInput.value;
   if (!value) {
     emailContainer.classList.add("error");
     emailError.textContent = "이메일을 입력해주세요.";
     emailError.style.display = "block";
-  } else if (!checkEmail(value)) {
+  } else if (!checkEmailFormat(value)) {
     emailContainer.classList.add("error");
     emailError.textContent = "잘못된 이메일 형식입니다.";
     emailError.style.display = "block";
@@ -36,6 +70,7 @@ emailInput.addEventListener("focusout", () => {
     emailContainer.classList.remove("error");
     emailError.style.display = "none";
   }
+  updateButtonState();
 });
 
 pwInput.addEventListener("focusout", () => {
@@ -52,9 +87,11 @@ pwInput.addEventListener("focusout", () => {
     pwContainer.classList.remove("error");
     pwError.style.display = "none";
   }
+  updateButtonState();
 });
 
 if (nameInput) {
+  nameInput.addEventListener("input", updateButtonState);
   nameInput.addEventListener("focusout", () => {
     if (!nameInput.value) {
       nameContainer.classList.add("error");
@@ -64,10 +101,12 @@ if (nameInput) {
       nameContainer.classList.remove("error");
       nameError.style.display = "none";
     }
+    updateButtonState();
   });
 }
 
 if (pwconfirmInput) {
+  pwconfirmInput.addEventListener("input", updateButtonState);
   pwconfirmInput.addEventListener("focusout", () => {
     const value = pwconfirmInput.value;
     const passwordValue = pwInput.value;
@@ -83,5 +122,8 @@ if (pwconfirmInput) {
       pwconfirmContainer.classList.remove("error");
       pwconfirmError.style.display = "none";
     }
+    updateButtonState();
   });
 }
+
+updateButtonState();

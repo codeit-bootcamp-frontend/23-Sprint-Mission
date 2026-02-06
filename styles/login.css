@@ -119,6 +119,13 @@ body {
   text-decoration: underline;
 }
 
+#loginBtn:disabled,
+#signupBtn:disabled {
+  background-color: var(--secondary-400) !important;
+  cursor: not-allowed;
+  color: var(--bg-white);
+}
+
 @media (max-width: 1199px) {
   #main {
     width: 100%;
