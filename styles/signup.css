@@ -39,7 +39,9 @@ body {
 }
 
 #signupForm .emailInputBox.error,
-#signupForm .nameInputBox.error {
+#signupForm .nameInputBox.error,
+#signupForm .pwInputBox.error,
+#signupForm .pwconfirmInputBox.error {
   border: 1px solid red !important;
 }
 

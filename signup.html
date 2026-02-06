@@ -30,7 +30,7 @@
         <p id="nicknameError" class="errorMsg"></p>
         <br />
         <label class="label" for="pwInput">비밀번호</label>
-        <div class="pwInputBox">
+        <div class="pwInputBox" id="pwInputContainer">
           <input
             id="pwInput"
             placeholder="비밀번호를 입력해주세요."
@@ -40,9 +40,10 @@
           />
           <img src="assets/visibility_off.svg" width="24px" height="24px" />
         </div>
+        <p id="passwordError" class="errorMsg"></p>
         <br />
         <label class="label" for="pwconfirmInput">비밀번호 확인</label>
-        <div class="pwconfirmInputBox">
+        <div class="pwconfirmInputBox" id="pwconfirmInputContainer">
           <input
             id="pwconfirmInput"
             type="password"
@@ -52,9 +53,9 @@
           />
           <img src="assets/visibility_on.svg" width="24px" height="24px" />
         </div>
+        <p id="pwconfirmError" class="errorMsg"></p>
         <button id="signupBtn">회원가입</button>
       </form>
-
       <div class="socialLogin">
         <span class="socialInfo">간편 로그인하기</span>
         <ul class="logoBox">

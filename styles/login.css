@@ -19,7 +19,8 @@ body {
   font-weight: 700;
 }
 
-#loginForm {
+#loginForm,
+#signupForm {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -28,19 +29,25 @@ body {
 }
 
 .pwInputBox,
-.emailInputBox {
+.emailInputBox,
+.nameInputBox,
+.pwconfirmInputBox {
   height: 56px;
   border-radius: 12px;
   background-color: var(--secondary-100);
-  border: none;
+  border: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
-.emailInputBox.error {
-  border: 1px solid red;
+.pwInputBox.error,
+.emailInputBox.error,
+.nameInputBox.error,
+.pwconfirmInputBox.error {
+  border: 1px solid red !important;
 }
 
 .errorMsg {
@@ -51,9 +58,11 @@ body {
 }
 
 #pwInput,
-#emailInput {
+#emailInput,
+#nameInput,
+#pwconfirmInput {
   border: none;
-  background-color: var(--secondary-100);
+  background-color: transparent;
   width: 80%;
   height: 100%;
   font-size: 16px;
@@ -61,7 +70,8 @@ body {
   outline: none;
 }
 
-#loginBtn {
+#loginBtn,
+#signupBtn {
   width: 100%;
   font-size: 20px;
   font-weight: 600;
@@ -103,7 +113,8 @@ body {
   font-size: 14px;
 }
 
-#signupLink {
+#signupLink,
+#loginLink {
   color: var(--primary-100);
   text-decoration: underline;
 }
