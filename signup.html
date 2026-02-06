@@ -21,7 +21,7 @@
           <a href="/"><img src="./images/logo.svg" alt="판다마켓 로고" /></a>
         </div>
         <div class="box-form">
-          <form>
+          <form class="form-signup">
             <div>
               <label for="email">이메일</label>
               <input
@@ -62,14 +62,14 @@
                 id="password-check"
                 type="password"
                 name="password-check"
-                placeholder="비밀번호를 입력해주세요"
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
                 maxlength="20"
                 required
               />
-              <img src="./images/password-on.svg" alt="비밀번호 보이기 아이콘">
+              <img src="./images/password-off.svg" alt="비밀번호 가리기 아이콘">
             </div>
             <div>
-              <button>회원가입</button>
+              <button type="submit" disabled>회원가입</button>
             </div>
           </form>
         </div>
@@ -91,5 +91,6 @@
         <p>이미 회원이신가요?<a href="/login.html">로그인</a></p>
       </section>
     </main>
+    <script type="module" src="./js/signup.js"></script>
   </body>
 </html>
