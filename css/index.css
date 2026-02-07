@@ -1,4 +1,7 @@
 /* common */
+.btn {
+  border: none;
+}
 .btn-small-48 {
   padding: 11px 23px;
   background: var(--primary01);
@@ -78,7 +81,6 @@ header {
   display: flex;
   justify-content: center;
   gap: 60px;
-  background: #fcfcfc;
 }
 .landing-section-content .landing-section-text-box {
   display: flex;
@@ -136,89 +138,69 @@ footer .footer-inner .sns {
   gap: 12px;
 }
 
-/* login page */
-.section-login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+@media all and (max-width: 1199px) {
+  .btn-large {
+    max-width: 357px;
+  }
+  .gnb {
+    width: 100%;
+    padding: 0 24px;
+  }
 
-.login-logo {
-    display:block;
-    margin-bottom:40px;
-    padding:15px 0;
-}
-
-.login-logo img{
-  display:block;
-  margin:0 auto;
-    width:396px;
-    
-}
-
-.login-input-box .login-label {
-    display:block;
-    font-size:18px;
-    font-weight: bold;
-    margin-bottom:16px;
-}
-
-.login-input-box .login-input {
-  position: relative;
-    width:640px;
-    margin-bottom:24px;
-}
-
-.login-input-box .login-input input {
-    border:none;
-    background:var(--gray-100);
-    font-size:16px;
-    font-weight:400;
-    border-radius: 12px;
-    height:56px;
-    padding:0 24px;
-    line-height:56px;
-    width:100%;
-}
-
-.input-text-show {
-  position: absolute;
-  right:24px;
-  top:50%;
-  transform: translateY(-50%);
-}
-
-.btn_login,
-.btn_join {
-  margin-bottom:24px;
-}
-
-
-.quick-login {
-    background:#E6F2FF;
-    height:74px;
-    padding:0 23px;
-    border-radius:8px;
-    font-weight: 500;
-    display: flex;
+  .landing-header {
+    padding-top: 84px;
+  }
+  .landing-header-inner {
+    width: 100%;
+    flex-direction: column;
+    gap: 211px;
+  }
+  .landing-content {
     align-items: center;
-    justify-content: space-between;
+  }
+  .landing-content h1 {
+    text-align: center;
+  }
+  .landing-section {
+    padding: 24px;
+    gap: 52px;
+  }
+  .landing-section-content {
+    margin: 0;
+    flex-direction: column;
+  }
+  .landing-section-content img {
+    width: 100%;
+  }
+
+  .landing-section .landing-section-content:nth-child(2) {
+    flex-direction: column;
+  }
+  .landing-section-content .landing-section-text-box h2 br {
+    display: none;
+  }
+
+  footer .footer-inner {
+    width: 100%;
+    justify-content: space-around;
+  }
 }
 
-.quick-login-button > a {
-  margin-left:16px;
-}
-
-.line-join {
-  text-align: center;
-  margin-top:24px;
-  width:100%;
-  font-size:14px;
-  font-weight: 500;
-}
-
-.line-join .btn {
-  color:var(--primary01);
-  text-decoration: underline;
+@media all and (max-width: 767px) {
+  .btn-large {
+    width: 240px;
+    padding: 16px 0;
+  }
+  .gnb {
+    padding: 0 16px;
+  }
+  .landing-header {
+    padding-top: 48px;
+  }
+  .landing-header-inner {
+    gap: 132px;
+  }
+  .landing-section {
+    padding: 52px 16px 83px;
+  }
 }
