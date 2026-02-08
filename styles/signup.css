@@ -26,31 +26,32 @@ body {
 .field {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 18px; /* 에러 메시지(또는 input) 아래에서 다음 라벨까지 18px */
+}
+
+.field-body {
+  display: flex;
+  flex-direction: column;
 }
 
 .email-label,
-.nickname-label,
-.pass-label,
-.passcheck-label {
+.passwd-label {
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
-  color: #1f2937;
+  color: var(--color-secondary800);
+  margin-bottom: 16px;
 }
 
 .email-input,
-.nickname-input,
-.pass-input,
-.passcheck-input {
+.passwd-input {
   width: 640px;
   height: 56px;
   padding: 16px 24px 14px;
   border-radius: 12px;
-  border: 2px solid #f3f4f6;
+  border: 2px solid var(--color-secondary100);
   background-color: var(--color-secondary100);
   font-family: "Pretendard";
   font-style: normal;
@@ -60,18 +61,111 @@ body {
   color: var(--color-secondary800);
 }
 
-.email-input,
-.nickname-input {
-  margin-bottom: 24px;
+/* 이메일 에러
+닉네임 에러
+비밀번호 8자 이상
+비밀번호 불일치 에러 */
+.email-error-message,
+.passwd-error-message,
+.nickname-error-message,
+.passwdcheck-error-message {
+  margin: 0;
+  margin-top: 8px; /* input 아래 8px → error */
+  padding-left: 16px;
+  color: var(--color-error);
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
 }
 
-.pass-input {
+.email-error-message:empty,
+.nickname-error-message:empty,
+.passwd-error-message:empty,
+.passwdcheck-error-message:empty {
+  display: none;
+}
+
+.email-input.isError,
+.nickname-input.isError,
+.passwd-input.isError,
+.passwdcheck-input.isError {
+  border: 2px solid var(--color-error);
+}
+
+.passwdcheck-error-message.isCorrect {
+  margin: 0;
+  margin-top: 8px; /* input 아래 8px → error */
+  padding-left: 16px;
+  color: var(--color-primary300);
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.passwdcheck-input.isCorrect {
+  margin: 0;
+  margin-top: 8px; /* input 아래 8px → error */
+  padding-left: 16px;
+  color: var(--color-primary300);
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border: 2px solid var(--color-primary300);
+}
+
+.nickname-label,
+.passwdcheck-label {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--color-secondary800);
+  margin-bottom: 16px;
+}
+
+.passwdcheck-input {
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px 14px;
+  border: 2px solid var(--color-secondary100);
+  border-radius: 12px;
+  background-color: var(--color-secondary100);
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-secondary800);
+}
+
+.nickname-input {
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--color-secondary100);
+  background-color: var(--color-secondary100);
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-secondary800);
+}
+
+.passwd-input {
   padding: 16px 24px;
 }
 
 .signup-button {
   width: 640px;
   height: 56px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   border-radius: 40px;
   border: none;
   background-color: var(--color-primary100);
@@ -87,13 +181,22 @@ body {
   cursor: pointer;
 }
 
+.signup-button:disabled {
+  background-color: var(--color-secondary400);
+  cursor: pointer;
+}
+
+.actions {
+  margin-top: 18px; /* 마지막 에러 메시지/input으로부터 18px */
+}
+
 .social-login {
   margin-top: 24px;
   width: 640px;
   height: 74px;
-  background-color: #e6f2ff;
+  background-color: var(--color-skyblue);
   border-radius: 8px;
-  border: 1px solid #e6f2ff;
+  border: 1px solid var(--color-skyblue);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -106,7 +209,7 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
-  color: #1f2937;
+  color: var(--color-secondary800);
 }
 
 .social-icons {
@@ -124,6 +227,7 @@ body {
   justify-content: center;
   gap: 4px;
   white-space: nowrap;
+  margin-bottom: 100px;
 }
 
 .signin-text {
@@ -132,7 +236,7 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  color: #1f2937;
+  color: var(--color-secondary800);
 }
 
 .signin-page {
@@ -141,6 +245,6 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #3692ff;
+  color: var(--color-primary100);
   text-decoration: underline;
 }
