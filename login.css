@@ -76,6 +76,7 @@ img[src*="logo"] {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 4px;
 }
 
 .sign-up a {
@@ -83,8 +84,7 @@ img[src*="logo"] {
 }
 
 .password-input {
-  background-image: url("images/login_page/eyes-close.svg");
-  background-repeat: no-repeat;
+  width: 640px;
   display: flex;
   background-position: right 24px center;
 }
@@ -131,4 +131,54 @@ img[src*="logo"] {
   .form-group {
     gap: 8px;
   }
+
+  .password-input {
+    width: 100%;
+  }
+
+
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.error-text {
+  color: red;
+  font: 600 14px/24px "Pretendard";
+  margin-top: -8px;
+  margin-left: 16px;
+}
+.disabled {
+  background-color: #9ca3af;
+}
+
+.login-button {
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+.login-button.disabled {
+  cursor: not-allowed;
+}
+
+.password-wrapper {
+  position: relative;
+  height: 56px;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.eyeBtn {
+  cursor: pointer;
+}
+
+.password-wrapper .error-text {
+  position: absolute;
+  top: calc(100% + 16px);
 }

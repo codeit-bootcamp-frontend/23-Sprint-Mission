@@ -35,13 +35,12 @@ img[src*="logo"] {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 .form-group input {
@@ -76,6 +75,7 @@ img[src*="logo"] {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 4px;
 }
 
 .sign-up a {
@@ -83,14 +83,13 @@ img[src*="logo"] {
 }
 
 .password-input {
-  background-image: url("images/login_page/eyes-close.svg");
-  background-repeat: no-repeat;
+  width: 640px;
   background-position: right 24px center;
 }
 
 .password-input-repeat {
-  background-image: url("images/login_page/eyes-open.svg");
-  background-repeat: no-repeat;
+  width: 640px;
+
   background-position: right 24px center;
 }
 
@@ -109,10 +108,12 @@ img[src*="logo"] {
   .form-group input {
     padding: 15px 24px;
   }
+  .password-wrapper {
+    width: 640px;
+  }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
-  
   .login-content {
     width: 100%;
     max-width: 400px;
@@ -141,4 +142,60 @@ img[src*="logo"] {
   .form-group {
     gap: 8px;
   }
+
+  .password-input {
+    width: 100%;
+  }
+
+  .password-input-repeat {
+    width: 100%;
+  }
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.error-text {
+  color: red;
+  font: 600 14px/24px "Pretendard";
+  margin-top: -8px;
+  margin-left: 16px;
+}
+.disabled {
+  background-color: #9ca3af;
+}
+
+.signup-button {
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.signup-button.disabled {
+  cursor: not-allowed;
+}
+
+.password-wrapper {
+  position: relative;
+  height: 56px;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.eyeBtn {
+  cursor: pointer;
+}
+
+.password-wrapper .error-text {
+  position: absolute;
+  top: calc(100% + 16px);
+}
+
+.form-group:nth-child(4) {
+  margin-top: 50px;
 }

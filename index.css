@@ -3,7 +3,7 @@ a {
   text-decoration: none;
 }
 
-header {
+.header-content {
   width: 1120px;
   margin: 9.5px auto;
   position: sticky;
@@ -127,7 +127,7 @@ div > h1 {
   height: 172px;
 }
 
-footer {
+.footer {
   background-color: #111827;
   height: 160px;
   margin: auto;

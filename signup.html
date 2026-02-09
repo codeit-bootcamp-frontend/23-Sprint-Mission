@@ -30,12 +30,18 @@
 
           <div class="form-group">
             <label for="password">비밀번호</label>
-            <input id="password" type="password" placeholder="비밀번호를 입력해주세요" class="password-input"/>
+            <div class="password-wrapper">
+              <input id="password" type="password" placeholder="비밀번호를 입력해주세요" class="password-input"/>
+              <img src="images/login_page/eyes-close.svg" class="toggle-eye">
+            </div>
           </div>
 
           <div class="form-group">
             <label>비밀번호 확인</label>
-            <input type="text" placeholder="비밀번호를 다시 한 번 입력해주세요" class="password-input-repeat"/>
+            <div class="password-wrapper">              
+              <input id="re-password" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" class="password-input-repeat"/>
+              <img src="images/login_page/eyes-close.svg" class="toggle-eye">
+            </div>
           </div>          
 
           <button class="signup-button">
@@ -69,5 +75,6 @@
 
       </div>
     </div>
+    <script src="signup.js"></script>
   </body>
 </html>
