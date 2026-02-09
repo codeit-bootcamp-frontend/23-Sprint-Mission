@@ -22,7 +22,6 @@ body {
   gap: 12px;
 }
 
-/* 스타일을 위한 박스들 클래스로 변경 */
 .emailInputBox,
 .nameInputBox,
 .pwInputBox,
@@ -35,29 +34,33 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  box-sizing: border-box;
+  outline: none;
 }
 
-/* 기존 signupForm div/input 규칙 유지 */
-#signupForm div {
-  height: 56px;
-  border-radius: 12px;
-  background-color: var(--secondary-100);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
+#signupForm .emailInputBox.error,
+#signupForm .nameInputBox.error,
+#signupForm .pwInputBox.error,
+#signupForm .pwconfirmInputBox.error {
+  border: 1px solid red !important;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 14px;
+  margin-top: -8px;
+  display: none;
 }
 
 #signupForm input {
   border: none;
-  background-color: var(--secondary-100);
+  background-color: transparent;
   width: 80%;
   height: 100%;
   font-size: 16px;
+  outline: none;
 }
 
-/* 중복되는 라벨 스타일 */
 .label {
   font-size: 18px;
   font-weight: 700;
@@ -108,6 +111,18 @@ body {
 #loginLink {
   color: var(--primary-100);
   text-decoration: underline;
+}
+
+#loginBtn:disabled,
+#signupBtn:disabled {
+  background-color: var(--secondary-400) !important;
+  cursor: not-allowed;
+  color: var(--bg-white);
+}
+
+.pwInputBox img,
+.pwconfirmInputBox img {
+  cursor: pointer;
 }
 
 @media (max-width: 1199px) {

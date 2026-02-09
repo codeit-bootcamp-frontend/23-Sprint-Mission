@@ -19,7 +19,8 @@ body {
   font-weight: 700;
 }
 
-#loginForm {
+#loginForm,
+#signupForm {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -28,27 +29,49 @@ body {
 }
 
 .pwInputBox,
-.emailInputBox {
+.emailInputBox,
+.nameInputBox,
+.pwconfirmInputBox {
   height: 56px;
   border-radius: 12px;
   background-color: var(--secondary-100);
-  border: none;
+  border: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.pwInputBox.error,
+.emailInputBox.error,
+.nameInputBox.error,
+.pwconfirmInputBox.error {
+  border: 1px solid red !important;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 14px;
+  margin-top: -8px;
+  display: none;
 }
 
 #pwInput,
-#emailInput {
+#emailInput,
+#nameInput,
+#pwconfirmInput {
   border: none;
-  background-color: var(--secondary-100);
+  background-color: transparent;
   width: 80%;
   height: 100%;
   font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
 }
 
-#loginBtn {
+#loginBtn,
+#signupBtn {
   width: 100%;
   font-size: 20px;
   font-weight: 600;
@@ -90,9 +113,21 @@ body {
   font-size: 14px;
 }
 
-#signupLink {
+#signupLink,
+#loginLink {
   color: var(--primary-100);
   text-decoration: underline;
+}
+
+#loginBtn:disabled,
+#signupBtn:disabled {
+  background-color: var(--secondary-400) !important;
+  cursor: not-allowed;
+  color: var(--bg-white);
+}
+
+.pwInputBox img {
+  cursor: pointer;
 }
 
 @media (max-width: 1199px) {
