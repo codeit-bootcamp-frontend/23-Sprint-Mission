@@ -29,20 +29,15 @@ main {
 .input {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   width: 100%;
 }
 
-.input > label {
-  font: var(--text-2lg-bold);
-  color: var(--secondary-800);
-}
-
-#login-email,
-#login-password {
+.input-main {
+  margin-top: 8px;
+  padding: 16px 24px;
   height: 56px;
   width: 100%;
-  padding: 16px 24px;
   border: none;
   border-radius: 12px;
   background-color: var(--secondary-100);
@@ -50,16 +45,37 @@ main {
   color: var(--secondary-800);
 }
 
+.input > label {
+  font: var(--text-2lg-bold);
+  color: var(--secondary-800);
+}
+
+p.wrong-input {
+  display: block;
+}
+
+.error-message {
+  display: none;
+  padding-left: 16px;
+  font: var(--text-md-semibold);
+  color: var(--error);
+}
+
+.input-main.wrong-input {
+  border: 1px solid var(--error);
+} 
+
 .login-password-content {
   position: relative;
 }
 
 .visibility-button {
   position: absolute;
-  top: 16px;
+  top: 24px;
   right: 24px;
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 .login-button {
@@ -69,6 +85,12 @@ main {
   background-color: var(--primary-100);
   font: var(--text-xl-semibold);
   color: var(--secondary-100);
+  cursor: pointer;
+}
+
+.login-button:disabled {
+  background-color: var(--secondary-400);
+  cursor: default;
 }
 
 .social-login {
@@ -142,8 +164,16 @@ main {
     font: var(--text-md-bold);
   }
 
+  .input-main {
+    margin-top: 0;
+  }
+
   .login-password-content {
     position: relative;
+  }
+
+  .visibility-button {
+    top: 16px;
   }
 
   .social-login {

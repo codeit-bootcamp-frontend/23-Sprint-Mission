@@ -20,27 +20,32 @@
           <label for="signup-email">이메일</label>
           <input 
             id="signup-email" 
+            class="input-main"
             name="email" 
             type="email"
             placeholder="이메일을 입력해주세요" 
             required
           >
+          <p class="error-message"></p>
         </div>
         <div class="input">
           <label for="signup-nickname">닉네임</label>
           <input 
             id="signup-nickname" 
+            class="input-main"
             name="nickname" 
             type="text" 
             placeholder="닉네임을 입력해주세요" 
             required
           >
+          <p class="error-message"></p>
         </div>
         <div class="input">
           <label for="signup-password">비밀번호</label>
           <div class="signup-password-content">
             <input 
               id="signup-password" 
+              class="input-main"
               name="password" 
               type="password" 
               placeholder="비밀번호를 입력해주세요" 
@@ -48,21 +53,24 @@
             >
             <img class="visibility-button" src="./img/ic_visibility_off.svg" alt="비밀번호 숨김/보기 버튼">
           </div>
+          <p class="error-message"></p>
         </div>
         <div class="input">
           <label for="signup-password-confirm">비밀번호 확인</label>
           <div class="signup-password-content">
             <input 
               id="signup-password-confirm" 
+              class="input-main"
               name="password" 
               type="password" 
               placeholder="비밀번호를 다시 한 번 입력해주세요" 
               required
             >
-            <img class="visibility-button" src="./img/ic_visibility_on.svg" alt="비밀번호 숨김/보기 버튼">
+            <img class="visibility-button" src="./img/ic_visibility_off.svg" alt="비밀번호 숨김/보기 버튼">
           </div>
+          <p class="error-message"></p>
         </div>
-        <button class="signup-button" type="submit">
+        <button class="signup-button" type="button" disabled>
           회원가입
         </button>
       </form>
@@ -82,5 +90,6 @@
         <a class="login-button" href="./login.html">로그인</a>
       </div>
     </main>
+    <script type="module" src="./js/signup.js"></script>
   </body>
 </html>

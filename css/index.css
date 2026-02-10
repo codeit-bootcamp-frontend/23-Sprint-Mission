@@ -87,11 +87,11 @@
   gap: 12px;
 }
 
-.left {
+.align-left {
   text-align: right;
 }
 
-.right {
+.align-right {
   text-align: left;
 }
 

@@ -20,17 +20,20 @@
           <label for="login-email">이메일</label>
           <input 
             id="login-email" 
+            class="input-main" 
             name="email" 
             type="email" 
             placeholder="이메일을 입력해주세요" 
             required
           >
+          <p class="error-message"></p>
         </div>
         <div class="input">
           <label for="login-password">비밀번호</label>
           <div class="login-password-content">
             <input 
               id="login-password" 
+              class="input-main" 
               name="password" 
               type="password" 
               placeholder="비밀번호를 입력해주세요" 
@@ -38,8 +41,9 @@
             >
             <img class="visibility-button" src="./img/ic_visibility_off.svg" alt="비밀번호 숨김/보기 버튼">
           </div>
+          <p class="error-message"></p>
         </div>
-        <button class="login-button" type="submit">
+        <button class="login-button" type="button" disabled>
           로그인
         </button>
       </form>
@@ -59,5 +63,6 @@
         <a class="signup-button" href="./signup.html">회원가입</a>
       </div>
     </main>
+    <script type="module" src="./js/login.js"></script>
   </body>
 </html>
