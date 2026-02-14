@@ -1,0 +1,22 @@
+.productCard img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  padding-top: 17px;
+  padding-bottom: 24px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.paginationBarWrapper {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.itemsPage{
+  align-items: center;
+}

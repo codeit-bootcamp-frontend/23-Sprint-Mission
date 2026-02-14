@@ -1,0 +1,172 @@
+.allSection {
+  margin-top: 80px;
+}
+
+/* 상단 영역 */
+.allSectionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-top: 20px;
+}
+
+.allTitle {
+  color: #111827;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: normal;
+  margin-right: auto;
+}
+
+/* 컨트롤 영역 */
+.allControls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* 검색 박스 */
+.searchBox {
+  position: relative;
+  width: 300px;
+}
+
+.searchBox input {
+  width: 100%;
+  padding: 9px 20px 9px 16px;
+  padding-left: 40px;
+  border-radius: 12px;
+  gap: 10px;
+  border: 1px solid var(--gray-200);
+  font-size: 14px;
+  background-color: #f3f4f6;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+}
+
+/* 등록 버튼 */
+.registerButton {
+  height: 42px;
+  padding: 12px 23px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* 정렬 버튼 */
+.sortButton {
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 드롭다운 wrapper */
+.sortDropdown {
+  position: relative;
+}
+
+/* 드롭다운 메뉴 */
+.dropdownMenu {
+  position: absolute;
+  top: 54px;
+  right: 0;
+  width: 120px;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* 드롭다운 아이템 */
+.dropdownMenu button {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdownMenu button:hover {
+  background-color: var(--gray-50);
+}
+
+/* 상품 그리드 */
+.allGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* 페이지네이션 */
+.pagination {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pageButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  background: white;
+  cursor: pointer;
+}
+
+.pageButton.active {
+  background-color: var(--blue);
+  color: white;
+  border: none;
+}
+
+/* 반응형 */
+
+
+
+@media (max-width: 767px) {
+  .allSectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .allGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+}
+
+
+
+@media (max-width: 1280px) {
+  .allGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
