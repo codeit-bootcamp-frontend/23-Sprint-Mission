@@ -50,7 +50,7 @@ const LandingBannerLayout = ({ children, className }) => {
   );
 };
 
-const LandingBannerText = ({ children, className }) => {
+const LandingBannerText = ({ children }) => {
   return (
     <div className="flex flex-col items-center space-y-4.5 px-10 text-center lg:items-start lg:text-left lg:px-0 lg:mb-8">
       {children}
