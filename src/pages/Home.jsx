@@ -1,3 +1,4 @@
+// Components
 import Features from "../components/home/Features";
 import { LandingBottom, LandingTop } from "../components/home/LandingBanner";
 
