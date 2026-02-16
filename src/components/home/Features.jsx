@@ -1,3 +1,4 @@
+// Imges
 import feature1 from "../../assets/features/feature_img1.svg";
 import feature2 from "../../assets/features/feature_img2.svg";
 import feature3 from "../../assets/features/feature_img3.svg";
