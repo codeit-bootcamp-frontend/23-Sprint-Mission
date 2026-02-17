@@ -6,12 +6,14 @@ import "./index.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/footer";
+import LoginPage from "./pages/Login";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Header />
     <Routes>
       <Route index element={<Home />} />
+      <Route path="login" element={<LoginPage />} />
     </Routes>
     <Footer />
   </BrowserRouter>,
