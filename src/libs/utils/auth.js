@@ -48,6 +48,6 @@ export const isSignupFormValid = (values) => {
     checkEmail(values.email) &&
     checkNickname(values.nickname) &&
     checkPassword(values.password) &&
-    checkPasswordMatch(values.passwordConfirm)
+    checkPasswordMatch(values.password, values.passwordConfirm)
   );
 };
