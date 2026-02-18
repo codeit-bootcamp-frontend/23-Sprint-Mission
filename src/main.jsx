@@ -2,11 +2,14 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import "./index.css";
 
-// Components
+// Layout
 import Header from "./components/Header";
-import Home from "./pages/Home";
 import Footer from "./components/footer";
+
+// Pages
+import Home from "./pages/Home";
 import LoginPage from "./pages/Login";
+import SignupPage from "./pages/Signup";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -14,6 +17,7 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route index element={<Home />} />
       <Route path="login" element={<LoginPage />} />
+      <Route path="signup" element={<SignupPage />} />
     </Routes>
     <Footer />
   </BrowserRouter>,
