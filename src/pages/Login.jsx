@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 // Components
 import AuthLayout from "../components/auth/AuthLayout";
@@ -13,7 +14,6 @@ import {
   getEmailErrorMessage,
   getPasswordErrorMessage,
 } from "../libs/utils/auth";
-import { useNavigate } from "react-router";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ export default function LoginPage() {
         />
 
         <SubmitBtn disabled={!isFormValid}>로그인</SubmitBtn>
-        
+
         <SocialLogin />
         <AuthFooter type="login" />
       </form>
