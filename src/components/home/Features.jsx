@@ -28,7 +28,7 @@ export default function Features() {
         tag="Search"
         title={
           <>
-            구매를 원하는 상품을 <br className="hidden lg:block" /> 검색하세요
+            구매를 원하는 <br className="hidden lg:block" /> 상품을 검색하세요
           </>
         }
         description={
@@ -44,7 +44,7 @@ export default function Features() {
         tag="Register"
         title={
           <>
-            판매를 원하는 상품을 <br className="hidden lg:block" /> 등록하세요
+            판매를 원하는 <br className="hidden lg:block" /> 상품을 등록하세요
           </>
         }
         description={
@@ -83,7 +83,7 @@ const FeatureItem = ({
       <div
         className={`
         flex flex-col w-full 
-        ${reverse ? "items-end text-right lg:pl-6 lg:pr-0" : "items-start text-left lg:pr-6 lg:pl-0"}
+        ${reverse ? "items-end text-right lg:pr-0" : "items-start text-left lg:pl-0"}
       `}
       >
         <FeatureTag>{tag}</FeatureTag>
@@ -101,7 +101,7 @@ const FeatureTag = ({ children }) => (
 );
 
 const FeatureTitle = ({ children }) => (
-  <h2 className="font-bold text-[24px] leading-8 lg:leading-[140%] lg:text-[40px] text-gray-700 break-keep mb-2 lg:mb-6">
+  <h2 className="font-bold text-[24px] leading-8 lg:leading-[140%] lg:text-[40px] lg:tracking-[2%] text-gray-700 break-keep mb-2 lg:mb-6">
     {children}
   </h2>
 );
