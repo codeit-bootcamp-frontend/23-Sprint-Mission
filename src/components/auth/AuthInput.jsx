@@ -4,7 +4,13 @@ import { useState } from "react";
 import openedEye from "../../assets/btn/btn_visibility_on_24px.svg";
 import closedEye from "../../assets/btn/btn_visibility_off_24px.svg";
 
-export const AuthInput = ({ id, label, type = "text", error, ...props }) => {
+export default function AuthInput({
+  id,
+  label,
+  type = "text",
+  error,
+  ...props
+}) {
   const [isVisible, setIsVisible] = useState(false);
   const isPasswordType = type === "password";
 
@@ -37,9 +43,9 @@ export const AuthInput = ({ id, label, type = "text", error, ...props }) => {
       </div>
     </div>
   );
-};
+}
 
-export const PasswordEye = ({ isVisible, setIsVisible }) => {
+const PasswordEye = ({ isVisible, setIsVisible }) => {
   return (
     <button
       type="button"
@@ -54,7 +60,7 @@ export const PasswordEye = ({ isVisible, setIsVisible }) => {
   );
 };
 
-export const ErrMsg = ({ message }) => {
+const ErrMsg = ({ message }) => {
   return (
     <span className="font-semibold text-sm leading-6 mt-2.5 pl-4 text-[#f74747] text-left">
       {message}
