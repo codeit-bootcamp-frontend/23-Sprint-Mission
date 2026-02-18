@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 // Components
 import AuthLayout from "../components/auth/AuthLayout";
-import { AuthInput } from "../components/auth/AuthInput";
+import AuthInput from "../components/auth/AuthInput";
 import SubmitBtn from "../components/btns/SubmitBtn";
 import SocialLogin from "../components/auth/SocialLogin";
 import AuthFooter from "../components/auth/AuthFooter";
