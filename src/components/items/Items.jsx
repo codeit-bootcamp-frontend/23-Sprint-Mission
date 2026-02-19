@@ -1,3 +1,6 @@
+// Imges
+import SearchIcon from "../../assets/icons/ic_search.svg";
+
 // Components
 import LinkBtn from "../btns/LinkBtn";
 import ItemCard from "./ItemCard";
@@ -13,22 +16,14 @@ export default function Items({ label, itemData }) {
         <div className="flex justify-between items-center mb-4 md:mb-0 md:shrink-0">
           <Label label={label} />
 
-          {isAllProducts && (
-            <div className="md:hidden">
-              <RegistrationBtn />
-            </div>
-          )}
+          {isAllProducts && <RegistrationBtn className="md:hidden" />}
         </div>
 
         {isAllProducts && (
           <div className="flex items-center gap-2.5 md:flex-1 md:justify-end md:gap-4">
-            <div className="flex-1 md:max-w-100">
-              <SearchInput />
-            </div>
+            <SearchInput />
 
-            <div className="hidden md:block">
-              <RegistrationBtn />
-            </div>
+            <RegistrationBtn className="hidden md:flex" />
 
             <ItemSortBtn />
           </div>
@@ -47,19 +42,23 @@ const Label = ({ label }) => (
 );
 
 const SearchInput = () => (
-  <div className="relative w-full">
+  <form className="relative w-full md:w-60.5 lg:w-81.25">
+    <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+      <img src={SearchIcon} alt="검색" />
+    </div>
+
     <input
       type="text"
       placeholder="검색할 상품을 입력해주세요"
-      className="px-4 w-full h-10.5 bg-gray-100 rounded-xl text-[16px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-primary transition-all"
+      className="pl-11 pr-4 w-full h-10.5 bg-gray-100 rounded-xl text-[16px] text-gray-800 placeholder:text-gray-400 outline-none focus:ring-1 focus:ring-primary transition-all"
     />
-  </div>
+  </form>
 );
 
-const RegistrationBtn = () => (
+const RegistrationBtn = ({ className }) => (
   <LinkBtn
     href="/additem"
-    className="w-33.25 h-10.5 bg-primary rounded-lg text-[16px]"
+    className={`w-33.25 h-10.5 bg-primary rounded-lg text-[16px] ${className}`}
   >
     상품 등록하기
   </LinkBtn>
