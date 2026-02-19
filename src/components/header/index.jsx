@@ -18,7 +18,7 @@ export default function Header() {
       maxWidth={isMainPage ? INDEX_HEADER_MAX_WIDTH : ANOTHER_HEADER_MAX_WIDTH}
     >
       <div className="flex items-center gap-2 md:gap-10">
-        <Logo />
+        <Logo isMainPage={isMainPage} />
         {!isMainPage && <NavLinks />}
       </div>
 
