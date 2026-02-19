@@ -2,7 +2,7 @@
 import HeartIcon from "../../assets/icons/ic_heart.svg";
 
 const ITEM_WIDTHS = {
-  ALL: "shrink-0 w-[calc(48%-8px)] md:w-[calc(32.5%-10.7px)] lg:w-[calc(20%-12.8px)]",
+  ALL: "shrink-0 w-[calc(46%-8px)] md:w-[calc(32.5%-10.7px)] lg:w-[calc(20%-12.8px)]",
   BEST: "shrink-0 w-[95%] md:w-[calc(49%-10.7px)] lg:w-[calc(20%-12.8px)]",
 };
 
