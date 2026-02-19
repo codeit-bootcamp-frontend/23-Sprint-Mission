@@ -1,7 +1,15 @@
-export default function MainLayout({ children }) {
+import { Outlet } from "react-router";
+
+// Components
+import Header from "../Header";
+import Footer from "../footer";
+
+export default function MainLayout() {
   return (
-    <main className="px-6 py-12 flex flex-col items-center justify-center space-y-20 lg:space-y-40">
-      {children}
-    </main>
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
   );
 }

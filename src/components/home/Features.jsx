@@ -2,11 +2,10 @@
 import feature1 from "../../assets/features/feature_img1.svg";
 import feature2 from "../../assets/features/feature_img2.svg";
 import feature3 from "../../assets/features/feature_img3.svg";
-import MainLayout from "../layout/MainLayout";
 
 export default function Features() {
   return (
-    <MainLayout>
+    <FeatureContainer>
       <FeatureItem
         imageSrc={feature1}
         tag="Hot Item"
@@ -54,9 +53,17 @@ export default function Features() {
           </>
         }
       />
-    </MainLayout>
+    </FeatureContainer>
   );
 }
+
+const FeatureContainer = ({ children }) => {
+  return (
+    <main className="px-6 py-12 flex flex-col items-center justify-center space-y-20 lg:space-y-40">
+      {children}
+    </main>
+  );
+};
 
 const FeatureItem = ({
   imageSrc,

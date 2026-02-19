@@ -1,5 +1,6 @@
 // Components
-import FooterLayout from "../layout/FooterLayout";
+import FooterLayout from "./FooterLayout";
+import FooterContainer from "./FooterContainer";
 import FooterCopyright from "./FooterCopyright";
 import FooterLinks from "./FooterLinks";
 import FooterSNS from "./FooterSNS";
@@ -19,11 +20,3 @@ export default function Footer() {
     </FooterLayout>
   );
 }
-
-const FooterContainer = ({ children }) => {
-  return (
-    <div className="flex flex-wrap items-center justify-between w-full max-w-280 px-8 md:justify-around lg:justify-between lg:px-6">
-      {children}
-    </div>
-  );
-};
