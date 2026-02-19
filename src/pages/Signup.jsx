@@ -34,16 +34,12 @@ export default function SignupPage() {
     passwordConfirm: "",
   });
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     const { id, value } = e.target;
     setValues((prev) => ({ ...prev, [id]: value }));
-
-    if (errors[id]) {
-      setErrors((prev) => ({ ...prev, [id]: "" }));
-    }
   };
 
-  const handleBlur = (e) => {
+  const handleInputBlur = (e) => {
     const { id, value } = e.target;
     let errorMsg = "";
 
@@ -74,8 +70,8 @@ export default function SignupPage() {
           type="email"
           placeholder="이메일을 입력해주세요"
           value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
           error={errors.email}
         />
 
@@ -84,8 +80,8 @@ export default function SignupPage() {
           label="닉네임"
           placeholder="닉네임을 입력해주세요"
           value={values.nickname}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
           error={errors.nickname}
         />
 
@@ -95,8 +91,8 @@ export default function SignupPage() {
           type="password"
           placeholder="비밀번호를 입력해주세요"
           value={values.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
           error={errors.password}
         />
 
@@ -106,8 +102,8 @@ export default function SignupPage() {
           type="password"
           placeholder="비밀번호를 다시 입력해주세요"
           value={values.passwordConfirm}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
           error={errors.passwordConfirm}
         />
 

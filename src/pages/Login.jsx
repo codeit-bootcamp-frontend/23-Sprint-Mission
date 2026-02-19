@@ -28,12 +28,12 @@ export default function LoginPage() {
     password: "",
   });
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     const { id, value } = e.target;
     setValues((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleBlur = (e) => {
+  const handleInputBlur = (e) => {
     const { id, value } = e.target;
     let errorMsg = "";
 
@@ -59,8 +59,8 @@ export default function LoginPage() {
           type="email"
           placeholder="이메일을 입력해주세요"
           value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
           error={errors.email}
         />
 
@@ -70,8 +70,8 @@ export default function LoginPage() {
           type="password"
           placeholder="비밀번호를 입력해주세요"
           value={values.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
           error={errors.password}
         />
 
