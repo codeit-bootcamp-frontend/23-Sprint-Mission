@@ -1,5 +1,5 @@
 // Components
-import PrimaryBtn from "../btns/PrimaryBtn";
+import LinkBtn from "../btns/LinkBtn";
 import ItemCard from "./ItemCard";
 import ItemSortBtn from "./ItemSortBtn";
 
@@ -57,5 +57,10 @@ const SearchInput = () => (
 );
 
 const RegistrationBtn = () => (
-  <PrimaryBtn className="w-33.25 h-10.5">상품 등록하기</PrimaryBtn>
+  <LinkBtn
+    href="/additem"
+    className="w-33.25 h-10.5 bg-primary rounded-lg text-[16px]"
+  >
+    상품 등록하기
+  </LinkBtn>
 );
