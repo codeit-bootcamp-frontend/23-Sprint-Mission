@@ -6,12 +6,17 @@ const instance = axios.create({
   baseURL: BASE_URL,
 });
 
-export const getProducts = async (pageSize = 10, orderBy = "recent") => {
+export const getProducts = async (
+  pageSize = 10,
+  orderBy = "recent",
+  page = 1,
+) => {
   try {
     const response = await instance.get("/products", {
       params: {
         pageSize,
         orderBy,
+        page,
       },
     });
     return response.data;
