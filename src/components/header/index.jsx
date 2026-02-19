@@ -17,7 +17,7 @@ export default function Header() {
     <HeaderLayout
       maxWidth={isMainPage ? INDEX_HEADER_MAX_WIDTH : ANOTHER_HEADER_MAX_WIDTH}
     >
-      <div className="flex items-center gap-6 md:gap-10">
+      <div className="flex items-center gap-2 md:gap-10">
         <Logo />
         {!isMainPage && <NavLinks />}
       </div>
