@@ -63,7 +63,7 @@ const LargeSortBtn = ({ onClick, selected }) => {
   return (
     <button
       onClick={onClick}
-      className="hidden md:flex items-center justify-between gap-2 h-10.5 px-4 bg-white border border-gray-200 rounded-xl min-w-25 md:min-w-30 transition-all hover:bg-gray-50"
+      className="hidden md:flex items-center justify-between gap-2 h-10.5 px-4 bg-white border border-gray-200 rounded-xl min-w-25 md:min-w-30 transition-all hover:bg-gray-50 cursor-pointer"
     >
       <span className="hidden md:block text-[14px] font-medium text-gray-800">
         {selected}
