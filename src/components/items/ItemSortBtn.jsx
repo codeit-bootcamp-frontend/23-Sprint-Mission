@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router";
 
-// Components
+// Imges
 import sortBtn from "../../assets/btn/btn_sort.svg";
 import arrowDown from "../../assets/icons/ic_arrow_down.svg";
+
+// Components
 import SelectModal from "./SelectModal";
 
 export default function ItemSortBtn() {
