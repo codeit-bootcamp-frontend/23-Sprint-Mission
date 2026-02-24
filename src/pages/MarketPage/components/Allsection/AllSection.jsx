@@ -15,9 +15,14 @@ function calculateAllSize() {
   return 10;
 }
 
+const ORDER_OPTIONS = [
+  { value: "recent", label: "최신순" },
+  { value: "favorite", label: "좋아요순" },
+];
+
 export default function AllSection() {
   const [items, setItems] = useState([]);
-  const [orderBy, setOrderBy] = useState("recent");
+  const [orderBy, setOrderBy] = useState(ORDER_OPTIONS.value);
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(calculateAllSize());
@@ -26,19 +31,19 @@ export default function AllSection() {
   const [isOpen, setIsOpen] = useState(false); // 드롭다운 열림 상태
 
   /* 상품 요청 */
-  const fetchProducts = async () => {
-    const result = await getProducts({
-      orderBy,
-      keyword,
-      page,
-      pageSize,
-    });
-
-    setItems(result.list);
-    setTotalCount(result.totalCount);
-  };
 
   useEffect(() => {
+    const fetchProducts = async () => {
+      const result = await getProducts({
+        orderBy,
+        keyword,
+        page,
+        pageSize,
+      });
+  
+      setItems(result.list);
+      setTotalCount(result.totalCount);
+    };
     fetchProducts();
   }, [orderBy, keyword, page, pageSize]);
 
@@ -77,7 +82,7 @@ export default function AllSection() {
             <img src={searchIcon} alt="검색" className="searchIcon" />
 
             <input
-              type="text"
+              type="search"
               placeholder="검색할 상품을 입력해주세요"
               value={keyword}
               onChange={(e) => {
