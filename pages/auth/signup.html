@@ -26,10 +26,12 @@
           <div class="auth-form-input-wrapper">
             <label for="signup-email">이메일</label>
             <input id="signup-email" class="auth-form-input" type="email" />
+            <span class="error-message" id="signup-email-error"></span>
           </div>
           <div class="auth-form-input-wrapper">
             <label for="signup-nickname">닉네임</label>
             <input id="signup-nickname" class="auth-form-input" type="text" />
+            <span class="error-message" id="signup-nickname-error"></span>
           </div>
           <div class="auth-form-input-wrapper">
             <label for="signup-password">비밀번호</label>
@@ -41,12 +43,12 @@
               />
               <button
                 type="button"
-                class="auth-form-input-icon"
-                arial-label="비밀번호 보기"
+                class="auth-form-input-icon password-toggle"
               >
                 <img src="/assets/icons/btn-visibility-on.svg" alt="보기" />
               </button>
             </div>
+            <span class="error-message" id="signup-password-error"></span>
           </div>
           <div class="auth-form-input-wrapper">
             <label for="signup-password-check">비밀번호 확인</label>
@@ -58,14 +60,16 @@
               />
               <button
                 type="button"
-                class="auth-form-input-icon"
-                arial-label="비밀번호 숨기기"
+                class="auth-form-input-icon password-toggle"
               >
                 <img src="/assets/icons/btn-visibility-off.svg" alt="숨기기" />
               </button>
             </div>
+            <span class="error-message" id="signup-password-check-error"></span>
           </div>
-          <button type="submit" class="auth-button">회원가입</button>
+          <button type="submit" class="auth-button" id="signup-button" disabled>
+            회원가입
+          </button>
           <div class="login-social">
             <div class="login-social-label">간편 로그인하기</div>
             <div class="login-social-buttons">
@@ -100,5 +104,6 @@
         </div>
       </section>
     </main>
+    <script type="module" src="../../scripts/auth/signup.js"></script>
   </body>
 </html>
