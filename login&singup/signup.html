@@ -17,14 +17,36 @@
       <div class="contents-container">
         <form class="input-wrapper">
           <label class="labels" for="email">이메일</label>
-          <input name="email" class="inputs" id="email" type="email" />
+          <input
+            name="email"
+            class="inputs"
+            id="email"
+            type="email"
+            autofocus
+            required
+            placeholder="이메일을 입력해주세요"
+          />
 
           <label class="labels" for="name">닉네임</label>
-          <input name="name" class="inputs" id="name" type="text" />
+          <input
+            name="name"
+            class="inputs"
+            id="name"
+            type="text"
+            required
+            placeholder="닉네임을 입력해주세요"
+          />
 
           <label class="labels" for="pwd">비밀번호</label>
           <div class="password-wrapper">
-            <input name="pwd" class="inputs" id="pwd" type="password" />
+            <input
+              name="pwd"
+              class="inputs"
+              id="pwd"
+              type="password"
+              required
+              placeholder="비밀번호를 입력해주세요"
+            />
             <button type="button" class="visibility">
               <img
                 src="../assets/images/Img_visibility.svg"
@@ -35,7 +57,14 @@
 
           <label class="labels" for="check">비밀번호 확인</label>
           <div class="password-wrapper">
-            <input name="check" class="inputs" id="check" type="password" />
+            <input
+              name="check"
+              class="inputs"
+              id="check"
+              type="password"
+              required
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+            />
             <button type="button" class="visibility">
               <img
                 src="../assets/images/Img_visibility2.svg"
@@ -61,7 +90,7 @@
 
         <p class="footer-wrapper">
           이미 회원이신가요?
-          <a class="signupOrLogin" href="./login.html">로그인</a>
+          <a class="signup-or-login" href="./login.html">로그인</a>
         </p>
       </div>
     </section>
