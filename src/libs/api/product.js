@@ -10,6 +10,7 @@ export const getProducts = async (
   pageSize = 10,
   orderBy = "recent",
   page = 1,
+  keyword,
 ) => {
   try {
     const response = await instance.get("/products", {
@@ -17,6 +18,7 @@ export const getProducts = async (
         pageSize,
         orderBy,
         page,
+        keyword,
       },
     });
     return response.data;

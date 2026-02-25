@@ -23,6 +23,8 @@ export default function ItemsPage() {
 
   const currentOrder = searchParams.get("orderBy") || "recent";
 
+  const keyword = searchParams.get("keyword") || "";
+
   useEffect(() => {
     const loadAllData = async () => {
       try {
@@ -30,7 +32,7 @@ export default function ItemsPage() {
 
         const [bestData, recentData] = await Promise.all([
           getProducts(BEST_PAGE_SIZE, "favorite"),
-          getProducts(PAGE_SIZE, currentOrder, currentPage),
+          getProducts(PAGE_SIZE, currentOrder, currentPage, keyword),
         ]);
 
         setBestProductsData(bestData);
@@ -43,7 +45,7 @@ export default function ItemsPage() {
     };
 
     loadAllData();
-  }, [currentPage, currentOrder]);
+  }, [currentPage, currentOrder, keyword]);
 
   if (loading) {
     return <div className="min-h-313.5"></div>;
