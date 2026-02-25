@@ -8,19 +8,19 @@ import arrowDown from "../../assets/icons/ic_arrow_down.svg";
 // Components
 import SelectModal from "./SelectModal";
 
+const OPTIONS = [
+  { label: "최신순", value: "recent" },
+  { label: "좋아요순", value: "favorite" },
+];
+
 export default function ItemSortBtn() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentOrder = searchParams.get("orderBy") || "recent";
 
-  const options = [
-    { label: "최신순", value: "recent" },
-    { label: "좋아요순", value: "favorite" },
-  ];
-
   const selectedLabel =
-    options.find((option) => option.value === currentOrder)?.label || "최신순";
+    OPTIONS.find((option) => option.value === currentOrder)?.label || "최신순";
 
   const handleSortChange = (newOrder) => {
     searchParams.set("orderBy", newOrder);
@@ -40,7 +40,7 @@ export default function ItemSortBtn() {
 
       {isOpen && (
         <SelectModal
-          options={options}
+          options={OPTIONS}
           selected={currentOrder}
           onSelect={handleSortChange}
           setIsOpen={setIsOpen}
