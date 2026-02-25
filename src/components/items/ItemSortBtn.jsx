@@ -31,10 +31,10 @@ export default function ItemSortBtn() {
 
   return (
     <div className="shrink-0 relative">
-      <MobileSortBtn onClick={() => setIsOpen(!isOpen)} />
+      <MobileSortBtn onClick={() => setIsOpen((prev) => !prev)} />
 
       <LargeSortBtn
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen((prev) => !prev)}
         selected={selectedLabel}
       />
 
