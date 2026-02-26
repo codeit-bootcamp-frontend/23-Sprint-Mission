@@ -46,8 +46,8 @@ export default function ItemsPage() {
   }, [currentPage, currentOrder, keyword]);
 
   const totalCount = productsData.totalCount || 0;
-  const currentSize = getPageSizes().all;
-  const totalPage = Math.ceil(totalCount / currentSize);
+  const { ALL_PAGE_SIZE } = getPageSizes();
+  const totalPage = Math.ceil(totalCount / ALL_PAGE_SIZE);
 
   if (loading) {
     return <div className="min-h-313.5"></div>;
