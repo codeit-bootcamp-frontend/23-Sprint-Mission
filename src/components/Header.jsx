@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "../../src/assets/logo.svg"; // 로고 이미지 import
 import { Link, NavLink } from "react-router-dom"; // 페이지 이동용 컴포넌트
 import "./Header.css";
