@@ -1,0 +1,78 @@
+.selectTrigger {
+  background-color: var(--bg-white);
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--secondary-200);
+  color: var(--secondary-800);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 130px;
+  height: 42px;
+
+  font-size: 16px;
+  font-family: Pretendard;
+  font-weight: 400;
+}
+.selectWrapper {
+  position: relative;
+  user-select: none;
+}
+
+.optionList {
+  position: absolute;
+  width: 100%;
+  background-color: var(--bg-white);
+  color: var(--secondary-800);
+  border: 1px solid var(--secondary-200);
+  list-style: none;
+  text-align: center;
+  top: calc(100% + 4px);
+  border-radius: 12px;
+}
+
+.optionItem {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Pretendard;
+  font-weight: 400;
+}
+.optionItem:not(:last-child) {
+  border-bottom: 1px solid var(--secondary-200);
+}
+
+.mobileSortIcon {
+  display: none;
+}
+
+@media (max-width: 773px) {
+  .label {
+    display: none;
+  }
+
+  .arrowIcon {
+    display: none;
+  }
+
+  .mobileSortIcon {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .selectTrigger {
+    padding: 9px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .optionList {
+    width: 130px;
+    right: 0px;
+  }
+}

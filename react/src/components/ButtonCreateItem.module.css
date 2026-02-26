@@ -1,0 +1,9 @@
+.createBtn {
+  background-color: var(--primary-100);
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  color: var(--secondary-100);
+  width: 133px;
+  height: 42px;
+}

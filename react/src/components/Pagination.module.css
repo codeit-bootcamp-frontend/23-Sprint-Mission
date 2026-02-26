@@ -1,0 +1,41 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 4px;
+  margin-top: 43px;
+  margin-bottom: 58px;
+}
+
+.pageItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--secondary-200);
+  font: var(--font-SemiBold16);
+  color: var(--secondary-500);
+  background-color: var(--bg-white);
+  border-radius: 100%;
+  user-select: none;
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--primary-100);
+  color: var(--secondary-100);
+}
+.arrowBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border: 1px solid var(--secondary-200);
+  background-color: var(--bg-white);
+  border-radius: 100%;
+  cursor: pointer;
+  user-select: none;
+}

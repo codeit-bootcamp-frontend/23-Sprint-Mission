@@ -1,0 +1,39 @@
+.searchBox {
+  display: flex;
+  position: relative;
+}
+.searchImg {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translate(0, -50%);
+}
+.input {
+  height: 42px;
+  width: 325px;
+  padding: 9px 16px 9px 42px;
+  background-color: var(--secondary-100);
+  border: none;
+  border-radius: 12px;
+}
+.input:focus {
+  outline: 1px solid var(--primary-100);
+}
+
+@media (min-width: 774px) and (max-width: 1200px) {
+  .input {
+    width: 242px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 773px) {
+  .input {
+    width: 288px;
+  }
+}
+
+@media (max-width: 375px) {
+  .input {
+    width: 288px;
+  }
+}

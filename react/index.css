@@ -1,0 +1,59 @@
+:root {
+  --primary-100: #3692ff;
+  --primary-200: #1967d6;
+  --primary-300: #1251aa;
+
+  --error: #f74747;
+  --bg-blue: #cfe5ff;
+  --bg-gray: #fcfcfc;
+  --bg-white: #ffffff;
+
+  --secondary-50: #f9fafb;
+  --secondary-100: #f3f4f6;
+  --secondary-200: #e5e7eb;
+  --secondary-400: #9ca3af;
+  --secondary-500: #6b7280;
+  --secondary-600: #4b5563;
+  --secondary-700: #374151;
+  --secondary-800: #1f2937;
+  --secondary-900: #111827;
+
+  --font-main: "Pretendard", sans-serif;
+
+  --font-Bold32: 700 32px/42px var(--font-main);
+  --font-Semibold32: 600 32px/42px var(--font-main);
+  --font-Bold24: 700 24px/32px var(--font-main);
+  --font-Semibold24: 600 24px/32px var(--font-main);
+  --font-Medium24: 500 24px/32px var(--font-main);
+  --font-Regular24: 400 24px/32px var(--font-main);
+  --font-Bold20: 700 20px/32px var(--font-main);
+  --font-Semibold20: 600 20px/32px var(--font-main);
+  --font-Medium20: 500 20px/32px var(--font-main);
+  --font-Regular20: 400 20px/32px var(--font-main);
+  --font-Bold18: 700 18px/26px var(--font-main);
+  --font-Semibold18: 600 18px/26px var(--font-main);
+  --font-Medium18: 500 18px/26px var(--font-main);
+  --font-Regular18: 400 18px/26px var(--font-main);
+  --font-Bold16: 700 16px/26px var(--font-main);
+  --font-Semibold16: 600 16px/26px var(--font-main);
+  --font-Medium16: 500 16px/26px var(--font-main);
+  --font-Regular16: 400 16px/26px var(--font-main);
+  --font-Bold14: 700 14px/24px var(--font-main);
+  --font-Semibold14: 600 14px/24px var(--font-main);
+  --font-Medium14: 500 14px/24px var(--font-main);
+  --font-Regular14: 400 14px/24px var(--font-main);
+  --font-Semibold13: 600 13px/22px var(--font-main);
+  --font-Medium13: 500 13px/22px var(--font-main);
+  --font-Semibold12: 600 12px/20px var(--font-main);
+  --font-Medium12: 500 12px/18px var(--font-main);
+  --font-Regular12: 400 12px/18px var(--font-main);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fcfcfc;
+}

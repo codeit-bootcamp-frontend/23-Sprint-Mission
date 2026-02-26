@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #dfdfdf;
+  background-color: #ffffff;
+  width: 100%;
+}
+.contents {
+  width: 1520px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 24px;
+}
