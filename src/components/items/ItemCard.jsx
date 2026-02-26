@@ -1,40 +1,27 @@
 // Imges
 import HeartIcon from "../../assets/icons/ic_heart.svg";
 
-const ITEM_WIDTHS = {
-  ALL: "shrink-0 w-[calc(46%-8px)] md:w-[calc(30%-10.7px)] lg:w-[calc(20%-12.8px)]",
-  BEST: "shrink-0 w-[90%] md:w-[calc(47%-10.7px)] lg:w-[calc(25%-12.8px)]",
-};
-
 export default function ItemCard({ itemList, label }) {
-  const isAllProducts = label === "전체 상품";
-  const itemWidth = isAllProducts ? ITEM_WIDTHS.ALL : ITEM_WIDTHS.BEST;
-
-  const half = Math.ceil(itemList.length / 2);
-  const rows = isAllProducts
-    ? [itemList.slice(0, half), itemList.slice(half)]
-    : [itemList];
+  const isBest = label === "베스트 상품";
 
   return (
-    <div className="overflow-x-auto no-scrollbar">
-      <div className="flex flex-col gap-y-6">
-        {rows.map((rowItems, i) => (
-          <ProductRow key={i} items={rowItems} widthClass={itemWidth} />
+    <section className="w-full">
+      <div
+        className={`grid gap-y-6 md:gap-y-10 gap-x-2 md:gap-x-4 ${
+          isBest
+            ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+            : "grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        }`}
+      >
+        {itemList.map((item) => (
+          <div key={item.id} className="w-full">
+            <Item {...item} isBest={isBest} />
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
-
-const ProductRow = ({ items, widthClass }) => (
-  <div className="flex gap-x-4">
-    {items.map((item) => (
-      <div key={item.id} className={widthClass}>
-        <Item {...item} />
-      </div>
-    ))}
-  </div>
-);
 
 const Item = ({ images, name, price, favoriteCount }) => (
   <div className="group cursor-pointer flex flex-col h-full">
