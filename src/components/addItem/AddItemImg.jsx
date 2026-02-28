@@ -2,9 +2,7 @@ import { useState, useRef } from "react";
 
 // Imges
 import addItemImg from "../../assets/additem_img.svg";
-
-// Components
-import HeadingText from "./HeadingText";
+import AddItemInput from "./AddItemInput";
 
 const ERROR_MSG = "*이미지 등록은 최대 1개까지 가능합니다.";
 
@@ -40,9 +38,16 @@ export default function AddItemImg() {
 
   return (
     <section className="space-y-4">
-      <HiddenInput ref={fileInputRef} onChange={handleImageChange} />
-
-      <HeadingText level={2}>상품 이미지</HeadingText>
+      <AddItemInput
+        id="addItemImg"
+        label="상품 이미지"
+        type="file"
+        accept="image/*"
+        name="addItemImg"
+        ref={fileInputRef}
+        onChange={handleImageChange}
+        className="hidden"
+      />
 
       <ImgContainer
         previewUrl={previewUrl}
@@ -54,16 +59,6 @@ export default function AddItemImg() {
     </section>
   );
 }
-
-const HiddenInput = ({ ref, onChange }) => (
-  <input
-    type="file"
-    accept="image/*"
-    className="hidden"
-    ref={ref}
-    onChange={onChange}
-  />
-);
 
 const ImgContainer = ({ previewUrl, onUploadClick, onDelete }) => {
   return (
