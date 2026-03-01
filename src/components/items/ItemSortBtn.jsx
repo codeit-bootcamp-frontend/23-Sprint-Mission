@@ -31,7 +31,10 @@ export default function ItemSortBtn() {
 
   return (
     <div className="shrink-0 relative">
-      <MobileSortBtn onClick={() => setIsOpen((prev) => !prev)} />
+      <MobileSortBtn
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+      />
 
       <LargeSortBtn
         onClick={() => setIsOpen((prev) => !prev)}
@@ -50,10 +53,11 @@ export default function ItemSortBtn() {
   );
 }
 
-const MobileSortBtn = ({ onClick }) => {
+const MobileSortBtn = ({ onClick, "aria-expanded": ariaExpanded }) => {
   return (
     <button
       onClick={onClick}
+      aria-expanded={ariaExpanded}
       className="md:hidden flex items-center justify-center"
     >
       <img src={sortBtn} alt="정렬 아이콘" />
