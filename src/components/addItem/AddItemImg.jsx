@@ -6,7 +6,7 @@ import AddItemInput from "./AddItemInput";
 
 const ERROR_MSG = "*이미지 등록은 최대 1개까지 가능합니다.";
 
-export default function AddItemImg() {
+export default function AddItemImg({ onImageChange }) {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const fileInputRef = useRef(null);
@@ -21,10 +21,11 @@ export default function AddItemImg() {
       return;
     }
 
-    if (file) {
-      if (previewUrl) URL.revokeObjectURL(previewUrl);
-      setPreviewUrl(URL.createObjectURL(file));
-    }
+    onImageChange(file);
+
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    setPreviewUrl(URL.createObjectURL(file));
+    setErrorMessage("");
 
     e.target.value = "";
   };
@@ -34,16 +35,17 @@ export default function AddItemImg() {
   const handleImgDelete = () => {
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     setPreviewUrl(null);
+    onImageChange(null);
   };
 
   return (
     <section className="space-y-4">
       <AddItemInput
-        id="addItemImg"
+        id="img"
         label="상품 이미지"
         type="file"
         accept="image/*"
-        name="addItemImg"
+        name="img"
         ref={fileInputRef}
         onChange={handleImageChange}
         className="hidden"
