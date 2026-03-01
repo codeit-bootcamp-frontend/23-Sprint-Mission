@@ -52,6 +52,11 @@
   color: var(--grey100);
   font-size: 20px;
 }
+
+button:disabled {
+  background-color: var(--grey400);
+}
+
 #simple-login {
   background-color: #e6f2ff;
   padding: 16px 24px;
