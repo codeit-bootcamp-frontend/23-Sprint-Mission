@@ -3,7 +3,7 @@ export default function SubmitBtn({ children, disabled, className }) {
     <button
       type="submit"
       disabled={disabled}
-      className={`disabled:bg-gray-400 disabled:cursor-not-allowed ${className}`}
+      className={` bg-primary disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer ${className}`}
     >
       {children}
     </button>

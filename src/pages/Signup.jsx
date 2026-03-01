@@ -109,7 +109,7 @@ export default function SignupPage() {
 
         <SubmitBtn
           disabled={!isFormValid}
-          className="w-full py-3 bg-primary text-gray-100 rounded-[40px] font-semibold text-xl leading-8 "
+          className="w-full py-3 text-gray-100 rounded-[40px] font-semibold text-xl leading-8 "
         >
           회원가입
         </SubmitBtn>
