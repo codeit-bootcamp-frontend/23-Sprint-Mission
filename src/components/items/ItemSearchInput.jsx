@@ -1,4 +1,6 @@
 import { useSearchParams, useNavigate } from "react-router";
+
+// Imges
 import SearchIcon from "../../assets/icons/ic_search.svg";
 
 export default function ItemSearchInput() {
