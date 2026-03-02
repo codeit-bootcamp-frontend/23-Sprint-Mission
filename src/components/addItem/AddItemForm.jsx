@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // Components
 import SubmitBtn from "../btns/SubmitBtn";
@@ -13,7 +13,7 @@ export default function AddItemForm() {
 
   const formRef = useRef(null);
 
-  useEffect(() => {
+  const validateForm = useCallback(() => {
     if (!formRef.current) return;
 
     const formData = new FormData(formRef.current);
@@ -22,9 +22,12 @@ export default function AddItemForm() {
     const price = formData.get("price")?.toString().trim();
 
     const isValid = !!(name && introduce && price && tags.length > 0);
-
     setIsFormValid(isValid);
   }, [tags]);
+
+  useEffect(() => {
+    validateForm();
+  }, [validateForm]);
 
   const handleAddItemSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +44,7 @@ export default function AddItemForm() {
   return (
     <form
       ref={formRef}
+      onChange={validateForm}
       onSubmit={handleAddItemSubmit}
       className="px-3.75 py-6 space-y-6"
     >
