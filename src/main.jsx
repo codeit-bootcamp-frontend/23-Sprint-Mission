@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import ItemsPage from "./pages/ItemsPage";
+import AddItem from "./pages/AddItem";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")).render(
       <Route element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="items" element={<ItemsPage />} />
+        <Route path="additem" element={<AddItem />} />
       </Route>
 
       <Route path="/login" element={<LoginPage />} />

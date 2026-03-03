@@ -9,8 +9,8 @@ import ItemsLayout from "../components/items/ItemsLayout";
 import Items from "../components/items/Items";
 import ItemPagination from "../components/items/ItemPagination";
 
-const BEST_PAGE_SIZE = 4;
-const PAGE_SIZE = 10;
+// Utils
+import { getPageSizes } from "../libs/utils/pagination";
 
 export default function ItemsPage() {
   const [loading, setLoading] = useState(false);
@@ -19,18 +19,18 @@ export default function ItemsPage() {
 
   const [searchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
-  const totalPage = Math.ceil((productsData.totalCount || 0) / PAGE_SIZE);
-
   const currentOrder = searchParams.get("orderBy") || "recent";
+  const keyword = searchParams.get("keyword") || "";
 
   useEffect(() => {
     const loadAllData = async () => {
       try {
         setLoading(true);
+        const { BEST_PAGE_SIZE, ALL_PAGE_SIZE } = getPageSizes();
 
         const [bestData, recentData] = await Promise.all([
           getProducts(BEST_PAGE_SIZE, "favorite"),
-          getProducts(PAGE_SIZE, currentOrder, currentPage),
+          getProducts(ALL_PAGE_SIZE, currentOrder, currentPage, keyword),
         ]);
 
         setBestProductsData(bestData);
@@ -43,7 +43,11 @@ export default function ItemsPage() {
     };
 
     loadAllData();
-  }, [currentPage, currentOrder]);
+  }, [currentPage, currentOrder, keyword]);
+
+  const totalCount = productsData.totalCount || 0;
+  const { ALL_PAGE_SIZE } = getPageSizes();
+  const totalPage = Math.ceil(totalCount / ALL_PAGE_SIZE);
 
   if (loading) {
     return <div className="min-h-313.5"></div>;

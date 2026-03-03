@@ -75,7 +75,12 @@ export default function LoginPage() {
           error={errors.password}
         />
 
-        <SubmitBtn disabled={!isFormValid}>로그인</SubmitBtn>
+        <SubmitBtn
+          disabled={!isFormValid}
+          className="w-full py-3 text-gray-100 rounded-[40px] font-semibold text-xl leading-8 "
+        >
+          로그인
+        </SubmitBtn>
 
         <SocialLogin />
         <AuthFooter type="login" />

@@ -8,19 +8,19 @@ import arrowDown from "../../assets/icons/ic_arrow_down.svg";
 // Components
 import SelectModal from "./SelectModal";
 
+const OPTIONS = [
+  { label: "최신순", value: "recent" },
+  { label: "좋아요순", value: "favorite" },
+];
+
 export default function ItemSortBtn() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentOrder = searchParams.get("orderBy") || "recent";
 
-  const options = [
-    { label: "최신순", value: "recent" },
-    { label: "좋아요순", value: "favorite" },
-  ];
-
   const selectedLabel =
-    options.find((option) => option.value === currentOrder)?.label || "최신순";
+    OPTIONS.find((option) => option.value === currentOrder)?.label || "최신순";
 
   const handleSortChange = (newOrder) => {
     searchParams.set("orderBy", newOrder);
@@ -31,16 +31,19 @@ export default function ItemSortBtn() {
 
   return (
     <div className="shrink-0 relative">
-      <MobileSortBtn onClick={() => setIsOpen(!isOpen)} />
+      <MobileSortBtn
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+      />
 
       <LargeSortBtn
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen((prev) => !prev)}
         selected={selectedLabel}
       />
 
       {isOpen && (
         <SelectModal
-          options={options}
+          options={OPTIONS}
           selected={currentOrder}
           onSelect={handleSortChange}
           setIsOpen={setIsOpen}
@@ -50,10 +53,11 @@ export default function ItemSortBtn() {
   );
 }
 
-const MobileSortBtn = ({ onClick }) => {
+const MobileSortBtn = ({ onClick, "aria-expanded": ariaExpanded }) => {
   return (
     <button
       onClick={onClick}
+      aria-expanded={ariaExpanded}
       className="md:hidden flex items-center justify-center"
     >
       <img src={sortBtn} alt="정렬 아이콘" />

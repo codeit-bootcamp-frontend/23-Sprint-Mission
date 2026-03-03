@@ -107,7 +107,12 @@ export default function SignupPage() {
           error={errors.passwordConfirm}
         />
 
-        <SubmitBtn disabled={!isFormValid}>회원가입</SubmitBtn>
+        <SubmitBtn
+          disabled={!isFormValid}
+          className="w-full py-3 text-gray-100 rounded-[40px] font-semibold text-xl leading-8 "
+        >
+          회원가입
+        </SubmitBtn>
 
         <SocialLogin />
         <AuthFooter type="signup" />
