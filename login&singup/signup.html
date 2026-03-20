@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="./login&signup.css" />
+
+    <script defer src="../index.js"></script>
   </head>
   <body>
     <section class="container">
@@ -17,20 +19,24 @@
       <div class="contents-container">
         <form class="input-wrapper">
           <label class="labels" for="email">이메일</label>
-          <input
-            name="email"
-            class="inputs"
-            id="email"
-            type="email"
-            autofocus
-            required
-            placeholder="이메일을 입력해주세요"
-          />
+          <div>
+            <input
+              name="email"
+              class="inputs email"
+              id="email"
+              type="email"
+              autofocus
+              required
+              placeholder="이메일을 입력해주세요"
+            />
+            <p class="type-email-msg">이메일을 입력해주세요.</p>
+            <p class="wrong-email-msg">잘못된 이메일입니다.</p>
+          </div>
 
           <label class="labels" for="name">닉네임</label>
           <input
             name="name"
-            class="inputs"
+            class="inputs email"
             id="name"
             type="text"
             required

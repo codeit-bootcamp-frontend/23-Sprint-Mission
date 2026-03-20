@@ -66,6 +66,24 @@ body {
   border: 2px solid #3182f6;
 }
 
+.input-error {
+  border: 2px solid var(--error);
+}
+
+.type-email-msg {
+  display: none;
+  color: var(--error);
+  padding-left: 16px;
+  margin-top: 10px;
+}
+
+.wrong-email-msg {
+  display: none;
+  color: var(--error);
+  padding-left: 16px;
+  margin-top: 10px;
+}
+
 .password-wrapper {
   position: relative;
 }
