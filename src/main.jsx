@@ -11,13 +11,17 @@ import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import ItemsPage from "./pages/ItemsPage";
 import AddItem from "./pages/AddItem";
+import ProductPage from "./pages/Product";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
       <Route element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path="items" element={<ItemsPage />} />
+        <Route path="items">
+          <Route index element={<ItemsPage />} />
+          <Route path=":productId" element={<ProductPage />} />
+        </Route>
         <Route path="additem" element={<AddItem />} />
       </Route>
 
