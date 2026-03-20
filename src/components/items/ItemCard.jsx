@@ -1,11 +1,12 @@
 // Imges
+import { Link } from "react-router";
 import HeartIcon from "../../assets/icons/ic_heart.svg";
 
 export default function ItemCard({ itemList, label }) {
   const isBest = label === "베스트 상품";
 
   return (
-    <section className="w-full">
+    <div className="w-full">
       <div
         className={`grid gap-y-6 md:gap-y-10 gap-x-2 md:gap-x-4 ${
           isBest
@@ -19,18 +20,21 @@ export default function ItemCard({ itemList, label }) {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
 
-const Item = ({ images, name, price, favoriteCount }) => (
-  <div className="group cursor-pointer flex flex-col h-full">
+const Item = ({ id, images, name, price, favoriteCount }) => (
+  <Link
+    to={`/items/${id}`}
+    className="group cursor-pointer flex flex-col h-full"
+  >
     <ProductImage src={images?.[0]} alt={name} />
     <div className="flex flex-col grow">
       <ProductInfo name={name} price={price} />
       <ProductStats count={favoriteCount} />
     </div>
-  </div>
+  </Link>
 );
 
 const ProductImage = ({ src, alt }) => (
