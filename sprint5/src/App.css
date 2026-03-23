@@ -39,23 +39,19 @@
 .profile {
   width: 40px;
   height: 40px;
-  margin-top: 15px;
   margin-left: auto; /* 오른쪽 끝 고정 */
+  padding: 15px 0;
 }
 
-/* 1. 375px 이상 (모바일) */
-@media (min-width: 375px) {
+/* 1. 375px ~ 743px (모바일) */
+@media (min-width: 376px) and (max-width: 743px) {
   .gnb-content {
     padding: 0 16px;
     gap: 10px;
   }
-}
 
-/* 2. 375px ~ 744px (중간) */
-@media (min-width: 376px) and (max-width: 743px) {
-  .gnb-content {
-    padding: 0 16px;
-    gap: 20px;
+  .profile {
+    padding-right: 0 16px;
   }
 }
 
@@ -65,6 +61,9 @@
     padding: 0 24px;
     gap: 20px;
   }
+  .profile {
+    padding-right: 0 24px;
+  }
 }
 
 /* 4. 1200px 이상 (데스크탑) */
@@ -72,5 +71,8 @@
   .gnb-content {
     padding: 0 200px; /* 1200px 이후부터 패딩 0 200px 고정 */
     gap: 30px;
+  }
+  .profile {
+    padding-right: 0 200px;
   }
 }
