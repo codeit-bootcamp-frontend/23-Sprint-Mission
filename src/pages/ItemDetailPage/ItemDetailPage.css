@@ -245,7 +245,61 @@
   color: #6b7280;
 }
 
-/* 아주 작은 모바일 */
+.itemBottomInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.sellerInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sellerProfile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  object-fit: cover;
+}
+
+.sellerText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sellerName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.sellerDate {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.favoriteBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.favoriteIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.favoriteCount {
+  font-size: 14px;
+}
+
+/* 모바일 */
 @media (max-width: 767px) {
   .itemDetailPage {
     padding-top: 16px;
@@ -256,7 +310,6 @@
     gap: 12px;
   }
 
-  /* 모바일 카드 크기 더 줄이기 */
   .itemImageBox {
     width: 140px;
     min-width: 140px;
