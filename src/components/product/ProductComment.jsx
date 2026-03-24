@@ -99,7 +99,10 @@ const CommentItem = ({ comment }) => {
 
         <div className="relative">
           <button
-            onClick={() => setIsMenuOpen((prev) => !prev)}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              setIsMenuOpen((prev) => !prev);
+            }}
             className="p-1 hover:bg-gray-100 rounded-full transition-colors"
           >
             <img src={KebabIcon} alt="메뉴" className="w-6 h-6" />
@@ -121,20 +124,17 @@ const EmptyState = () => (
 const DROPDOWN_TEXT_STYLE =
   "w-full px-4 py-2 text-xs md:text-sm hover:bg-gray-50 text-center";
 
-const DropdownMenu = forwardRef(({ onClose }, ref) => (
+const DropdownMenu = forwardRef((_props, ref) => (
   <div
     ref={ref}
     className="absolute right-0 top-8 w-20 md:w-24 bg-white border border-gray-100 rounded-lg shadow-lg z-10 overflow-hidden"
   >
     <button
       className={`${DROPDOWN_TEXT_STYLE} text-gray-600 border-b border-gray-50`}
-      onClick={onClose}
     >
       수정하기
     </button>
-    <button className={`${DROPDOWN_TEXT_STYLE} text-red-500`} onClick={onClose}>
-      삭제하기
-    </button>
+    <button className={`${DROPDOWN_TEXT_STYLE} text-red-500`}>삭제하기</button>
   </div>
 ));
 
