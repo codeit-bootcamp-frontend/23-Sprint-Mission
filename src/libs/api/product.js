@@ -27,3 +27,13 @@ export const getProducts = async (
     throw error;
   }
 };
+
+export const getProduct = async (itemId) => {
+  try {
+    const response = await instance.get(`/products/${itemId}`);
+    return response;
+  } catch (error) {
+    console.error(`API 호출 에러`, error);
+    throw error;
+  }
+};
