@@ -2,6 +2,17 @@
   color: #1f2937;
   overflow: hidden;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+}
+
+.productCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .itemCardThumbnail {
