@@ -26,9 +26,3 @@ export const getProductDetail = async (productId) => {
   console.log("요청 URL:", `/products/${productId}`);
   return data;
 };
-
-// 상품 댓글 조회
-export const getProductComments = async (productId) => {
-  const { data } = await axios.get(`/products/${productId}/comments`);
-  return data;
-};

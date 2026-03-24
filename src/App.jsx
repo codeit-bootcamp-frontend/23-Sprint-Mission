@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Community from "./pages/MarketPage/community.jsx";
 import Items from "./pages/MarketPage/ItemsPage.jsx";
@@ -12,6 +12,9 @@ function App() {
       <Header />
       <div className="withHeader">
         <Routes>
+          {/* 기본 경로 접근 시 상품 목록으로 이동 */}
+          <Route path="/" element={<Navigate to="/items" replace />} />
+
           <Route path="/community" element={<Community />} />
           <Route path="/items" element={<Items />} />
           <Route path="/items/:productId" element={<ItemDetailPage />} />

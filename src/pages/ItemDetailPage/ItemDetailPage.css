@@ -5,19 +5,21 @@
 
 .itemDetailTop {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding-bottom: 40px;
-  margin-bottom: 40px;
+  gap: 16px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
   border-bottom: 1px solid #e5e7eb;
+  align-items: flex-start;
 }
 
 .itemImageBox {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background: #f3f4f6;
+  width: 160px;
+  min-width: 160px;
+  height: 160px;
   border-radius: 16px;
   overflow: hidden;
+  background: #f3f4f6;
+  flex-shrink: 0;
 }
 
 .itemDetailImage {
@@ -27,40 +29,43 @@
 }
 
 .itemInfoBox {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .itemName {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #111827;
-}
-
-.itemPrice {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #111827;
-}
-
-.infoBlock {
-  margin-bottom: 24px;
-}
-
-.infoTitle {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 12px;
   color: #111827;
 }
 
+.itemPrice {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.infoBlock {
+  margin-bottom: 20px;
+}
+
+.infoTitle {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
 .itemDescription {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.6;
   color: #4b5563;
   white-space: pre-wrap;
+  word-break: keep-all;
 }
 
 .tagList {
@@ -73,17 +78,17 @@
   padding: 6px 12px;
   border-radius: 999px;
   background: #f3f4f6;
-  font-size: 14px;
+  font-size: 12px;
   color: #374151;
 }
 
 .favoriteBox {
-  font-size: 16px;
+  font-size: 14px;
   color: #6b7280;
 }
 
 .commentSection {
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .commentTitle {
@@ -240,10 +245,59 @@
   color: #6b7280;
 }
 
-@media (min-width: 768px) {
+/* 아주 작은 모바일 */
+@media (max-width: 767px) {
+  .itemDetailPage {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+
+  .itemDetailTop {
+    gap: 12px;
+  }
+
+  /* 모바일 카드 크기 더 줄이기 */
+  .itemImageBox {
+    width: 140px;
+    min-width: 140px;
+    height: 140px;
+  }
+
+  .itemName {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .itemPrice {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .infoTitle {
+    font-size: 12px;
+  }
+
+  .itemDescription {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .tagItem {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .favoriteBox {
+    font-size: 13px;
+  }
+
   .commentProfile {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .commentMeta {
+    gap: 8px;
   }
 
   .commentNickname {
@@ -257,6 +311,19 @@
   .commentContent {
     font-size: 13px;
   }
+}
+
+/* 태블릿 */
+@media (min-width: 768px) {
+  .itemDetailTop {
+    gap: 24px;
+  }
+
+  .itemImageBox {
+    width: 280px;
+    min-width: 280px;
+    height: 280px;
+  }
 
   .itemName {
     font-size: 24px;
@@ -265,18 +332,29 @@
   .itemPrice {
     font-size: 32px;
   }
+
+  .infoTitle {
+    font-size: 14px;
+  }
+
+  .itemDescription {
+    font-size: 14px;
+  }
+
+  .tagItem {
+    font-size: 13px;
+  }
 }
 
+/* 데스크탑 */
 @media (min-width: 1280px) {
-  
   .itemDetailTop {
-    flex-direction: row;
-    align-items: flex-start;
     gap: 32px;
   }
 
   .itemImageBox {
     width: 486px;
-    flex-shrink: 0;
+    min-width: 486px;
+    height: 486px;
   }
 }
