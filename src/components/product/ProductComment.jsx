@@ -8,34 +8,60 @@ import { useOutsideClick } from "../../libs/hooks/useOutsideClick";
 export default function ProductComment({ productId }) {
   const [loading, setLoading] = useState(false);
   const [commentList, setCommentList] = useState([]);
+  const [cursor, setCursor] = useState(null);
+  const [hasMore, setHasMore] = useState(true);
+
+  const loadComments = async (isMore = false) => {
+    if (loading) return;
+
+    try {
+      setLoading(true);
+
+      const currentCursor = isMore ? cursor : 0;
+      const res = await getComment(productId, 5, currentCursor);
+      const { list, nextCursor } = res.data;
+
+      setCommentList((prev) => (isMore ? [...prev, ...list] : list));
+      setCursor(nextCursor);
+
+      if (!nextCursor) {
+        setHasMore(false);
+      } else {
+        setHasMore(true);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetch = async () => {
-      try {
-        setLoading(true);
-        const res = await getComment(productId);
-        setCommentList(res.data.list);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (productId) fetch();
+    if (productId) {
+      loadComments(false);
+    }
   }, [productId]);
-
-  if (loading)
-    return <div className="py-10 text-center text-gray-400">loading</div>;
 
   return (
     <div className="mt-8 space-y-6">
       {commentList.length > 0 ? (
-        commentList.map((comment) => (
-          <CommentItem key={comment.id} comment={comment} />
-        ))
+        <>
+          {commentList.map((comment) => (
+            <CommentItem key={comment.id} comment={comment} />
+          ))}
+
+          {hasMore && (
+            <button
+              onClick={() => loadComments(true)}
+              disabled={loading}
+              className="w-full py-3 mt-4 text-sm font-semibold text-gray-500 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50"
+            >
+              {loading ? "불러오는 중..." : "더보기"}
+            </button>
+          )}
+        </>
       ) : (
-        <EmptyState />
+        !loading && <EmptyState />
       )}
     </div>
   );

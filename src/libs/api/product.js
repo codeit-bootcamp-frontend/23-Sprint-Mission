@@ -38,11 +38,12 @@ export const getProduct = async (itemId) => {
   }
 };
 
-export const getComment = async (itemId, limit = 5) => {
+export const getComment = async (itemId, limit = 5, cursor = 0) => {
   try {
     const response = await instance.get(`/products/${itemId}/comments`, {
       params: {
-        limit: limit,
+        limit,
+        cursor,
       },
     });
     return response;
