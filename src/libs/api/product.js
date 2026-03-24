@@ -37,3 +37,17 @@ export const getProduct = async (itemId) => {
     throw error;
   }
 };
+
+export const getComment = async (itemId, limit = 5) => {
+  try {
+    const response = await instance.get(`/products/${itemId}/comments`, {
+      params: {
+        limit: limit,
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error(`API 호출 에러`, error);
+    throw error;
+  }
+};

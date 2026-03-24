@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import ProductMain from "../components/product/ProductMain";
 import ProductAsk from "../components/product/ProductAsk";
 import ProductComment from "../components/product/ProductComment";
+import ProductBack from "../components/product/ProductBack";
 
 export default function ProductPage() {
   const { productId } = useParams();
@@ -40,7 +41,8 @@ export default function ProductPage() {
     <div className="p-3.75 md:p-6 lg:mx-auto max-w-300 space-y-8">
       <ProductMain productData={productData} />
       <ProductAsk />
-      <ProductComment />
+      <ProductComment productId={productId} />
+      <ProductBack />
     </div>
   );
 }
