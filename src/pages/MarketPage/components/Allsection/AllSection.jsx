@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../../data/products";
+import { getProducts } from "../../../../data/productsApi.js";
 import ProductCard from "../ProductCard/ProductCard";
 import searchIcon from "../../../../assets/images/search.svg";
 import { Link } from "react-router-dom";

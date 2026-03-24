@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import "./BestSection.css";
-import { getProducts } from "../../../../data/products";
+import { getProducts } from "../../../../data/productsApi";
 
 /*
   화면 크기에 따라 한 번에 보여줄 상품 개수 계산

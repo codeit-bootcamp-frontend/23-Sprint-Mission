@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { getProductDetail } from "../data/products";
-import { getProductComments } from "../data/comment";
+import { getProductDetail } from "../data/productsApi";
+import { getProductComments } from "../data/commentApi";
 
 export default function useProductDetail(productId) {
   // 상품 / 댓글 / 로딩 상태

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createProductComment } from "../data/comment";
+import { createProductComment } from "../data/commentApi";
 
 export default function useCommentCreate(productId) {
   // 등록 중 상태

@@ -91,7 +91,11 @@ export default function ItemDetailPage() {
         ) : (
           <div className="commentList">
             {comments.map((comment) => (
-              <CommentItem key={comment.id} comment={comment} />
+              <CommentItem
+                key={comment.id}
+                comment={comment}
+                onRefreshComments={refetchComments}
+              />
             ))}
           </div>
         )}

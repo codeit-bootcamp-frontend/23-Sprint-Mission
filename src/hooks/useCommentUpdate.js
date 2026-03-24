@@ -1,28 +1,20 @@
 import { useState } from "react";
-import { updateProductComment } from "../data/comment";
+import { updateProductComment } from "../data/commentApi";
 
-export default function useCommentUpdate() {
-  // 수정 요청 중 상태
+function useCommentUpdate() {
   const [updating, setUpdating] = useState(false);
 
-  // 댓글 수정 함수
+  // 댓글 수정 요청
   const updateComment = async (commentId, content) => {
-    if (!content.trim()) return null; // 공백 방지
-
     try {
-      setUpdating(true);
-
-      // 댓글 수정 요청
-      const updatedComment = await updateProductComment(commentId, content);
-
-      return updatedComment;
-    } catch (error) {
-      console.error("댓글 수정 실패:", error);
-      throw error;
+      setUpdating(true); // 로딩 시작
+      return await updateProductComment(commentId, content);
     } finally {
-      setUpdating(false);
+      setUpdating(false); // 로딩 종료
     }
   };
 
   return { updateComment, updating };
 }
+
+export default useCommentUpdate;
