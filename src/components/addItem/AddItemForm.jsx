@@ -50,9 +50,29 @@ export default function AddItemForm() {
     >
       <AddItemBtnContainer isFormValid={isFormValid} />
       <AddItemImg onImageChange={setImageFile} />
-      <AddItemName />
-      <AddItemIntroduce />
-      <AddItemPrice />
+      <AddItemInput
+        id="name"
+        label="상품명"
+        type="text"
+        required
+        placeholder="상품명을 입력해주세요"
+      />
+      <AddItemInput
+        id="introduce"
+        label="상품 소개"
+        type="textarea"
+        required
+        placeholder="상품 소개를 입력해주세요"
+        className="min-h-70.5"
+      />
+      <AddItemInput
+        id="price"
+        label="판매 가격"
+        type="number"
+        required
+        min={0}
+        placeholder="판매 가격을 입력해주세요"
+      />
       <AddItemTag tags={tags} setTags={setTags} />
     </form>
   );
@@ -71,36 +91,4 @@ const AddItemBtnContainer = ({ isFormValid }) => (
       등록
     </SubmitBtn>
   </div>
-);
-
-const AddItemName = () => (
-  <AddItemInput
-    id="name"
-    label="상품명"
-    type="text"
-    required
-    placeholder="상품명을 입력해주세요"
-  />
-);
-
-const AddItemIntroduce = () => (
-  <AddItemInput
-    id="introduce"
-    label="상품 소개"
-    type="textarea"
-    required
-    placeholder="상품 소개를 입력해주세요"
-    className="min-h-70.5"
-  />
-);
-
-const AddItemPrice = () => (
-  <AddItemInput
-    id="price"
-    label="판매 가격"
-    type="number"
-    required
-    min={0}
-    placeholder="판매 가격을 입력해주세요"
-  />
 );

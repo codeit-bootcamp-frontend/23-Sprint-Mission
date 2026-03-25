@@ -6,6 +6,10 @@ export default function AddItemInput({
   ...props
 }) {
   const isTextArea = type === "textarea";
+  const baseInputClass =
+    "px-6 py-4 bg-gray-100 rounded-xl outline-none text-[16px] leading-6.5 text-gray-800";
+  const textareaClass = `${baseInputClass} resize-none ${className}`.trim();
+  const inputClass = `${baseInputClass} ${className}`.trim();
 
   return (
     <section className="flex flex-col gap-4">
@@ -16,22 +20,14 @@ export default function AddItemInput({
         {label}
       </label>
       {isTextArea ? (
-        <textarea
-          id={id}
-          name={id}
-          {...props}
-          className={`
-          px-6 py-4 bg-gray-100 rounded-xl outline-none 
-          text-[16px] leading-6.5 text-gray-800 resize-none ${className}
-        `}
-        />
+        <textarea id={id} name={id} {...props} className={textareaClass} />
       ) : (
         <input
           type={type}
           name={id}
           id={id}
           {...props}
-          className={`px-6 py-4 bg-gray-100 rounded-xl outline-none text-[16px] leading-6.5 text-gray-800 ${className}`}
+          className={inputClass}
         />
       )}
     </section>
