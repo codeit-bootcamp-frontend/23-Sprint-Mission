@@ -1,6 +1,6 @@
 /*컬러 팔레트*/
 :root {
-  --blue: #3692ff;
+  --primary: #3692ff;
   --grey900: #111827;
   --grey800: #1f2937;
   --grey700: #374151;
@@ -32,3 +32,4 @@
   justify-content: space-between;
   align-items: center;
 }
+

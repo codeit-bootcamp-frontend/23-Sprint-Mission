@@ -1,34 +1,67 @@
 <html>
   <head>
-      <meta charset="utf-8">
-      <title>판다마켓</title>
-      <link rel="stylesheet" href="css/reset.css">
-      <link rel="stylesheet" href="css/global.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" as="style" crossorigin
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <meta charset="utf-8" />
+    <title>판다마켓</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="login-wrap">
       <div class="login-box">
-        <a href="index.html" class=""><img src="img/logo.svg" alt="판다마켓 로고"></a>
+        <a href="index.html" class=""
+          ><img src="img/logo.svg" alt="판다마켓 로고"
+        /></a>
         <div class="form-box">
-          <form class="login-form">
+          <form class="login-form" id="login-form" action="./items.html">
             <label for="email">이메일</label>
-            <input type="email" id="email" name="email" placeholder="아이디" required/>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="아이디"
+              required
+            />
+            <p class="error-message" id="email-error"></p>
             <label for="password">비밀번호</label>
-            <input type="password" id="password" name="password" placeholder="비밀번호" required/>
-            <button class="login-button">로그인</button>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="비밀번호"
+              required
+            />
+            <p class="error-message" id="password-error"></p>
+            <button
+              type="submit"
+              class="login-button"
+              id="login-button"
+              disabled
+            >
+              로그인
+            </button>
           </form>
           <div id="simple-login">
             <span>간편 로그인 하기</span>
             <div>
-              <a href="https://www.google.com" target="_blank"><img src="img/ic_google.svg"></a>
-              <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="img/ic_kakao.svg"></a>
+              <a href="https://www.google.com" target="_blank"
+                ><img src="img/ic_google.svg"
+              /></a>
+              <a href="https://www.kakaocorp.com/page/" target="_blank"
+                ><img src="img/ic_kakao.svg"
+              /></a>
             </div>
           </div>
           <div class="join-info">
@@ -37,4 +70,6 @@
         </div>
       </div>
     </div>
+    <script src="./js/script.js"></script>
+  </body>
 </html>

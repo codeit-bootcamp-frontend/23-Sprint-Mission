@@ -4,7 +4,7 @@
 .login {
   width: 128px;
   height: 48px;
-  background: #3692ff;
+  background: var(--primary);
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -51,7 +51,7 @@
 .visual-button {
   width: 357px;
   height: 56px;
-  background: #3692ff;
+  background: var(--primary);
   border-radius: 56px;
   display: flex;
   justify-content: center;
@@ -84,7 +84,7 @@ article > div {
 .b-title {
   font-size: 18px;
   font-weight: 700;
-  color: #3692ff;
+  color: var(--primary);
   font-family: "Abhaya Libre";
 }
 
@@ -131,7 +131,7 @@ article:nth-child(2) {
 footer {
   width: 100%;
   height: 160px;
-  background: #111827;
+  background: var(--grey900);
   color: #ffffff;
   display: flex;
   justify-content: center;
@@ -146,7 +146,7 @@ footer {
 
 .footer-wrap:nth-child(1) {
   font-weight: 200;
-  color: #9ca3af;
+  color: var(--grey400);
 }
 
 .customer-center {
@@ -156,7 +156,7 @@ footer {
 
 .customer-center a {
   display: inline-block;
-  color: #e5e7eb;
+  color: var(--grey200);
   text-decoration: none;
 }
 
@@ -183,7 +183,7 @@ footer {
 
   /* 비주얼 영역 */
   .visual {
-    background: --gret;
+    background: #cfe5ff;
     width: 100%;
     height: 771px;
     display: flex;
@@ -198,6 +198,7 @@ footer {
     justify-content: flex-start;
     align-items: center;
     background: url("../img/Img_home_top.png") no-repeat center bottom;
+    background-size: contain;
   }
   .visual-contents,
   .bottom-contents {
@@ -282,7 +283,7 @@ footer {
 
   /* 비주얼 영역 */
   .visual {
-    background: --gret;
+    background: #cfe5ff;
     width: 100%;
     height: 771px;
     display: flex;
@@ -294,6 +295,8 @@ footer {
   .visual-contents {
     height: 100%;
     display: flex;
+    background: url("../img/Img_home_top.png") no-repeat center bottom;
+    background-size: contain;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
@@ -376,7 +379,5 @@ footer {
   .footer-wrap {
     width: 100%;
     display: flex;
-    
   }
-
 }
