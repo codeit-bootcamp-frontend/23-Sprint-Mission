@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../api/itemApi";
+import { getProducts } from "../../../api/getProducts";
 import { Link } from "react-router-dom";
 import DropdownList from "../../../components/MarketUI/DropdownList";
 import ItemCard from "./ItemCard";

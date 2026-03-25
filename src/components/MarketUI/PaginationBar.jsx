@@ -1,5 +1,6 @@
 import LeftArrow from "../../assets/icons/arrow_left.svg?react";
 import RightArrow from "../../assets/icons/arrow_right.svg?react";
+import './PaginationBar.css';
 
 const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
   const maxVisiblePages = 5;

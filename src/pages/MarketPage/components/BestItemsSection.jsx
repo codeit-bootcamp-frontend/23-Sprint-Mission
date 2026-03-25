@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../api/itemApi";
+import { getProducts } from "../../../api/getProducts";
 import ItemCard from "./ItemCard";
 
 const getPageSize = () => {
