@@ -1,0 +1,413 @@
+.itemDetailPage {
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+.itemDetailTop {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: flex-start;
+}
+
+.itemImageBox {
+  width: 160px;
+  min-width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f3f4f6;
+  flex-shrink: 0;
+}
+
+.itemDetailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemInfoBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.itemName {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.itemPrice {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.infoBlock {
+  margin-bottom: 20px;
+}
+
+.infoTitle {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.itemDescription {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4b5563;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tagItem {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  font-size: 12px;
+  color: #374151;
+}
+
+.favoriteBox {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.commentSection {
+  margin-top: 24px;
+}
+
+.commentTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.commentTextarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  background: #f9fafb;
+}
+
+.commentTextarea:focus {
+  border-color: #3692ff;
+  background: #ffffff;
+}
+
+.commentTextarea::placeholder {
+  color: #9ca3af;
+}
+
+.commentButtonRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.commentSubmitButton {
+  width: 74px;
+  height: 42px;
+  border: none;
+  border-radius: 8px;
+  background: #9ca3af;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.commentSubmitButton.active {
+  background: #3692ff;
+  cursor: pointer;
+}
+
+.commentSubmitButton.active:hover {
+  background: #2f80ed;
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentCard {
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.commentContent {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #111827;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+}
+
+.commentMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.commentProfile {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+.commentMetaText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.commentNickname {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.commentDate {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.emptyCommentBox {
+  padding: 24px 0 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.backButtonRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.backButton {
+  min-width: 160px;
+  height: 48px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 999px;
+  background: #3692ff;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.backButton:hover {
+  background: #2f80ed;
+}
+
+.backButton:active {
+  transform: translateY(1px);
+}
+
+.itemDetailMessage {
+  padding: 80px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.itemBottomInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.sellerInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sellerProfile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  object-fit: cover;
+}
+
+.sellerText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sellerName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.sellerDate {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.favoriteBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.favoriteIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.favoriteCount {
+  font-size: 14px;
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .itemDetailPage {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+
+  .itemDetailTop {
+    gap: 12px;
+  }
+
+  .itemImageBox {
+    width: 140px;
+    min-width: 140px;
+    height: 140px;
+  }
+
+  .itemName {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .itemPrice {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .infoTitle {
+    font-size: 12px;
+  }
+
+  .itemDescription {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .tagItem {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .favoriteBox {
+    font-size: 13px;
+  }
+
+  .commentProfile {
+    width: 32px;
+    height: 32px;
+  }
+
+  .commentMeta {
+    gap: 8px;
+  }
+
+  .commentNickname {
+    font-size: 13px;
+  }
+
+  .commentDate {
+    font-size: 11px;
+  }
+
+  .commentContent {
+    font-size: 13px;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 768px) {
+  .itemDetailTop {
+    gap: 24px;
+  }
+
+  .itemImageBox {
+    width: 280px;
+    min-width: 280px;
+    height: 280px;
+  }
+
+  .itemName {
+    font-size: 24px;
+  }
+
+  .itemPrice {
+    font-size: 32px;
+  }
+
+  .infoTitle {
+    font-size: 14px;
+  }
+
+  .itemDescription {
+    font-size: 14px;
+  }
+
+  .tagItem {
+    font-size: 13px;
+  }
+}
+
+/* 데스크탑 */
+@media (min-width: 1280px) {
+  .itemDetailTop {
+    gap: 32px;
+  }
+
+  .itemImageBox {
+    width: 486px;
+    min-width: 486px;
+    height: 486px;
+  }
+}

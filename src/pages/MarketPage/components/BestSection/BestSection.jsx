@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import "./BestSection.css";
-import { getProducts } from "../../../../data/products";
+import { getProducts } from "../../../../data/productsApi";
 
 /*
   화면 크기에 따라 한 번에 보여줄 상품 개수 계산
@@ -24,23 +24,6 @@ function ProductGrid() {
   // 화면 크기에 따른 pageSize 상태
   const [pageSize, setPageSize] = useState(calculatePageSize());
 
-  /*
-    베스트 상품 불러오기
-    pageSize 상태값을 사용해서 API 요청
-  */
-  const fetchBestProducts = async () => {
-    try {
-      const result = await getProducts({
-        orderBy: "favorite",
-        pageSize, // 현재 상태값 사용
-      });
-
-      setItems(result.list);
-    } catch (error) {
-      console.error("상품 불러오기 실패:", error);
-    }
-  };
-
   useEffect(() => {
     // 화면 크기 변경 시 pageSize 재계산
     const handleResize = () => {
@@ -48,6 +31,23 @@ function ProductGrid() {
 
       // 기존 값과 다를 때만 변경 (불필요한 리렌더 방지)
       setPageSize((prev) => (prev !== newSize ? newSize : prev));
+    };
+
+    /*
+      베스트 상품 불러오기
+      pageSize 상태값을 사용해서 API 요청
+    */
+    const fetchBestProducts = async () => {
+      try {
+        const result = await getProducts({
+          orderBy: "favorite",
+          pageSize, // 현재 상태값 사용
+        });
+
+        setItems(result.list);
+      } catch (error) {
+        console.error("상품 불러오기 실패:", error);
+      }
     };
 
     window.addEventListener("resize", handleResize);

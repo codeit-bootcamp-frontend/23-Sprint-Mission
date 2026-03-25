@@ -1,34 +1,65 @@
-import Logo from "../../src/assets/logo.svg"; // 로고 이미지 import
-import { Link, NavLink } from "react-router-dom"; // 페이지 이동용 컴포넌트
+import Logo from "../../src/assets/logo.svg";
+import { Link, NavLink } from "react-router-dom";
+import axios from "../utils/axios";
 import "./Header.css";
 
-// NavLink는 현재 경로와 일치하면 isActive가 true가 됨
-// 활성화된 메뉴 색상을 변경하는 함수
 function getLinkStyle({ isActive }) {
   return { color: isActive ? "var(--blue)" : undefined };
 }
 
 function Header() {
+  // 테스트 회원가입 함수
+  const handleTestSignUp = async () => {
+    try {
+      const res = await axios.post("/auth/signUp", {
+        email: "a7522154@naver.com",
+        nickname: "테스트유저",
+        password: "kdo06133!",
+        passwordConfirmation: "kdo06133!",
+      });
+
+      localStorage.setItem("accessToken", res.data.accessToken);
+
+      console.log("회원가입 성공:", res.data);
+      alert("회원가입 성공");
+    } catch (error) {
+      console.error("회원가입 실패:", error.response?.data || error);
+      alert("회원가입 실패");
+    }
+  };
+  // 테스트 로그인 함수
+  const handleTestLogin = async () => {
+    try {
+      const res = await axios.post("/auth/signIn", {
+        email: "a7522154@naver.com",
+        password: "kdo06133!",
+      });
+
+      localStorage.setItem("accessToken", res.data.accessToken);
+
+      console.log("로그인 성공:", res.data);
+      alert("로그인 성공");
+    } catch (error) {
+      console.error("로그인 실패:", error.response?.data || error);
+      alert("로그인 실패");
+    }
+  };
+
   return (
     <header className="globalHeader">
       <div className="headerLeft">
-
-        {/* 로고 클릭 시 홈("/")으로 이동 */}
         <Link to="/" className="headerLogo" aria-label="홈으로 이동">
           <img src={Logo} alt="판다마켓 로고" width="153" />
         </Link>
 
-        {/* 네비게이션 메뉴 */}
         <nav>
           <ul>
             <li>
-              {/* 현재 경로가 /community면 파란색으로 표시 */}
               <NavLink to="/community" style={getLinkStyle}>
                 자유게시판
               </NavLink>
             </li>
             <li>
-              {/* 현재 경로가 /items면 파란색으로 표시 */}
               <NavLink to="/items" style={getLinkStyle}>
                 중고마켓
               </NavLink>
@@ -36,11 +67,14 @@ function Header() {
           </ul>
         </nav>
       </div>
-
-      {/* 로그인 페이지로 이동 */}
-      <Link to="/login" className="login button">
-        로그인
-      </Link>
+      {/* 테스트 회원가입 버튼 */}
+      <button onClick={handleTestSignUp} className="signup button">
+        테스트 회원가입
+      </button>
+      {/* 테스트 로그인 버튼 */}
+      <button onClick={handleTestLogin} className="login button">
+        테스트 로그인
+      </button>
     </header>
   );
 }
