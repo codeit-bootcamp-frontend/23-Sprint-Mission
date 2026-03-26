@@ -1,6 +1,14 @@
+import { CSSProperties, ReactNode } from "react";
 import { Link } from "react-router";
 
-export default function LinkBtn({ children, href, className, style }) {
+interface Props {
+  children: ReactNode;
+  href: string;
+  className?: string;
+  style?: CSSProperties;
+}
+
+export default function LinkBtn({ children, href, className, style }: Props) {
   return (
     <Link
       to={href}

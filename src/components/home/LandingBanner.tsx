@@ -1,9 +1,8 @@
-// Imges
+import { PropsWithChildren } from "react";
+
 import bannerTop from "../../assets/banners/top_img.svg";
 import bannerBottom from "../../assets/banners/bottom_img.svg";
-
-// Components
-import LinkBtn from "../btns/LinkBtn";
+import LinkBtn from "@/components/btns/LinkBtn";
 
 export const LandingTop = () => {
   return (
@@ -38,7 +37,10 @@ export const LandingBottom = () => {
   );
 };
 
-const LandingBannerLayout = ({ children, className }) => {
+const LandingBannerLayout = ({
+  children,
+  className,
+}: PropsWithChildren<{ className?: string }>) => {
   return (
     <section
       className={`bg-[#CFE5FF] flex justify-center items-end lg:h-135 ${className} lg:pt-0`}
@@ -50,7 +52,7 @@ const LandingBannerLayout = ({ children, className }) => {
   );
 };
 
-const LandingBannerText = ({ children }) => {
+const LandingBannerText = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex flex-col items-center space-y-4.5 px-10 text-center lg:items-start lg:text-left lg:px-0 lg:mb-8">
       {children}
@@ -58,7 +60,7 @@ const LandingBannerText = ({ children }) => {
   );
 };
 
-const LandingBannerH2 = ({ children }) => {
+const LandingBannerH2 = ({ children }: PropsWithChildren) => {
   return (
     <h2 className="text-gray-700 font-bold text-[32px] lg:text-[40px] break-keep leading-[1.4]">
       {children}
