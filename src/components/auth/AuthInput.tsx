@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction, InputHTMLAttributes } from "react";
 
-// Imges
-import openedEye from "../../assets/btn/btn_visibility_on_24px.svg";
-import closedEye from "../../assets/btn/btn_visibility_off_24px.svg";
+// Images
+import openedEye from "@/assets/btn/btn_visibility_on_24px.svg";
+import closedEye from "@/assets/btn/btn_visibility_off_24px.svg";
+
+interface AuthInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  error?: string;
+}
 
 export default function AuthInput({
   id,
@@ -10,7 +15,7 @@ export default function AuthInput({
   type = "text",
   error,
   ...props
-}) {
+}: AuthInputProps) {
   const [isVisible, setIsVisible] = useState(false);
   const isPasswordType = type === "password";
 
@@ -45,7 +50,12 @@ export default function AuthInput({
   );
 }
 
-const PasswordEye = ({ isVisible, setIsVisible }) => {
+interface PasswordEyeProps {
+  isVisible: boolean;
+  setIsVisible: Dispatch<SetStateAction<boolean>>;
+}
+
+const PasswordEye = ({ isVisible, setIsVisible }: PasswordEyeProps) => {
   return (
     <button
       type="button"
@@ -60,7 +70,11 @@ const PasswordEye = ({ isVisible, setIsVisible }) => {
   );
 };
 
-const ErrMsg = ({ message }) => {
+interface ErrMsgProps {
+  message: string;
+}
+
+const ErrMsg = ({ message }: ErrMsgProps) => {
   return (
     <span className="font-semibold text-sm leading-6 mt-2.5 pl-4 text-[#f74747] text-left">
       {message}

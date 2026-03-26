@@ -2,18 +2,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 // Components
-import AuthLayout from "../components/auth/AuthLayout";
-import AuthInput from "../components/auth/AuthInput";
-import SubmitBtn from "../components/btns/SubmitBtn";
-import SocialLogin from "../components/auth/SocialLogin";
-import AuthFooter from "../components/auth/AuthFooter";
+import AuthLayout from "@/components/auth/AuthLayout";
+import AuthInput from "@/components/auth/AuthInput";
+import SubmitBtn from "@/components/btns/SubmitBtn";
+import SocialLogin from "@/components/auth/SocialLogin";
+import AuthFooter from "@/components/auth/AuthFooter";
 
 // Utils
 import {
-  isLoginFormValid,
   getEmailErrorMessage,
   getPasswordErrorMessage,
-} from "../libs/utils/auth";
+  isLoginFormValid,
+} from "@/libs/utils/auth";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -28,12 +28,12 @@ export default function LoginPage() {
     password: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setValues((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleInputBlur = (e) => {
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     let errorMsg = "";
 
@@ -45,7 +45,7 @@ export default function LoginPage() {
 
   const isFormValid = isLoginFormValid(values);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate("/items");
   };
