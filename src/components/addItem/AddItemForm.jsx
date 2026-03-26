@@ -1,78 +1,82 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-
-// Components
+import { useState } from "react";
 import SubmitBtn from "../btns/SubmitBtn";
 import AddItemImg from "./AddItemImg";
 import AddItemInput from "./AddItemInput";
 import AddItemTag from "./AddItemTag";
 
 export default function AddItemForm() {
+  const [values, setValues] = useState({
+    name: "",
+    introduce: "",
+    price: "",
+  });
   const [imageFile, setImageFile] = useState(null);
   const [tags, setTags] = useState([]);
-  const [isFormValid, setIsFormValid] = useState(false);
 
-  const formRef = useRef(null);
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setValues((prev) => ({ ...prev, [id]: value }));
+  };
 
-  const validateForm = useCallback(() => {
-    if (!formRef.current) return;
-
-    const formData = new FormData(formRef.current);
-    const name = formData.get("name")?.toString().trim();
-    const introduce = formData.get("introduce")?.toString().trim();
-    const price = formData.get("price")?.toString().trim();
-
-    const isValid = !!(name && introduce && price && tags.length > 0);
-    setIsFormValid(isValid);
-  }, [tags]);
-
-  useEffect(() => {
-    validateForm();
-  }, [validateForm]);
+  const isFormValid = !!(
+    values.name.trim() &&
+    values.introduce.trim() &&
+    values.price &&
+    tags.length > 0 &&
+    imageFile
+  );
 
   const handleAddItemSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("introduce", values.introduce);
+    formData.append("price", values.price);
 
-    if (imageFile) {
-      formData.append("image", imageFile);
-    }
-
+    if (imageFile) formData.append("image", imageFile);
     tags.forEach((tag) => formData.append("tags", tag));
+    console.log("제출 데이터:", Object.fromEntries(formData));
   };
 
   return (
-    <form
-      ref={formRef}
-      onChange={validateForm}
-      onSubmit={handleAddItemSubmit}
-      className="px-3.75 py-6 space-y-6"
-    >
+    <form onSubmit={handleAddItemSubmit} className="px-3.75 py-6 space-y-6">
       <AddItemBtnContainer isFormValid={isFormValid} />
+
       <AddItemImg onImageChange={setImageFile} />
+
       <AddItemInput
         id="name"
         label="상품명"
         type="text"
-        required
         placeholder="상품명을 입력해주세요"
+        value={values.name}
+        onChange={handleInputChange}
+        required
       />
+
       <AddItemInput
         id="introduce"
         label="상품 소개"
         type="textarea"
-        required
         placeholder="상품 소개를 입력해주세요"
         className="min-h-70.5"
+        value={values.introduce}
+        onChange={handleInputChange}
+        required
       />
+
       <AddItemInput
         id="price"
         label="판매 가격"
         type="number"
-        required
-        min={0}
         placeholder="판매 가격을 입력해주세요"
+        min={0}
+        value={values.price}
+        onChange={handleInputChange}
+        required
       />
+
       <AddItemTag tags={tags} setTags={setTags} />
     </form>
   );
@@ -86,7 +90,7 @@ const AddItemBtnContainer = ({ isFormValid }) => (
 
     <SubmitBtn
       disabled={!isFormValid}
-      className="px-5.75 h-10.5 rounded-lg text-white"
+      className="px-5.75 h-10.5 rounded-lg text-white font-semibold"
     >
       등록
     </SubmitBtn>
