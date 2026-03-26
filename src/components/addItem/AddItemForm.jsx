@@ -35,7 +35,6 @@ export default function AddItemForm() {
 
     if (imageFile) formData.append("image", imageFile);
     tags.forEach((tag) => formData.append("tags", tag));
-
     console.log("제출 데이터:", Object.fromEntries(formData));
   };
 
