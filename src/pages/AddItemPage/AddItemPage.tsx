@@ -29,25 +29,25 @@ const InputSection = styled.div`
 
 function AddItemPage() {
   // 각 input 값 상태 관리
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [tags, setTags] = useState([]);
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
+  const [tags, setTags] = useState<string[]>([]);
 
   // 태그 추가 (중복 방지)
-  const addTag = (tag) => {
+  const addTag = (tag: string): void => {
     if (!tags.includes(tag)) {
       setTags([...tags, tag]); // 기존 배열 복사 후 추가
     }
   };
 
   // 선택한 태그 삭제
-  const removeTag = (tagToRemove) => {
+  const removeTag = (tagToRemove: string): void => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   // 폼 제출 시 실행
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault(); // 새로고침 방지
 
     // 기본적인 유효성 검사
@@ -81,7 +81,8 @@ function AddItemPage() {
   };
 
   // 이미지 제외 모든 값이 입력되어야 버튼 활성화
-  const isSubmitDisabled = !name || !description || !price || !tags.length;
+  const isSubmitDisabled =
+    !name || !description || !price || !tags.length;
 
   return (
     <Container>
@@ -102,7 +103,9 @@ function AddItemPage() {
             id="name"
             label="상품명"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
             placeholder="상품명을 입력해 주세요"
           />
 
@@ -111,7 +114,9 @@ function AddItemPage() {
             id="description"
             label="상품 소개"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+              setDescription(e.target.value)
+            }
             placeholder="상품 소개를 입력해 주세요"
             isTextArea
           />
@@ -121,12 +126,18 @@ function AddItemPage() {
             id="price"
             label="판매 가격"
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPrice(e.target.value)
+            }
             placeholder="판매 가격을 입력해 주세요"
           />
 
           {/* 태그 입력 */}
-          <TagInput tags={tags} onAddTag={addTag} onRemoveTag={removeTag} />
+          <TagInput
+            tags={tags}
+            onAddTag={addTag}
+            onRemoveTag={removeTag}
+          />
         </InputSection>
       </form>
     </Container>

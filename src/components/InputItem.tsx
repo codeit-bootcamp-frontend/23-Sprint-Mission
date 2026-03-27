@@ -44,6 +44,27 @@ const TextArea = styled.textarea`
   resize: none; /* 크기 조절 비활성화 */
 `;
 
+interface BaseProps {
+  id: string;
+  label?: string;
+  value: string;
+  placeholder?: string;
+}
+
+interface InputProps extends BaseProps {
+  isTextArea?: false;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+}
+
+interface TextAreaProps extends BaseProps {
+  isTextArea: true;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onKeyDown?: never;
+}
+
+type InputItemProps = InputProps | TextAreaProps;
+
 // 공통 입력 컴포넌트
 // isTextArea 값에 따라 input / textarea 분기
 function InputItem({
@@ -54,7 +75,7 @@ function InputItem({
   placeholder,
   onKeyDown,
   isTextArea,
-}) {
+}: InputItemProps) {
   return (
     <div>
       {/* label이 있는 경우만 렌더링 */}

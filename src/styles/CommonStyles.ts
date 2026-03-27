@@ -14,9 +14,9 @@ export const Container = styled.div`
 
   /* 데스크탑 이상 */
   @media ${({ theme }) => theme.mediaQuery.desktop} {
-    max-width: 1200px; /* 너무 넓어지지 않도록 제한 */
+    max-width: 1200px; 
     padding: 24px 0;
-    margin: 0 auto; /* 가운데 정렬 */
+    margin: 0 auto; 
   }
 `;
 

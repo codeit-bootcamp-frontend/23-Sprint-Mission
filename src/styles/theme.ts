@@ -1,10 +1,11 @@
-// 프로젝트 공통 테마 설정
+import type { DefaultTheme } from "styled-components";
 
-const theme = {
+// 프로젝트 공통 테마 설정
+const theme: DefaultTheme = {
   colors: {
     // 판다마켓 컬러
     blue: {
-      primary: "#3692FF",  // 기본 버튼 
+      primary: "#3692FF", // 기본 버튼
       hover: "#1967D6",
       active: "#1251AA",
     },
@@ -13,11 +14,11 @@ const theme = {
     white: "#FFFFFF",
     black: "#1F2937",
 
-    // 그레이 계열 
+    // 그레이 계열
     gray: {
-      text: "#9CA3AF",     // 보조 텍스트
-      bg: "#F3F4F6",       // input / 버튼 배경
-      bgLight: "#F9FAFB",  // 페이지 배경
+      text: "#9CA3AF", // 보조 텍스트
+      bg: "#F3F4F6", // input / 버튼 배경
+      bgLight: "#F9FAFB", // 페이지 배경
     },
   },
 

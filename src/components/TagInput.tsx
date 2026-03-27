@@ -32,13 +32,21 @@ const TagText = styled.span`
   white-space: nowrap;
 `;
 
-function TagInput({ tags, onAddTag, onRemoveTag }) {
-  const [input, setInput] = useState("");
+interface TagInputProps {
+  tags: string[];
+  onAddTag: (tag: string) => void;
+  onRemoveTag: (tag: string) => void;
+}
+
+function TagInput({ tags, onAddTag, onRemoveTag }: TagInputProps) {
+  const [input, setInput] = useState<string>("");
 
   // Enter 입력 시 태그 추가
-  const onPressEnter = (event) => {
+  const onPressEnter = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ): void => {
     // 한글 IME 입력 중일 때는 처리하지 않음
-    if (event.nativeEvent.isComposing) return;
+    if ((event.nativeEvent as KeyboardEvent).isComposing) return;
 
     const trimmed = input.trim();
 
@@ -55,7 +63,9 @@ function TagInput({ tags, onAddTag, onRemoveTag }) {
         id="tags"
         label="태그"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setInput(e.target.value)
+        }
         onKeyDown={onPressEnter}
         placeholder="태그를 입력해 주세요"
       />

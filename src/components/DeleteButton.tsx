@@ -16,8 +16,13 @@ const StyledButton = styled.button`
   }
 `;
 
+interface DeleteButtonProps {
+  onClick: () => void;
+  label: string;
+}
+
 // 공통 삭제 버튼 컴포넌트
-function DeleteButton({ onClick, label }) {
+function DeleteButton({ onClick, label }: DeleteButtonProps) {
   return (
     <StyledButton
       onClick={onClick}

@@ -52,9 +52,13 @@ const UploadButton = styled.label`
   ${squareStyles}
 `;
 
+interface ImagePreviewProps {
+  $src: string;
+}
+
 // 업로드된 이미지 미리보기 영역
-const ImagePreview = styled.div`
-  background-image: url(${({ src }) => src});
+const ImagePreview = styled.div<ImagePreviewProps>`
+  background-image: url(${({ $src }) => $src});
   background-size: cover;
   background-position: center;
   position: relative; /* 삭제 버튼 포지셔닝 기준 */
@@ -74,12 +78,18 @@ const HiddenFileInput = styled.input`
   display: none;
 `;
 
-function ImageUpload({ title }) {
-  const [imagePreviewUrl, setImagePreviewUrl] = useState("");
+interface ImageUploadProps {
+  title?: string;
+}
+
+function ImageUpload({ title }: ImageUploadProps) {
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string>("");
 
   // 이미지 선택 시 미리보기 URL 생성
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const file = event.target.files?.[0];
     if (!file) return;
 
     const imageUrl = URL.createObjectURL(file);
@@ -87,7 +97,7 @@ function ImageUpload({ title }) {
   };
 
   // 이미지 삭제
-  const handleDelete = () => {
+  const handleDelete = (): void => {
     setImagePreviewUrl("");
   };
 
@@ -110,7 +120,7 @@ function ImageUpload({ title }) {
 
         {/* 이미지가 있을 때만 미리보기 렌더링 */}
         {imagePreviewUrl && (
-          <ImagePreview src={imagePreviewUrl}>
+          <ImagePreview $src={imagePreviewUrl}>
             <DeleteButtonWrapper>
               <DeleteButton onClick={handleDelete} label="이미지 파일" />
             </DeleteButtonWrapper>
