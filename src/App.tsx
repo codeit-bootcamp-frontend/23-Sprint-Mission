@@ -4,6 +4,7 @@ import Community from "./pages/MarketPage/community";
 import Items from "./pages/MarketPage/ItemsPage";
 import LoginPage from "./pages/LoginPage/LoginPage.js";
 import AddItem from "./pages/AddItemPage/AddItemPage";
+import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
 
 function App() {
