@@ -1,13 +1,24 @@
 import { useState } from "react";
 import { createProductComment } from "../data/commentApi";
 
-export default function useCommentCreate(productId) {
+interface UseCommentCreateReturn {
+  createComment: (content: string) => Promise<unknown>;
+  submitting: boolean;
+}
+
+export default function useCommentCreate(
+  productId?: string
+): UseCommentCreateReturn {
   // 등록 중 상태
-  const [submitting, setSubmitting] = useState(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
 
   // 댓글 등록 함수
-  const createComment = async (content) => {
+  const createComment = async (content: string): Promise<unknown> => {
     if (!content.trim()) return null;
+
+    if (!productId) {
+      throw new Error("productId가 없습니다.");
+    }
 
     try {
       setSubmitting(true);
@@ -16,7 +27,7 @@ export default function useCommentCreate(productId) {
       const newComment = await createProductComment(productId, content);
 
       return newComment;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("댓글 등록 실패:", error);
       throw error;
     } finally {

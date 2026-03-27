@@ -1,17 +1,27 @@
+interface CommentEditFormProps {
+  editValue: string;
+  setEditValue: React.Dispatch<React.SetStateAction<string>>;
+  onCancel: () => void;
+  onSave: () => void;
+  updating: boolean;
+}
+
 function CommentEditForm({
   editValue,
   setEditValue,
   onCancel,
   onSave,
   updating,
-}) {
+}: CommentEditFormProps) {
   return (
     <>
       {/* 수정 textarea */}
       <textarea
         className="commentEditTextarea"
         value={editValue}
-        onChange={(e) => setEditValue(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+          setEditValue(e.target.value)
+        }
       />
 
       {/* 버튼 영역 */}

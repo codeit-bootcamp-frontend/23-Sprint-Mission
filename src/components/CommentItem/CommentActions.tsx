@@ -1,14 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import moreIcon from "../../assets/images/more.svg";
 
-function CommentActions({ onEdit, onDelete, deleting }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+interface CommentActionsProps {
+  onEdit: () => void;
+  onDelete: () => void;
+  deleting: boolean;
+}
+
+function CommentActions({
+  onEdit,
+  onDelete,
+  deleting,
+}: CommentActionsProps) {
+  const [open, setOpen] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   // 바깥 클릭하면 드롭다운 닫기
   useEffect(() => {
-    const handleClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
+    const handleClick = (e: MouseEvent): void => {
+      const target = e.target as Node | null;
+
+      if (ref.current && target && !ref.current.contains(target)) {
         setOpen(false);
       }
     };
@@ -32,6 +44,7 @@ function CommentActions({ onEdit, onDelete, deleting }) {
       {open && (
         <div className="commentDropdownMenu">
           <button
+            type="button"
             className="commentDropdownItem"
             onClick={() => {
               setOpen(false);
@@ -42,6 +55,7 @@ function CommentActions({ onEdit, onDelete, deleting }) {
           </button>
 
           <button
+            type="button"
             className="commentDropdownItem delete"
             onClick={() => {
               setOpen(false);

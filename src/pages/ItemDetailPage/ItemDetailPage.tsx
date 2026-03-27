@@ -8,7 +8,7 @@ import heartIcon from "../../assets/images/ic_heart.svg";
 import "./ItemDetailPage.css";
 
 export default function ItemDetailPage() {
-  const { productId } = useParams();
+  const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
 
   // 상품 상세 / 댓글 조회
@@ -19,25 +19,25 @@ export default function ItemDetailPage() {
   const { createComment, submitting } = useCommentCreate(productId);
 
   // textarea 입력값
-  const [commentInput, setCommentInput] = useState("");
+  const [commentInput, setCommentInput] = useState<string>("");
 
   // 입력값이 있고, 등록 중이 아닐 때만 버튼 활성화
   const isCommentActive = commentInput.trim() !== "" && !submitting;
 
   // 날짜 포맷
   const formattedDate = product?.createdAt
-    ? product.createdAt.slice(0, 10).replaceAll("-", ". ")
+    ? product.createdAt.slice(0, 10).replace(/-/g, ". ")
     : "";
 
   // 등록 버튼 클릭
-  const handleSubmitComment = async () => {
+  const handleSubmitComment = async (): Promise<void> => {
     if (!commentInput.trim()) return;
 
     try {
       await createComment(commentInput);
       setCommentInput("");
       await refetchComments();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("댓글 등록 실패:", error);
       alert("댓글 등록에 실패했습니다.");
     }
@@ -84,7 +84,7 @@ export default function ItemDetailPage() {
           <div className="infoBlock">
             <h2 className="infoTitle">상품 태그</h2>
             <div className="tagList">
-              {product.tags?.length > 0 ? (
+              {product.tags && product.tags.length > 0 ? (
                 product.tags.map((tag, index) => (
                   <span key={index} className="tagItem">
                     #{tag}
@@ -130,7 +130,9 @@ export default function ItemDetailPage() {
         <textarea
           className="commentTextarea"
           value={commentInput}
-          onChange={(e) => setCommentInput(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setCommentInput(e.target.value)
+          }
           placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
         />
 
