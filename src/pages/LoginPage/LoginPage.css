@@ -88,18 +88,31 @@
 
 .input-group-password input {
   width: 100%;
-  padding-right: 40px;
+  padding-right: 52px;
+}
+
+.password-toggle-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .password-image {
   width: 24px;
   height: 24px;
-  padding: 0 12px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
+  display: block;
 }
 
 /* 버튼 */

@@ -68,18 +68,26 @@ function LoginPage() {
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
+                name="password"
+                autoComplete="current-password"
                 placeholder="비밀번호를 입력해 주세요"
                 value={formValues.password}
                 onChange={handleChange}
                 onBlur={() => setTouchedPassword(true)}
               />
 
-              <img
-                className="password-image"
-                src={showPassword ? openEyeIcon : closeEyeIcon}
-                alt={showPassword ? "비밀번호 보임" : "비밀번호 가림"}
+              <button
+                type="button"
+                className="password-toggle-button"
                 onClick={() => setShowPassword((prev) => !prev)}
-              />
+                aria-label={showPassword ? "비밀번호 숨기기" : "비밀번호 보기"}
+              >
+                <img
+                  className="password-image"
+                  src={showPassword ? openEyeIcon : closeEyeIcon}
+                  alt=""
+                />
+              </button>
             </div>
 
             {passwordEmptyError && (

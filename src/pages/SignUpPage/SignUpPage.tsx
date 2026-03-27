@@ -41,11 +41,7 @@ function SignUpPage() {
       <section className="login-card">
         {/* 로고 */}
         <header className="login-header">
-          <img
-            src={logoImage}
-            alt="판다마켓 로고"
-            className="logo-icon"
-          />
+          <img src={logoImage} alt="판다마켓 로고" className="logo-icon" />
           <Link to="/">
             <h1 className="logo-text">판다마켓</h1>
           </Link>
@@ -95,18 +91,26 @@ function SignUpPage() {
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
+                name="password"
+                autoComplete="new-password"
                 placeholder="비밀번호를 입력해 주세요"
                 value={formValues.password}
                 onChange={handleChange}
                 onBlur={() => setTouchedPassword(true)}
               />
 
-              <img
-                className="password-image"
-                src={showPassword ? openEyeIcon : closeEyeIcon}
-                alt={showPassword ? "비밀번호 보임" : "비밀번호 가림"}
+              <button
+                type="button"
+                className="password-toggle-button"
                 onClick={() => setShowPassword((prev) => !prev)}
-              />
+                aria-label={showPassword ? "비밀번호 숨기기" : "비밀번호 보기"}
+              >
+                <img
+                  className="password-image"
+                  src={showPassword ? openEyeIcon : closeEyeIcon}
+                  alt=""
+                />
+              </button>
             </div>
 
             {passwordEmptyError && (
@@ -126,26 +130,28 @@ function SignUpPage() {
               <input
                 type={showPasswordConfirmation ? "text" : "password"}
                 id="passwordConfirmation"
+                name="passwordConfirmation"
+                autoComplete="new-password"
                 placeholder="비밀번호를 다시 한 번 입력해 주세요"
                 value={formValues.passwordConfirmation}
                 onChange={handleChange}
                 onBlur={() => setTouchedPasswordConfirmation(true)}
               />
 
-              <img
-                className="password-image"
-                src={
-                  showPasswordConfirmation ? openEyeIcon : closeEyeIcon
+              <button
+                type="button"
+                className="password-toggle-button"
+                onClick={() => setShowPasswordConfirmation((prev) => !prev)}
+                aria-label={
+                  showPasswordConfirmation ? "비밀번호 숨기기" : "비밀번호 보기"
                 }
-                alt={
-                  showPasswordConfirmation
-                    ? "비밀번호 보임"
-                    : "비밀번호 가림"
-                }
-                onClick={() =>
-                  setShowPasswordConfirmation((prev) => !prev)
-                }
-              />
+              >
+                <img
+                  className="password-image"
+                  src={showPasswordConfirmation ? openEyeIcon : closeEyeIcon}
+                  alt=""
+                />
+              </button>
             </div>
 
             {passwordConfirmationInitError && (
