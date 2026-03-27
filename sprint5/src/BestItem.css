@@ -1,0 +1,26 @@
+.best-item-list {
+  display: grid;
+  gap: 16px; /* 카드 사이 간격 */
+  width: 100%;
+}
+
+/* 1. 데스크탑 (1200px 이상) : 4열 배치 */
+@media (min-width: 1200px) {
+  .best-item-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 2. 태블릿 (768px ~ 1199px) : 2열 배치 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .best-item-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3. 모바일 (768px 미만) : 1열 배치 */
+@media (max-width: 767px) {
+  .best-item-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

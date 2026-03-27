@@ -1,0 +1,65 @@
+.card-best {
+  width: 282px;
+  height: 378px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent; /* 배경은 투명하게 하거나 시안에 맞춰 조절 */
+  cursor: pointer;
+}
+
+.image-container {
+  width: 282px;
+  height: 282px;
+  border-radius: 16px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-name {
+  color: var(--Secondary-800, #1f2937);
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  /* 이름이 길어질 경우를 대비한 처리 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-price {
+  color: var(--Secondary-800, #1f2937);
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+}
+
+.card-footer {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.product-favorite {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-heart {
+  width: 16px;
+  height: 16px;
+}
+
+.favorite-count {
+  color: var(--Secondary-600, #4b5563);
+  font-family: "Pretendard", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}

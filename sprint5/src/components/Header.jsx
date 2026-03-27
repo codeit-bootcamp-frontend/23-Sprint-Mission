@@ -1,5 +1,6 @@
 import pandaLogo from "../assets/logo.svg";
 import pandoProfile from "../assets/icon-profile.svg";
+import "../Header.css";
 
 function Header() {
   return (
