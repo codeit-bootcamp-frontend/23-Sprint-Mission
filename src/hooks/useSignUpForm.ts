@@ -71,6 +71,33 @@ export default function useSignUpForm({
     );
   }, [formValues]);
 
+  // 이메일 에러 메시지
+  const emailErrorMessage = emailEmptyError
+    ? "이메일을 입력해 주세요"
+    : emailInvalidError
+    ? "잘못된 이메일 형식입니다"
+    : "";
+
+  // 닉네임 에러 메시지
+  const nicknameErrorMessage = nicknameEmptyError
+    ? "닉네임을 입력해 주세요"
+    : "";
+
+  // 비밀번호 에러 메시지
+  const passwordErrorMessage = passwordEmptyError
+    ? "비밀번호를 입력해 주세요"
+    : passwordInvalidError
+    ? "비밀번호를 8자 이상 입력해 주세요"
+    : "";
+
+  // 비밀번호 확인 에러 메시지
+  const passwordConfirmationErrorMessage =
+    passwordConfirmationInitError
+      ? "비밀번호를 먼저 올바르게 입력해 주세요"
+      : passwordConfirmationError
+      ? "비밀번호가 일치하지 않습니다"
+      : "";
+
   // input 값 공통 변경
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -121,14 +148,13 @@ export default function useSignUpForm({
     showPassword,
     showPasswordConfirmation,
     isSubmitting,
-    emailEmptyError,
-    emailInvalidError,
-    nicknameEmptyError,
-    passwordEmptyError,
-    passwordInvalidError,
-    passwordConfirmationInitError,
-    passwordConfirmationError,
     isFormValid,
+
+    emailErrorMessage,
+    nicknameErrorMessage,
+    passwordErrorMessage,
+    passwordConfirmationErrorMessage,
+
     setShowPassword,
     setShowPasswordConfirmation,
     setTouchedEmail,
