@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
+import type { Product } from "../../../../types/product"
 
-export default function ProductCard({ product }) {
+interface ProductCardProps {
+  product: Product;
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link to={`/items/${product.id}`} className="productCardLink">
       <article className="productCard">
@@ -15,9 +20,7 @@ export default function ProductCard({ product }) {
 
         <div className="cardBody">
           <p className="productName">{product.name}</p>
-          <p className="productPrice">
-            {product.price.toLocaleString()}원
-          </p>
+          <p className="productPrice">{product.price.toLocaleString()}원</p>
 
           <div className="likeBox">
             ♡ <span>{product.favoriteCount}</span>

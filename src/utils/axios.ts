@@ -1,10 +1,11 @@
 import Axios from "axios";
+import type { InternalAxiosRequestConfig } from "axios";
 
 const axios = Axios.create({
   baseURL: "https://panda-market-api.vercel.app",
 });
 
-axios.interceptors.request.use((config) => {
+axios.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const token = localStorage.getItem("accessToken");
 
   const isAuthRequest =

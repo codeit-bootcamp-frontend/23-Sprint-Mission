@@ -1,12 +1,21 @@
-import React from "react";
 import "./Pagination.css";
 import LeftArrow from "../../../assets/images/arrowLeft.svg";
 import RightArrow from "../../../assets/images/arrowRight.svg";
 
-const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
+interface PaginationBarProps {
+  totalPageNum: number;
+  activePageNum: number;
+  onPageChange: (page: number) => void;
+}
+
+const PaginationBar = ({
+  totalPageNum,
+  activePageNum,
+  onPageChange,
+}: PaginationBarProps) => {
   const maxVisiblePages = 5;
 
-  let startPage;
+  let startPage: number;
 
   if (totalPageNum <= maxVisiblePages) {
     startPage = 1;
@@ -29,6 +38,7 @@ const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
   return (
     <div className="paginationBar">
       <button
+        type="button"
         className="paginationButton"
         disabled={activePageNum === 1}
         onClick={() => onPageChange(activePageNum - 1)}
@@ -39,6 +49,7 @@ const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
       {pages.map((page) => (
         <button
           key={page}
+          type="button"
           className={`paginationButton ${
             activePageNum === page ? "active" : ""
           }`}
@@ -49,6 +60,7 @@ const PaginationBar = ({ totalPageNum, activePageNum, onPageChange }) => {
       ))}
 
       <button
+        type="button"
         className="paginationButton"
         disabled={activePageNum === totalPageNum}
         onClick={() => onPageChange(activePageNum + 1)}

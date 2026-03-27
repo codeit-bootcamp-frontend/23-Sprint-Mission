@@ -7,12 +7,12 @@ export default function Items() {
     <main className="itemsPage">
       {/* 베스트 상품 */}
       <section>
-        <BestSection type="best" />
+        <BestSection />
       </section>
 
       {/* 전체 상품 */}
       <section>
-        <AllSection type="all"/>
+        <AllSection />
       </section>
     </main>
   );
