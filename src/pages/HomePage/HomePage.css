@@ -1,0 +1,254 @@
+body {
+  margin: 0;
+  font-family: Pretendard, sans-serif;
+}
+
+/* 클릭 요소 포인터 표시 */
+.logo,
+.login-btn,
+.panda-button {
+  cursor: pointer;
+}
+
+/* 상단 배너 */
+.panda-top-main {
+  background: #e8f3ff;
+}
+
+.panda-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 540px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.panda-inner {
+  max-width: 420px;
+}
+
+.panda-text {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #374151;
+}
+
+.panda-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 320px;
+  height: 56px;
+  padding: 0 32px;
+
+  background: #3692ff;
+  color: #fff;
+  border-radius: 40px;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.panda-image {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  max-width: 720px;
+  width: 100%;
+  height: auto;
+}
+
+/* 카드 영역 */
+.features {
+  max-width: 1200px;
+  margin: 120px auto;
+  padding: 0 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.card-image img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+}
+
+.card-text {
+  max-width: 420px;
+}
+
+.card-abbreviation {
+  font-size: 18px;
+  font-weight: 800;
+  color: #3692ff;
+}
+
+.card-title {
+  margin: 12px 0;
+  font-size: 40px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.card-desc {
+  font-size: 24px;
+  line-height: 1.4;
+  color: #374151;
+}
+
+/* 하단 배너 */
+.bottom-banner {
+  background-color: #e8f3ff;
+}
+
+.bottom-inner {
+  max-width: 1200px;
+  height: 540px;
+  margin: 0 auto;
+  padding: 80px 24px 0;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.bottom-text {
+  max-width: 420px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #374151;
+
+  display: flex;
+  align-items: center;
+}
+
+.bottom-image {
+  position: absolute;
+  bottom: 0;
+  right: 24px;
+
+  max-width: 720px;
+  width: 100%;
+}
+
+.bottom-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 1199px) {
+  .panda-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    padding: 80px 24px 0;
+  }
+
+  .panda-image {
+    position: static;
+    margin-top: 40px;
+    max-width: 480px;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-text {
+    margin: 0 auto;
+  }
+
+  .bottom-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-inner {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .login-btn {
+    width: 96px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+  }
+
+  .panda-container {
+    padding: 60px 16px 0;
+  }
+
+  .panda-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .panda-text {
+    font-size: 24px;
+  }
+
+  .panda-button {
+    width: 100%;
+    min-width: unset;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .panda-image {
+    max-width: 320px;
+    margin-top: 32px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .card-desc {
+    font-size: 16px;
+  }
+
+  .bottom-inner {
+    text-align: center;
+    height: auto;
+    padding: 48px 16px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-image {
+    position: static;
+    margin-top: 32px;
+    max-width: 100%;
+  }
+
+  .bottom-text {
+    font-size: 24px;
+  }
+}
