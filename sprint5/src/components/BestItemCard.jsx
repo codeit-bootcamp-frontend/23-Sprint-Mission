@@ -12,12 +12,9 @@ const BestItemCard = ({ data }) => {
       <div className="card-info">
         <p className="product-name">{name}</p>
         <p className="product-price">{price?.toLocaleString()}원</p>
-
-        <div className="card-footer">
-          <div className="product-favorite">
-            <img src={heartIcon} alt="좋아요" className="icon-heart" />
-            <span className="favorite-count">{favoriteCount}</span>
-          </div>
+        <div className="product-favorite">
+          <img src={heartIcon} alt="좋아요" className="icon-heart" />
+          <span className="favorite-count">{favoriteCount}</span>
         </div>
       </div>
     </div>

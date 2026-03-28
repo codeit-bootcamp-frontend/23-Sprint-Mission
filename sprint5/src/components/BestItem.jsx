@@ -52,7 +52,7 @@ const BestItem = () => {
   }, [pageSize]); // pageSize가 바뀔 때만 API 재호출
 
   return (
-    <section className="best-item-section">
+    <section id="best-item-section">
       <h2 className="section-title">베스트 상품</h2>
       <div className="best-item-list">
         {items.map((item) => (

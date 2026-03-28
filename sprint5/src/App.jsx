@@ -1,5 +1,5 @@
-import BestItem from "./components/BestItem";
 import Header from "./components/Header";
+import BestItem from "./components/BestItem";
 
 function App() {
   return (
