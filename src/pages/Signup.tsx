@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router";
 
 // Components
@@ -34,12 +34,12 @@ export default function SignupPage() {
     passwordConfirm: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setValues((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleInputBlur = (e) => {
+  const handleInputBlur = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     let errorMsg = "";
 
@@ -55,7 +55,7 @@ export default function SignupPage() {
 
   const isFormValid = isSignupFormValid(values);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert("회원가입이 완료되었습니다!");
     navigate("/login");

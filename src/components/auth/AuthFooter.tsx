@@ -1,6 +1,14 @@
 import { Link } from "react-router";
 
-const AUTH_FOOTER_CONFIG = {
+type AuthPageType = "login" | "signup";
+
+interface FooterItem {
+  message: string;
+  linkText: string;
+  href: string;
+}
+
+const AUTH_FOOTER_CONFIG: Record<AuthPageType, FooterItem> = {
   login: {
     message: "판다마켓이 처음이신가요?",
     linkText: "회원가입",
@@ -13,9 +21,13 @@ const AUTH_FOOTER_CONFIG = {
   },
 };
 
-export default function AuthFooter({ type }) {
+interface AuthFooterProps {
+  type: "login" | "signup";
+}
+
+export default function AuthFooter({ type }: AuthFooterProps) {
   const { message, linkText, href } = AUTH_FOOTER_CONFIG[type];
-  
+
   return (
     <div className="text-center font-medium text-sm leading-6 text-gray-800 mt-8">
       {message}

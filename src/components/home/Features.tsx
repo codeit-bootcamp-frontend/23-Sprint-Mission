@@ -1,7 +1,17 @@
+import { PropsWithChildren, ReactNode } from "react";
+
 // Imges
 import feature1 from "../../assets/features/feature_img1.svg";
 import feature2 from "../../assets/features/feature_img2.svg";
 import feature3 from "../../assets/features/feature_img3.svg";
+
+interface FeatureItemProps {
+  imageSrc: string;
+  tag: string;
+  title: ReactNode;
+  description: ReactNode;
+  reverse?: boolean;
+}
 
 export default function Features() {
   return (
@@ -57,7 +67,7 @@ export default function Features() {
   );
 }
 
-const FeatureContainer = ({ children }) => {
+const FeatureContainer = ({ children }: PropsWithChildren) => {
   return (
     <main className="px-6 py-12 flex flex-col items-center justify-center space-y-20 lg:space-y-40">
       {children}
@@ -71,7 +81,7 @@ const FeatureItem = ({
   title,
   description,
   reverse = false,
-}) => {
+}: FeatureItemProps) => {
   return (
     <section
       className={`
@@ -101,19 +111,19 @@ const FeatureItem = ({
   );
 };
 
-const FeatureTag = ({ children }) => (
+const FeatureTag = ({ children }: PropsWithChildren) => (
   <span className="text-primary lg:font-abhaya font-bold text-[16px] leading-6.5 inline-block mb-2 lg:mb-6">
     {children}
   </span>
 );
 
-const FeatureTitle = ({ children }) => (
+const FeatureTitle = ({ children }: PropsWithChildren) => (
   <h2 className="font-bold text-[24px] leading-8 lg:leading-[140%] lg:text-[40px] lg:tracking-[2%] text-gray-700 break-keep mb-2 lg:mb-6">
     {children}
   </h2>
 );
 
-const FeatureDescription = ({ children }) => (
+const FeatureDescription = ({ children }: PropsWithChildren) => (
   <p className="text-[16px] lg:text-[24px] leading-6.5 lg:leading-8 font-medium text-gray-700 break-keep">
     {children}
   </p>
