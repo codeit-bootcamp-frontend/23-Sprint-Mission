@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="./login&signup.css" />
 
-    <script defer src="../index.js"></script>
+    <script type="module" src="./signup.js"></script>
+    <script type="module" src="./login.js"></script>
   </head>
   <body>
     <section class="container">
@@ -29,30 +30,40 @@
               required
               placeholder="이메일을 입력해주세요"
             />
-            <p class="type-email-msg">이메일을 입력해주세요.</p>
-            <p class="wrong-email-msg">잘못된 이메일입니다.</p>
+            <p class="type-email-msg err-msg">이메일을 입력해주세요.</p>
+            <p class="wrong-email-msg err-msg">잘못된 이메일입니다.</p>
           </div>
 
           <label class="labels" for="name">닉네임</label>
-          <input
-            name="name"
-            class="inputs email"
-            id="name"
-            type="text"
-            required
-            placeholder="닉네임을 입력해주세요"
-          />
+          <div>
+            <input
+              name="name"
+              class="inputs nickname"
+              id="name"
+              type="text"
+              required
+              placeholder="닉네임을 입력해주세요"
+            />
+            <p class="type-nickname-msg err-msg">닉네임을 입력해주세요</p>
+          </div>
 
           <label class="labels" for="pwd">비밀번호</label>
           <div class="password-wrapper">
-            <input
-              name="pwd"
-              class="inputs"
-              id="pwd"
-              type="password"
-              required
-              placeholder="비밀번호를 입력해주세요"
-            />
+            <div>
+              <input
+                name="pwd"
+                class="inputs password"
+                id="pwd"
+                type="password"
+                required
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <p class="type-pwd-msg err-msg">비밀번호를 입력해주세요</p>
+              <p class="more-than-8 err-msg">
+                비밀번호를 8자 이상 입력해주세요
+              </p>
+            </div>
+
             <button type="button" class="visibility">
               <img
                 src="../assets/images/Img_visibility.svg"
@@ -63,14 +74,17 @@
 
           <label class="labels" for="check">비밀번호 확인</label>
           <div class="password-wrapper">
-            <input
-              name="check"
-              class="inputs"
-              id="check"
-              type="password"
-              required
-              placeholder="비밀번호를 다시 한 번 입력해주세요"
-            />
+            <div>
+              <input
+                name="check"
+                class="inputs pwdValid"
+                id="check"
+                type="password"
+                required
+                placeholder="비밀번호를 다시 한 번 입력해주세요"
+              />
+              <p class="pwd-valid-msg err-msg">비밀번호가 일치하지 않습니다.</p>
+            </div>
             <button type="button" class="visibility">
               <img
                 src="../assets/images/Img_visibility2.svg"

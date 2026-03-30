@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="./login&signup.css" />
-    <script defer src="../index.js"></script>
+    <script defer src="./login.js"></script>
   </head>
   <body>
     <section class="container">
@@ -28,20 +28,26 @@
               autofocus
               placeholder="이메일을 입력해주세요"
             />
-            <p class="type-email-msg">이메일을 입력해주세요.</p>
-            <p class="wrong-email-msg">잘못된 이메일입니다.</p>
+            <p class="type-email-msg err-msg">이메일을 입력해주세요.</p>
+            <p class="wrong-email-msg err-msg">잘못된 이메일입니다.</p>
           </div>
 
           <label class="labels" for="pwd">비밀번호</label>
           <div class="password-wrapper">
-            <input
-              name="password"
-              class="inputs"
-              type="password"
-              id="pwd"
-              required
-              placeholder="비밀번호를 입력해주세요"
-            />
+            <div>
+              <input
+                name="password"
+                class="inputs password"
+                type="password"
+                id="pwd"
+                required
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <p class="type-pwd-msg err-msg">비밀번호를 입력해주세요</p>
+              <p class="more-than-8 err-msg">
+                비밀번호를 8자 이상 입력해주세요
+              </p>
+            </div>
             <button type="button" class="visibility">
               <img
                 src="../assets/images/Img_visibility.svg"

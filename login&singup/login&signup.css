@@ -70,14 +70,7 @@ body {
   border: 2px solid var(--error);
 }
 
-.type-email-msg {
-  display: none;
-  color: var(--error);
-  padding-left: 16px;
-  margin-top: 10px;
-}
-
-.wrong-email-msg {
+.err-msg {
   display: none;
   color: var(--error);
   padding-left: 16px;
