@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../api/getProducts";
+import getProducts from "../../../api/getProducts";
 import { Link } from "react-router-dom";
-import DropdownList from "../../../components/MarketUI/DropdownList";
 import ItemCard from "./ItemCard";
+import DropdownList from "../../../components/MarketUI/DropdownList";
 import PaginationBar from "../../../components/MarketUI/PaginationBar";
-import SortIcon from "../../../assets/icons/ic_sort.svg?react";
 import SearchIcon from "../../../assets/icons/ic_search.svg?react";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -26,12 +26,24 @@ function AllItemsSection() {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [itemList, setItemList] = useState([]);
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [totalPageNum, setTotalPageNum] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchSortedData = async ({ orderBy, page, pageSize }) => {
+    setIsLoading(true);
+    try {
+      const products = await getProducts({ orderBy, page, pageSize });
+      setItemList(products.list);
+      setTotalPageNum(Math.ceil(products.totalCount / pageSize));
+    } catch (error) {
+      console.error("오류: ", error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleSortSelection = (sortOption) => {
     setOrderBy(sortOption);
-    setIsDropdownVisible(false);
   };
 
   useEffect(() => {
@@ -39,39 +51,31 @@ function AllItemsSection() {
       setPageSize(getPageSize());
     };
 
-    const fetchSortedData = async () => {
-      const products = await getProducts({ orderBy, page, pageSize });
-      setItemList(products.list);
-      setTotalPageNum(Math.ceil(products.totalCount / pageSize));
-    };
-
     window.addEventListener("resize", handleResize);
-    fetchSortedData();
+    fetchSortedData({ orderBy, page, pageSize });
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [orderBy, page, pageSize]);
 
-  const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible);
-  };
-
   const onPageChange = (pageNumber) => {
     setPage(pageNumber);
   };
 
   return (
-    <div>
-      <div className="allItemsHeaderWrapper">
-        <div className="topRow">
+    <>
+      <LoadingSpinner isLoading={isLoading} />
+
+      <div>
+        <div className="allItemsHeaderWrapper">
           <h1 className="sectionTitle">전체 상품</h1>
-          <Link to="/additem" className="registerButton button">
+          <Link to="/additem" className="loginLink button">
             상품 등록하기
           </Link>
         </div>
 
-        <div className="bottomRow">
+        <div className="allItemsHeaderWrapper">
           <div className="searchBarWrapper">
             <SearchIcon />
             <input
@@ -79,34 +83,24 @@ function AllItemsSection() {
               placeholder="검색할 상품을 입력해 주세요"
             />
           </div>
-          <div className="sortButtonWrapper">
-            <button
-              className="sortDropdownTriggerButton"
-              onClick={toggleDropdown}
-            >
-              <SortIcon />
-            </button>
-            {isDropdownVisible && (
-              <DropdownList onSortSelection={handleSortSelection} />
-            )}
-          </div>
+          <DropdownList onSortSelection={handleSortSelection} />
+        </div>
+
+        <div className="allItemsCardSection">
+          {itemList?.map((item) => (
+            <ItemCard item={item} key={`market-item-${item.id}`} />
+          ))}
+        </div>
+
+        <div className="paginationBarWrapper">
+          <PaginationBar
+            totalPageNum={totalPageNum}
+            activePageNum={page}
+            onPageChange={onPageChange}
+          />
         </div>
       </div>
-
-      <div className="allItemsCardSection">
-        {itemList?.map((item) => (
-          <ItemCard item={item} key={`market-item-${item.id}`} />
-        ))}
-      </div>
-
-      <div className="paginationBarWrapper">
-        <PaginationBar
-          totalPageNum={totalPageNum}
-          activePageNum={page}
-          onPageChange={onPageChange}
-        />
-      </div>
-    </div>
+    </>
   );
 }
 

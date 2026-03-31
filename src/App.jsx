@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import MarketPage from "./pages/MarketPage/MarketPage";
 import CommunityPage from "./pages/CommunityPage/CommunityPage";
 import AdditemPage from "./pages/AdditemPage/AdditemPage";
+import ItemPage from "./pages/ItemPage/ItemPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="items" element={<MarketPage />} />
+          <Route path="items/:productId" element={<ItemPage />} />
           <Route path="additem" element={<AdditemPage />} />
           <Route path="community" element={<CommunityPage />} />
         </Routes>

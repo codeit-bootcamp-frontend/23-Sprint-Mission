@@ -33,8 +33,8 @@ const squareStyle = css`
 `;
 
 const UploadButton = styled.label`
-  background-color: ${({ theme }) => theme.color.gray[1]};
-  color: ${({ theme }) => theme.color.gray[0]};
+  background-color: ${({ theme }) => theme.color.gray[100]};
+  color: ${({ theme }) => theme.color.gray[400]};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,7 +44,7 @@ const UploadButton = styled.label`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.gray[2]};
+    background-color: ${({ theme }) => theme.color.gray[50]};
   }
 
   ${squareStyle}

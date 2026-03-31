@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
 const inputStyle = css`
-  background-color: ${({ theme }) => theme.color.gray[1]};
-  color: ${({ theme }) => theme.color.black};
+  background-color: ${({ theme }) => theme.color.gray[100]};
+  color: ${({ theme }) => theme.color.gray[800]};
   width: 100%;
   border: none;
   border-radius: 12px;
@@ -11,11 +11,11 @@ const inputStyle = css`
   padding: 16px 24px;
 
   &::placeholder {
-    color: ${({ theme }) => theme.color.gray[0]};
+    color: ${({ theme }) => theme.color.gray[400]};
   }
 
   &:focus {
-    outline-color: ${({ theme }) => theme.color.blue[0]};
+    outline-color: ${({ theme }) => theme.color.blue.primary};
   }
 `;
 
