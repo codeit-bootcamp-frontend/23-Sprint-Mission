@@ -48,3 +48,20 @@ pwdInput.addEventListener("focusout", (e) => {
     typePwdMsg.style.display = "none";
   }
 });
+
+//------------ 버튼 비활성화 처리 -----------//
+const mainButton = document.querySelector(".main-button");
+
+function updateButtonState() {
+  const emailValue = emailInput.value.trim();
+  const pwdValue = pwdInput.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const isEmailValid = emailRegex.test(emailValue);
+  const isPwdValid = pwdValue.length >= 8;
+
+  mainButton.disabled = !(isEmailValid && isPwdValid);
+}
+
+emailInput.addEventListener("input", updateButtonState);
+pwdInput.addEventListener("input", updateButtonState);
