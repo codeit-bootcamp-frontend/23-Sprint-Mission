@@ -1,0 +1,317 @@
+body {
+  margin: 0;
+  font-family: Pretendard, sans-serif;
+}
+
+/* 공통 섹션 너비 */
+.home-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* 클릭 요소 포인터 표시 */
+.panda-button,
+.footer-menu a,
+.social-media a {
+  cursor: pointer;
+}
+
+/* 상단 배너 */
+.panda-top-main {
+  background: #CFE5FF;
+}
+
+.panda-container {
+  min-height: 540px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.panda-inner {
+  flex: 0 0 420px;
+  padding-bottom: 100px;
+}
+
+.panda-text {
+  margin: 0 0 32px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #374151;
+}
+
+.panda-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 40px;
+  background: #3692ff;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.panda-image-box {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.panda-image {
+  width: 100%;
+  max-width: 746px;
+  height: auto;
+  display: block;
+}
+
+/* 카드 영역 */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 138px;
+  padding: 138px 0;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.card-reverse {
+  flex-direction: row-reverse;
+}
+
+.card-image,
+.card-text {
+  flex: 1;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+}
+
+.card-image img {
+  width: 100%;
+  max-width: 588px;
+  height: auto;
+  display: block;
+}
+
+.card-text {
+  max-width: 420px;
+}
+
+.card-abbreviation {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #3692ff;
+}
+
+.card-title {
+  margin: 12px 0 24px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #374151;
+}
+
+.card-desc {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #374151;
+}
+
+/* 하단 배너 */
+.bottom-banner {
+  background-color: #e8f3ff;
+}
+
+.bottom-inner {
+  min-height: 540px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.bottom-text {
+  flex: 0 0 420px;
+  margin: 0;
+  padding-bottom: 150px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #374151;
+}
+
+.bottom-image-box {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.bottom-image {
+  width: 100%;
+  max-width: 746px;
+  height: auto;
+  display: block;
+}
+
+/* 푸터 */
+.footer {
+  background-color: #111827;
+}
+
+.footer-inner {
+  min-height: 160px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.copyright {
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.footer-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-menu a {
+  color: #e5e7eb;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-media a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 태블릿 */
+@media (max-width: 1199px) {
+  .panda-container,
+  .bottom-inner,
+  .card,
+  .card-reverse {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .panda-container,
+  .bottom-inner {
+    min-height: auto;
+    padding-top: 84px;
+  }
+
+  .panda-inner,
+  .bottom-text,
+  .card-text {
+    flex: none;
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
+  .panda-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .panda-image-box,
+  .bottom-image-box {
+    justify-content: center;
+  }
+
+  .panda-image,
+  .bottom-image {
+    max-width: 520px;
+  }
+
+  .features {
+    gap: 96px;
+    padding: 96px 0;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .home-section {
+    padding: 0 16px;
+  }
+
+  .panda-container,
+  .bottom-inner {
+    padding-top: 48px;
+  }
+
+  .panda-text,
+  .bottom-text,
+  .card-title {
+    font-size: 24px;
+  }
+
+  .card-abbreviation {
+    font-size: 16px;
+  }
+
+  .card-desc {
+    font-size: 16px;
+  }
+
+  .panda-button {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .panda-image,
+  .bottom-image {
+    max-width: 344px;
+  }
+
+  .features {
+    gap: 64px;
+    padding: 64px 0;
+  }
+
+  .footer-inner {
+    min-height: auto;
+    padding: 32px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-menu {
+    gap: 16px;
+  }
+}

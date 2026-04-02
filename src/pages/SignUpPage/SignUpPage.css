@@ -1,0 +1,7 @@
+@import "../LoginPage/LoginPage.css";
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
