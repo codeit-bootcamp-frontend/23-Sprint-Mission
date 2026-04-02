@@ -2,107 +2,373 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
-  width: 100%;
+  padding: 0 36px;
 }
 
-/* 제목, 드롭다운 양 끝으로 배치 */
+/* 제목 | 검색, 상품등록, 드롭다운 양 끝으로 배치 */
 .section-header {
   display: flex;
+  padding-top: 40px;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.section-title {
-  color: #000;
+.general-item-section .section-title {
+  color: var(--Secondary-900, #111827);
+  /* pretendard/xl-20px-bold */
   font-family: Pretendard;
-  font-size: 24px;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 700;
+  line-height: 32px; /* 160% */
+  padding: 5px 0;
+  white-space: nowrap;
 }
 
-/* 드롭다운 컨테이너 */
-.sort-dropdown-container {
-  position: relative;
-  width: 130px;
-}
-
-.sort-dropdown-button {
+.section-feature {
   display: flex;
-  width: 130px;
-  height: 42px;
-  padding: 12px 20px;
-  justify-content: space-between;
+  gap: 12px;
   align-items: center;
-  gap: 10px;
-
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-  cursor: pointer;
-  box-sizing: border-box;
 }
 
-.sort-dropdown-button span {
-  color: #1f2937;
+.product-search {
+  display: flex;
+  padding: 9px 20px 9px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 12px;
+  background: var(--Secondary-100, #f3f4f6);
+  min-width: 325px;
+  max-width: 42px;
+}
+
+.search-header {
+  display: flex;
+  gap: 4px;
+}
+
+.serach-icon {
+  width: 24px;
+  height: 24px;
+  padding-top: 2px;
+  cursor: pointer;
+}
+
+.search-input {
+  color: var(--Secondary-400, #9ca3af);
+  /* pretendard/lg-16px-regular */
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 26px; /* 162.5% */
+  border: none;
+  outline: none;
+  background: none;
+  white-space: nowrap;
 }
 
-.arrow-icon {
-  transition: transform 0.2s ease;
-}
-.arrow-icon.rotated {
-  transform: rotate(180deg);
+.search-input::placeholder {
+  color: var(--Secondary-400, #9ca3af);
+  opacity: 1;
 }
 
-.sort-dropdown-menu {
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 130px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
+.product-add-btn {
+  display: flex;
+  padding: 12px 23px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border-style: none;
+  background: var(--Primary-100, #3692ff);
+  color: var(--Cool-Gray-100, #f3f4f6);
+  /* pretendard/lg-16px-semibold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px; /* 162.5% */
+  cursor: pointer;
+  max-width: 133px;
+  max-height: 42px;
+  white-space: nowrap;
+}
+
+/* 드롭다운 */
+.product-orderby-dropdown {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  padding: 12px 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 12px;
+  border: 1px solid var(--Cool-Gray-200, #e5e7eb);
+  max-width: 130px;
+  max-height: 42px;
+  white-space: nowrap;
+}
+
+.dropdown-menu {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
+  align-self: stretch;
+  max-width: 130px;
+  max-height: 42px;
+}
+
+.dropdown-title {
+  color: var(--Secondary-800, #1f2937);
+  /* pretendard/lg-16px-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+  white-space: nowrap;
+}
+
+.dropdown-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.dropdown-mobile-icon {
+  display: none;
+}
+
+.dropdown-menu-open {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  width: 100%;
+  flex-direction: column;
   list-style: none;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--Cool-Gray-200, #e5e7eb);
   z-index: 10;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  background: #fff;
 }
 
-.sort-dropdown-menu li {
-  padding: 12px 20px;
-  color: #1f2937;
+.dropdown-menu-open li {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  cursor: pointer;
+  color: var(--Secondary-800, #1f2937);
+  /* pretendard/lg-16px-regular */
   font-family: Pretendard;
   font-size: 16px;
+  font-style: normal;
   font-weight: 400;
-  cursor: pointer;
+  line-height: 26px; /* 162.5% */
+  white-space: nowrap;
 }
 
-.sort-dropdown-menu li:hover {
-  background-color: #f3f4f6;
+.dropdown-menu-open li:first-child {
+  border-bottom: 1px solid var(--Cool-Gray-200, #e5e7eb);
 }
 
-.product-grid {
+.general-item-list {
   display: grid;
+  gap: 24px 24px;
+  padding-top: 24px;
+  padding-bottom: 16px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
   width: 100%;
-  gap: 20px;
-  grid-template-columns: repeat(2, 1fr); /* 모바일 */
+  padding: 16px 0 40px 0;
 }
 
-@media (min-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  } /* 태블릿 */
+.pagination-number {
+  display: flex;
+  gap: 4px;
 }
 
+/* 페이지네이션 공통 스타일 (not active) */
+.page-number {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  border: 1px solid var(--Cool-Gray-200, #e5e7eb);
+  background: #fff;
+  cursor: pointer;
+  font-family: Pretendard;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+/* 페이지네이션 (active) */
+.page-number.active {
+  background: #2f80ed;
+  color: #fff;
+  border: none;
+}
+
+/* 화살표 버튼 */
+.pagination-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+/* Mobile(768px 미만) */
+@media (max-width: 767px) {
+  .general-item-section {
+    padding: 0 16px;
+  }
+
+  .general-item-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px 8px;
+    gap: 16px;
+  }
+
+  .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    row-gap: 8px;
+  }
+
+  .section-feature {
+    display: contents;
+  }
+
+  .general-item-section .section-title {
+    order: 0;
+    flex: 0 0 auto;
+    max-width: 74px;
+    max-height: 32px;
+    white-space: nowrap;
+  }
+
+  .product-add {
+    order: 1;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 133px;
+    max-height: 42px;
+    white-space: nowrap;
+  }
+
+  .product-search {
+    order: 2;
+    flex: 1 1 calc(100% - 60px);
+    max-width: 288px;
+    margin-top: 0;
+    max-height: 42px;
+    justify-content: flex-end;
+  }
+
+  /* 드롭다운 -> 검색창 옆 */
+  .product-orderby-dropdown {
+    order: 3;
+    margin-top: 0;
+    margin-left: 14px;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    max-width: 42px;
+    max-height: 42px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .dropdown-menu-open {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0; /* 버튼 오른쪽 끝에 맞춰서 열림 */
+    left: auto;
+    width: 130px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .dropdown-menu-open li {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+    color: var(--Secondary-800, #1f2937);
+    /* pretendard/lg-16px-regular */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 162.5% */
+    white-space: nowrap;
+  }
+
+  .dropdown-menu-open li:first-child {
+    border-bottom: 1px solid var(--Cool-Gray-200, #e5e7eb);
+  }
+
+  /* 모바일 전용 아이콘 */
+  .dropdown-title,
+  .dropdown-icon {
+    display: none;
+  }
+  .dropdown-mobile-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Tablet(768px 이상 1199px 이하) */
+@media (max-width: 1200px) {
+  .general-item-section {
+    padding: 0 24px;
+  }
+
+  .product-search {
+    max-width: 242px;
+  }
+  .general-item-list {
+    gap: 24px 16px;
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Tablet -> 전체 상품 6개 보이기, 2열 3배치 */
+  }
+}
+
+/* Desktop(1200px 이상) */
 @media (min-width: 1200px) {
-  .product-grid {
-    grid-template-columns: repeat(5, 1fr);
-  } /* 데스크탑 */
+  .general-item-list {
+    grid-template-columns: repeat(
+      5,
+      1fr
+    ); /* Tablet -> 전체 상품 6개 보이기, 2열 3배치 */
+  }
 }

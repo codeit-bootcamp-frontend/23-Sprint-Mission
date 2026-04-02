@@ -24,11 +24,11 @@ const BestItem = () => {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); // 마운트 시 이벤트리스너 추가
+    return () => window.removeEventListener("resize", handleResize); // 언마운트 시 이벤트리스너 제거
   }, []);
 
-  // pageSize가 변경될 때 마다 API 호출
+  // pageSize가 변경될 때마다 API 호출
   useEffect(() => {
     const fetchBestItem = async () => {
       try {
@@ -44,15 +44,15 @@ const BestItem = () => {
         );
         setItems(response.data.list);
       } catch (error) {
-        console.log("데이터를 불러오는데 실패했습니다", error);
+        console.log("데이터 로딩 실패... ", error);
       }
     };
 
     fetchBestItem();
-  }, [pageSize]); // pageSize가 바뀔 때만 API 재호출
+  }, [pageSize]);
 
   return (
-    <section id="best-item-section">
+    <section className="best-item-section">
       <h2 className="section-title">베스트 상품</h2>
       <div className="best-item-list">
         {items.map((item) => (
