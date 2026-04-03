@@ -78,3 +78,14 @@ pwdInput.addEventListener("input", updateButtonState);
 mainButton.addEventListener("click", () => {
   window.location.href = "../items";
 });
+
+//눈 아이콘 기능 구현
+const eyeIconButton = document.querySelector(".visibility");
+const eyeImg = document.querySelector(".visibility > img");
+
+eyeIconButton.addEventListener("click", () => {
+  pwdInput.type = pwdInput.type === "password" ? "text" : "password";
+  eyeImg.src = eyeImg.src.includes("Img_visibility2")
+    ? "../assets/images/Img_visibility.svg"
+    : "../assets/images/Img_visibility2.svg";
+});
