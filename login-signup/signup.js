@@ -1,9 +1,16 @@
 //----------- 회원가입 페이지 ------------
+
+//focusout 되었을 때 위치를 확인하는 함수
+//불필요한 경우에는 에러를 무효화 하기 위함
+import shouldSkipValidation from "../utils/skipValidation.js";
+
 //닉네임 에러 처리
 const nameInput = document.querySelector(".inputs.nickname");
 const typeNameMsg = document.querySelector(".type-nickname-msg.err-msg");
 
 nameInput.addEventListener("focusout", (e) => {
+  if (shouldSkipValidation(e.relatedTarget)) return;
+
   const nameValue = e.target.value.trim();
 
   if (nameValue === "") {
@@ -21,6 +28,8 @@ const typeEmailMsg = document.querySelector(".type-email-msg.err-msg");
 const wrongEmailMsg = document.querySelector(".wrong-email-msg.err-msg");
 
 emailInput.addEventListener("focusout", (e) => {
+  if (shouldSkipValidation(e.relatedTarget)) return;
+
   const emailValue = e.target.value.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -47,6 +56,8 @@ const typePwdMsg = document.querySelector(".type-pwd-msg.err-msg");
 const moreThan8 = document.querySelector(".more-than-8.err-msg");
 
 pwdInput.addEventListener("focusout", (e) => {
+  if (shouldSkipValidation(e.relatedTarget)) return;
+
   const pwdValue = e.target.value.trim();
   const isOkay = e.target.value.split("").length >= 8;
 
@@ -70,6 +81,8 @@ const pwdValidInput = document.querySelector(".inputs.pwdValid");
 const pwdValidMsg = document.querySelector(".pwd-valid-msg.err-msg");
 
 pwdValidInput.addEventListener("focusout", (e) => {
+  if (shouldSkipValidation(e.relatedTarget)) return;
+
   const pwdValue = pwdInput.value.trim();
   const pwdValidValue = e.target.value.trim();
 

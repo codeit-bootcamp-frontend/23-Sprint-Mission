@@ -1,13 +1,7 @@
 //-------- 로그인 페이지 ---------
 //focusout 되었을 때 위치를 확인하는 함수
 //불필요한 경우에는 에러를 무효화 하기 위함
-function shouldSkipValidation(relatedTarget) {
-  return (
-    relatedTarget?.closest(".easy-login") ||
-    relatedTarget?.closest(".logo-link") ||
-    relatedTarget?.closest(".footer-wrapper")
-  );
-}
+import shouldSkipValidation from "../utils/skipValidation.js";
 
 //이메일 에러처리
 const emailInput = document.querySelector(".inputs.email");
