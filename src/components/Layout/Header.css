@@ -7,6 +7,10 @@
   margin-right: 16px;
 }
 
+.globalHeader {
+  margin-bottom: 70px;
+}
+
 .globalHeader nav ul {
   display: flex;
   list-style: none;

@@ -1,9 +1,9 @@
 import axiosInstance from "./axiosInstance";
 
-export async function getProducts(params = {}) {
+export default async function getProducts(params = {}) {
   try {
     const response = await axiosInstance.get(
-      "",
+      "/products",
       { params }
     );
     return response.data;

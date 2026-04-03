@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../api/getProducts";
+import getProducts from "../../../api/getProducts";
 import ItemCard from "./ItemCard";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -19,22 +20,27 @@ const getPageSize = () => {
 function BestItemsSection() {
   const [itemList, setItemList] = useState([]);
   const [pageSize, setPageSize] = useState(getPageSize());
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchSortedData = async ({ orderBy, pageSize }) => {
+    setIsLoading(true);
+    try {
+      const products = await getProducts({ orderBy, pageSize });
+      setItemList(products.list);
+    } catch (error) {
+      console.error("오류: ", error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
       setPageSize(getPageSize());
     };
 
-    const fetchSortedData = async () => {
-      const products = await getProducts({
-        orderBy: "favorite",
-        pageSize,
-      });
-      setItemList(products.list);
-    };
-
     window.addEventListener("resize", handleResize);
-    fetchSortedData();
+    fetchSortedData({ orderBy: "favorite", pageSize });
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -42,15 +48,19 @@ function BestItemsSection() {
   }, [pageSize]);
 
   return (
-    <div className="bestItemsContainer">
-      <h1 className="sectionTitle">베스트 상품</h1>
+    <>
+      <LoadingSpinner isLoading={isLoading} />
 
-      <div className="bestItemsCardSection">
-        {itemList?.map((item) => (
-          <ItemCard item={item} key={`best-item-${item.id}`} />
-        ))}
+      <div className="bestItemsContainer">
+        <h1 className="sectionTitle">베스트 상품</h1>
+
+        <div className="bestItemsCardSection">
+          {itemList?.map((item) => (
+            <ItemCard item={item} key={`best-item-${item.id}`} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

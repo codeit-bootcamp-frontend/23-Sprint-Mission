@@ -1,11 +1,12 @@
 .sectionTitle {
-  color: #111827;
+  color: var(--gray-900);
   font-weight: bold;
   font-size: 20px;
+  line-height: normal;
 }
 
 .itemCard {
-  color: #1f2937;
+  color: var(--gray-800);
   overflow: hidden;
   cursor: pointer;
 }
@@ -44,7 +45,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #4b5563;
+  color: var(--gray-600);
   font-size: 12px;
 }
 
@@ -61,37 +62,21 @@
 
 .allItemsHeaderWrapper {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.topRow,
-.bottomRow {
-  display: flex;
-  justify-content: space-between;
+  flex-direction: space-between;
   align-items: center;
 }
 
-.sortButtonWrapper {
-  position: relative;
-}
-
-.sortDropdownTriggerButton {
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 9px;
-  margin-left: 8px;
+.allItemsHeaderWrapper:first-child {
+  padding-bottom: 8px;
 }
 
 .searchBarWrapper {
   display: flex;
-  background-color: #f3f4f6;
+  background-color: var(--gray-100);
   border-radius: 12px;
   padding: 9px 16px;
   flex: 1;
   align-items: center;
-  margin-right: 8px;
 }
 
 .searchBarInput {
@@ -102,7 +87,7 @@
 }
 
 .searchBarInput::placeholder {
-  color: #9ca3af;
+  color: var(--gray-400);
   font-size: 16px;
 }
 
@@ -116,33 +101,6 @@
 }
 
 @media (min-width: 768px) {
-  .allItemsHeaderWrapper {
-    position: relative;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .bottomRow {
-    margin-left: auto;
-    gap: 148px;
-  }
-
-  .registerButton {
-    position: absolute;
-    right: 60px; /* 정렬 버튼 왼쪽에 위치 */
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .searchBarWrapper {
-    width: 242px;
-    flex: none;
-  }
-
-  .topRow {
-    gap: 20px;
-  }
-
   .bestItemsContainer {
     margin-bottom: 40px;
   }
@@ -160,25 +118,6 @@
 }
 
 @media (min-width: 1280px) {
-  .allItemsHeaderWrapper {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .bottomRow {
-    margin-left: auto;
-    gap: 148px;
-  }
-
-  .searchBarWrapper {
-    width: 325px;
-    flex: none;
-  }
-
-  .topRow {
-    gap: 20px;
-  }
-
   .bestItemsCardSection {
     grid-template-columns: repeat(4, 1fr);
   }

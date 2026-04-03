@@ -1,8 +1,23 @@
 const color = {
-  blue: ["#3692FF", "#1967D6", "#1251AA"],
+  blue: {
+    primary: "#3692FF",
+    hover: "#1967D6",
+    focus: "#1251AA",
+  },
+  red: "#F74747",
   white: "#FFF",
-  black: "#1F2937",
-  gray: ["#9CA3AF", "#F3F4F6", "#F9FAFB"],
+  black: "#000",
+  gray: {
+    900: "#111827",
+    800: "#1F2937",
+    700: "#374151",
+    600: "#4b5563",
+    500: "#6b7280",
+    400: "#9ca3af",
+    200: "#e5e7eb",
+    100: "#f3f4f6",
+    50: "#f9fafb",
+  },
 };
 
 const mediaQuery = {
