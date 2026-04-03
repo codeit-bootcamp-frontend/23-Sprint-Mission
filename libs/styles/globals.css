@@ -4,9 +4,13 @@
   --font-sans: var(--font-pretendard);
   --font-abhaya: var(--font-abhaya);
 
-  --font-size-base-14: 14px 24px;
-  --font-size-base-16: 16px 26px;
-  --font-size-base-18: 18px 26px;
+  --text-base-14: 14px;
+  --text-base-16: 16px;
+  --text-base-18: 18px;
+
+  --text-base-14--line-height: 24px;
+  --text-base-16--line-height: 26px;
+  --text-base-18--line-height: 26px;
 
   /* 블루 */
   --color-primary: #3692ff;
