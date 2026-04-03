@@ -65,3 +65,8 @@ function updateButtonState() {
 
 emailInput.addEventListener("input", updateButtonState);
 pwdInput.addEventListener("input", updateButtonState);
+
+//form 완성 후 버튼 클릭시 iems로 이동
+mainButton.addEventListener("click", () => {
+  window.location.href = "../items";
+});
