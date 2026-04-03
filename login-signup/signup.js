@@ -122,3 +122,19 @@ pwdValidInput.addEventListener("input", updateButtonState);
 mainButton.addEventListener("click", () => {
   window.location.href = "./login.html";
 });
+
+//눈 아이콘 기능 구현
+const eyeIconButtons = document.querySelectorAll(".visibility");
+const pwdInputs = [pwdInput, pwdValidInput];
+
+eyeIconButtons.forEach((btn, index) => {
+  const input = pwdInputs[index];
+  const img = btn.querySelector("img");
+
+  btn.addEventListener("click", () => {
+    input.type = input.type === "password" ? "text" : "password";
+    img.src = img.src.includes("Img_visibility2")
+      ? "../assets/images/Img_visibility.svg"
+      : "../assets/images/Img_visibility2.svg";
+  });
+});
