@@ -1,16 +1,12 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import "tailwindcss";
-
-:root {
-  --font-pretendard:
-    "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
-}
 
 @theme inline {
   --font-sans: var(--font-pretendard);
+  --font-abhaya: var(--font-abhaya);
+
+  --font-size-base-14: 14px 24px;
+  --font-size-base-16: 16px 26px;
+  --font-size-base-18: 18px 26px;
 
   /* 블루 */
   --color-primary: #3692ff;
