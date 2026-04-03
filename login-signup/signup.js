@@ -104,3 +104,8 @@ emailInput.addEventListener("input", updateButtonState);
 nameInput.addEventListener("input", updateButtonState);
 pwdInput.addEventListener("input", updateButtonState);
 pwdValidInput.addEventListener("input", updateButtonState);
+
+//로그인 버튼 클릭시 /items로 이동
+mainButton.addEventListener("click", () => {
+  window.location.href = "./login.html";
+});

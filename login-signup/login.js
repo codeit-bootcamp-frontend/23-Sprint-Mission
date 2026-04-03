@@ -1,10 +1,22 @@
 //-------- 로그인 페이지 ---------
+//focusout 되었을 때 위치를 확인하는 함수
+//불필요한 경우에는 에러를 무효화 하기 위함
+function shouldSkipValidation(relatedTarget) {
+  return (
+    relatedTarget?.closest(".easy-login") ||
+    relatedTarget?.closest(".logo-link") ||
+    relatedTarget?.closest(".footer-wrapper")
+  );
+}
+
 //이메일 에러처리
 const emailInput = document.querySelector(".inputs.email");
 const typeEmailMsg = document.querySelector(".type-email-msg.err-msg");
 const wrongEmailMsg = document.querySelector(".wrong-email-msg.err-msg");
 
 emailInput.addEventListener("focusout", (e) => {
+  if (shouldSkipValidation(e.relatedTarget)) return;
+
   const emailValue = e.target.value.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -31,6 +43,8 @@ const typePwdMsg = document.querySelector(".type-pwd-msg.err-msg");
 const moreThan8 = document.querySelector(".more-than-8.err-msg");
 
 pwdInput.addEventListener("focusout", (e) => {
+  if (shouldSkipValidation(e.relatedTarget)) return;
+
   const pwdValue = e.target.value.trim();
   const isOkay = e.target.value.split("").length >= 8;
 
