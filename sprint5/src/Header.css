@@ -1,0 +1,78 @@
+#gnb {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #dfdfdf;
+  background: #fff;
+}
+
+.gnb-content {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* gnb 요소(로고, 자유게시판, 중고마켓, 프로필) */
+.logo {
+  display: flex;
+  width: 153px;
+  height: 51px;
+  margin-top: 10px;
+  padding: 5px 0 6px 0;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8.592px;
+}
+
+.freeboard,
+.itemsmarket {
+  padding: 21px 15px;
+  margin-top: 6px;
+  color: #4b5563;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  margin-left: auto; /* 오른쪽 끝 고정 */
+  padding: 15px 0;
+}
+
+/* 1. 375px ~ 743px (모바일) */
+@media (min-width: 376px) and (max-width: 743px) {
+  .gnb-content {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .profile {
+    padding-right: 0 16px;
+  }
+}
+
+/* 3. 744px 이상 (태블릿) */
+@media (min-width: 744px) {
+  .gnb-content {
+    padding: 0 24px;
+    gap: 20px;
+  }
+  .profile {
+    padding-right: 0 24px;
+  }
+}
+
+/* 4. 1200px 이상 (데스크탑) */
+@media (min-width: 1200px) {
+  .gnb-content {
+    padding: 0 200px; /* 1200px 이후부터 패딩 0 200px 고정 */
+    gap: 30px;
+  }
+  .profile {
+    padding-right: 0 200px;
+  }
+}

@@ -1,0 +1,68 @@
+.card-general {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.card-general .image-container {
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.card-general .image-container .product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-general .card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.card-general .product-name {
+  color: var(--Secondary-800, #1f2937);
+  /* pretendard/md-14px-medium */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  white-space: nowrap;
+}
+
+.card-general .product-price {
+  color: var(--Secondary-800, #1f2937);
+  /* pretendard/lg-16px-bold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 162.5% */
+}
+
+.card-general .product-favorite {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-general .icon-heart {
+  width: 16px;
+  height: 16px;
+}
+
+.card-general .favorite-count {
+  color: var(--Secondary-600, #4b5563);
+  /* pretendard/xs-12px-medium */
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
