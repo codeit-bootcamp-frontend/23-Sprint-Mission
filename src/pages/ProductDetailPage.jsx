@@ -10,6 +10,7 @@ import ReplyList from '../components/ReplyList';
 import TagList from '../components/ProductDetail/TagList';
 import useProduct from '../hooks/useProduct';
 import useProductComments from '../hooks/useProductComments';
+import { formatDate } from '../util/date';
 import { BREAKPOINT } from '../util/breakpoint';
 
 const ProductDetailPage = () => {
@@ -27,9 +28,7 @@ const ProductDetailPage = () => {
     handleDelete,
   } = useProductComments(productId);
 
-  const formattedDate = productData?.createdAt
-    ? productData.createdAt.split('T')[0].replaceAll('-', '.')
-    : '';
+  const formattedDate = formatDate(productData?.createdAt);
 
   return (
     <Container>

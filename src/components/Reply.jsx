@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import kebab from '../assets/kebab.svg';
-import KebabMenu from './KebabMenu';
+import ProductCardKebabMenu from './ProductCardKebabMenu';
 import getDate from '../util/date';
 import AddItemInput from './AddItemInput';
 
@@ -45,12 +45,13 @@ const Reply = ({ item, handleDelete, handlePatch }) => {
             <IconButton type="button" onClick={handleKebabButtonClick}>
               <KebabImg src={kebab} />
             </IconButton>
-            <CustomKebabMenu
-              id={item.id}
-              isOpen={isKebabButtonOpen}
-              handleDelete={handleDelete}
-              onStartEdit={handleStartEdit}
-            />
+            {isKebabButtonOpen && (
+              <CustomKebabMenu
+                id={item.id}
+                handleDelete={handleDelete}
+                onStartEdit={handleStartEdit}
+              />
+            )}
           </KebabWrapper>
         </Top>
       )}
@@ -119,7 +120,7 @@ const IconButton = styled.button``;
 
 const KebabImg = styled.img``;
 
-const CustomKebabMenu = styled(KebabMenu)`
+const CustomKebabMenu = styled(ProductCardKebabMenu)`
   position: absolute;
   right: 0;
 `;

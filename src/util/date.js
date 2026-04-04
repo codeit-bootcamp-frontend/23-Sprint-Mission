@@ -12,4 +12,9 @@ const date = (date) => {
   });
 };
 
+export const formatDate = (date) => {
+  if (!date) return '';
+  return date.split('T')[0].replaceAll('-', '.');
+};
+
 export default date;
