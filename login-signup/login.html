@@ -7,36 +7,47 @@
 
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/main.css" />
-    <link rel="stylesheet" href="./login&signup.css" />
+    <link rel="stylesheet" href="./login-signup.css" />
+    <script type="module" src="./login.js"></script>
   </head>
   <body>
     <section class="container">
-      <a href="../index.html">
+      <a class="logo-link" href="../index.html">
         <img class="logo" src="../assets/images/Img_logo.svg" />
       </a>
       <div class="contents-container">
         <form class="input-wrapper">
           <label class="labels" for="email">이메일</label>
-          <input
-            name="email"
-            class="inputs"
-            type="email"
-            id="email"
-            required
-            autofocus
-            placeholder="이메일을 입력해주세요"
-          />
+          <div>
+            <input
+              name="email"
+              class="inputs email"
+              type="email"
+              id="email"
+              required
+              autofocus
+              placeholder="이메일을 입력해주세요"
+            />
+            <p class="type-email-msg err-msg">이메일을 입력해주세요.</p>
+            <p class="wrong-email-msg err-msg">잘못된 이메일입니다.</p>
+          </div>
 
           <label class="labels" for="pwd">비밀번호</label>
           <div class="password-wrapper">
-            <input
-              name="password"
-              class="inputs"
-              type="password"
-              id="pwd"
-              required
-              placeholder="비밀번호를 입력해주세요"
-            />
+            <div>
+              <input
+                name="password"
+                class="inputs password"
+                type="password"
+                id="pwd"
+                required
+                placeholder="비밀번호를 입력해주세요"
+              />
+              <p class="type-pwd-msg err-msg">비밀번호를 입력해주세요</p>
+              <p class="more-than-8 err-msg">
+                비밀번호를 8자 이상 입력해주세요
+              </p>
+            </div>
             <button type="button" class="visibility">
               <img
                 src="../assets/images/Img_visibility.svg"
@@ -45,7 +56,7 @@
             </button>
           </div>
 
-          <button class="main-button" type="submit">로그인</button>
+          <button class="main-button" type="button" disabled>로그인</button>
         </form>
 
         <div class="easy-login">
