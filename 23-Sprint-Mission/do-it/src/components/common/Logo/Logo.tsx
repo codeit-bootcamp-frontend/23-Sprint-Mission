@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./Logo.module.css";
 
@@ -7,9 +8,8 @@ export default function Logo() {
   const router = useRouter();
 
   const handleClick = () => {
-    // 요구사항: 로고 클릭 시 홈으로 이동
+    // 홈으로만 이동
     router.push("/");
-    router.refresh();
   };
 
   return (
@@ -19,7 +19,14 @@ export default function Logo() {
       onClick={handleClick}
       aria-label="홈으로 이동"
     >
-      do it ;
+      <Image
+        src="/images/logo/logo.svg"
+        alt="do it 로고"
+        width={180}
+        height={50}
+        priority
+        className={styles.logoImage}
+      />
     </button>
   );
 }

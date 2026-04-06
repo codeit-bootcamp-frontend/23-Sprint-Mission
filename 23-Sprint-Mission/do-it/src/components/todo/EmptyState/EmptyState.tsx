@@ -19,6 +19,7 @@ export default function EmptyState({ type }: EmptyStateProps) {
         alt={isTodo ? "할 일 없음 이미지" : "완료한 일 없음 이미지"}
         width={240}
         height={180}
+        loading="eager"
         className={styles.image}
       />
 

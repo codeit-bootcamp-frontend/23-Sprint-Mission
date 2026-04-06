@@ -1,8 +1,20 @@
 .logo {
+  display: inline-flex;
+  align-items: center;
   border: none;
   background: transparent;
-  color: #7c3aed;
-  font-size: 32px;
-  font-weight: 700;
   cursor: pointer;
+}
+
+.logoImage {
+  display: block;
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+@media (max-width: 743px) {
+  .logoImage {
+    height: 32px;
+  }
 }
