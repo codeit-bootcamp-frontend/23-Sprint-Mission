@@ -6,7 +6,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="max-w-7xl mx-auto px-4 py-3">{children}</main>
     </>
   );
 }

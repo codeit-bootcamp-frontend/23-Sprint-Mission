@@ -5,8 +5,8 @@ import DefaultProfileIcon from "@/assets/icons/DefaultProfileIcon";
 
 export default function Header() {
   return (
-    <header className="flex items-center border-b border-gray-200 px-4 py-3 md:px-20 md:py-4">
-      <div className="flex w-full max-w-7xl mx-auto items-center justify-between">
+    <header className="flex items-center border-b border-gray-200">
+      <div className="flex w-full max-w-7xl mx-auto items-center justify-between px-4 py-3">
         <HeaderLinks />
 
         <DefaultProfileIcon />
