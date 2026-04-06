@@ -6,6 +6,7 @@
   border-radius: 28px;
   background-color: #f8fafc;
   color: #0f172a;
+  box-shadow: 4px 4px 0 #0f172a;
   font-size: 16px;
   outline: none;
 }
@@ -15,5 +16,5 @@
 }
 
 .input:focus {
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  box-shadow: 4px 4px 0 #0f172a;
 }
