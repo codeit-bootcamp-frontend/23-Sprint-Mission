@@ -7,10 +7,12 @@
   --text-base-14: 14px;
   --text-base-16: 16px;
   --text-base-18: 18px;
+  --text-base-20: 20px;
 
   --text-base-14--line-height: 24px;
   --text-base-16--line-height: 26px;
   --text-base-18--line-height: 26px;
+  --text-base-20--line-height: 32px;
 
   /* 블루 */
   --color-primary: #3692ff;

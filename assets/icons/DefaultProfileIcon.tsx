@@ -1,13 +1,6 @@
-import { SVGProps } from "react";
+import { IconProps } from "@/libs/types/icon";
 
-interface DefaultProfileIcon extends SVGProps<SVGSVGElement> {
-  size?: number;
-}
-
-export default function DefaultProfileIcon({
-  size = 40,
-  ...props
-}: DefaultProfileIcon) {
+export default function DefaultProfileIcon({ size = 40, ...props }: IconProps) {
   return (
     <svg
       width={size}
