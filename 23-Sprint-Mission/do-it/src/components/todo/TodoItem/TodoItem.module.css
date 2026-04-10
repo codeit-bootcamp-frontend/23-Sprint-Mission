@@ -1,0 +1,39 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 16px;
+  border: 2px solid #0f172a;
+  border-radius: 28px;
+  background-color: #ffffff;
+}
+
+.completed {
+  background-color: #ede9fe;
+}
+
+.checkButton {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #0f172a;
+  border-radius: 50%;
+  background-color: #fefce8;
+  color: #7c3aed;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checked {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+  color: #ffffff;
+}
+
+.text {
+  font-size: 16px;
+  color: #0f172a;
+  word-break: break-word;
+}

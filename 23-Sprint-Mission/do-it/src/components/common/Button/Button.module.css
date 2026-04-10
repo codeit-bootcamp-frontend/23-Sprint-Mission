@@ -1,0 +1,32 @@
+.button {
+  min-width: 164.35px;
+  height: 52px;
+  padding: 0 20px;
+  border: 2px solid #0f172a;
+  border-radius: 24px;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #0f172a;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filled {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.fullWidth {
+  width: 100%;
+}
