@@ -1,9 +1,31 @@
 @import "tailwindcss";
 
 @theme inline {
+  --font-nanum: var(--font-nanum);
+
+  --text-regular-16: 16px;
+  --text-regular-16--line-height: 100%;
+  --text-regular-16--font-weight: 400;
+
+  --text-bold-16: 16px;
+  --text-bold-16--line-height: 100%;
+  --text-bold-16--font-weight: 700;
+
+  --text-exBold-16: 16px;
+  --text-exBold-16--line-height: 100%;
+  --text-exBold-16--font-weight: 800;
+
+  --text-bold-18: 18px;
+  --text-bold-18--line-height: 100%;
+  --text-bold-18--font-weight: 700;
+
+  --text-bold-20: 20px;
+  --text-bold-20--line-height: 100%;
+  --text-bold-20--font-weight: 700;
 }
 
 body {
+  font-family: var(--font-nanumSquare), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
