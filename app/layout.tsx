@@ -34,9 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${nanumSquare.variable}`}>
-      <body className="antialiased bg-[#F8FAFC]">
+      <body className="antialiased bg-[#F8FAFC] min-h-screen">
         <Header />
-        <main className="wrapper min-h-screen">{children}</main>
+        <main className="wrapper pt-5">{children}</main>
       </body>
     </html>
   );

@@ -37,6 +37,8 @@
   --color-rose-500: #f43f5e;
   --color-lime-300: #bef264;
   --color-ember-800: #92400e;
+
+  --shadow-rb: 4px 4px 0px 0px var(--color-slate-900);
 }
 
 body {

@@ -1,3 +1,9 @@
+import SearchForm from "@/components/todo/SearchForm";
+
 export default function Home() {
-  return <h1>home</h1>;
+  return (
+    <>
+      <SearchForm />
+    </>
+  );
 }
