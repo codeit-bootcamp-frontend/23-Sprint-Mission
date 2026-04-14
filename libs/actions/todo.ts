@@ -1,7 +1,7 @@
 "use server";
 
-import { TodoListType } from "@/libs/types/api";
 import { revalidatePath } from "next/cache";
+import { TodoListType } from "@/libs/types/api";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -37,5 +37,29 @@ export const addTodo = async (formData: FormData) => {
     }
   } catch (error) {
     console.error("투두 추가하기 에러:", error);
+  }
+};
+
+export const toggleTodo = async ({
+  id,
+  isCompleted,
+}: {
+  id: number;
+  isCompleted: boolean;
+}) => {
+  try {
+    const response = await fetch(`${BASE_URL}/items/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ isCompleted }),
+    });
+
+    if (!response.ok) {
+      throw new Error("수정에 실패했습니다.");
+    }
+
+    revalidatePath("/");
+  } catch (error) {
+    console.error("투두 토글 에러:", error);
   }
 };

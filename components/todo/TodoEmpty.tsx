@@ -19,7 +19,7 @@ export default function TodoEmpty({ type }: { type: "todo" | "done" }) {
   return (
     <div className="flex flex-col items-center gap-4 py-10">
       <Image src={config.img} alt="" priority className="mx-auto" />
-      <div className="flex flex-col items-center gap-1 text-bold-16 text-slate-400 text-center leading-relaxed">
+      <div className="flex flex-col items-center gap-1 text-bold-16 text-slate-400 text-center">
         {config.p.map((text, index) => (
           <p key={index}>{text}</p>
         ))}

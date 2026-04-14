@@ -1,14 +1,13 @@
-// src/components/todo/TodoItemList.tsx
+import { TodoListType } from "@/libs/types/api";
 import TodoItem from "./TodoItem";
 import TodoEmpty from "./TodoEmpty";
-import { TodoListType } from "@/libs/types/api";
 
 interface TodoItemListProps {
   tasks: TodoListType[];
   type: "todo" | "done";
 }
 
-export default function TodoItemList({ tasks, type }: TodoItemListProps) {
+export default async function TodoItemList({ tasks, type }: TodoItemListProps) {
   if (tasks.length === 0) {
     return <TodoEmpty type={type} />;
   }
@@ -18,7 +17,8 @@ export default function TodoItemList({ tasks, type }: TodoItemListProps) {
       {tasks.map((task) => (
         <TodoItem
           key={task.id}
-          text={task.name}
+          id={task.id}
+          name={task.name}
           isCompleted={task.isCompleted}
         />
       ))}
