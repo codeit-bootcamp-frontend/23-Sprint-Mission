@@ -1,0 +1,19 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  width: 100%;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 40px;
+}
+.commentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

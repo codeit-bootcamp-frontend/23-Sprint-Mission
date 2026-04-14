@@ -1,10 +1,10 @@
 import styles from "./ButtonAdditem.module.css";
 
-function ButtonAdditem({ disabled }) {
+function ButtonAdditem({ disabled, form }) {
   return (
     <button
-      className={styles.addbutton}
-      form="add-item-form"
+      className={styles.addButton}
+      form={form}
       type="submit"
       disabled={disabled}
     >

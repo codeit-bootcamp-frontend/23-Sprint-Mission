@@ -1,0 +1,189 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.Wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.image {
+  width: 486px;
+  height: 486px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 40px;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.horizontalLine {
+  border: 1px solid var(--secondary-200);
+}
+
+.titlePriceGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemTitleArea {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.itemName {
+  font: var(--font-Semibold24);
+  color: var(--secondary-800);
+}
+
+.itemPrice {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: Pretendard;
+  color: var(--secondary-800);
+}
+
+.kebabIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.detailsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.descriptionBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subTitle {
+  font: var(--font-Semibold16);
+  color: var(--secondary-600);
+}
+
+.descriptionText {
+  font: var(--font-Regular16);
+  color: var(--secondary-600);
+}
+
+.tagBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tagList {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.tagItem {
+  border-radius: 20px;
+  padding: 6px 16px;
+  font: var(--font-Regular16);
+  color: var(--secondary-800);
+  background-color: var(--secondary-100);
+}
+
+.sellerSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sellerProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileImg {
+  height: 40px;
+  width: 40px;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+}
+.nickname {
+  font: var(--font-Medium14);
+  color: var(--secondary-600);
+}
+
+.date {
+  font: var(--font-Regular14);
+  color: var(--secondary-400);
+}
+
+.favoriteContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.profileLine {
+  height: 34px;
+  border: 1px solid var(--secondary-200);
+}
+
+.favoriteBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--secondary-200);
+  border-radius: 30px;
+  padding: 4px 12px;
+  gap: 10px;
+}
+.favoriteHeart {
+  width: 32px;
+  height: 32px;
+}
+.favoriteCount {
+  font: var(--font-Medium16);
+  color: var(--secondary-500);
+}
+
+.bottomDivider {
+  border: 1px solid var(--secondary-200);
+}
+@media (max-width: 773px) {
+  .Wrapper {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+  }
+}

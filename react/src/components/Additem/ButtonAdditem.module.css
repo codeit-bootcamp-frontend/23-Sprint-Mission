@@ -1,4 +1,4 @@
-.addbutton {
+.addButton {
   width: 74px;
   height: 42px;
   font: var(--font-Semibold16);
@@ -6,8 +6,21 @@
   background-color: var(--primary-100);
   border-radius: 8px;
   border: none;
+  transition: all 0.2s ease-in-out;
 }
 
-.addbutton:disabled {
+.addButton:disabled {
   background-color: var(--secondary-400);
+}
+
+.addButton:disabled {
+  background-color: var(--secondary-400);
+  cursor: not-allowed;
+}
+
+.addButton:not(:disabled):hover {
+  cursor: pointer;
+  background-color: var(--primary-200);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }

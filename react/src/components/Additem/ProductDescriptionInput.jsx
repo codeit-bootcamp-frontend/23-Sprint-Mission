@@ -3,7 +3,7 @@ import styles from "./ProductDescriptionInput.module.css";
 function ProductDescriptionInput({ value, onChange }) {
   return (
     <div className={styles.inputContainer}>
-      <label htmlFor="descriptiont" className={styles.subtitle}>
+      <label htmlFor="description" className={styles.subtitle}>
         상품 소개
       </label>
       <textarea

@@ -54,7 +54,7 @@ function FormAdditem({ onValidationChange }) {
 
       await postProduct(finalData);
       alert("상품 등록 성공!");
-      navigate("/");
+      navigate("/items");
     } catch (error) {
       console.error("등록 실패:", error);
     }
@@ -71,8 +71,6 @@ function FormAdditem({ onValidationChange }) {
       >
         상품명
       </InputAdditem>
-
-      {/* 💡 설명 입력창에서도 onChange를 통해 상태를 업데이트해야 합니다 */}
       <ProductDescriptionInput
         value={descriptionValue}
         onChange={(e) => setDescriptionValue(e.target.value)}
@@ -82,7 +80,7 @@ function FormAdditem({ onValidationChange }) {
         inputName="price"
         type="number"
         value={priceInputValue}
-        onChange={(e) => setPriceInputValue(e.target.value)}
+        onChange={(e) => setPriceInputValue(Number(e.target.value))}
         placeholder="판매 가격을 입력해주세요"
       >
         판매가격

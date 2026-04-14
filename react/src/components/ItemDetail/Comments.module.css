@@ -1,0 +1,132 @@
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.commentCard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--secondary-200);
+}
+.commentBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 24px;
+}
+.contentArea {
+  display: flex;
+  width: 100%;
+}
+
+.commentText {
+  font: var(--font-Regular14);
+  color: var(--secondary-800);
+}
+.writerProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d8d8d8;
+  border-radius: 50px;
+}
+
+.writerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nickname {
+  font: var(--font-Regular12);
+  color: var(--secondary-600);
+}
+
+.timestamp {
+  font: var(--font-Regular12);
+  color: var(--secondary-400);
+}
+
+.kebabContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  right: 3%;
+  padding: 12px 42px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.menuItem {
+  font: var(--font-Regular16);
+  color: var(--secondary-500);
+}
+
+.editForm {
+  width: 100%;
+  position: relative;
+}
+
+.editTextarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  border: none;
+  resize: none;
+  background-color: var(--secondary-100);
+  font: var(--font-Regular16);
+  color: (--secondary-400);
+}
+.editTextarea:focus {
+  outline: none;
+  border-color: var(--primary-100);
+  box-shadow: 0 0 0 3px rgba(54, 146, 255, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.editActions {
+  position: absolute;
+  right: 0%;
+  bottom: -70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cancelButton {
+  border: none;
+  padding: 0px 20px;
+  font: var(--font-Semibold16);
+  background-color: initial;
+  color: #737373;
+}
+
+.saveButton {
+  padding: 8px 23px;
+  border-radius: 8px;
+  font: var(--font-Semibold16);
+  background-color: var(--primary-100);
+  color: #f3f4f6;
+  border: none;
+}

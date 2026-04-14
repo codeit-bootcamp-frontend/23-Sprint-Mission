@@ -14,7 +14,7 @@ function AdditemPage() {
     <div className={styles.container}>
       <div className={styles.additemHeader}>
         <h1 className={styles.title}>상품 등록하기</h1>
-        <ButtonAdditem disabled={!isFormValid} />
+        <ButtonAdditem disabled={!isFormValid} form="add-item-form" />
       </div>
       <FormAdditem onValidationChange={handleFormChange} />
     </div>

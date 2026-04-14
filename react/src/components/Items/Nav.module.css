@@ -16,6 +16,14 @@
 }
 .li {
   padding: 21px 15px;
+  text-decoration: none;
+  color: var(--secondary-600);
+}
+
+.active {
+  color: #3692ff;
+  text-decoration: none;
+  padding: 21px 15px;
 }
 
 @media (min-width: 375px) and (max-width: 773px) {
