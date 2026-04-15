@@ -29,7 +29,7 @@ export default function TodoSection({
         priority
         alt={config.alt}
       />
-      <div className="flex flex-col gap-2">{children}</div>
+      <>{children}</>
     </section>
   );
 }

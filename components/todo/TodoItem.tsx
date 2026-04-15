@@ -4,8 +4,6 @@ import { CheckBoxDefault, CheckBoxChecked } from "@/assets/icons/CheckBox";
 import { toggleTodo } from "@/libs/actions/todo";
 import { TodoListType } from "@/libs/types/api";
 
-
-
 const baseItemStyle =
   "flex items-center p-2 border-2 gap-3 border-slate-900 rounded-[27px] transition-colors";
 const baseTextStyle = "text-regular-16 text-slate-800";
