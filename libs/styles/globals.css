@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-nanum: var(--font-nanumSquare);
+
+  --text-regular-16: 16px;
+  --text-regular-16--line-height: 100%;
+  --text-regular-16--font-weight: 400;
+
+  --text-bold-16: 16px;
+  --text-bold-16--line-height: 100%;
+  --text-bold-16--font-weight: 700;
+
+  --text-exBold-16: 16px;
+  --text-exBold-16--line-height: 100%;
+  --text-exBold-16--font-weight: 800;
+
+  --text-bold-18: 18px;
+  --text-bold-18--line-height: 100%;
+  --text-bold-18--font-weight: 700;
+
+  --text-bold-20: 20px;
+  --text-bold-20--line-height: 100%;
+  --text-bold-20--font-weight: 700;
+
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-500: #64748b;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+  --color-slate-200: #e2e8f0;
+  --color-slate-100: #f1f5f9;
+
+  --color-violet-200: #7c3aed;
+  --color-violet-100: #ede9fe;
+
+  --color-rose-500: #f43f5e;
+  --color-lime-300: #bef264;
+  --color-ember-800: #92400e;
+
+  --shadow-rb: 4px 4px 0px 0px var(--color-slate-900);
+}
+
+body {
+  font-family: var(--font-nanum), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
