@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@utility container {
+  width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@utility text-20-bold {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+@utility text-18-bold {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+@utility text-16-bold {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+@utility text-16-extrabold {
+  font-size: 16px;
+  line-height: 800;
+  line-height: 100%;
+}
+
+@utility text-16-regular {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+:root {
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0F172A;
+
+  --violet-600: #7C3AED;
+  --violet-100: #EDE9FE;
+
+  --rose-500: #F43F5E;
+  --lime-300: #BEF264;
+
+  --amber-800: #92400E;
+
+  --gray-50: #F9FAFB;
+}
+
+@theme inline {
+  --color-slate-100: var(--slate-100);
+  --color-slate-200: var(--slate-200);
+  --color-slate-300: var(--slate-300);
+  --color-slate-400: var(--slate-400);
+  --color-slate-500: var(--slate-500);
+  --color-slate-600: var(--slate-600);
+  --color-slate-700: var(--slate-700);
+  --color-slate-800: var(--slate-800);
+  --color-slate-900: var(--slate-900);
+
+  --color-violet-600: var(--violet-600);
+  --color-violet-100: var(--violet-100);
+
+  --color-rose-500: var(--rose-500);
+  --color-lime-300: var(--lime-300);
+
+  --color-amber-800: var(--amber-800);
+
+  --color-gray-50: var(--gray-50);
+}
