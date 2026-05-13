@@ -33,6 +33,12 @@
   flex-shrink: 0;
 }
 
+.checkButton:disabled,
+.fileInput:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .checked {
   border-color: #7c3aed;
   background-color: #7c3aed;
@@ -50,6 +56,12 @@
   outline: none;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.titleInput:disabled,
+.memoTextarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .content {
@@ -77,31 +89,40 @@
 }
 
 .emptyImageIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 56px;
   height: 56px;
-  border-radius: 50%;
-  background-color: #e2e8f0;
-  color: #64748b;
-  font-size: 32px;
-  font-weight: 500;
+  opacity: 0.55;
 }
 
 .imageButton {
   position: absolute;
   right: 18px;
   bottom: 18px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 56px;
   height: 56px;
-  border: 2px solid #0f172a;
+  border: none;
   border-radius: 50%;
   background-color: #e2e8f0;
   color: #475569;
   font-size: 28px;
   font-weight: 700;
+  pointer-events: none;
+}
+
+.fileInput {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   cursor: pointer;
+  opacity: 0;
 }
 
 .memoField {
@@ -114,8 +135,9 @@
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0,
-    transparent 31px,
-    #fde68a 32px
+    transparent 30px,
+    #fde047 31px,
+    #fde047 32px
   );
 }
 
@@ -147,12 +169,24 @@
   gap: 16px;
 }
 
-.saveButton {
-  background-color: #bef264;
+.error {
+  margin: 0;
+  color: #f43f5e;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.saveButton.saveButton {
+  background-color: #e2e8f0;
   color: #0f172a;
 }
 
-.deleteButton {
+.activeSaveButton.activeSaveButton {
+  background-color: #bef264;
+}
+
+.deleteButton.deleteButton {
   background-color: #f43f5e;
   color: #ffffff;
 }

@@ -13,8 +13,8 @@ export interface CreateTodoRequest {
 export interface UpdateTodoRequest {
   name?: string;
   isCompleted?: boolean;
-  memo?: string | null;
-  imageUrl?: string | null;
+  memo?: string;
+  imageUrl?: string;
 }
 
 export interface UploadImageResponse {
