@@ -2,6 +2,7 @@ export interface Todo {
   id: number;
   name: string;
   isCompleted: boolean;
+  memo?: string | null;
   imageUrl?: string | null;
 }
 
@@ -12,5 +13,10 @@ export interface CreateTodoRequest {
 export interface UpdateTodoRequest {
   name?: string;
   isCompleted?: boolean;
+  memo?: string | null;
   imageUrl?: string | null;
+}
+
+export interface UploadImageResponse {
+  url: string;
 }
