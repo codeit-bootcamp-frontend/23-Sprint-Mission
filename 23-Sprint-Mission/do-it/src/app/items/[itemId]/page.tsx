@@ -1,4 +1,6 @@
 import Header from "@/components/layout/Header/Header";
+import TodoDetailForm from "@/components/todo/TodoDetailForm/TodoDetailForm";
+import { getTodo } from "@/lib/api/todo";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
@@ -15,12 +17,18 @@ export default async function ItemDetailPage({ params }: ItemDetailPageProps) {
     notFound();
   }
 
+  const todo = await getTodo(Number(itemId)).catch(() => null);
+
+  if (!todo) {
+    notFound();
+  }
+
   return (
     <main className={styles.page}>
       <Header />
 
       <section className={styles.inner}>
-        <p className={styles.status}>할 일 상세 페이지를 준비 중입니다.</p>
+        <TodoDetailForm todo={todo} />
       </section>
     </main>
   );

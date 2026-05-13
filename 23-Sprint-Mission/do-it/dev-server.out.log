@@ -1,0 +1,17 @@
+
+> do-it@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://210.96.90.26:3000
+- Environments: .env.local
+✓ Ready in 517ms
+
+ GET / 200 in 313ms (next.js: 155ms, application-code: 158ms)
+ GET /items/1 404 in 2.4s (next.js: 433ms, application-code: 2.0s)
+ GET /items/10293 200 in 1296ms (next.js: 682ms, application-code: 614ms)
+ GET /items/10293 200 in 648ms (next.js: 12ms, application-code: 636ms)
+ GET / 200 in 56ms (next.js: 20ms, application-code: 37ms)
+ GET /icon.png 404 in 120ms (next.js: 74ms, application-code: 46ms)
+ GET /items/10293 200 in 463ms (next.js: 8ms, application-code: 455ms)
