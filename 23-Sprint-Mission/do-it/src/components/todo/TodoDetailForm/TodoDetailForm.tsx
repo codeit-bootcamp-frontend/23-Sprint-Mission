@@ -201,12 +201,26 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
             <div className={styles.uploadingOverlay}>업로드 중</div>
           ) : null}
 
-          <span className={styles.imageButton} aria-hidden="true">
-            {submitStatus === "uploading"
-              ? "..."
-              : previewImageUrl
-                ? "✎"
-                : "+"}
+          <span
+            className={classNames(
+              styles.imageButton,
+              previewImageUrl && styles.attachedImageButton,
+            )}
+            aria-hidden="true"
+          >
+            {submitStatus === "uploading" ? (
+              "..."
+            ) : previewImageUrl ? (
+              <Image
+                src="/images/icons/image-edit.svg"
+                alt=""
+                width={56}
+                height={56}
+                aria-hidden="true"
+              />
+            ) : (
+              "+"
+            )}
           </span>
           <input
             type="file"

@@ -115,6 +115,11 @@
   pointer-events: none;
 }
 
+.attachedImageButton {
+  background-color: transparent;
+  color: #ffffff;
+}
+
 .fileInput {
   position: absolute;
   right: 18px;
