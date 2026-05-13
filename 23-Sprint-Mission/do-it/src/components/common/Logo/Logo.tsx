@@ -1,24 +1,10 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import styles from "./Logo.module.css";
 
 export default function Logo() {
-  const router = useRouter();
-
-  const handleClick = () => {
-    // 홈으로만 이동
-    router.push("/");
-  };
-
   return (
-    <button
-      type="button"
-      className={styles.logo}
-      onClick={handleClick}
-      aria-label="홈으로 이동"
-    >
+    <Link href="/" className={styles.logo} aria-label="홈으로 이동">
       <Image
         src="/images/logo/logo.svg"
         alt="do it 로고"
@@ -27,6 +13,6 @@ export default function Logo() {
         priority
         className={styles.logoImage}
       />
-    </button>
+    </Link>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface UseTodoFormProps {
   onSubmit: (value: string) => Promise<void>;
@@ -22,15 +22,9 @@ export default function useTodoForm({ onSubmit }: UseTodoFormProps) {
     setValue("");
   };
 
-  const handleKeyDown = async (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key !== "Enter") return;
-    await handleSubmit();
-  };
-
   return {
     value,
     handleChange,
     handleSubmit,
-    handleKeyDown,
   };
 }
