@@ -32,6 +32,16 @@
   color: #ffffff;
 }
 
+.textLink {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
 .text {
   font-size: 16px;
   color: #0f172a;

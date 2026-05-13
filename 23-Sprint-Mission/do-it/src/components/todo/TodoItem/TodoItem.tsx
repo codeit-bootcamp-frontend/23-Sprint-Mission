@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { Todo } from "@/types/todo";
 import { classNames } from "@/lib/utils/classNames";
 import styles from "./TodoItem.module.css";
@@ -26,7 +27,9 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
         {todo.isCompleted ? "✓" : ""}
       </button>
 
-      <span className={styles.text}>{todo.name}</span>
+      <Link href={`/items/${todo.id}`} className={styles.textLink}>
+        <span className={styles.text}>{todo.name}</span>
+      </Link>
     </li>
   );
 }
