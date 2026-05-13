@@ -145,3 +145,48 @@
  GET /items/10293 200 in 432ms (next.js: 6ms, application-code: 426ms)
 ✓ Compiled in 26ms
 ✓ Compiled in 15ms
+ GET /items/10293 200 in 754ms (next.js: 71ms, application-code: 683ms)
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://210.96.90.26:3000
+- Environments: .env.local
+✓ Ready in 429ms
+
+ GET /items/10293 200 in 1381ms (next.js: 556ms, application-code: 825ms)
+ GET /items/10293 200 in 1392ms (next.js: 561ms, application-code: 831ms)
+ GET /items/10293 200 in 647ms (next.js: 10ms, application-code: 638ms)
+ GET / 200 in 35ms (next.js: 20ms, application-code: 15ms)
+ GET / 200 in 41ms (next.js: 4ms, application-code: 37ms)
+ GET /items/10292 200 in 448ms (next.js: 7ms, application-code: 440ms)
+✓ Compiled in 36ms
+ GET /items/10292 200 in 193ms (next.js: 52ms, application-code: 141ms)
+ GET /items/10293 200 in 196ms (next.js: 95ms, application-code: 101ms)
+ GET /items/10292 200 in 263ms (next.js: 4ms, application-code: 259ms)
+ GET /items/10293 200 in 286ms (next.js: 24ms, application-code: 261ms)
+ GET /items/10292 200 in 230ms (next.js: 8ms, application-code: 222ms)
+ GET /items/10292 200 in 231ms (next.js: 46ms, application-code: 185ms)
+ GET /items/10292 200 in 232ms (next.js: 66ms, application-code: 166ms)
+ GET /items/10292 200 in 234ms (next.js: 27ms, application-code: 207ms)
+ GET /items/10293 200 in 232ms (next.js: 88ms, application-code: 144ms)
+ GET /items/10293 200 in 148ms (next.js: 41ms, application-code: 107ms)
+ GET /items/10293 200 in 150ms (next.js: 23ms, application-code: 127ms)
+ GET /items/10293 200 in 151ms (next.js: 60ms, application-code: 91ms)
+ GET /items/10292 200 in 127ms (next.js: 4ms, application-code: 123ms)
+ GET /items/10293 200 in 132ms (next.js: 24ms, application-code: 108ms)
+ GET /items/10292 200 in 264ms (next.js: 12ms, application-code: 251ms)
+ GET /items/10293 200 in 263ms (next.js: 30ms, application-code: 232ms)
+ GET /items/10292 200 in 192ms (next.js: 29ms, application-code: 163ms)
+ GET /items/10292 200 in 192ms (next.js: 68ms, application-code: 124ms)
+ GET /items/10292 200 in 194ms (next.js: 11ms, application-code: 183ms)
+ GET /items/10292 200 in 194ms (next.js: 50ms, application-code: 144ms)
+ GET /items/10293 200 in 192ms (next.js: 86ms, application-code: 106ms)
+ GET /items/10293 200 in 192ms (next.js: 111ms, application-code: 81ms)
+ GET /items/10293 200 in 110ms (next.js: 49ms, application-code: 61ms)
+ GET /items/10293 200 in 111ms (next.js: 75ms, application-code: 36ms)
+✓ Compiled in 19ms
+ GET / 200 in 19ms (next.js: 5ms, application-code: 14ms)
+ GET /items/10292 200 in 495ms (next.js: 46ms, application-code: 449ms)
+✓ Compiled in 10ms
+ GET / 200 in 14ms (next.js: 3ms, application-code: 12ms)
+ GET /items/10292 200 in 444ms (next.js: 7ms, application-code: 437ms)
+ GET / 200 in 13ms (next.js: 2ms, application-code: 11ms)

@@ -6,7 +6,7 @@ import { classNames } from "@/lib/utils/classNames";
 import type { Todo } from "@/types/todo";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import styles from "./TodoDetailForm.module.css";
 
 interface TodoDetailFormProps {
@@ -23,6 +23,7 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
   const [name, setName] = useState(todo.name);
   const [memo, setMemo] = useState(todo.memo ?? "");
   const [imageUrl, setImageUrl] = useState(todo.imageUrl ?? "");
+  const [previewImageUrl, setPreviewImageUrl] = useState(todo.imageUrl ?? "");
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
   const [error, setError] = useState("");
@@ -34,6 +35,14 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
     memo.trim() !== (todo.memo ?? "") ||
     imageUrl !== (todo.imageUrl ?? "") ||
     isCompleted !== todo.isCompleted;
+
+  useEffect(() => {
+    return () => {
+      if (previewImageUrl.startsWith("blob:")) {
+        URL.revokeObjectURL(previewImageUrl);
+      }
+    };
+  }, [previewImageUrl]);
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -54,7 +63,7 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
     if (!file) return;
 
     if (!ENGLISH_FILE_NAME_PATTERN.test(file.name)) {
-      setError("이미지 파일 이름은 영어, 숫자, 특수문자 '.', '_', '-'만 사용할 수 있습니다.");
+      setError("이미지 파일 이름은 영어, 숫자, '.', '_', '-'만 사용할 수 있습니다.");
       return;
     }
 
@@ -62,6 +71,14 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
       setError("이미지 파일 크기는 5MB 이하여야 합니다.");
       return;
     }
+
+    const localPreviewUrl = URL.createObjectURL(file);
+    setPreviewImageUrl((prev) => {
+      if (prev.startsWith("blob:")) {
+        URL.revokeObjectURL(prev);
+      }
+      return localPreviewUrl;
+    });
 
     try {
       setError("");
@@ -72,6 +89,7 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
       setSubmitStatus("idle");
     } catch (error) {
       console.error(error);
+      setPreviewImageUrl(imageUrl);
       setError("이미지를 업로드하지 못했습니다.");
       setSubmitStatus("idle");
     }
@@ -156,13 +174,17 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
 
       <div className={styles.content}>
         <div className={styles.imageField}>
-          {imageUrl ? (
+          {previewImageUrl ? (
             <Image
-              className={styles.previewImage}
-              src={imageUrl}
+              className={classNames(
+                styles.previewImage,
+                submitStatus === "uploading" && styles.uploadingImage,
+              )}
+              src={previewImageUrl}
               alt={`${name || todo.name} 첨부 이미지`}
               fill
               sizes="(max-width: 743px) 100vw, 400px"
+              unoptimized={previewImageUrl.startsWith("blob:")}
             />
           ) : (
             <Image
@@ -175,8 +197,16 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
             />
           )}
 
+          {submitStatus === "uploading" ? (
+            <div className={styles.uploadingOverlay}>업로드 중</div>
+          ) : null}
+
           <span className={styles.imageButton} aria-hidden="true">
-            {submitStatus === "uploading" ? "..." : imageUrl ? "✎" : "+"}
+            {submitStatus === "uploading"
+              ? "..."
+              : previewImageUrl
+                ? "✎"
+                : "+"}
           </span>
           <input
             type="file"
@@ -184,7 +214,7 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
             className={styles.fileInput}
             onChange={handleImageChange}
             disabled={isSubmitting}
-            aria-label={imageUrl ? "이미지 변경" : "이미지 추가"}
+            aria-label={previewImageUrl ? "이미지 변경" : "이미지 추가"}
           />
         </div>
 

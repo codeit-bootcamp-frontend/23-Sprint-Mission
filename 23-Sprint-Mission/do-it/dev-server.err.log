@@ -6569,3 +6569,242 @@ https://nextjs.org/docs/messages/module-not-found
     at handleErrors (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
     at processMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
     at WebSocket.handleMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+[browser] Uncaught Error: Invalid src prop (https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/TodoList/douk-kim/1778649231035/React.jpeg) on `next/image`, hostname "sprint-fe-project.s3.ap-northeast-2.amazonaws.com" is not configured under images in your `next.config.js`
+See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+    at defaultLoader (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_11u41yw._.js:2809:49)
+    at <unknown> (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_11u41yw._.js:474:39)
+    at Array.map (<anonymous>)
+    at generateImgAttrs (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_11u41yw._.js:474:24)
+    at getImgProps (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_11u41yw._.js:887:27)
+    at <unknown> (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_11u41yw._.js:3217:82)
+    at Object.react_stack_bottom_frame (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:15037:24)
+    at renderWithHooks (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:4620:24)
+    at updateForwardRef (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5908:21)
+    at beginWork (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:6766:24)
+    at runWithFiberInDEV (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:965:74)
+    at performUnitOfWork (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9555:97)
+    at workLoopSync (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9449:40)
+    at renderRootSync (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9433:13)
+    at performWorkOnRoot (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:9098:47)
+    at performWorkOnRootViaSchedulerTask (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:2647:64)
+    at TodoDetailForm (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/src_093gjec._.js?id=%255Bproject%255D%252Fsrc%252Fcomponents%252Ftodo%252FTodoDetailForm%252FTodoDetailForm.tsx+%255Bapp-client%255D+%2528ecmascript%2529:164:242)
+    at ItemDetailPage (src\app\items\[itemId]\page.tsx:31:9)
+  29 |
+  30 |       <section className={styles.inner}>
+> 31 |         <TodoDetailForm todo={todo} />
+     |         ^
+  32 |       </section>
+  33 |     </main>
+  34 |   );
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  [90m1 |[0m [36mimport[0m [33mHeader[0m [36mfrom[0m [32m"@/components/layout/Header/Header"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m [33mTodoDetailForm[0m [36mfrom[0m [32m"@/components/todo/TodoDetailForm/TodoDetailForm"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { getTodo } [36mfrom[0m [32m"@/lib/api/todo"[0m;
+  [90m4 |[0m [36mimport[0m { notFound } [36mfrom[0m [32m"next/navigation"[0m;
+  [90m5 |[0m [36mimport[0m styles [36mfrom[0m [32m"./page.module.css"[0m;
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  1 | import Header from "@/components/layout/Header/Header";
+> 2 | import TodoDetailForm from "@/components/todo/TodoDetailForm/TodoDetailForm";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { getTodo } from "@/lib/api/todo";
+  4 | import { notFound } from "next/navigation";
+  5 | import styles from "./page.module.css";
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found 
+    at handleErrors (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+[browser] ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  1 | import Header from "@/components/layout/Header/Header";
+> 2 | import TodoDetailForm from "@/components/todo/TodoDetailForm/TodoDetailForm";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { getTodo } from "@/lib/api/todo";
+  4 | import { notFound } from "next/navigation";
+  5 | import styles from "./page.module.css";
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found 
+    at handleErrors (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+[browser] ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  1 | import Header from "@/components/layout/Header/Header";
+> 2 | import TodoDetailForm from "@/components/todo/TodoDetailForm/TodoDetailForm";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { getTodo } from "@/lib/api/todo";
+  4 | import { notFound } from "next/navigation";
+  5 | import styles from "./page.module.css";
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found 
+    at handleErrors (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+[browser] ./src/app/items/[itemId]/page.tsx:2:1
+Module not found: Can't resolve '@/components/todo/TodoDetailForm/TodoDetailForm'
+  1 | import Header from "@/components/layout/Header/Header";
+> 2 | import TodoDetailForm from "@/components/todo/TodoDetailForm/TodoDetailForm";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { getTodo } from "@/lib/api/todo";
+  4 | import { notFound } from "next/navigation";
+  5 | import styles from "./page.module.css";
+
+Import map: aliased to relative './src/components/todo/TodoDetailForm/TodoDetailForm' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found 
+    at handleErrors (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DOUK/Desktop/스프린트미션9 fix/23-Sprint-Mission/do-it/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
