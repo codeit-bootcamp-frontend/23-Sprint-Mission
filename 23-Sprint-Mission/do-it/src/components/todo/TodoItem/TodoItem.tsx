@@ -20,7 +20,6 @@ export default function TodoItem({ todo, onToggle }: TodoItemProps) {
           styles.checkButton,
           todo.isCompleted && styles.checked,
         )}
-        // 클릭하면 완료 / 미완료 상태를 바꿈
         onClick={() => onToggle(todo)}
         aria-label={todo.isCompleted ? "미완료로 변경" : "완료로 변경"}
       >

@@ -37,3 +37,8 @@
   color: #0f172a;
   word-break: break-word;
 }
+
+.completed .text {
+  color: #64748b;
+  text-decoration: line-through;
+}
