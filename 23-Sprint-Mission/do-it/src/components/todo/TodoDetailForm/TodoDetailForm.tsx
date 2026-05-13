@@ -16,7 +16,8 @@ interface TodoDetailFormProps {
 type SubmitStatus = "idle" | "saving" | "deleting" | "uploading";
 
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
-const ENGLISH_FILE_NAME_PATTERN = /^[A-Za-z0-9._-]+$/;
+const ENGLISH_FILE_NAME_WITH_EXTENSION_PATTERN =
+  /^[A-Za-z0-9_-]+\.[A-Za-z]+$/;
 
 export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
   const router = useRouter();
@@ -62,8 +63,8 @@ export default function TodoDetailForm({ todo }: TodoDetailFormProps) {
 
     if (!file) return;
 
-    if (!ENGLISH_FILE_NAME_PATTERN.test(file.name)) {
-      setError("이미지 파일 이름은 영어, 숫자, '.', '_', '-'만 사용할 수 있습니다.");
+    if (!ENGLISH_FILE_NAME_WITH_EXTENSION_PATTERN.test(file.name)) {
+      setError("이미지 파일 이름은 확장자를 포함해 영어로만 입력해주세요.");
       return;
     }
 
