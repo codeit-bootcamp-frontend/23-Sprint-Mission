@@ -23,7 +23,7 @@ export async function request<T>(
   }
 
   if (response.status === 204) {
-    return undefined as T;
+    throw new Error("No content response.");
   }
 
   return response.json();
