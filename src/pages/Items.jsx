@@ -141,7 +141,7 @@ function PageItems() {
           <Inner>
             <TitleAllArea>
               <Title>전체 상품</Title>
-              <PrdControls>
+              <ProductControls>
                 <ProductSearch />
                 <DropDown
                   orderBy={orderBy}
@@ -149,7 +149,7 @@ function PageItems() {
                     setOrderBy(value);
                   }}
                 />
-              </PrdControls>
+              </ProductControls>
             </TitleAllArea>
             <ContentArea>
               <ProductAllList>
@@ -268,7 +268,7 @@ const ProductAllItem = styled(ProductItem)`
   }
 `;
 
-const PrdControls = styled.div`
+const ProductControls = styled.div`
   display: flex;
   gap: 12px;
 
