@@ -3,7 +3,7 @@ import IconSearch from '../../assets/icon/icon-search.png';
 import { DEVICE } from '../../styles/breakpoints';
 import { Link } from 'react-router-dom';
 
-export default function PrdSearch() {
+export default function ProductSearch() {
   return (
     <InputBox>
       <Form action="">

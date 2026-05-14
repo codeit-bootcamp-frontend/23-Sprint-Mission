@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getListProducts } from '../apis/product/getListProducts';
 import { DEVICE, DEVICE_SIZE } from '../styles/breakpoints';
-import PrdSearch from '../components/Items/PrdSearch';
+import ProductSearch from '../components/Items/ProductSearch';
 import DropDown from '../components/Items/DropDown';
 import Pagination from '../components/Items/Pagination';
 import { addFavoriteProduct } from '../apis/product/addFavoriteProduct';
@@ -160,7 +160,7 @@ function PageItems() {
             <TitleAllArea>
               <Title>전체 상품</Title>
               <PrdControls>
-                <PrdSearch />
+                <ProductSearch />
                 <DropDown
                   orderBy={orderBy}
                   onChangeOrder={(value) => {
