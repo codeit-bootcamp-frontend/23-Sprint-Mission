@@ -10,31 +10,33 @@ import { DEVICE, DEVICE_SIZE } from '../styles/breakpoints';
 import { toggleFavoriteApi } from '../utils/favorite/favoriteApi';
 import { updateProductList } from '../utils/favorite/updateProductList';
 
+const getBestPageSize = () => {
+  if (window.innerWidth <= DEVICE_SIZE.mobile) return 1;
+  if (window.innerWidth <= DEVICE_SIZE.tablet) return 2;
+  return 4;
+};
+
+const getAllPageSize = () => {
+  if (window.innerWidth <= DEVICE_SIZE.mobile) return 4;
+  if (window.innerWidth <= DEVICE_SIZE.tablet) return 6;
+  return 10;
+};
+
 function PageItems() {
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [orderBy, setOrderBy] = useState('recent');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
-
-  const getBestPageSize = () => {
-    if (window.innerWidth <= DEVICE_SIZE.mobile) return 1;
-    if (window.innerWidth <= DEVICE_SIZE.tablet) return 2;
-    return 4;
-  };
-
-  const getAllPageSize = () => {
-    if (window.innerWidth <= DEVICE_SIZE.mobile) return 4;
-    if (window.innerWidth <= DEVICE_SIZE.tablet) return 6;
-    return 10;
-  };
+  const [bestPageSize, setBestPageSize] = useState(() => getBestPageSize());
+  const [allPageSize, setAllPageSize] = useState(() => getAllPageSize());
 
   useEffect(() => {
     const fetchBestProducts = async () => {
       try {
         const bestData = await getListProducts({
           page: 1,
-          pageSize: getBestPageSize(),
+          pageSize: bestPageSize,
           orderBy: 'favorite',
         });
 
@@ -45,11 +47,15 @@ function PageItems() {
       }
     };
 
+    fetchBestProducts();
+  }, [bestPageSize]);
+
+  useEffect(() => {
     const fetchAllProducts = async () => {
       try {
         const allData = await getListProducts({
           page: currentPage,
-          pageSize: getAllPageSize(),
+          pageSize: allPageSize,
           orderBy: orderBy,
         });
 
@@ -61,27 +67,37 @@ function PageItems() {
       }
     };
 
-    fetchBestProducts();
     fetchAllProducts();
+  }, [orderBy, currentPage, allPageSize]);
 
-    let timer;
-
+  useEffect(() => {
     const handleResize = () => {
-      clearTimeout(timer);
+      const nextBestPageSize = getBestPageSize();
+      const nextAllPageSize = getAllPageSize();
 
-      timer = setTimeout(() => {
-        fetchBestProducts();
-        fetchAllProducts();
-      }, 300);
+      setBestPageSize((prev) => {
+        if (prev !== nextBestPageSize) {
+          return nextBestPageSize;
+        }
+
+        return prev;
+      });
+
+      setAllPageSize((prev) => {
+        if (prev !== nextAllPageSize) {
+          return nextAllPageSize;
+        }
+
+        return prev;
+      });
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('resize', handleResize);
     };
-  }, [orderBy, currentPage]);
+  }, []);
 
   const handleFavoriteClick = async (product) => {
     try {
@@ -156,7 +172,6 @@ function PageItems() {
                   orderBy={orderBy}
                   onChangeOrder={(value) => {
                     setOrderBy(value);
-                    setCurrentPage(1);
                   }}
                 />
               </PrdControls>
@@ -200,7 +215,7 @@ function PageItems() {
               <Pagination
                 currentPage={currentPage}
                 totalCount={totalCount}
-                pageSize={getAllPageSize()}
+                pageSize={allPageSize}
                 onChangePage={setCurrentPage}
               />
             </ContentArea>
