@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getListProducts } from '../apis/product/getListProducts';
+import { toggleFavoriteApi } from '../utils/favorite/favoriteApi';
+import { updateProductList } from '../utils/favorite/updateProductList';
 import DropDown from '../components/Items/DropDown';
 import Pagination from '../components/Items/Pagination';
 import ProductSearch from '../components/Items/ProductSearch';
-import HeartIcon from '../assets/icon/icon-heart.svg?react';
+import ProductCard from '../components/Items/ProductCard';
 import { DEVICE, DEVICE_SIZE } from '../styles/breakpoints';
-import { toggleFavoriteApi } from '../utils/favorite/favoriteApi';
-import { updateProductList } from '../utils/favorite/updateProductList';
 
 const getBestPageSize = () => {
   if (window.innerWidth <= DEVICE_SIZE.mobile) return 1;
@@ -126,35 +126,10 @@ function PageItems() {
               <ProductList>
                 {bestProducts.map((product) => (
                   <ProductItem key={product.id}>
-                    <ProductThumb>
-                      <ProductLink to={`/products/${product.id}`}>
-                        <img
-                          src={product.images?.[0] || '/noimg.jpg'}
-                          alt={product.name}
-                          onError={(e) => {
-                            e.currentTarget.src = '/noimg.jpg';
-                          }}
-                        />
-                      </ProductLink>
-                    </ProductThumb>
-                    <ProductInfo>
-                      <ProductName>
-                        <ProductLink to={`/products/${product.id}`}>
-                          {product.name}
-                        </ProductLink>
-                      </ProductName>
-                      <ProductPrice>
-                        {product.price.toLocaleString()}원
-                      </ProductPrice>
-                      <ProductFavoriteCountButton
-                        type="button"
-                        $isFavorite={product.isFavorite}
-                        onClick={() => handleFavoriteClick(product)}
-                      >
-                        <HeartIcon />
-                        {product.favoriteCount}
-                      </ProductFavoriteCountButton>
-                    </ProductInfo>
+                    <ProductCard
+                      product={product}
+                      onFavoriteClick={handleFavoriteClick}
+                    />
                   </ProductItem>
                 ))}
               </ProductList>
@@ -180,35 +155,10 @@ function PageItems() {
               <ProductAllList>
                 {allProducts.map((product) => (
                   <ProductAllItem key={product.id}>
-                    <ProductThumb>
-                      <ProductLink to={`/products/${product.id}`}>
-                        <img
-                          src={product.images?.[0] || '/noimg.jpg'}
-                          alt={product.name}
-                          onError={(e) => {
-                            e.currentTarget.src = '/noimg.jpg';
-                          }}
-                        />
-                      </ProductLink>
-                    </ProductThumb>
-                    <ProductInfo>
-                      <ProductName>
-                        <ProductLink to={`/products/${product.id}`}>
-                          {product.name}
-                        </ProductLink>
-                      </ProductName>
-                      <ProductPrice>
-                        {product.price.toLocaleString()}원
-                      </ProductPrice>
-                      <ProductFavoriteCountButton
-                        type="button"
-                        $isFavorite={product.isFavorite}
-                        onClick={() => handleFavoriteClick(product)}
-                      >
-                        <HeartIcon />
-                        {product.favoriteCount}
-                      </ProductFavoriteCountButton>
-                    </ProductInfo>
+                    <ProductCard
+                      product={product}
+                      onFavoriteClick={handleFavoriteClick}
+                    />
                   </ProductAllItem>
                 ))}
               </ProductAllList>
@@ -315,66 +265,6 @@ const ProductAllItem = styled(ProductItem)`
 
   @media ${DEVICE.mobile} {
     flex: 0 0 calc((100% - 8px) / 2);
-  }
-`;
-
-const ProductLink = styled(Link)``;
-
-const ProductThumb = styled.div`
-  overflow: hidden;
-  margin-bottom: 16px;
-  border-radius: 16px;
-
-  position: relative;
-  padding-bottom: 100%;
-
-  img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const ProductInfo = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  gap: 6px;
-`;
-
-const ProductName = styled.strong`
-  font-size: 14px;
-  line-height: 1.7;
-  font-weight: 500;
-  color: var(--gray-800);
-`;
-
-const ProductPrice = styled.span`
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 700;
-  color: var(--gray-800);
-`;
-
-const ProductFavoriteCountButton = styled.button`
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  line-height: 1.5;
-  font-weight: 500;
-  color: var(--gray-600);
-
-  svg {
-    width: 16px;
-    height: 16px;
-
-    path {
-      fill: ${({ $isFavorite }) => $isFavorite && '#FF68CC'};
-      stroke: ${({ $isFavorite }) => $isFavorite && '#FF68CC'};
-    }
   }
 `;
 
