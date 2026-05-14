@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getListProducts } from '../apis/product/getListProducts';
-import { addFavoriteProduct } from '../apis/product/addFavoriteProduct';
-import { removeFavoriteProduct } from '../apis/product/removeFavoriteProduct';
 import DropDown from '../components/Items/DropDown';
 import Pagination from '../components/Items/Pagination';
 import ProductSearch from '../components/Items/ProductSearch';
 import HeartIcon from '../assets/icon/icon-heart.svg?react';
 import { DEVICE, DEVICE_SIZE } from '../styles/breakpoints';
+import { toggleFavoriteApi } from '../utils/favorite/favoriteApi';
+import { updateProductList } from '../utils/favorite/updateProductList';
 
 function PageItems() {
   const [bestProducts, setBestProducts] = useState([]);
@@ -85,25 +85,13 @@ function PageItems() {
 
   const handleFavoriteClick = async (product) => {
     try {
-      let updatedProduct;
+      const updatedProduct = await toggleFavoriteApi(product);
 
-      if (product.isFavorite) {
-        updatedProduct = await removeFavoriteProduct(product.id);
-      } else {
-        updatedProduct = await addFavoriteProduct(product.id);
-      }
+      const updateList = (prev) =>
+        updateProductList(prev, product.id, updatedProduct);
 
-      setBestProducts((prevProducts) =>
-        prevProducts.map((item) =>
-          item.id === product.id ? updatedProduct : item,
-        ),
-      );
-
-      setAllProducts((prevProducts) =>
-        prevProducts.map((item) =>
-          item.id === product.id ? updatedProduct : item,
-        ),
-      );
+      setBestProducts(updateList);
+      setAllProducts(updateList);
     } catch (error) {
       console.error('좋아요 실패', error);
       alert(error.message);
