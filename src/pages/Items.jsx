@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { addFavoriteProduct } from '../apis/product/addFavoriteProduct';
 import { getListProducts } from '../apis/product/getListProducts';
+import { addFavoriteProduct } from '../apis/product/addFavoriteProduct';
 import { removeFavoriteProduct } from '../apis/product/removeFavoriteProduct';
 import DropDown from '../components/Items/DropDown';
 import Pagination from '../components/Items/Pagination';
