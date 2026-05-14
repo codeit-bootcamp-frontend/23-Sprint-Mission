@@ -41,6 +41,7 @@ function PageItems() {
         setBestProducts(bestData?.list || []);
       } catch (error) {
         console.error('베스트 상품 로딩 실패', error);
+        alert(error.message);
       }
     };
 
@@ -56,6 +57,7 @@ function PageItems() {
         setTotalCount(allData?.totalCount || 0);
       } catch (error) {
         console.error('전체 상품 로딩 실패', error);
+        alert(error.message);
       }
     };
 
@@ -104,6 +106,7 @@ function PageItems() {
       );
     } catch (error) {
       console.error('좋아요 실패', error);
+      alert(error.message);
     }
   };
 
