@@ -1,14 +1,14 @@
-import styled from 'styled-components';
-import HeartIcon from '../assets/icon/icon-heart.svg?react';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { addFavoriteProduct } from '../apis/product/addFavoriteProduct';
 import { getListProducts } from '../apis/product/getListProducts';
-import { DEVICE, DEVICE_SIZE } from '../styles/breakpoints';
-import ProductSearch from '../components/Items/ProductSearch';
+import { removeFavoriteProduct } from '../apis/product/removeFavoriteProduct';
 import DropDown from '../components/Items/DropDown';
 import Pagination from '../components/Items/Pagination';
-import { addFavoriteProduct } from '../apis/product/addFavoriteProduct';
-import { removeFavoriteProduct } from '../apis/product/removeFavoriteProduct';
+import ProductSearch from '../components/Items/ProductSearch';
+import HeartIcon from '../assets/icon/icon-heart.svg?react';
+import { DEVICE, DEVICE_SIZE } from '../styles/breakpoints';
 
 function PageItems() {
   const [bestProducts, setBestProducts] = useState([]);
