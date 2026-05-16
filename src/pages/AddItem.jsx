@@ -3,6 +3,7 @@ import FormField from '../components/form/FormField';
 import InputBox from '../components/form/InputBox';
 import TextareaBox from '../components/form/TextareaBox';
 import UploadImage from '../components/form/UploadImage';
+import Tag from '../components/form/Tag';
 
 function AddItem() {
   return (
@@ -29,7 +30,7 @@ function AddItem() {
               <InputBox id="price" placeholder="판매 가격을 입력해주세요" />
             </FormField>
             <FormField label="태그" id="tag">
-              <InputBox id="tag" placeholder="태그를 입력해주세요" />
+              <Tag />
             </FormField>
             <SubmitButton type="button">등록</SubmitButton>
           </Form>
