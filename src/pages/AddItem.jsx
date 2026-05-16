@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import FormField from '../components/form/FormField';
 import InputBox from '../components/form/InputBox';
 import TextareaBox from '../components/form/TextareaBox';
+import UploadImage from '../components/form/UploadImage';
 
 function AddItem() {
   return (
@@ -12,7 +13,9 @@ function AddItem() {
         </FormHeader>
         <FormContent>
           <Form>
-            <FormField label="상품 이미지">{/* <UploadImage /> */}</FormField>
+            <FormField label="상품 이미지" id="product-image">
+              <UploadImage id="product-image" />
+            </FormField>
             <FormField label="상품명" id="product-name">
               <InputBox id="product-name" placeholder="상품명을 입력해주세요" />
             </FormField>
