@@ -11,6 +11,10 @@ export default function UploadImage({ id }) {
     setPreveiwUrl(imageUrl);
   };
 
+  const handleDeleteImage = () => {
+    setPreveiwUrl('');
+  };
+
   return (
     <UploadImageSection>
       <ImageList>
@@ -29,7 +33,10 @@ export default function UploadImage({ id }) {
         {previewUrl && (
           <PreviewWrap>
             <PreviewImage src={previewUrl} alt="상품 이미지 미리보기" />
-            <DeleteButton type="button"></DeleteButton>
+            <DeleteButton
+              type="button"
+              onClick={handleDeleteImage}
+            ></DeleteButton>
           </PreviewWrap>
         )}
       </ImageList>
