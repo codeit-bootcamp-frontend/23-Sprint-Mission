@@ -1,18 +1,28 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
-import { useState } from 'react';
 
 export default function UploadImage({ id }) {
-  const [previewUrl, setPreveiwUrl] = useState('');
+  const [previewUrl, setPreviewUrl] = useState('');
+  const [message, setMessage] = useState(false);
 
   const handleImageChange = (e) => {
+    if (previewUrl) {
+      setMessage(true);
+      e.target.value = '';
+      return;
+    }
+
     const file = e.target.files[0];
+    if (!file) return;
     const imageUrl = URL.createObjectURL(file);
-    setPreveiwUrl(imageUrl);
+    setPreviewUrl(imageUrl);
+    setMessage(false);
   };
 
   const handleDeleteImage = () => {
-    setPreveiwUrl('');
+    setPreviewUrl('');
+    setMessage(false);
   };
 
   return (
@@ -40,7 +50,7 @@ export default function UploadImage({ id }) {
           </PreviewWrap>
         )}
       </ImageList>
-      {/* <Notice>*이미지 등록은 최대 10개까지 가능합니다.</Notice> */}
+      {message && <Message>*이미지 등록은 최대 1개까지 가능합니다.</Message>}
     </UploadImageSection>
   );
 }
@@ -123,7 +133,7 @@ const DeleteButton = styled.button`
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 `;
-const Notice = styled.p`
+const Message = styled.p`
   margin-top: 16px;
   font-size: 16px;
   line-height: 1.6;
