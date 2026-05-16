@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fieldBaseStyle } from './styles';
 
 export default function TextareaBox({ placeholder }) {
   return (
@@ -9,21 +10,7 @@ export default function TextareaBox({ placeholder }) {
 }
 
 const Textarea = styled.textarea`
-  padding: 16px 24px;
+  ${fieldBaseStyle}
   height: 282px;
-  font-size: 16px;
-  line-height: 1.6;
-  border-radius: 12px;
-  color: var(--gray-800);
-  background: var(--gray-100);
-  border: 1px solid transparent;
   resize: none;
-
-  &::placeholder {
-    color: var(--gray-400);
-  }
-
-  &:focus {
-    border-color: var(--primary-100);
-  }
 `;
