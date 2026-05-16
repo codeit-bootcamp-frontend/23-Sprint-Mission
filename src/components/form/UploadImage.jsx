@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
 import { deleteButtonStyle } from './styles';
@@ -7,6 +7,8 @@ import { DEVICE } from '../../styles/breakpoints';
 export default function UploadImage({ id }) {
   const [previewUrl, setPreviewUrl] = useState('');
   const [message, setMessage] = useState(false);
+
+  const fileInputRef = useRef(null);
 
   const handleImageChange = (e) => {
     if (previewUrl) {
@@ -25,6 +27,10 @@ export default function UploadImage({ id }) {
   const handleDeleteImage = () => {
     setPreviewUrl('');
     setMessage(false);
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   return (
@@ -37,6 +43,7 @@ export default function UploadImage({ id }) {
           </TextBox>
         </UploadWrap>
         <HiddenInput
+          ref={fileInputRef}
           id={id}
           type="file"
           accept="image/*"
