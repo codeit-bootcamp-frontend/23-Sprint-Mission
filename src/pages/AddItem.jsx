@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import FormField from '../components/form/FormField';
 import InputBox from '../components/form/InputBox';
@@ -6,6 +7,21 @@ import UploadImage from '../components/form/UploadImage';
 import Tag from '../components/form/Tag';
 
 function AddItem() {
+  const [formValues, setFormValues] = useState({
+    productName: '',
+    description: '',
+    price: '',
+  });
+
+  const handleChangeFormValue = (e) => {
+    const { name, value } = e.target;
+
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
   return (
     <PageWrapper>
       <Inner>
@@ -18,16 +34,31 @@ function AddItem() {
               <UploadImage id="product-image" />
             </FormField>
             <FormField label="상품명" id="product-name">
-              <InputBox id="product-name" placeholder="상품명을 입력해주세요" />
+              <InputBox
+                id="product-name"
+                placeholder="상품명을 입력해주세요"
+                name="productName"
+                value={formValues.productName}
+                onChange={handleChangeFormValue}
+              />
             </FormField>
             <FormField label="상품 소개" id="description">
               <TextareaBox
                 id="description"
                 placeholder="상품 소개를 입력해주세요"
+                name="description"
+                value={formValues.description}
+                onChange={handleChangeFormValue}
               />
             </FormField>
             <FormField label="판매가격" id="price">
-              <InputBox id="price" placeholder="판매 가격을 입력해주세요" />
+              <InputBox
+                id="price"
+                placeholder="판매 가격을 입력해주세요"
+                name="price"
+                value={formValues.price}
+                onChange={handleChangeFormValue}
+              />
             </FormField>
             <FormField label="태그" id="tag">
               <Tag />
