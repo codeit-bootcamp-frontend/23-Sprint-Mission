@@ -1,26 +1,40 @@
 import styled from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
+import { useState } from 'react';
 
 export default function UploadImage({ id }) {
+  const [previewUrl, setPreveiwUrl] = useState('');
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const imageUrl = URL.createObjectURL(file);
+    setPreveiwUrl(imageUrl);
+  };
+
   return (
-    <>
-      <UploadImageSection>
-        <ImageList>
-          <UploadWrap htmlFor={id}>
-            <TextBox>
-              <PlusIcon />
-              <UploadText>이미지 등록</UploadText>
-            </TextBox>
-          </UploadWrap>
-          <HiddenInput id={id} type="file" accept="image/*" />
-          {/* <PreviewWrap>
-            <PreviewImage src="" alt="상품 이미지 미리보기" />
+    <UploadImageSection>
+      <ImageList>
+        <UploadWrap htmlFor={id}>
+          <TextBox>
+            <PlusIcon />
+            <UploadText>이미지 등록</UploadText>
+          </TextBox>
+        </UploadWrap>
+        <HiddenInput
+          id={id}
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+        />
+        {previewUrl && (
+          <PreviewWrap>
+            <PreviewImage src={previewUrl} alt="상품 이미지 미리보기" />
             <DeleteButton type="button"></DeleteButton>
-          </PreviewWrap> */}
-        </ImageList>
-        {/* <Notice>*이미지 등록은 최대 10개까지 가능합니다.</Notice> */}
-      </UploadImageSection>
-    </>
+          </PreviewWrap>
+        )}
+      </ImageList>
+      {/* <Notice>*이미지 등록은 최대 10개까지 가능합니다.</Notice> */}
+    </UploadImageSection>
   );
 }
 
@@ -65,6 +79,7 @@ const PreviewWrap = styled.div`
   height: 282px;
   background: var(--gray-100);
   border-radius: 12px;
+  overflow: hidden;
 `;
 const PreviewImage = styled.img`
   width: 100%;
