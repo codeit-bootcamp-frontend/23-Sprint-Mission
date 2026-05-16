@@ -115,7 +115,7 @@ function PageItems() {
 
   return (
     <>
-      <PageItemsWrapper>
+      <PageWrapper>
         <GroupProduct>
           <Inner>
             <TitleArea>
@@ -170,14 +170,14 @@ function PageItems() {
             </ContentArea>
           </Inner>
         </GroupProduct>
-      </PageItemsWrapper>
+      </PageWrapper>
     </>
   );
 }
 
 export default PageItems;
 
-const PageItemsWrapper = styled.div`
+const PageWrapper = styled.div`
   padding: 30px 0 60px;
   display: flex;
   flex-direction: column;
