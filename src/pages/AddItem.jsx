@@ -47,6 +47,10 @@ function AddItem() {
     ? Number(formValues.price).toLocaleString()
     : '';
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <PageWrapper>
       <Inner>
@@ -54,7 +58,7 @@ function AddItem() {
           <FormTitle>상품 등록하기</FormTitle>
         </FormHeader>
         <FormContent>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <FormField label="상품 이미지" id="product-image">
               <UploadImage id="product-image" />
             </FormField>
@@ -88,7 +92,7 @@ function AddItem() {
             <FormField label="태그" id="tag">
               <Tag tags={tags} setTags={setTags} />
             </FormField>
-            <SubmitButton type="button" disabled={!isFormValid}>
+            <SubmitButton type="submit" disabled={!isFormValid}>
               등록
             </SubmitButton>
           </Form>
