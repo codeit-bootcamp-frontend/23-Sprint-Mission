@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import FormField from '../components/form/FormField';
+import InputBox from '../components/form/InputBox';
+import TextareaBox from '../components/form/TextareaBox';
 
 function AddItem() {
   return (
@@ -11,25 +14,18 @@ function AddItem() {
           </FormHeader>
           <FormContent>
             <Form>
-              <FormField>
-                <Label>상품 이미지</Label>
-                <UploadImage />
+              <FormField label="상품 이미지">{/* <UploadImage /> */}</FormField>
+              <FormField label="상품명">
+                <InputBox placeholder="상품명을 입력해주세요" />
               </FormField>
-              <FormField>
-                <Label>상품명</Label>
-                <Input placeholder="상품명을 입력해주세요" />
+              <FormField label="상품 소개">
+                <TextareaBox placeholder="상품 소개를 입력해주세요" />
               </FormField>
-              <FormField>
-                <Label>상품 소개</Label>
-                <Input placeholder="상품 소개를 입력해주세요" />
+              <FormField label="판매가격">
+                <InputBox placeholder="판매 가격을 입력해주세요" />
               </FormField>
-              <FormField>
-                <Label>판매가격</Label>
-                <Input placeholder="판매 가격을 입력해주세요" />
-              </FormField>
-              <FormField>
-                <Label>태그</Label>
-                <Input placeholder="태그를 입력해주세요" />
+              <FormField label="태그">
+                <InputBox placeholder="태그를 입력해주세요" />
               </FormField>
             </Form>
           </FormContent>
@@ -41,4 +37,16 @@ function AddItem() {
 
 export default AddItem;
 
-const PageWrapper = styled.div``;
+const PageWrapper = styled.div`
+  padding: 24px 0 70px;
+`;
+const Inner = styled.div`
+  padding: 0 24px;
+  margin: 0 auto;
+  max-width: 1248px;
+`;
+const FormHeader = styled.div``;
+const FormTitle = styled.div``;
+const SubmitButton = styled.div``;
+const FormContent = styled.div``;
+const Form = styled.form``;

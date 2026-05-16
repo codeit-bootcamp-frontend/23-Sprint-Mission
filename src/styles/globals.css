@@ -72,7 +72,8 @@ button {
   border: none;
   outline: none;
 }
-input {
+input,
+textarea {
   width: 100%;
 }
 ul,
