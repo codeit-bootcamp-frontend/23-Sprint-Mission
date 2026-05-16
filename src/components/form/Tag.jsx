@@ -21,6 +21,10 @@ export default function Tag() {
     }
   };
 
+  const handleDeleteTag = (targetTag) => {
+    setTags(tags.filter((tag) => tag !== targetTag));
+  };
+
   return (
     <TagSection>
       <InputBox
@@ -33,7 +37,13 @@ export default function Tag() {
       {tags.length > 0 && (
         <TagList>
           {tags.map((tag) => (
-            <TagItem key={tag}>#{tag}</TagItem>
+            <TagItem key={tag}>
+              #{tag}
+              <DeleteButton
+                type="button"
+                onClick={() => handleDeleteTag(tag)}
+              ></DeleteButton>
+            </TagItem>
           ))}
         </TagList>
       )}
@@ -48,7 +58,40 @@ const TagList = styled.ul`
   gap: 12px;
 `;
 const TagItem = styled.li`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 6px 12px 6px 16px;
   background: var(--gray-100);
   border-radius: 26px;
+  font-size: 16px;
+  line-height: 1.6;
+`;
+const DeleteButton = styled.button`
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: var(--gray-400);
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 2px;
+    background: #fff;
+    border-radius: 999px;
+    transform-origin: center;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 `;
