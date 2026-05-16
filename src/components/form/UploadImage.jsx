@@ -1,23 +1,24 @@
 import styled from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
 
-export default function UploadImage() {
+export default function UploadImage({ id }) {
   return (
     <>
       <UploadImageSection>
         <ImageList>
-          <UploadWrap>
+          <UploadWrap htmlFor={id}>
             <TextBox>
               <PlusIcon />
               <UploadText>이미지 등록</UploadText>
             </TextBox>
           </UploadWrap>
-          <PreviewWrap>
+          <HiddenInput id={id} type="file" accept="image/*" />
+          {/* <PreviewWrap>
             <PreviewImage src="" alt="상품 이미지 미리보기" />
             <DeleteButton type="button"></DeleteButton>
-          </PreviewWrap>
+          </PreviewWrap> */}
         </ImageList>
-        <Notice>*이미지 등록은 최대 10개까지 가능합니다.</Notice>
+        {/* <Notice>*이미지 등록은 최대 10개까지 가능합니다.</Notice> */}
       </UploadImageSection>
     </>
   );
@@ -28,7 +29,7 @@ const ImageList = styled.div`
   display: flex;
   gap: 24px;
 `;
-const UploadWrap = styled.div`
+const UploadWrap = styled.label`
   position: relative;
   display: flex;
   justify-content: center;
@@ -37,6 +38,7 @@ const UploadWrap = styled.div`
   height: 282px;
   background: var(--gray-100);
   border-radius: 12px;
+  cursor: pointer;
 `;
 const TextBox = styled.div`
   display: flex;
@@ -54,6 +56,9 @@ const UploadText = styled.p`
   line-height: 1.6;
   color: var(--gray-400);
 `;
+const HiddenInput = styled.input`
+  display: none;
+`;
 const PreviewWrap = styled.div`
   position: relative;
   width: 282px;
@@ -61,7 +66,11 @@ const PreviewWrap = styled.div`
   background: var(--gray-100);
   border-radius: 12px;
 `;
-const PreviewImage = styled.div``;
+const PreviewImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 const DeleteButton = styled.button`
   position: absolute;
   top: 12px;
