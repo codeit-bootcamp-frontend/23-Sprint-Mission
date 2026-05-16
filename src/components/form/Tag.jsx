@@ -20,6 +20,11 @@ export default function Tag({ tags, setTags }) {
 
       if (newTag === '') return;
 
+      if (tags.includes(newTag)) {
+        setTagInput('');
+        return;
+      }
+
       setTags((prevTags) => [...prevTags, newTag]);
       setTagInput('');
     }
