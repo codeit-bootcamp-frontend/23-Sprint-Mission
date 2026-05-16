@@ -13,6 +13,8 @@ function AddItem() {
     price: '',
   });
 
+  const [tags, setTags] = useState([]);
+
   const handleChangeFormValue = (e) => {
     const { name, value } = e.target;
 
@@ -36,7 +38,8 @@ function AddItem() {
   const isFormValid =
     formValues.productName.trim() !== '' &&
     formValues.description.trim() !== '' &&
-    formValues.price.trim() !== '';
+    formValues.price.trim() !== '' &&
+    tags.length > 0;
 
   return (
     <PageWrapper>
@@ -81,7 +84,7 @@ function AddItem() {
               />
             </FormField>
             <FormField label="태그" id="tag">
-              <Tag />
+              <Tag tags={tags} setTags={setTags} />
             </FormField>
             <SubmitButton type="button" disabled={!isFormValid}>
               등록

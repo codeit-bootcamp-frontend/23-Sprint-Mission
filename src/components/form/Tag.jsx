@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import InputBox from './InputBox';
 import { deleteButtonStyle } from './styles';
 
-export default function Tag() {
-  const [tags, setTags] = useState([]);
+export default function Tag({ tags, setTags }) {
   const [tagInput, setTagInput] = useState('');
 
   const handleChangeTagInput = (e) => {
@@ -17,7 +16,7 @@ export default function Tag() {
     if (e.key === 'Enter') {
       e.preventDefault();
 
-      setTags([...tags, tagInput]);
+      setTags((prevTags) => [...prevTags, tagInput]);
       setTagInput('');
     }
   };
