@@ -16,6 +16,17 @@ function AddItem() {
   const handleChangeFormValue = (e) => {
     const { name, value } = e.target;
 
+    if (name === 'price') {
+      const onlyNumber = value.replace(/[^0-9]/g, '');
+
+      setFormValues({
+        ...formValues,
+        [name]: onlyNumber,
+      });
+
+      return;
+    }
+
     setFormValues({
       ...formValues,
       [name]: value,
@@ -61,7 +72,11 @@ function AddItem() {
                 id="price"
                 placeholder="판매 가격을 입력해주세요"
                 name="price"
-                value={formValues.price}
+                value={
+                  formValues.price
+                    ? Number(formValues.price).toLocaleString()
+                    : ''
+                }
                 onChange={handleChangeFormValue}
               />
             </FormField>
