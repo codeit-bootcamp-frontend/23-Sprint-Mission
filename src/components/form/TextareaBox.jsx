@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { fieldBaseStyle } from './styles';
 
-export default function TextareaBox({ id, placeholder }) {
+export default function TextareaBox({ id, placeholder, ...props }) {
   return (
     <>
-      <Textarea id={id} placeholder={placeholder} />
+      <Textarea id={id} placeholder={placeholder} {...props} />
     </>
   );
 }

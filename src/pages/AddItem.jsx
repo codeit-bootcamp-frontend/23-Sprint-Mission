@@ -22,6 +22,11 @@ function AddItem() {
     });
   };
 
+  const isFormValid =
+    formValues.productName.trim() !== '' &&
+    formValues.description.trim() !== '' &&
+    formValues.price.trim() !== '';
+
   return (
     <PageWrapper>
       <Inner>
@@ -63,7 +68,9 @@ function AddItem() {
             <FormField label="태그" id="tag">
               <Tag />
             </FormField>
-            <SubmitButton type="button">등록</SubmitButton>
+            <SubmitButton type="button" disabled={!isFormValid}>
+              등록
+            </SubmitButton>
           </Form>
         </FormContent>
       </Inner>
@@ -103,9 +110,13 @@ const SubmitButton = styled.button`
   font-size: 16px;
   line-height: 1.6;
   font-weight: 600;
-  color: #f3f4f6;
-  background: var(--gray-400);
   border-radius: 8px;
+  color: var(--gray-100);
+  background: var(--primary-100);
+
+  &:disabled {
+    background: var(--gray-400);
+  }
 `;
 const FormContent = styled.div`
   position: relative;
