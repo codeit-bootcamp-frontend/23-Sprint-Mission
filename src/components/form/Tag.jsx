@@ -64,6 +64,7 @@ const TagSection = styled.div``;
 const TagList = styled.ul`
   margin-top: 14px;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 `;
 const TagItem = styled.li`

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
 import { deleteButtonStyle } from './styles';
+import { DEVICE } from '../../styles/breakpoints';
 
 export default function UploadImage({ id }) {
   const [previewUrl, setPreviewUrl] = useState('');
@@ -56,18 +57,37 @@ export default function UploadImage({ id }) {
   );
 }
 
+const imageBoxSizeStyle = css`
+  width: 282px;
+  aspect-ratio: 1 / 1;
+
+  @media ${DEVICE.tablet} {
+    width: 168px;
+  }
+
+  @media ${DEVICE.mobile} {
+    max-width: 168px;
+    width: auto;
+    flex: 1;
+  }
+`;
+
 const UploadImageSection = styled.div``;
 const ImageList = styled.div`
   display: flex;
   gap: 24px;
+
+  @media ${DEVICE.tablet} {
+    gap: 12px;
+  }
 `;
 const UploadWrap = styled.label`
+  ${imageBoxSizeStyle}
+
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 282px;
-  height: 282px;
   background: var(--gray-100);
   border-radius: 12px;
   cursor: pointer;
@@ -92,9 +112,9 @@ const HiddenInput = styled.input`
   display: none;
 `;
 const PreviewWrap = styled.div`
+  ${imageBoxSizeStyle}
+
   position: relative;
-  width: 282px;
-  height: 282px;
   background: var(--gray-100);
   border-radius: 12px;
   overflow: hidden;

@@ -5,6 +5,7 @@ import InputBox from '../components/form/InputBox';
 import TextareaBox from '../components/form/TextareaBox';
 import UploadImage from '../components/form/UploadImage';
 import Tag from '../components/form/Tag';
+import { DEVICE } from '../styles/breakpoints';
 
 function AddItem() {
   const [formValues, setFormValues] = useState({
@@ -143,4 +144,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @media ${DEVICE.tablet} {
+    gap: 24px;
+  }
 `;
