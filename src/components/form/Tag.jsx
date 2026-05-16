@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import InputBox from './InputBox';
+import { deleteButtonStyle } from './styles';
 
 export default function Tag() {
   const [tags, setTags] = useState([]);
@@ -68,30 +69,6 @@ const TagItem = styled.li`
   line-height: 1.6;
 `;
 const DeleteButton = styled.button`
+  ${deleteButtonStyle}
   position: relative;
-  width: 20px;
-  height: 20px;
-  background: var(--gray-400);
-  border-radius: 50%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 2px;
-    background: #fff;
-    border-radius: 999px;
-    transform-origin: center;
-  }
-
-  &::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  &::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
 `;

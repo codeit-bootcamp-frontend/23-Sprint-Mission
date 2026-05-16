@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
+import { deleteButtonStyle } from './styles';
 
 export default function UploadImage({ id }) {
   const [previewUrl, setPreviewUrl] = useState('');
@@ -104,34 +105,10 @@ const PreviewImage = styled.img`
   object-fit: cover;
 `;
 const DeleteButton = styled.button`
+  ${deleteButtonStyle}
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 20px;
-  height: 20px;
-  background: var(--gray-400);
-  border-radius: 50%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 2px;
-    background: #fff;
-    border-radius: 999px;
-    transform-origin: center;
-  }
-
-  &::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  &::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
 `;
 const Message = styled.p`
   margin-top: 16px;
