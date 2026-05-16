@@ -6,6 +6,7 @@ import TextareaBox from '../components/form/TextareaBox';
 import UploadImage from '../components/form/UploadImage';
 import Tag from '../components/form/Tag';
 import { DEVICE } from '../styles/breakpoints';
+import { Inner } from '../styles/layout';
 
 function AddItem() {
   const [formValues, setFormValues] = useState({
@@ -101,11 +102,6 @@ export default AddItem;
 
 const PageWrapper = styled.div`
   padding: 24px 0 70px;
-`;
-const Inner = styled.div`
-  padding: 0 24px;
-  margin: 0 auto;
-  max-width: 1248px;
 `;
 const FormHeader = styled.div`
   margin-bottom: 30px;

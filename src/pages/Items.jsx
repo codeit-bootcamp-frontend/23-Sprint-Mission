@@ -8,6 +8,7 @@ import Pagination from '../components/Items/Pagination';
 import ProductSearch from '../components/Items/ProductSearch';
 import ProductCard from '../components/Items/ProductCard';
 import { DEVICE, DEVICE_SIZE } from '../styles/breakpoints';
+import { Inner } from '../styles/layout';
 
 const getBestPageSize = () => {
   if (window.innerWidth <= DEVICE_SIZE.mobile) return 1;
@@ -185,12 +186,6 @@ const PageWrapper = styled.div`
 `;
 
 const GroupProduct = styled.div``;
-
-const Inner = styled.div`
-  padding: 0 24px;
-  margin: 0 auto;
-  max-width: 1248px;
-`;
 
 const TitleArea = styled.div`
   margin-bottom: 16px;
