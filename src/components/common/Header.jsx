@@ -8,6 +8,9 @@ import { DEVICE } from '../../styles/breakpoints';
 function Header() {
   const location = useLocation();
 
+  const isItemsPage =
+    location.pathname === '/items' || location.pathname === '/additem';
+
   return (
     <>
       <HeaderSection>
@@ -28,7 +31,7 @@ function Header() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/items" $isActive={location.pathname === '/items'}>
+                <NavLink to="/items" $isActive={isItemsPage}>
                   중고마켓
                 </NavLink>
               </NavItem>
