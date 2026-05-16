@@ -65,6 +65,7 @@ table {
   border-spacing: 0;
 }
 input,
+textarea,
 button {
   border-radius: 0;
   -webkit-appearance: none;
