@@ -16,7 +16,11 @@ export default function Tag({ tags, setTags }) {
     if (e.key === 'Enter') {
       e.preventDefault();
 
-      setTags((prevTags) => [...prevTags, tagInput]);
+      const newTag = tagInput.trim();
+
+      if (newTag === '') return;
+
+      setTags((prevTags) => [...prevTags, newTag]);
       setTagInput('');
     }
   };
