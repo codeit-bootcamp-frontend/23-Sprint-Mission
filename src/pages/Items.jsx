@@ -186,6 +186,12 @@ const PageWrapper = styled.div`
 
 const GroupProduct = styled.div``;
 
+const Inner = styled.div`
+  padding: 0 24px;
+  margin: 0 auto;
+  max-width: 1248px;
+`;
+
 const TitleArea = styled.div`
   margin-bottom: 16px;
 `;
