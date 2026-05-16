@@ -3,6 +3,7 @@
 import Button from "@/components/common/Button/Button";
 import Input from "@/components/common/Input/Input";
 import useTodoForm from "@/hooks/useTodoForm";
+import { FormEvent } from "react";
 import styles from "./TodoForm.module.css";
 
 interface TodoFormProps {
@@ -11,29 +12,31 @@ interface TodoFormProps {
 }
 
 export default function TodoForm({ onSubmit, isSubmitting }: TodoFormProps) {
-  const { value, handleChange, handleSubmit, handleKeyDown } = useTodoForm({
+  const { value, handleChange, handleSubmit } = useTodoForm({
     onSubmit,
   });
 
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleSubmit();
+  };
+
   return (
-    <section className={styles.container}>
+    <form className={styles.container} onSubmit={handleFormSubmit}>
       <Input
         value={value}
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
         placeholder="할 일을 입력해주세요"
         aria-label="할 일 입력"
       />
 
       <Button
-        type="button"
-        onClick={handleSubmit}
-        // 요청 중이거나 공백만 입력했으면 비활성화
+        type="submit"
         disabled={isSubmitting || !value.trim()}
         filled={Boolean(value.trim())}
       >
         + 추가하기
       </Button>
-    </section>
+    </form>
   );
 }

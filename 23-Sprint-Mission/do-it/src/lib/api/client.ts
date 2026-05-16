@@ -1,12 +1,18 @@
-import { TENANT_ID } from "@/constants/tenant";
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-const BASE_URL = `https://assignment-todolist-api.vercel.app/api/${TENANT_ID}`;
+export function getBaseUrl() {
+  if (!BASE_URL) {
+    throw new Error("NEXT_PUBLIC_API_BASE_URL 환경 변수가 설정되지 않았습니다.");
+  }
+
+  return BASE_URL;
+}
 
 export async function request<T>(
   endpoint: string,
   options?: RequestInit,
 ): Promise<T> {
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
+  const response = await fetch(`${getBaseUrl()}${endpoint}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +27,7 @@ export async function request<T>(
   }
 
   if (response.status === 204) {
-    return undefined as T;
+    throw new Error("No content response.");
   }
 
   return response.json();

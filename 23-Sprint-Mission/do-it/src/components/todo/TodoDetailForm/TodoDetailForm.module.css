@@ -1,0 +1,240 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.titleField {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 64px;
+  padding: 0 24px;
+  border: 2px solid #0f172a;
+  border-radius: 28px;
+  background-color: #ffffff;
+}
+
+.completedTitle {
+  background-color: #ddd6fe;
+}
+
+.checkButton {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #0f172a;
+  border-radius: 50%;
+  background-color: #fefce8;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkButton:disabled,
+.fileInput:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checked {
+  border-color: #7c3aed;
+  background-color: #7c3aed;
+}
+
+.titleInput {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.titleInput:disabled,
+.memoTextarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 24px;
+}
+
+.imageField {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  overflow: hidden;
+  border: 2px dashed #cbd5e1;
+  border-radius: 24px;
+  background-color: #f8fafc;
+}
+
+.previewImage {
+  object-fit: cover;
+}
+
+.uploadingImage {
+  opacity: 0.65;
+}
+
+.emptyImageIcon {
+  width: 56px;
+  height: 56px;
+  opacity: 0.55;
+}
+
+.imageButton {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  color: #475569;
+  font-size: 28px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.attachedImageButton {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.fileInput {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.uploadingOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(248, 250, 252, 0.72);
+  color: #334155;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.memoField {
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 24px;
+  background-color: #fef9c3;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 30px,
+    #fde047 31px,
+    #fde047 32px
+  );
+}
+
+.memoTitle {
+  padding: 20px 24px 8px;
+  color: #92400e;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.memoTextarea {
+  flex: 1;
+  width: 100%;
+  min-height: 220px;
+  padding: 24px;
+  border: none;
+  background: transparent;
+  color: #0f172a;
+  font: inherit;
+  line-height: 32px;
+  resize: none;
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.error {
+  margin: 0;
+  color: #f43f5e;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.saveButton.saveButton {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.activeSaveButton.activeSaveButton {
+  background-color: #bef264;
+}
+
+.deleteButton.deleteButton {
+  background-color: #f43f5e;
+  color: #ffffff;
+}
+
+@media (max-width: 743px) {
+  .form {
+    gap: 16px;
+  }
+
+  .titleField {
+    min-height: 56px;
+    padding: 0 16px;
+  }
+
+  .titleInput {
+    font-size: 16px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .imageField,
+  .memoField {
+    min-height: 240px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
