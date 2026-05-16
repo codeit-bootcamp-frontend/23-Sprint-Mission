@@ -41,6 +41,10 @@ function AddItem() {
     formValues.price.trim() !== '' &&
     tags.length > 0;
 
+  const formattedPrice = formValues.price
+    ? Number(formValues.price).toLocaleString()
+    : '';
+
   return (
     <PageWrapper>
       <Inner>
@@ -75,11 +79,7 @@ function AddItem() {
                 id="price"
                 placeholder="판매 가격을 입력해주세요"
                 name="price"
-                value={
-                  formValues.price
-                    ? Number(formValues.price).toLocaleString()
-                    : ''
-                }
+                value={formattedPrice}
                 onChange={handleChangeFormValue}
               />
             </FormField>
