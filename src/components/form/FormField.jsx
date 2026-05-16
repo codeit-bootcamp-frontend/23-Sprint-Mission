@@ -1,19 +1,15 @@
 import styled from 'styled-components';
 
-export default function FormFiled({ label, children }) {
+export default function FormField({ id, label, children }) {
   return (
-    <Filed>
-      <Label>{label}</Label>
+    <Field>
+      <Label htmlFor={id}>{label}</Label>
       {children}
-    </Filed>
+    </Field>
   );
 }
 
-const Filed = styled.div`
-  & + & {
-    margin-top: 16px;
-  }
-`;
+const Field = styled.div``;
 const Label = styled.label`
   display: block;
   margin-bottom: 16px;
