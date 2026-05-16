@@ -84,3 +84,9 @@ img {
 form {
   width: 100%;
 }
+
+.inner {
+  padding: 0 24px;
+  margin: 0 auto;
+  max-width: 1248px;
+}
