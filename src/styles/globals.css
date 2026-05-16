@@ -55,7 +55,6 @@ svg {
 }
 button {
   background: none;
-  border: 0;
   cursor: pointer;
 }
 a {
@@ -69,6 +68,8 @@ input,
 button {
   border-radius: 0;
   -webkit-appearance: none;
+  border: none;
+  outline: none;
 }
 input {
   width: 100%;
