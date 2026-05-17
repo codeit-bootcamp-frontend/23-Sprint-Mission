@@ -1,12 +1,40 @@
-// import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { getProductDetail } from '../../apis/product/getProductDetail';
 import { Inner } from '../../styles/layout';
 import { DEVICE } from '../../styles/breakpoints';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
 import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
 
 function PageItemDetail() {
-  // const { productId } = useParams();
+  const { productId } = useParams();
+
+  const [product, setProduct] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const fetchProductDetail = async () => {
+      try {
+        setIsLoading(true);
+
+        const data = await getProductDetail(productId);
+        setProduct(data);
+      } catch (error) {
+        console.error(error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProductDetail();
+  }, [productId]);
+
+  if (isLoading) return <div>로딩 중...</div>;
+  if (isError) return <div>상품 정보를 불러오지 못했습니다.</div>;
+  if (!product) return <div>상품이 없습니다.</div>;
 
   return (
     <PageWrapper>
