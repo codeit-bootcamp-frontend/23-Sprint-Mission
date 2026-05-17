@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { getProductDetail } from '../../apis/product/getProductDetail';
+import { toggleFavoriteApi } from '../../utils/favorite/favoriteApi';
 import { Inner } from '../../styles/layout';
 import { DEVICE } from '../../styles/breakpoints';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
@@ -36,6 +37,19 @@ function PageItemDetail() {
   if (isLoading) return <div>로딩 중...</div>;
   if (isError) return <div>상품 정보를 불러오지 못했습니다.</div>;
   if (!product) return <div>상품이 없습니다.</div>;
+
+  const handleFavoriteClick = async () => {
+    try {
+      const updatedProduct = await toggleFavoriteApi(product);
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        ...updatedProduct,
+      }));
+    } catch (error) {
+      console.error('좋아요 실패', error);
+      alert(error.message);
+    }
+  };
 
   return (
     <PageWrapper>
@@ -92,7 +106,11 @@ function PageItemDetail() {
                   </ProfileDate>
                 </ProfileText>
               </ProfileBox>
-              <FavoriteButton type="button">
+              <FavoriteButton
+                type="button"
+                onClick={handleFavoriteClick}
+                $isFavorite={product.isFavorite}
+              >
                 <IconHeart />
                 <FavoriteCount>{product.favoriteCount}</FavoriteCount>
               </FavoriteButton>
@@ -319,6 +337,13 @@ const FavoriteButton = styled.button`
     width: 1px;
     height: 34px;
     background: var(--gray-200);
+  }
+
+  svg {
+    path {
+      fill: ${({ $isFavorite }) => $isFavorite && '#FF68CC'};
+      stroke: ${({ $isFavorite }) => $isFavorite && '#FF68CC'};
+    }
   }
 
   @media ${DEVICE.tablet} {
