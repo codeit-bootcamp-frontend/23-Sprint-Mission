@@ -51,7 +51,7 @@ function PageItemDetail() {
       navigate('/items');
     } catch (error) {
       console.error('상품 삭제 실패', error);
-      alert(error.message);
+      alert(error.response?.data?.message || '상품 삭제에 실패했습니다.');
     }
   };
 
