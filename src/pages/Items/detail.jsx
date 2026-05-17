@@ -23,7 +23,7 @@ function PageItemDetail() {
   const [isError, setIsError] = useState(false);
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [myProfile, setMyProfile] = useState(null);
-  const [comment, setComment] = useState('');
+  const [commentInput, setCommentInput] = useState('');
 
   useEffect(() => {
     const fetchProductDetail = async () => {
@@ -82,9 +82,9 @@ function PageItemDetail() {
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createComment(productId, comment);
+      await createComment(productId, commentInput);
 
-      setComment('');
+      setCommentInput('');
     } catch (error) {
       console.error('댓글 등록 실패', error);
 
@@ -176,12 +176,12 @@ function PageItemDetail() {
             <FormField label="문의하기" id="comment">
               <CommentTextarea
                 id="comment"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
+                value={commentInput}
+                onChange={(e) => setCommentInput(e.target.value)}
                 placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
               />
             </FormField>
-            <CommentSubmitButton type="submit" disabled={!comment.trim()}>
+            <CommentSubmitButton type="submit" disabled={!commentInput.trim()}>
               등록
             </CommentSubmitButton>
           </CommentForm>
