@@ -5,6 +5,7 @@ import { getProductDetail } from '../../apis/product/getProductDetail';
 import { deleteProduct } from '../../apis/product/deleteProduct';
 import { toggleFavoriteApi } from '../../utils/favorite/favoriteApi';
 import { getMyProfile } from '../../apis/user/getMyProfile';
+import { createComment } from '../../apis/comment/createComment';
 import FormField from '../../components/form/FormField';
 import TextareaBox from '../../components/form/TextareaBox';
 import { Inner } from '../../styles/layout';
@@ -75,6 +76,19 @@ function PageItemDetail() {
     } catch (error) {
       console.error('좋아요 실패', error);
       alert(error.message);
+    }
+  };
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await createComment(productId, comment);
+
+      setComment('');
+    } catch (error) {
+      console.error('댓글 등록 실패', error);
+
+      alert(error.response?.data?.message || '댓글 등록에 실패했습니다.');
     }
   };
 
@@ -158,17 +172,19 @@ function PageItemDetail() {
         </ItemGroup>
 
         <CommentGroup>
-          <FormField label="문의하기" id="comment">
-            <CommentTextarea
-              id="comment"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-            />
-          </FormField>
-          <CommentSubmitButton type="submit" disabled={!comment.trim()}>
-            등록
-          </CommentSubmitButton>
+          <CommentForm onSubmit={handleCommentSubmit}>
+            <FormField label="문의하기" id="comment">
+              <CommentTextarea
+                id="comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+              />
+            </FormField>
+            <CommentSubmitButton type="submit" disabled={!comment.trim()}>
+              등록
+            </CommentSubmitButton>
+          </CommentForm>
         </CommentGroup>
       </Inner>
     </PageWrapper>
@@ -413,6 +429,7 @@ const FavoriteCount = styled.span`
 `;
 
 const CommentGroup = styled.div``;
+const CommentForm = styled.form``;
 const CommentTextarea = styled(TextareaBox)`
   height: 104px;
 `;
