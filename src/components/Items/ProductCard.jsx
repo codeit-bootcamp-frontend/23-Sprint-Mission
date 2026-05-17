@@ -6,7 +6,7 @@ export default function ProductCard({ product, onFavoriteClick }) {
   return (
     <>
       <ProductThumb>
-        <ProductLink to={`/products/${product.id}`}>
+        <ProductLink to={`/items/${product.id}`}>
           <img
             src={product.images?.[0] || '/noimg.jpg'}
             alt={product.name}
@@ -18,9 +18,7 @@ export default function ProductCard({ product, onFavoriteClick }) {
       </ProductThumb>
       <ProductInfo>
         <ProductName>
-          <ProductLink to={`/products/${product.id}`}>
-            {product.name}
-          </ProductLink>
+          <ProductLink to={`/items/${product.id}`}>{product.name}</ProductLink>
         </ProductName>
         <ProductPrice>{product.price.toLocaleString()}원</ProductPrice>
         <ProductFavoriteCountButton
