@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { getProductDetail } from '../../apis/product/getProductDetail';
+import { deleteProduct } from '../../apis/product/deleteProduct';
 import { toggleFavoriteApi } from '../../utils/favorite/favoriteApi';
 import { Inner } from '../../styles/layout';
 import { DEVICE } from '../../styles/breakpoints';
@@ -10,6 +11,7 @@ import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
 
 function PageItemDetail() {
   const { productId } = useParams();
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -38,6 +40,20 @@ function PageItemDetail() {
   if (isLoading) return <div>로딩 중...</div>;
   if (isError) return <div>상품 정보를 불러오지 못했습니다.</div>;
   if (!product) return <div>상품이 없습니다.</div>;
+
+  const handleDeleteClick = async () => {
+    const isConfirmed = confirm('정말 삭제하시겠습니까?');
+
+    if (!isConfirmed) return;
+
+    try {
+      await deleteProduct(productId);
+      navigate('/items');
+    } catch (error) {
+      console.error('상품 삭제 실패', error);
+      alert(error.message);
+    }
+  };
 
   const handleFavoriteClick = async () => {
     try {
@@ -79,7 +95,9 @@ function PageItemDetail() {
                 {isKebabOpen && (
                   <KebabList>
                     <KebabItemButton type="button">수정하기</KebabItemButton>
-                    <KebabItemButton type="button">삭제하기</KebabItemButton>
+                    <KebabItemButton type="button" onClick={handleDeleteClick}>
+                      삭제하기
+                    </KebabItemButton>
                   </KebabList>
                 )}
               </KebabBox>
