@@ -5,8 +5,11 @@ import { getProductDetail } from '../../apis/product/getProductDetail';
 import { deleteProduct } from '../../apis/product/deleteProduct';
 import { toggleFavoriteApi } from '../../utils/favorite/favoriteApi';
 import { getMyProfile } from '../../apis/user/getMyProfile';
+import FormField from '../../components/form/FormField';
+import TextareaBox from '../../components/form/TextareaBox';
 import { Inner } from '../../styles/layout';
 import { DEVICE } from '../../styles/breakpoints';
+import SubmitButton from '../../components/form/SubmitButton';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
 import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
 
@@ -19,6 +22,7 @@ function PageItemDetail() {
   const [isError, setIsError] = useState(false);
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [myProfile, setMyProfile] = useState(null);
+  const [comment, setComment] = useState('');
 
   useEffect(() => {
     const fetchProductDetail = async () => {
@@ -152,6 +156,20 @@ function PageItemDetail() {
             </BottomWrap>
           </InfoArea>
         </ItemGroup>
+
+        <CommentGroup>
+          <FormField label="문의하기" id="comment">
+            <CommentTextarea
+              id="comment"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
+            />
+          </FormField>
+          <CommentSubmitButton type="submit" disabled={!comment.trim()}>
+            등록
+          </CommentSubmitButton>
+        </CommentGroup>
       </Inner>
     </PageWrapper>
   );
@@ -392,4 +410,13 @@ const FavoriteCount = styled.span`
   font-size: 16px;
   font-weight: 500;
   color: var(--gray-500);
+`;
+
+const CommentGroup = styled.div``;
+const CommentTextarea = styled(TextareaBox)`
+  height: 104px;
+`;
+const CommentSubmitButton = styled(SubmitButton)`
+  margin-top: 16px;
+  margin-left: auto;
 `;

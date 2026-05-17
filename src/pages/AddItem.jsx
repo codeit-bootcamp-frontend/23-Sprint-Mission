@@ -7,6 +7,7 @@ import UploadImage from '../components/form/UploadImage';
 import Tag from '../components/form/Tag';
 import { DEVICE } from '../styles/breakpoints';
 import { Inner } from '../styles/layout';
+import SubmitButton from '../components/form/SubmitButton';
 
 function AddItem() {
   const [formValues, setFormValues] = useState({
@@ -92,9 +93,9 @@ function AddItem() {
             <FormField label="태그" id="tag">
               <Tag tags={tags} setTags={setTags} />
             </FormField>
-            <SubmitButton type="submit" disabled={!isFormValid}>
+            <AddItemSubmitButton type="submit" disabled={!isFormValid}>
               등록
-            </SubmitButton>
+            </AddItemSubmitButton>
           </Form>
         </FormContent>
       </Inner>
@@ -116,26 +117,10 @@ const FormTitle = styled.h2`
   font-weight: 700;
   color: var(--gray-800);
 `;
-const SubmitButton = styled.button`
+const AddItemSubmitButton = styled(SubmitButton)`
   position: absolute;
   top: -66px;
   right: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 42px;
-  padding: 12px 23px;
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 600;
-  border-radius: 8px;
-  color: var(--gray-100);
-  background: var(--primary-100);
-
-  &:disabled {
-    background: var(--gray-400);
-  }
 `;
 const FormContent = styled.div`
   position: relative;
