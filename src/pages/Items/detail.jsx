@@ -14,6 +14,7 @@ function PageItemDetail() {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [isKebabOpen, setIsKebabOpen] = useState(false);
 
   useEffect(() => {
     const fetchProductDetail = async () => {
@@ -69,13 +70,18 @@ function PageItemDetail() {
               <Subject>{product.name}</Subject>
               <Price>{product.price.toLocaleString()}원</Price>
               <KebabBox>
-                <KebabButton type="button">
+                <KebabButton
+                  type="button"
+                  onClick={() => setIsKebabOpen((prev) => !prev)}
+                >
                   <IconKebab />
                 </KebabButton>
-                <KebabList>
-                  <KebabItemButton type="button">수정하기</KebabItemButton>
-                  <KebabItemButton type="button">삭제하기</KebabItemButton>
-                </KebabList>
+                {isKebabOpen && (
+                  <KebabList>
+                    <KebabItemButton type="button">수정하기</KebabItemButton>
+                    <KebabItemButton type="button">삭제하기</KebabItemButton>
+                  </KebabList>
+                )}
               </KebabBox>
             </TopWrap>
             <ContentWrap>
