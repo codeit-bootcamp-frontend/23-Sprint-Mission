@@ -21,6 +21,7 @@ function PageItemDetail() {
 
         const data = await getProductDetail(productId);
         setProduct(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
         setIsError(true);
@@ -41,12 +42,18 @@ function PageItemDetail() {
       <Inner>
         <ItemGroup>
           <ThumbArea>
-            <ThumbImage src="/noimg.jpg" alt="상품 이미지" />
+            <ThumbImage
+              src={product.images?.[0] || '/noimg.jpg'}
+              onError={(e) => {
+                e.target.src = '/noimg.jpg';
+              }}
+              alt={product.name}
+            />
           </ThumbArea>
           <InfoArea>
             <TopWrap>
-              <Subject>아이패드 미니 팔아요</Subject>
-              <Price>500,000원</Price>
+              <Subject>{product.name}</Subject>
+              <Price>{product.price.toLocaleString()}원</Price>
               <KebabBox>
                 <KebabButton type="button">
                   <IconKebab />
@@ -60,23 +67,14 @@ function PageItemDetail() {
             <ContentWrap>
               <ContentBox>
                 <Title>상품 소개</Title>
-                <Description>
-                  액정에 잔기스랑 주변부 스크래치있습니다만 예민하신분아니면
-                  전혀 신경쓰이지않을정도입니다.
-                  <br />
-                  박스 보관중입니다.
-                  <br />
-                  메모용과 넷플릭스용으로만쓰던거라 뭘 해보질 않아 기능이나
-                  문제점을 못느꼈네요
-                  <br />잘 안써서 싸게넘깁니다! 택배거래안합니다.
-                </Description>
+                <Description>{product.description}</Description>
               </ContentBox>
               <ContentBox>
                 <Title>상품 태그</Title>
                 <TagList>
-                  <TagItem>#아이패드미니</TagItem>
-                  <TagItem>#애플</TagItem>
-                  <TagItem>#가성비</TagItem>
+                  {product.tags.map((tag) => (
+                    <TagItem key={tag}>#{tag}</TagItem>
+                  ))}
                 </TagList>
               </ContentBox>
             </ContentWrap>
@@ -84,13 +82,19 @@ function PageItemDetail() {
               <ProfileBox>
                 <ProfileImage src="/profile-default.png" alt="프로필 이미지" />
                 <ProfileText>
-                  <ProfileName>총명한판다</ProfileName>
-                  <ProfileDate>2024. 01. 02</ProfileDate>
+                  <ProfileName>{product.ownerNickname}</ProfileName>
+                  <ProfileDate>
+                    {new Date(product.createdAt).toLocaleDateString('ko-KR', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                    })}
+                  </ProfileDate>
                 </ProfileText>
               </ProfileBox>
               <FavoriteButton type="button">
                 <IconHeart />
-                <FavoriteCount>123</FavoriteCount>
+                <FavoriteCount>{product.favoriteCount}</FavoriteCount>
               </FavoriteButton>
             </BottomWrap>
           </InfoArea>
@@ -252,6 +256,7 @@ const Description = styled.p`
   font-size: 16px;
   line-height: 1.6;
   color: var(--gray-600);
+  white-space: pre-wrap;
 `;
 const TagList = styled.ul`
   display: flex;
