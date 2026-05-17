@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { getProductDetail } from '../../apis/product/getProductDetail';
 import { deleteProduct } from '../../apis/product/deleteProduct';
 import { toggleFavoriteApi } from '../../utils/favorite/favoriteApi';
+import { getMyProfile } from '../../apis/user/getMyProfile';
 import { Inner } from '../../styles/layout';
 import { DEVICE } from '../../styles/breakpoints';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
@@ -17,15 +18,18 @@ function PageItemDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isKebabOpen, setIsKebabOpen] = useState(false);
+  const [myProfile, setMyProfile] = useState(null);
 
   useEffect(() => {
     const fetchProductDetail = async () => {
       try {
         setIsLoading(true);
 
-        const data = await getProductDetail(productId);
-        setProduct(data);
-        console.log(data);
+        const productData = await getProductDetail(productId);
+        setProduct(productData);
+
+        const myProfileData = await getMyProfile();
+        setMyProfile(myProfileData);
       } catch (error) {
         console.error(error);
         setIsError(true);
@@ -40,6 +44,8 @@ function PageItemDetail() {
   if (isLoading) return <div>로딩 중...</div>;
   if (isError) return <div>상품 정보를 불러오지 못했습니다.</div>;
   if (!product) return <div>상품이 없습니다.</div>;
+
+  const isOwner = product.ownerId === myProfile?.id;
 
   const handleDeleteClick = async () => {
     const isConfirmed = confirm('정말 삭제하시겠습니까?');
@@ -85,22 +91,27 @@ function PageItemDetail() {
             <TopWrap>
               <Subject>{product.name}</Subject>
               <Price>{product.price.toLocaleString()}원</Price>
-              <KebabBox>
-                <KebabButton
-                  type="button"
-                  onClick={() => setIsKebabOpen((prev) => !prev)}
-                >
-                  <IconKebab />
-                </KebabButton>
-                {isKebabOpen && (
-                  <KebabList>
-                    <KebabItemButton type="button">수정하기</KebabItemButton>
-                    <KebabItemButton type="button" onClick={handleDeleteClick}>
-                      삭제하기
-                    </KebabItemButton>
-                  </KebabList>
-                )}
-              </KebabBox>
+              {isOwner && (
+                <KebabBox>
+                  <KebabButton
+                    type="button"
+                    onClick={() => setIsKebabOpen((prev) => !prev)}
+                  >
+                    <IconKebab />
+                  </KebabButton>
+                  {isKebabOpen && (
+                    <KebabList>
+                      <KebabItemButton type="button">수정하기</KebabItemButton>
+                      <KebabItemButton
+                        type="button"
+                        onClick={handleDeleteClick}
+                      >
+                        삭제하기
+                      </KebabItemButton>
+                    </KebabList>
+                  )}
+                </KebabBox>
+              )}
             </TopWrap>
             <ContentWrap>
               <ContentBox>
