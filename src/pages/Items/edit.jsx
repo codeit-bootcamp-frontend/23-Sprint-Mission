@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getProductDetail } from '../../apis/product/getProductDetail';
+import { editProduct } from '../../apis/product/editProduct';
+import { uploadImage } from '../../apis/image/uploadImage';
 import useProductForm from '../../hooks/useProductForm';
 import ProductForm from '../../components/form/ProductForm';
 import styled from 'styled-components';
@@ -8,6 +10,9 @@ import { Inner } from '../../styles/layout';
 
 function EditItem() {
   const { productId } = useParams();
+  const navigate = useNavigate();
+  const [previewImageUrl, setPreviewImageUrl] = useState('');
+  const [imageFile, setImageFile] = useState(null);
 
   const {
     formValues,
@@ -31,6 +36,7 @@ function EditItem() {
         });
 
         setTags(productData.tags);
+        setPreviewImageUrl(productData.images?.[0] || '');
       } catch (error) {
         console.error('상품 정보 불러오기 실패', error);
       }
@@ -39,8 +45,33 @@ function EditItem() {
     fetchProductDetail();
   }, [productId, setFormValues, setTags]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let imageUrl = previewImageUrl;
+
+    if (imageFile) {
+      const uploadedImage = await uploadImage(imageFile);
+      imageUrl = uploadedImage.url;
+    }
+
+    const productData = {
+      images: imageUrl ? [imageUrl] : [],
+      tags,
+      price: Number(formValues.price),
+      description: formValues.description,
+      name: formValues.productName,
+    };
+
+    try {
+      const updatedProduct = await editProduct(productId, productData);
+
+      alert('상품이 수정되었습니다.');
+      navigate(`/items/${updatedProduct.id}`);
+    } catch (error) {
+      console.error('상품 수정 실패', error);
+      alert(error.response?.data?.message || '상품 수정에 실패했습니다.');
+    }
   };
 
   return (
@@ -59,6 +90,8 @@ function EditItem() {
             onSubmit={handleSubmit}
             submitText="수정 완료"
             isFormValid={isFormValid}
+            previewImageUrl={previewImageUrl}
+            onChangeImage={setImageFile}
           />
         </FormContent>
       </Inner>

@@ -1,17 +1,21 @@
-import { useRef, useState } from 'react';
+import { useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
 import { deleteButtonStyle } from './styles';
 import { DEVICE } from '../../styles/breakpoints';
 
-export default function UploadImage({ id, onChangeImage }) {
+export default function UploadImage({ id, onChangeImage, previewImageUrl }) {
   const [previewUrl, setPreviewUrl] = useState('');
+  const [isDeletedPreviewImage, setIsDeletedPreviewImage] = useState(false);
   const [message, setMessage] = useState(false);
 
   const fileInputRef = useRef(null);
 
+  const currentPreviewUrl =
+    previewUrl || (!isDeletedPreviewImage && previewImageUrl);
+
   const handleImageChange = (e) => {
-    if (previewUrl) {
+    if (currentPreviewUrl) {
       setMessage(true);
       e.target.value = '';
       return;
@@ -33,6 +37,7 @@ export default function UploadImage({ id, onChangeImage }) {
     }
 
     onChangeImage(file);
+    setIsDeletedPreviewImage(false);
 
     const imageUrl = URL.createObjectURL(file);
 
@@ -43,6 +48,8 @@ export default function UploadImage({ id, onChangeImage }) {
   const handleDeleteImage = () => {
     setPreviewUrl('');
     setMessage(false);
+    setIsDeletedPreviewImage(true);
+    onChangeImage(null);
 
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
@@ -65,9 +72,9 @@ export default function UploadImage({ id, onChangeImage }) {
           accept="image/*"
           onChange={handleImageChange}
         />
-        {previewUrl && (
+        {currentPreviewUrl && (
           <PreviewWrap>
-            <PreviewImage src={previewUrl} alt="상품 이미지 미리보기" />
+            <PreviewImage src={currentPreviewUrl} alt="상품 이미지 미리보기" />
             <DeleteButton
               type="button"
               onClick={handleDeleteImage}

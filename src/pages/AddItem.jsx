@@ -41,13 +41,13 @@ function AddItem() {
     };
 
     try {
-      console.log(productData);
       const createdProduct = await createProduct(productData);
 
       alert('상품이 등록되었습니다.');
       navigate(`/items/${createdProduct.id}`);
     } catch (error) {
       console.error('상품 등록 실패', error);
+      alert(error.response?.data?.message || '상품 등록에 실패했습니다.');
     }
   };
 

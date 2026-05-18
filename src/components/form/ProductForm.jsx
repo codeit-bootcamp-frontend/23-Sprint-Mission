@@ -17,11 +17,16 @@ function ProductForm({
   isFormValid,
   submitText,
   onChangeImage,
+  previewImageUrl,
 }) {
   return (
     <Form onSubmit={onSubmit}>
       <FormField label="상품 이미지" id="product-image">
-        <UploadImage id="product-image" onChangeImage={onChangeImage} />
+        <UploadImage
+          id="product-image"
+          onChangeImage={onChangeImage}
+          previewImageUrl={previewImageUrl}
+        />
       </FormField>
       <FormField label="상품명" id="product-name">
         <InputBox
