@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getProductDetail } from '../../apis/product/getProductDetail';
 import { deleteProduct } from '../../apis/product/deleteProduct';
@@ -7,6 +7,7 @@ import { toggleFavoriteApi } from '../../utils/favorite/favoriteApi';
 import { getMyProfile } from '../../apis/user/getMyProfile';
 import { createComment } from '../../apis/comment/createComment';
 import { getComments } from '../../apis/comment/getComments';
+import { deleteComment } from '../../apis/comment/deleteComment';
 import FormField from '../../components/form/FormField';
 import TextareaBox from '../../components/form/TextareaBox';
 import { Inner } from '../../styles/layout';
@@ -14,7 +15,7 @@ import { DEVICE } from '../../styles/breakpoints';
 import SubmitButton from '../../components/form/SubmitButton';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
 import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
-import { deleteComment } from '../../apis/comment/deleteComment';
+import IconBack from '/src/assets/icon/icon-back.svg?react';
 
 function PageItemDetail() {
   const { productId } = useParams();
@@ -289,6 +290,11 @@ function PageItemDetail() {
             })}
           </CommentList>
         </CommentGroup>
+
+        <BackToListLink to="/items">
+          목록으로 돌아가기
+          <IconBack />
+        </BackToListLink>
       </Inner>
     </PageWrapper>
   );
@@ -593,3 +599,26 @@ const CommentProfileDate = styled(ProfileDate)`
   line-height: 1.5;
 `;
 const CommentKebabBox = styled(KebabBox)``;
+const BackToListLink = styled(Link)`
+  margin: 64px auto 0;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 40px;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--gray-100);
+  background: var(--primary-100);
+  border-radius: 40px;
+
+  @media ${DEVICE.tablet} {
+    margin-top: 48px;
+  }
+
+  @media ${DEVICE.mobile} {
+    margin-top: 40px;
+  }
+`;
