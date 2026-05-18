@@ -216,7 +216,7 @@ function PageItemDetail() {
 
         <CommentGroup>
           <CommentForm onSubmit={handleCommentSubmit}>
-            <FormField label="문의하기" id="comment">
+            <FormField label="문의하기" id="comment" labelSize={16}>
               <CommentTextarea
                 id="comment"
                 value={commentInput}
@@ -535,6 +535,10 @@ const CommentGroup = styled.div``;
 const CommentForm = styled.form``;
 const CommentTextarea = styled(TextareaBox)`
   height: 104px;
+
+  @media ${DEVICE.tablet} {
+    font-size: 14px;
+  }
 `;
 const CommentSubmitButton = styled(SubmitButton)`
   margin-top: 16px;
@@ -546,6 +550,10 @@ const CommentList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media ${DEVICE.mobile} {
+    gap: 16px;
+  }
 `;
 const CommentItem = styled.li`
   position: relative;
@@ -554,6 +562,10 @@ const CommentItem = styled.li`
   gap: 24px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--gray-200);
+
+  @media ${DEVICE.mobile} {
+    padding-bottom: 8px;
+  }
 `;
 const CommentContent = styled.p`
   white-space: pre-wrap;

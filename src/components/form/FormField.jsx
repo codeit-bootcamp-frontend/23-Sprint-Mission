@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { DEVICE } from '../../styles/breakpoints';
 
-export default function FormField({ id, label, children }) {
+export default function FormField({ id, label, labelSize, children }) {
   return (
     <Field>
-      <Label htmlFor={id}>{label}</Label>
+      <Label htmlFor={id} $labelSize={labelSize}>
+        {label}
+      </Label>
       {children}
     </Field>
   );
@@ -17,4 +20,8 @@ const Label = styled.label`
   line-height: 1.4;
   font-weight: 700;
   color: var(--gray-800);
+
+  @media ${DEVICE.mobile} {
+    font-size: ${({ $labelSize }) => ($labelSize ? `${$labelSize}px` : '18px')};
+  }
 `;
