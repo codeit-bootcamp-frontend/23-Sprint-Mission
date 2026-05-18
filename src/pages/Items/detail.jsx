@@ -11,6 +11,7 @@ import { deleteComment } from '../../apis/comment/deleteComment';
 import { editComment } from '../../apis/comment/editComment';
 import FormField from '../../components/form/FormField';
 import TextareaBox from '../../components/form/TextareaBox';
+import { formatDate } from '../../utils/formatDate';
 import { Inner } from '../../styles/layout';
 import { DEVICE } from '../../styles/breakpoints';
 import SubmitButton from '../../components/form/SubmitButton';
@@ -150,25 +151,6 @@ function PageItemDetail() {
     }
   };
 
-  const formatCommentDate = (dateString) => {
-    const createdDate = new Date(dateString);
-    const now = new Date();
-
-    const diffMs = now - createdDate;
-    const diffMinutes = Math.floor(diffMs / (1000 * 60));
-    const diffHours = Math.floor(diffMinutes / 60);
-
-    if (diffMinutes < 1) return '방금 전';
-    if (diffMinutes < 60) return `${diffMinutes}분 전`;
-    if (diffHours < 24) return `${diffHours}시간 전`;
-
-    return createdDate.toLocaleDateString('ko-KR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    });
-  };
-
   const editCommentForm = (
     <CommentForm onSubmit={handleCommentEdit}>
       <EditCommentTextarea
@@ -272,9 +254,7 @@ function PageItemDetail() {
                 <ProfileImage src="/profile-default.png" alt="프로필 이미지" />
                 <ProfileText>
                   <ProfileName>{product.ownerNickname}</ProfileName>
-                  <ProfileDate>
-                    {formatCommentDate(product.createdAt)}
-                  </ProfileDate>
+                  <ProfileDate>{formatDate(product.createdAt)}</ProfileDate>
                 </ProfileText>
               </ProfileBox>
               <FavoriteButton
@@ -325,7 +305,7 @@ function PageItemDetail() {
                           {comment.writer.nickname}
                         </CommentProfileName>
                         <CommentProfileDate>
-                          {formatCommentDate(comment.createdAt)}
+                          {formatDate(comment.createdAt)}
                         </CommentProfileDate>
                       </CommentProfileText>
                     </CommentProfileBox>
