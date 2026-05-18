@@ -15,6 +15,7 @@ function ProductForm({
   handleChangeFormValue,
   onSubmit,
   isFormValid,
+  submitText,
 }) {
   return (
     <Form onSubmit={onSubmit}>
@@ -52,7 +53,7 @@ function ProductForm({
         <Tag tags={tags} setTags={setTags} />
       </FormField>
       <AddItemSubmitButton type="submit" disabled={!isFormValid}>
-        등록
+        {submitText}
       </AddItemSubmitButton>
     </Form>
   );
