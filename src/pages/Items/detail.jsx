@@ -236,7 +236,12 @@ function PageItemDetail() {
                   </KebabButton>
                   {isKebabOpen && (
                     <KebabList onClick={(e) => e.stopPropagation()}>
-                      <KebabItemButton type="button">수정하기</KebabItemButton>
+                      <KebabItemButton
+                        type="button"
+                        onClick={() => navigate(`/items/${productId}/edit`)}
+                      >
+                        수정하기
+                      </KebabItemButton>
                       <KebabItemButton
                         type="button"
                         onClick={handleDeleteClick}

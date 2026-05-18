@@ -6,7 +6,6 @@ import useProductForm from '../hooks/useProductForm';
 import ProductForm from '../components/form/ProductForm';
 import styled from 'styled-components';
 import { Inner } from '../styles/layout';
-import { DEVICE } from '../styles/breakpoints';
 
 function AddItem() {
   const navigate = useNavigate();
