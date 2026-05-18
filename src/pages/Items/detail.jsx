@@ -195,6 +195,16 @@ function PageItemDetail() {
     </CommentForm>
   );
 
+  const commentEmpty = (
+    <CommentEmpty>
+      <EmptyImage
+        src="/src/assets/images/comment-empty.png"
+        alt="empty 이미지"
+      ></EmptyImage>
+      <EmptyText>아직 문의가 없어요</EmptyText>
+    </CommentEmpty>
+  );
+
   return (
     <PageWrapper>
       <Inner>
@@ -288,70 +298,77 @@ function PageItemDetail() {
               등록
             </CommentSubmitButton>
           </CommentForm>
-          <CommentList>
-            {commentList.map((comment) => {
-              const isCommentOwner = comment.writer.id === myProfile?.id;
-              return (
-                <CommentItem key={comment.id}>
-                  {editingCommentId === comment.id ? (
-                    editCommentForm
-                  ) : (
-                    <CommentContent>{comment.content}</CommentContent>
-                  )}
-                  <CommentProfileBox>
-                    <CommentProfileImage
-                      src="/profile-default.png"
-                      alt="프로필 이미지"
-                    />
-                    <CommentProfileText>
-                      <CommentProfileName>
-                        {comment.writer.nickname}
-                      </CommentProfileName>
-                      <CommentProfileDate>
-                        {formatCommentDate(comment.createdAt)}
-                      </CommentProfileDate>
-                    </CommentProfileText>
-                  </CommentProfileBox>
-                  {isCommentOwner && editingCommentId !== comment.id && (
-                    <CommentKebabBox>
-                      <KebabButton
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setIsKebabOpen(false);
-                          setOpenedCommentKebabId((prev) =>
-                            prev === comment.id ? null : comment.id,
-                          );
-                        }}
-                      >
-                        <IconKebab />
-                      </KebabButton>
-                      {openedCommentKebabId === comment.id && (
-                        <KebabList onClick={(e) => e.stopPropagation()}>
-                          <KebabItemButton
-                            type="button"
-                            onClick={() => {
-                              setEditingCommentId(comment.id);
-                              setEditingCommentInput(comment.content);
-                              setOpenedCommentKebabId(null);
-                            }}
-                          >
-                            수정하기
-                          </KebabItemButton>
-                          <KebabItemButton
-                            type="button"
-                            onClick={() => handleCommentDeleteClick(comment.id)}
-                          >
-                            삭제하기
-                          </KebabItemButton>
-                        </KebabList>
-                      )}
-                    </CommentKebabBox>
-                  )}
-                </CommentItem>
-              );
-            })}
-          </CommentList>
+
+          {commentList.length > 0 ? (
+            <CommentList>
+              {commentList.map((comment) => {
+                const isCommentOwner = comment.writer.id === myProfile?.id;
+                return (
+                  <CommentItem key={comment.id}>
+                    {editingCommentId === comment.id ? (
+                      editCommentForm
+                    ) : (
+                      <CommentContent>{comment.content}</CommentContent>
+                    )}
+                    <CommentProfileBox>
+                      <CommentProfileImage
+                        src="/profile-default.png"
+                        alt="프로필 이미지"
+                      />
+                      <CommentProfileText>
+                        <CommentProfileName>
+                          {comment.writer.nickname}
+                        </CommentProfileName>
+                        <CommentProfileDate>
+                          {formatCommentDate(comment.createdAt)}
+                        </CommentProfileDate>
+                      </CommentProfileText>
+                    </CommentProfileBox>
+                    {isCommentOwner && editingCommentId !== comment.id && (
+                      <CommentKebabBox>
+                        <KebabButton
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsKebabOpen(false);
+                            setOpenedCommentKebabId((prev) =>
+                              prev === comment.id ? null : comment.id,
+                            );
+                          }}
+                        >
+                          <IconKebab />
+                        </KebabButton>
+                        {openedCommentKebabId === comment.id && (
+                          <KebabList onClick={(e) => e.stopPropagation()}>
+                            <KebabItemButton
+                              type="button"
+                              onClick={() => {
+                                setEditingCommentId(comment.id);
+                                setEditingCommentInput(comment.content);
+                                setOpenedCommentKebabId(null);
+                              }}
+                            >
+                              수정하기
+                            </KebabItemButton>
+                            <KebabItemButton
+                              type="button"
+                              onClick={() =>
+                                handleCommentDeleteClick(comment.id)
+                              }
+                            >
+                              삭제하기
+                            </KebabItemButton>
+                          </KebabList>
+                        )}
+                      </CommentKebabBox>
+                    )}
+                  </CommentItem>
+                );
+              })}
+            </CommentList>
+          ) : (
+            commentEmpty
+          )}
         </CommentGroup>
 
         <BackToListLink to="/items">
@@ -709,4 +726,27 @@ const CancelButton = styled.button`
 `;
 const EditCommentSubmitButton = styled(CommentSubmitButton)`
   margin: 0;
+`;
+const CommentEmpty = styled.div`
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  @media ${DEVICE.tablet} {
+    margin-top: 40px;
+  }
+`;
+const EmptyImage = styled.img`
+  width: 196px;
+
+  @media ${DEVICE.tablet} {
+    width: 140px;
+  }
+`;
+const EmptyText = styled.p`
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-400);
 `;
