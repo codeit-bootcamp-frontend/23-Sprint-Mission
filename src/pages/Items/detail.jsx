@@ -6,6 +6,7 @@ import { deleteProduct } from '../../apis/product/deleteProduct';
 import { toggleFavoriteApi } from '../../utils/favorite/favoriteApi';
 import { getMyProfile } from '../../apis/user/getMyProfile';
 import { createComment } from '../../apis/comment/createComment';
+import { getComments } from '../../apis/comment/getComments';
 import FormField from '../../components/form/FormField';
 import TextareaBox from '../../components/form/TextareaBox';
 import { Inner } from '../../styles/layout';
@@ -13,6 +14,7 @@ import { DEVICE } from '../../styles/breakpoints';
 import SubmitButton from '../../components/form/SubmitButton';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
 import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
+import { deleteComment } from '../../apis/comment/deleteComment';
 
 function PageItemDetail() {
   const { productId } = useParams();
@@ -24,6 +26,8 @@ function PageItemDetail() {
   const [isKebabOpen, setIsKebabOpen] = useState(false);
   const [myProfile, setMyProfile] = useState(null);
   const [commentInput, setCommentInput] = useState('');
+  const [commentList, setCommentList] = useState([]);
+  const [openedCommentKebabId, setOpenedCommentKebabId] = useState(null);
 
   useEffect(() => {
     const fetchProductDetail = async () => {
@@ -35,6 +39,9 @@ function PageItemDetail() {
 
         const myProfileData = await getMyProfile();
         setMyProfile(myProfileData);
+
+        const commentsData = await getComments(productId);
+        setCommentList(commentsData.list);
       } catch (error) {
         console.error(error);
         setIsError(true);
@@ -45,6 +52,19 @@ function PageItemDetail() {
 
     fetchProductDetail();
   }, [productId]);
+
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setIsKebabOpen(false);
+      setOpenedCommentKebabId(null);
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   if (isLoading) return <div>로딩 중...</div>;
   if (isError) return <div>상품 정보를 불러오지 못했습니다.</div>;
@@ -63,6 +83,22 @@ function PageItemDetail() {
     } catch (error) {
       console.error('상품 삭제 실패', error);
       alert(error.response?.data?.message || '상품 삭제에 실패했습니다.');
+    }
+  };
+
+  const handleCommentDeleteClick = async (commentId) => {
+    const isConfirmed = confirm('정말 삭제하시겠습니까?');
+
+    if (!isConfirmed) return;
+
+    try {
+      await deleteComment(commentId);
+
+      setCommentList((prev) =>
+        prev.filter((comment) => comment.id !== commentId),
+      );
+    } catch (error) {
+      console.error('댓글 삭제 실패', error);
     }
   };
 
@@ -113,12 +149,16 @@ function PageItemDetail() {
                 <KebabBox>
                   <KebabButton
                     type="button"
-                    onClick={() => setIsKebabOpen((prev) => !prev)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsKebabOpen((prev) => !prev);
+                      setOpenedCommentKebabId(null);
+                    }}
                   >
                     <IconKebab />
                   </KebabButton>
                   {isKebabOpen && (
-                    <KebabList>
+                    <KebabList onClick={(e) => e.stopPropagation()}>
                       <KebabItemButton type="button">수정하기</KebabItemButton>
                       <KebabItemButton
                         type="button"
@@ -185,6 +225,56 @@ function PageItemDetail() {
               등록
             </CommentSubmitButton>
           </CommentForm>
+          <CommentList>
+            {commentList.map((comment) => (
+              <CommentItem key={comment.id}>
+                <CommentContent>{comment.content}</CommentContent>
+                <CommentProfileBox>
+                  <CommentProfileImage
+                    src="/profile-default.png"
+                    alt="프로필 이미지"
+                  />
+                  <CommentProfileText>
+                    <CommentProfileName>
+                      {comment.writer.nickname}
+                    </CommentProfileName>
+                    <CommentProfileDate>
+                      {new Date(comment.createdAt).toLocaleDateString('ko-KR', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                      })}
+                    </CommentProfileDate>
+                  </CommentProfileText>
+                </CommentProfileBox>
+                <CommentKebabBox>
+                  <KebabButton
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsKebabOpen(false);
+                      setOpenedCommentKebabId((prev) =>
+                        prev === comment.id ? null : comment.id,
+                      );
+                    }}
+                  >
+                    <IconKebab />
+                  </KebabButton>
+                  {openedCommentKebabId === comment.id && (
+                    <KebabList onClick={(e) => e.stopPropagation()}>
+                      <KebabItemButton type="button">수정하기</KebabItemButton>
+                      <KebabItemButton
+                        type="button"
+                        onClick={() => handleCommentDeleteClick(comment.id)}
+                      >
+                        삭제하기
+                      </KebabItemButton>
+                    </KebabList>
+                  )}
+                </CommentKebabBox>
+              </CommentItem>
+            ))}
+          </CommentList>
         </CommentGroup>
       </Inner>
     </PageWrapper>
@@ -218,18 +308,16 @@ const ItemGroup = styled.div`
 `;
 const ThumbArea = styled.div`
   width: 486px;
-  height: 486px;
+  aspect-ratio: 1 / 1;
   border-radius: 16px;
   overflow: hidden;
 
   @media ${DEVICE.tablet} {
     width: 340px;
-    height: 340px;
   }
 
   @media ${DEVICE.mobile} {
     width: 100%;
-    height: 100%;
   }
 `;
 const ThumbImage = styled.img`
@@ -307,6 +395,7 @@ const KebabItemButton = styled.button`
   padding: 10px 0;
   font-size: 16px;
   line-height: 1.6;
+  color: var(--gray-500);
 
   &:hover {
     background: var(--gray-100);
@@ -423,6 +512,7 @@ const FavoriteButton = styled.button`
   }
 `;
 const FavoriteCount = styled.span`
+  min-width: 20px;
   font-size: 16px;
   font-weight: 500;
   color: var(--gray-500);
@@ -437,3 +527,44 @@ const CommentSubmitButton = styled(SubmitButton)`
   margin-top: 16px;
   margin-left: auto;
 `;
+const CommentList = styled.ul`
+  margin-top: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+const CommentItem = styled.li`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-200);
+`;
+const CommentContent = styled.p`
+  white-space: pre-wrap;
+  font-size: 14px;
+  color: var(--gray-800);
+  line-height: 1.7;
+`;
+const CommentProfileBox = styled(ProfileBox)`
+  gap: 8px;
+`;
+const CommentProfileImage = styled(ProfileImage)`
+  width: 32px;
+  height: 32px;
+`;
+const CommentProfileText = styled(ProfileText)`
+  gap: 4px;
+`;
+const CommentProfileName = styled(ProfileName)`
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+`;
+const CommentProfileDate = styled(ProfileDate)`
+  font-size: 12px;
+  line-height: 1.5;
+`;
+const CommentKebabBox = styled(KebabBox)``;
