@@ -175,10 +175,23 @@ function PageItemDetail() {
         value={editingCommentInput}
         onChange={(e) => setEditingCommentInput(e.target.value)}
       />
-      <CancelButton type="button">취소</CancelButton>
-      <CommentSubmitButton type="submit" disabled={!editingCommentInput.trim()}>
-        수정 완료
-      </CommentSubmitButton>
+      <EditButtonWrap>
+        <CancelButton
+          type="button"
+          onClick={() => {
+            setEditingCommentId(null);
+            setEditingCommentInput('');
+          }}
+        >
+          취소
+        </CancelButton>
+        <EditCommentSubmitButton
+          type="submit"
+          disabled={!editingCommentInput.trim()}
+        >
+          수정 완료
+        </EditCommentSubmitButton>
+      </EditButtonWrap>
     </CommentForm>
   );
 
@@ -672,5 +685,28 @@ const BackToListLink = styled(Link)`
     margin-top: 40px;
   }
 `;
-const EditCommentTextarea = styled(CommentTextarea)``;
-const CancelButton = styled.button``;
+const EditCommentTextarea = styled(CommentTextarea)`
+  height: 80px;
+`;
+const EditButtonWrap = styled.div`
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+`;
+const CancelButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  padding: 12px 23px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 600;
+  border-radius: 8px;
+  color: #737373;
+  background: #fff;
+`;
+const EditCommentSubmitButton = styled(CommentSubmitButton)`
+  margin: 0;
+`;
