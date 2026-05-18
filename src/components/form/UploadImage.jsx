@@ -4,7 +4,7 @@ import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
 import { deleteButtonStyle } from './styles';
 import { DEVICE } from '../../styles/breakpoints';
 
-export default function UploadImage({ id }) {
+export default function UploadImage({ id, onChangeImage }) {
   const [previewUrl, setPreviewUrl] = useState('');
   const [message, setMessage] = useState(false);
 
@@ -19,6 +19,7 @@ export default function UploadImage({ id }) {
 
     const file = e.target.files[0];
     if (!file) return;
+    onChangeImage(file);
     const imageUrl = URL.createObjectURL(file);
     setPreviewUrl(imageUrl);
     setMessage(false);

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createProduct } from '../apis/product/createProduct';
+import { uploadImage } from '../apis/image/uploadImage';
 import useProductForm from '../hooks/useProductForm';
 import ProductForm from '../components/form/ProductForm';
 import styled from 'styled-components';
@@ -18,11 +20,21 @@ function AddItem() {
     isFormValid,
   } = useProductForm();
 
+  const [imageFile, setImageFile] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    let imageUrl = '';
+
+    if (imageFile) {
+      const uploadedImage = await uploadImage(imageFile);
+      console.log(uploadedImage);
+      imageUrl = uploadedImage.url;
+    }
+
     const productData = {
-      images: [],
+      images: imageUrl ? [imageUrl] : [],
       tags,
       price: Number(formValues.price),
       description: formValues.description,
@@ -30,6 +42,7 @@ function AddItem() {
     };
 
     try {
+      console.log(productData);
       const createdProduct = await createProduct(productData);
 
       alert('상품이 등록되었습니다.');
@@ -55,6 +68,7 @@ function AddItem() {
             onSubmit={handleSubmit}
             submitText="등록"
             isFormValid={isFormValid}
+            onChangeImage={setImageFile}
           />
         </FormContent>
       </Inner>
