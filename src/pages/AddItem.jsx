@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import FormField from '../components/form/FormField';
 import InputBox from '../components/form/InputBox';
@@ -8,45 +7,17 @@ import Tag from '../components/form/Tag';
 import { DEVICE } from '../styles/breakpoints';
 import { Inner } from '../styles/layout';
 import SubmitButton from '../components/form/SubmitButton';
+import useProductForm from '../hooks/useProductForm';
 
 function AddItem() {
-  const [formValues, setFormValues] = useState({
-    productName: '',
-    description: '',
-    price: '',
-  });
-
-  const [tags, setTags] = useState([]);
-
-  const handleChangeFormValue = (e) => {
-    const { name, value } = e.target;
-
-    if (name === 'price') {
-      const onlyNumber = value.replace(/[^0-9]/g, '');
-
-      setFormValues({
-        ...formValues,
-        [name]: onlyNumber,
-      });
-
-      return;
-    }
-
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  };
-
-  const isFormValid =
-    formValues.productName.trim() !== '' &&
-    formValues.description.trim() !== '' &&
-    formValues.price.trim() !== '' &&
-    tags.length > 0;
-
-  const formattedPrice = formValues.price
-    ? Number(formValues.price).toLocaleString()
-    : '';
+  const {
+    formValues,
+    tags,
+    setTags,
+    handleChangeFormValue,
+    isFormValid,
+    formattedPrice,
+  } = useProductForm();
 
   const handleSubmit = (e) => {
     e.preventDefault();
