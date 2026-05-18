@@ -693,6 +693,11 @@ const BackToListLink = styled(Link)`
   color: var(--gray-100);
   background: var(--primary-100);
   border-radius: 40px;
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba(54, 146, 255, 0.9);
+  }
 
   @media ${DEVICE.tablet} {
     margin-top: 48px;

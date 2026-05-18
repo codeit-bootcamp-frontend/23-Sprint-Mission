@@ -19,5 +19,6 @@ const Button = styled.button`
 
   &:disabled {
     background: var(--gray-400);
+    cursor: default;
   }
 `;
