@@ -1,22 +1,17 @@
-import styled from 'styled-components';
-import FormField from '../components/form/FormField';
-import InputBox from '../components/form/InputBox';
-import TextareaBox from '../components/form/TextareaBox';
-import UploadImage from '../components/form/UploadImage';
-import Tag from '../components/form/Tag';
-import { DEVICE } from '../styles/breakpoints';
 import { Inner } from '../styles/layout';
-import SubmitButton from '../components/form/SubmitButton';
 import useProductForm from '../hooks/useProductForm';
+import ProductForm from '../components/form/ProductForm';
+import styled from 'styled-components';
+import { DEVICE } from '../styles/breakpoints';
 
 function AddItem() {
   const {
     formValues,
+    formattedPrice,
     tags,
     setTags,
     handleChangeFormValue,
     isFormValid,
-    formattedPrice,
   } = useProductForm();
 
   const handleSubmit = (e) => {
@@ -30,44 +25,16 @@ function AddItem() {
           <FormTitle>상품 등록하기</FormTitle>
         </FormHeader>
         <FormContent>
-          <Form onSubmit={handleSubmit}>
-            <FormField label="상품 이미지" id="product-image">
-              <UploadImage id="product-image" />
-            </FormField>
-            <FormField label="상품명" id="product-name">
-              <InputBox
-                id="product-name"
-                placeholder="상품명을 입력해주세요"
-                name="productName"
-                value={formValues.productName}
-                onChange={handleChangeFormValue}
-              />
-            </FormField>
-            <FormField label="상품 소개" id="description">
-              <TextareaBox
-                id="description"
-                placeholder="상품 소개를 입력해주세요"
-                name="description"
-                value={formValues.description}
-                onChange={handleChangeFormValue}
-              />
-            </FormField>
-            <FormField label="판매가격" id="price">
-              <InputBox
-                id="price"
-                placeholder="판매 가격을 입력해주세요"
-                name="price"
-                value={formattedPrice}
-                onChange={handleChangeFormValue}
-              />
-            </FormField>
-            <FormField label="태그" id="tag">
-              <Tag tags={tags} setTags={setTags} />
-            </FormField>
-            <AddItemSubmitButton type="submit" disabled={!isFormValid}>
-              등록
-            </AddItemSubmitButton>
-          </Form>
+          <ProductForm
+            formValues={formValues}
+            formattedPrice={formattedPrice}
+            tags={tags}
+            setTags={setTags}
+            handleChangeFormValue={handleChangeFormValue}
+            onSubmit={handleSubmit}
+            submitText="등록"
+            isFormValid={isFormValid}
+          />
         </FormContent>
       </Inner>
     </PageWrapper>
@@ -88,20 +55,6 @@ const FormTitle = styled.h2`
   font-weight: 700;
   color: var(--gray-800);
 `;
-const AddItemSubmitButton = styled(SubmitButton)`
-  position: absolute;
-  top: -66px;
-  right: 0;
-`;
 const FormContent = styled.div`
   position: relative;
-`;
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  @media ${DEVICE.tablet} {
-    gap: 24px;
-  }
 `;

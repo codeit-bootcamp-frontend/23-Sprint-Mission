@@ -43,10 +43,10 @@ export default function useProductForm(initialValues = INITIAL_FORM_VALUES) {
   return {
     formValues,
     setFormValues,
+    formattedPrice,
     tags,
     setTags,
     handleChangeFormValue,
     isFormValid,
-    formattedPrice,
   };
 }
