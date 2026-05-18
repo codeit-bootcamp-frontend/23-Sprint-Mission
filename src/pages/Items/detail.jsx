@@ -9,12 +9,11 @@ import { createComment } from '../../apis/comment/createComment';
 import { getComments } from '../../apis/comment/getComments';
 import { deleteComment } from '../../apis/comment/deleteComment';
 import { editComment } from '../../apis/comment/editComment';
-import FormField from '../../components/form/FormField';
-import TextareaBox from '../../components/form/TextareaBox';
 import { formatDate } from '../../utils/formatDate';
+import CommentForm from '../../components/comment/CommentForm';
+import EditCommentForm from '../../components/comment/EditCommentForm';
 import { Inner } from '../../styles/layout';
 import { DEVICE } from '../../styles/breakpoints';
-import SubmitButton from '../../components/form/SubmitButton';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
 import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
 import IconBack from '/src/assets/icon/icon-back.svg?react';
@@ -151,32 +150,6 @@ function PageItemDetail() {
     }
   };
 
-  const editCommentForm = (
-    <CommentForm onSubmit={handleCommentEdit}>
-      <EditCommentTextarea
-        value={editingCommentInput}
-        onChange={(e) => setEditingCommentInput(e.target.value)}
-      />
-      <EditButtonWrap>
-        <CancelButton
-          type="button"
-          onClick={() => {
-            setEditingCommentId(null);
-            setEditingCommentInput('');
-          }}
-        >
-          취소
-        </CancelButton>
-        <EditCommentSubmitButton
-          type="submit"
-          disabled={!editingCommentInput.trim()}
-        >
-          수정 완료
-        </EditCommentSubmitButton>
-      </EditButtonWrap>
-    </CommentForm>
-  );
-
   const commentEmpty = (
     <CommentEmpty>
       <EmptyImage
@@ -235,11 +208,13 @@ function PageItemDetail() {
                 </KebabBox>
               )}
             </TopWrap>
+
             <ContentWrap>
               <ContentBox>
                 <Title>상품 소개</Title>
                 <Description>{product.description}</Description>
               </ContentBox>
+
               <ContentBox>
                 <Title>상품 태그</Title>
                 <TagList>
@@ -249,6 +224,7 @@ function PageItemDetail() {
                 </TagList>
               </ContentBox>
             </ContentWrap>
+
             <BottomWrap>
               <ProfileBox>
                 <ProfileImage src="/profile-default.png" alt="프로필 이미지" />
@@ -257,6 +233,7 @@ function PageItemDetail() {
                   <ProfileDate>{formatDate(product.createdAt)}</ProfileDate>
                 </ProfileText>
               </ProfileBox>
+
               <FavoriteButton
                 type="button"
                 onClick={handleFavoriteClick}
@@ -270,31 +247,33 @@ function PageItemDetail() {
         </ItemGroup>
 
         <CommentGroup>
-          <CommentForm onSubmit={handleCommentSubmit}>
-            <FormField label="문의하기" id="comment" labelSize={16}>
-              <CommentTextarea
-                id="comment"
-                value={commentInput}
-                onChange={(e) => setCommentInput(e.target.value)}
-                placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
-              />
-            </FormField>
-            <CommentSubmitButton type="submit" disabled={!commentInput.trim()}>
-              등록
-            </CommentSubmitButton>
-          </CommentForm>
+          <CommentForm
+            value={commentInput}
+            onChange={(e) => setCommentInput(e.target.value)}
+            onSubmit={handleCommentSubmit}
+          />
 
           {commentList.length > 0 ? (
             <CommentList>
               {commentList.map((comment) => {
                 const isCommentOwner = comment.writer.id === myProfile?.id;
+
                 return (
                   <CommentItem key={comment.id}>
                     {editingCommentId === comment.id ? (
-                      editCommentForm
+                      <EditCommentForm
+                        value={editingCommentInput}
+                        onChange={(e) => setEditingCommentInput(e.target.value)}
+                        onSubmit={handleCommentEdit}
+                        onCancel={() => {
+                          setEditingCommentId(null);
+                          setEditingCommentInput('');
+                        }}
+                      />
                     ) : (
                       <CommentContent>{comment.content}</CommentContent>
                     )}
+
                     <CommentProfileBox>
                       <CommentProfileImage
                         src="/profile-default.png"
@@ -309,6 +288,7 @@ function PageItemDetail() {
                         </CommentProfileDate>
                       </CommentProfileText>
                     </CommentProfileBox>
+
                     {isCommentOwner && editingCommentId !== comment.id && (
                       <CommentKebabBox>
                         <KebabButton
@@ -323,6 +303,7 @@ function PageItemDetail() {
                         >
                           <IconKebab />
                         </KebabButton>
+
                         {openedCommentKebabId === comment.id && (
                           <KebabList onClick={(e) => e.stopPropagation()}>
                             <KebabItemButton
@@ -335,6 +316,7 @@ function PageItemDetail() {
                             >
                               수정하기
                             </KebabItemButton>
+
                             <KebabItemButton
                               type="button"
                               onClick={() =>
@@ -370,6 +352,7 @@ export default PageItemDetail;
 const PageWrapper = styled.div`
   padding: 30px 0 220px;
 `;
+
 const ItemGroup = styled.div`
   display: flex;
   gap: 24px;
@@ -390,6 +373,7 @@ const ItemGroup = styled.div`
     margin-bottom: 24px;
   }
 `;
+
 const ThumbArea = styled.div`
   width: 486px;
   aspect-ratio: 1 / 1;
@@ -404,14 +388,17 @@ const ThumbArea = styled.div`
     width: 100%;
   }
 `;
+
 const ThumbImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
+
 const InfoArea = styled.div`
   flex: 1;
 `;
+
 const TopWrap = styled.div`
   position: relative;
   padding-bottom: 16px;
@@ -422,6 +409,7 @@ const TopWrap = styled.div`
     margin-bottom: 16px;
   }
 `;
+
 const Subject = styled.h2`
   margin-bottom: 16px;
   font-size: 24px;
@@ -439,6 +427,7 @@ const Subject = styled.h2`
     font-size: 16px;
   }
 `;
+
 const Price = styled.span`
   font-size: 40px;
   font-weight: 600;
@@ -452,12 +441,15 @@ const Price = styled.span`
     font-size: 24px;
   }
 `;
+
 const KebabBox = styled.div`
   position: absolute;
   right: 0;
   top: 0;
 `;
+
 const KebabButton = styled.button``;
+
 const KebabList = styled.div`
   z-index: 1;
   position: absolute;
@@ -475,6 +467,7 @@ const KebabList = styled.div`
     width: 102px;
   }
 `;
+
 const KebabItemButton = styled.button`
   padding: 10px 0;
   font-size: 16px;
@@ -490,6 +483,7 @@ const KebabItemButton = styled.button`
     font-size: 14px;
   }
 `;
+
 const ContentWrap = styled.div`
   margin-bottom: 60px;
   display: flex;
@@ -500,7 +494,9 @@ const ContentWrap = styled.div`
     margin-bottom: 40px;
   }
 `;
+
 const ContentBox = styled.div``;
+
 const Title = styled.h3`
   margin-bottom: 16px;
   font-size: 16px;
@@ -512,17 +508,20 @@ const Title = styled.h3`
     margin-bottom: 8px;
   }
 `;
+
 const Description = styled.p`
   font-size: 16px;
   line-height: 1.6;
   color: var(--gray-600);
   white-space: pre-wrap;
 `;
+
 const TagList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 `;
+
 const TagItem = styled.li`
   padding: 6px 16px;
   font-size: 16px;
@@ -531,36 +530,43 @@ const TagItem = styled.li`
   background: var(--gray-100);
   border-radius: 26px;
 `;
+
 const BottomWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
+
 const ProfileBox = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
 `;
+
 const ProfileImage = styled.img`
   width: 40px;
   height: 40px;
 `;
+
 const ProfileText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
 `;
+
 const ProfileName = styled.span`
   font-size: 14px;
   line-height: 1.7;
   font-weight: 500;
   color: var(--gray-600);
 `;
+
 const ProfileDate = styled.span`
   font-size: 14px;
   line-height: 1.7;
   color: var(--gray-400);
 `;
+
 const FavoriteButton = styled.button`
   position: relative;
   padding: 4px 12px;
@@ -595,6 +601,7 @@ const FavoriteButton = styled.button`
     }
   }
 `;
+
 const FavoriteCount = styled.span`
   min-width: 20px;
   font-size: 16px;
@@ -603,18 +610,7 @@ const FavoriteCount = styled.span`
 `;
 
 const CommentGroup = styled.div``;
-const CommentForm = styled.form``;
-const CommentTextarea = styled(TextareaBox)`
-  height: 104px;
 
-  @media ${DEVICE.tablet} {
-    font-size: 14px;
-  }
-`;
-const CommentSubmitButton = styled(SubmitButton)`
-  margin-top: 16px;
-  margin-left: auto;
-`;
 const CommentList = styled.ul`
   margin-top: 24px;
   position: relative;
@@ -626,6 +622,7 @@ const CommentList = styled.ul`
     gap: 16px;
   }
 `;
+
 const CommentItem = styled.li`
   position: relative;
   display: flex;
@@ -638,32 +635,40 @@ const CommentItem = styled.li`
     padding-bottom: 8px;
   }
 `;
+
 const CommentContent = styled.p`
   white-space: pre-wrap;
   font-size: 14px;
   color: var(--gray-800);
   line-height: 1.7;
 `;
+
 const CommentProfileBox = styled(ProfileBox)`
   gap: 8px;
 `;
+
 const CommentProfileImage = styled(ProfileImage)`
   width: 32px;
   height: 32px;
 `;
+
 const CommentProfileText = styled(ProfileText)`
   gap: 4px;
 `;
+
 const CommentProfileName = styled(ProfileName)`
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
 `;
+
 const CommentProfileDate = styled(ProfileDate)`
   font-size: 12px;
   line-height: 1.5;
 `;
+
 const CommentKebabBox = styled(KebabBox)``;
+
 const BackToListLink = styled(Link)`
   margin: 64px auto 0;
   display: flex;
@@ -692,31 +697,7 @@ const BackToListLink = styled(Link)`
     margin-top: 40px;
   }
 `;
-const EditCommentTextarea = styled(CommentTextarea)`
-  height: 80px;
-`;
-const EditButtonWrap = styled.div`
-  margin-top: 18px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 4px;
-`;
-const CancelButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 42px;
-  padding: 12px 23px;
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 600;
-  border-radius: 8px;
-  color: #737373;
-  background: #fff;
-`;
-const EditCommentSubmitButton = styled(CommentSubmitButton)`
-  margin: 0;
-`;
+
 const CommentEmpty = styled.div`
   margin-top: 24px;
   display: flex;
@@ -728,6 +709,7 @@ const CommentEmpty = styled.div`
     margin-top: 40px;
   }
 `;
+
 const EmptyImage = styled.img`
   width: 196px;
 
@@ -735,6 +717,7 @@ const EmptyImage = styled.img`
     width: 140px;
   }
 `;
+
 const EmptyText = styled.p`
   font-size: 16px;
   line-height: 1.6;

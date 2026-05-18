@@ -78,7 +78,7 @@ function EditItem() {
     <PageWrapper>
       <Inner>
         <FormHeader>
-          <FormTitle>상품 수정하기{productId}</FormTitle>
+          <FormTitle>상품 수정하기</FormTitle>
         </FormHeader>
         <FormContent>
           <ProductForm
