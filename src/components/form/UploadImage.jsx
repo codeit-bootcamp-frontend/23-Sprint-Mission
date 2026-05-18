@@ -18,9 +18,24 @@ export default function UploadImage({ id, onChangeImage }) {
     }
 
     const file = e.target.files[0];
+
     if (!file) return;
+
+    const hasKoreanFileName = /\p{Script=Hangul}/u.test(file.name);
+
+    if (hasKoreanFileName) {
+      alert('이미지 파일명은 영문 또는 숫자로 변경한 뒤 업로드해주세요.');
+
+      e.target.value = '';
+      onChangeImage(null);
+
+      return;
+    }
+
     onChangeImage(file);
+
     const imageUrl = URL.createObjectURL(file);
+
     setPreviewUrl(imageUrl);
     setMessage(false);
   };
