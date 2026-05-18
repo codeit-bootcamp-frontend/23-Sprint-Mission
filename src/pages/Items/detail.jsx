@@ -226,54 +226,64 @@ function PageItemDetail() {
             </CommentSubmitButton>
           </CommentForm>
           <CommentList>
-            {commentList.map((comment) => (
-              <CommentItem key={comment.id}>
-                <CommentContent>{comment.content}</CommentContent>
-                <CommentProfileBox>
-                  <CommentProfileImage
-                    src="/profile-default.png"
-                    alt="프로필 이미지"
-                  />
-                  <CommentProfileText>
-                    <CommentProfileName>
-                      {comment.writer.nickname}
-                    </CommentProfileName>
-                    <CommentProfileDate>
-                      {new Date(comment.createdAt).toLocaleDateString('ko-KR', {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                      })}
-                    </CommentProfileDate>
-                  </CommentProfileText>
-                </CommentProfileBox>
-                <CommentKebabBox>
-                  <KebabButton
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsKebabOpen(false);
-                      setOpenedCommentKebabId((prev) =>
-                        prev === comment.id ? null : comment.id,
-                      );
-                    }}
-                  >
-                    <IconKebab />
-                  </KebabButton>
-                  {openedCommentKebabId === comment.id && (
-                    <KebabList onClick={(e) => e.stopPropagation()}>
-                      <KebabItemButton type="button">수정하기</KebabItemButton>
-                      <KebabItemButton
+            {commentList.map((comment) => {
+              const isCommentOwner = comment.writer.id === myProfile?.id;
+              return (
+                <CommentItem key={comment.id}>
+                  <CommentContent>{comment.content}</CommentContent>
+                  <CommentProfileBox>
+                    <CommentProfileImage
+                      src="/profile-default.png"
+                      alt="프로필 이미지"
+                    />
+                    <CommentProfileText>
+                      <CommentProfileName>
+                        {comment.writer.nickname}
+                      </CommentProfileName>
+                      <CommentProfileDate>
+                        {new Date(comment.createdAt).toLocaleDateString(
+                          'ko-KR',
+                          {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                          },
+                        )}
+                      </CommentProfileDate>
+                    </CommentProfileText>
+                  </CommentProfileBox>
+                  {isCommentOwner && (
+                    <CommentKebabBox>
+                      <KebabButton
                         type="button"
-                        onClick={() => handleCommentDeleteClick(comment.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setIsKebabOpen(false);
+                          setOpenedCommentKebabId((prev) =>
+                            prev === comment.id ? null : comment.id,
+                          );
+                        }}
                       >
-                        삭제하기
-                      </KebabItemButton>
-                    </KebabList>
+                        <IconKebab />
+                      </KebabButton>
+                      {openedCommentKebabId === comment.id && (
+                        <KebabList onClick={(e) => e.stopPropagation()}>
+                          <KebabItemButton type="button">
+                            수정하기
+                          </KebabItemButton>
+                          <KebabItemButton
+                            type="button"
+                            onClick={() => handleCommentDeleteClick(comment.id)}
+                          >
+                            삭제하기
+                          </KebabItemButton>
+                        </KebabList>
+                      )}
+                    </CommentKebabBox>
                   )}
-                </CommentKebabBox>
-              </CommentItem>
-            ))}
+                </CommentItem>
+              );
+            })}
           </CommentList>
         </CommentGroup>
       </Inner>
