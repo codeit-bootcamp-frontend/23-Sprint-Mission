@@ -8,6 +8,7 @@ import { getMyProfile } from '../../apis/user/getMyProfile';
 import { createComment } from '../../apis/comment/createComment';
 import { getComments } from '../../apis/comment/getComments';
 import { deleteComment } from '../../apis/comment/deleteComment';
+import { editComment } from '../../apis/comment/editComment';
 import FormField from '../../components/form/FormField';
 import TextareaBox from '../../components/form/TextareaBox';
 import { Inner } from '../../styles/layout';
@@ -29,6 +30,8 @@ function PageItemDetail() {
   const [commentInput, setCommentInput] = useState('');
   const [commentList, setCommentList] = useState([]);
   const [openedCommentKebabId, setOpenedCommentKebabId] = useState(null);
+  const [editingCommentId, setEditingCommentId] = useState(null);
+  const [editingCommentInput, setEditingCommentInput] = useState('');
 
   useEffect(() => {
     const fetchProductDetail = async () => {
@@ -132,6 +135,21 @@ function PageItemDetail() {
     }
   };
 
+  const handleCommentEdit = async (e) => {
+    e.preventDefault();
+    try {
+      await editComment(editingCommentId, editingCommentInput);
+
+      const commentsData = await getComments(productId);
+      setCommentList(commentsData.list);
+
+      setEditingCommentInput('');
+      setEditingCommentId(null);
+    } catch (error) {
+      console.error('댓글 수정 실패', error);
+    }
+  };
+
   const formatCommentDate = (dateString) => {
     const createdDate = new Date(dateString);
     const now = new Date();
@@ -150,6 +168,19 @@ function PageItemDetail() {
       day: '2-digit',
     });
   };
+
+  const editCommentForm = (
+    <CommentForm onSubmit={handleCommentEdit}>
+      <EditCommentTextarea
+        value={editingCommentInput}
+        onChange={(e) => setEditingCommentInput(e.target.value)}
+      />
+      <CancelButton type="button">취소</CancelButton>
+      <CommentSubmitButton type="submit" disabled={!editingCommentInput.trim()}>
+        수정 완료
+      </CommentSubmitButton>
+    </CommentForm>
+  );
 
   return (
     <PageWrapper>
@@ -249,7 +280,11 @@ function PageItemDetail() {
               const isCommentOwner = comment.writer.id === myProfile?.id;
               return (
                 <CommentItem key={comment.id}>
-                  <CommentContent>{comment.content}</CommentContent>
+                  {editingCommentId === comment.id ? (
+                    editCommentForm
+                  ) : (
+                    <CommentContent>{comment.content}</CommentContent>
+                  )}
                   <CommentProfileBox>
                     <CommentProfileImage
                       src="/profile-default.png"
@@ -264,7 +299,7 @@ function PageItemDetail() {
                       </CommentProfileDate>
                     </CommentProfileText>
                   </CommentProfileBox>
-                  {isCommentOwner && (
+                  {isCommentOwner && editingCommentId !== comment.id && (
                     <CommentKebabBox>
                       <KebabButton
                         type="button"
@@ -280,7 +315,14 @@ function PageItemDetail() {
                       </KebabButton>
                       {openedCommentKebabId === comment.id && (
                         <KebabList onClick={(e) => e.stopPropagation()}>
-                          <KebabItemButton type="button">
+                          <KebabItemButton
+                            type="button"
+                            onClick={() => {
+                              setEditingCommentId(comment.id);
+                              setEditingCommentInput(comment.content);
+                              setOpenedCommentKebabId(null);
+                            }}
+                          >
                             수정하기
                           </KebabItemButton>
                           <KebabItemButton
@@ -630,3 +672,5 @@ const BackToListLink = styled(Link)`
     margin-top: 40px;
   }
 `;
+const EditCommentTextarea = styled(CommentTextarea)``;
+const CancelButton = styled.button``;
