@@ -9,7 +9,10 @@ function Header() {
   const location = useLocation();
 
   const isItemsPage =
-    location.pathname === '/items' || location.pathname === '/additem';
+    location.pathname === '/items' ||
+    location.pathname === '/additem' ||
+    /^\/items\/\d+$/.test(location.pathname) ||
+    /^\/items\/\d+\/edit$/.test(location.pathname);
 
   return (
     <>
