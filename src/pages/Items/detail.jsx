@@ -120,6 +120,9 @@ function PageItemDetail() {
     try {
       await createComment(productId, commentInput);
 
+      const commentsData = await getComments(productId);
+      setCommentList(commentsData.list);
+
       setCommentInput('');
     } catch (error) {
       console.error('댓글 등록 실패', error);
