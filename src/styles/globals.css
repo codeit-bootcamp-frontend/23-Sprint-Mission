@@ -55,7 +55,6 @@ svg {
 }
 button {
   background: none;
-  border: 0;
   cursor: pointer;
 }
 a {
@@ -66,11 +65,15 @@ table {
   border-spacing: 0;
 }
 input,
+textarea,
 button {
   border-radius: 0;
   -webkit-appearance: none;
+  border: none;
+  outline: none;
 }
-input {
+input,
+textarea {
   width: 100%;
 }
 ul,

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import IconArrowLeft from '../../assets/icon/icon-arrow-left.svg?react';
 
+const MAX_VISIBLE_PAGE = 5;
+
 export default function Pagination({
   currentPage,
   totalCount,
@@ -8,10 +10,9 @@ export default function Pagination({
   onChangePage,
 }) {
   const totalPage = Math.ceil(totalCount / pageSize);
-  const maxVisiblePage = 5;
   const startPage =
-    Math.floor((currentPage - 1) / maxVisiblePage) * maxVisiblePage + 1;
-  const endPage = Math.min(startPage + maxVisiblePage - 1, totalPage);
+    Math.floor((currentPage - 1) / MAX_VISIBLE_PAGE) * MAX_VISIBLE_PAGE + 1;
+  const endPage = Math.min(startPage + MAX_VISIBLE_PAGE - 1, totalPage);
 
   const pages = [];
 
