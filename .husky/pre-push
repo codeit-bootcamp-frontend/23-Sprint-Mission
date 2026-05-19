@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+# 브랜치명 검증
+branch_name=$(git symbolic-ref --short HEAD)
+
+# main, master 브랜치는 예외 처리 (메인 브랜치)
+if [[ $branch_name == "main" || $branch_name == "master" ]]; then
+  echo "✅ 메인 브랜치: $branch_name"
+  exit 0
+fi
+
+# 브랜치명 규칙: feature/, fix/, hotfix/, chore/, docs/, refactor/, test/ 접두사 사용
+# if [[ ! $branch_name =~ ^(feature|fix|hotfix|chore|docs|refactor|test)/.+ ]]; then
+#   echo "❌ 브랜치명이 규칙을 따르지 않습니다."
+#   echo ""
+#   echo "올바른 브랜치명 형식:"
+#   echo "  - feature/브랜치명"
+#   echo "  - fix/브랜치명"
+#   echo "  - hotfix/브랜치명"
+#   echo "  - chore/브랜치명"
+#   echo "  - docs/브랜치명"
+#   echo "  - refactor/브랜치명"
+#   echo "  - test/브랜치명"
+#   echo ""
+#   echo "현재 브랜치: $branch_name"
+#   exit 1
+# fi
+
+if [[ ! $branch_name =~ ^(React|Next)-[가-힣]+-sprint[0-9]{1,2}$ ]]; then
+  echo "❌ 브랜치명이 규칙을 따르지 않습니다."
+  echo ""
+  echo "올바른 브랜치명 형식:"
+  echo "  - React-이름-sprint0"
+  echo "  - Next-이름-sprint0"
+  echo "  - Next-이름-sprint00"
+  echo "  (이름은 한글이며, 뒤의 숫자는 0~9 사이의 1~2자리 숫자여야 합니다.)"
+  echo ""
+  echo "현재 브랜치: $branch_name"
+  exit 1
+fi
+
+echo "✅ 브랜치명이 규칙을 따릅니다: $branch_name"
