@@ -76,6 +76,12 @@ input,
 textarea {
   width: 100%;
 }
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 1px solid var(--primary-100);
+}
 ul,
 li {
   list-style: none;

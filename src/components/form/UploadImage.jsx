@@ -1,25 +1,46 @@
-import { useRef, useState } from 'react';
+import { useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import PlusIcon from '/src/assets/icon/icon-plus.svg?react';
 import { deleteButtonStyle } from './styles';
 import { DEVICE } from '../../styles/breakpoints';
 
-export default function UploadImage({ id }) {
+export default function UploadImage({ id, onChangeImage, previewImageUrl }) {
   const [previewUrl, setPreviewUrl] = useState('');
+  const [isDeletedPreviewImage, setIsDeletedPreviewImage] = useState(false);
   const [message, setMessage] = useState(false);
 
   const fileInputRef = useRef(null);
 
+  const currentPreviewUrl =
+    previewUrl || (!isDeletedPreviewImage && previewImageUrl);
+
   const handleImageChange = (e) => {
-    if (previewUrl) {
+    if (currentPreviewUrl) {
       setMessage(true);
       e.target.value = '';
       return;
     }
 
     const file = e.target.files[0];
+
     if (!file) return;
+
+    const hasKoreanFileName = /\p{Script=Hangul}/u.test(file.name);
+
+    if (hasKoreanFileName) {
+      alert('이미지 파일명은 영문 또는 숫자로 변경한 뒤 업로드해주세요.');
+
+      e.target.value = '';
+      onChangeImage(null);
+
+      return;
+    }
+
+    onChangeImage(file);
+    setIsDeletedPreviewImage(false);
+
     const imageUrl = URL.createObjectURL(file);
+
     setPreviewUrl(imageUrl);
     setMessage(false);
   };
@@ -27,6 +48,8 @@ export default function UploadImage({ id }) {
   const handleDeleteImage = () => {
     setPreviewUrl('');
     setMessage(false);
+    setIsDeletedPreviewImage(true);
+    onChangeImage(null);
 
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
@@ -49,9 +72,9 @@ export default function UploadImage({ id }) {
           accept="image/*"
           onChange={handleImageChange}
         />
-        {previewUrl && (
+        {currentPreviewUrl && (
           <PreviewWrap>
-            <PreviewImage src={previewUrl} alt="상품 이미지 미리보기" />
+            <PreviewImage src={currentPreviewUrl} alt="상품 이미지 미리보기" />
             <DeleteButton
               type="button"
               onClick={handleDeleteImage}

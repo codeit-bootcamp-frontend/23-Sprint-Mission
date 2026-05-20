@@ -1,54 +1,54 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { createProduct } from '../apis/product/createProduct';
+import { uploadImage } from '../apis/image/uploadImage';
+import useProductForm from '../hooks/useProductForm';
+import ProductForm from '../components/form/ProductForm';
 import styled from 'styled-components';
-import FormField from '../components/form/FormField';
-import InputBox from '../components/form/InputBox';
-import TextareaBox from '../components/form/TextareaBox';
-import UploadImage from '../components/form/UploadImage';
-import Tag from '../components/form/Tag';
-import { DEVICE } from '../styles/breakpoints';
 import { Inner } from '../styles/layout';
 
 function AddItem() {
-  const [formValues, setFormValues] = useState({
-    productName: '',
-    description: '',
-    price: '',
-  });
+  const navigate = useNavigate();
 
-  const [tags, setTags] = useState([]);
+  const {
+    formValues,
+    formattedPrice,
+    tags,
+    setTags,
+    handleChangeFormValue,
+    isFormValid,
+  } = useProductForm();
 
-  const handleChangeFormValue = (e) => {
-    const { name, value } = e.target;
+  const [imageFile, setImageFile] = useState(null);
 
-    if (name === 'price') {
-      const onlyNumber = value.replace(/[^0-9]/g, '');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-      setFormValues({
-        ...formValues,
-        [name]: onlyNumber,
-      });
+    let imageUrl = '';
 
-      return;
+    if (imageFile) {
+      const uploadedImage = await uploadImage(imageFile);
+      console.log(uploadedImage);
+      imageUrl = uploadedImage.url;
     }
 
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  };
+    const productData = {
+      images: imageUrl ? [imageUrl] : [],
+      tags,
+      price: Number(formValues.price),
+      description: formValues.description,
+      name: formValues.productName,
+    };
 
-  const isFormValid =
-    formValues.productName.trim() !== '' &&
-    formValues.description.trim() !== '' &&
-    formValues.price.trim() !== '' &&
-    tags.length > 0;
+    try {
+      const createdProduct = await createProduct(productData);
 
-  const formattedPrice = formValues.price
-    ? Number(formValues.price).toLocaleString()
-    : '';
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+      alert('상품이 등록되었습니다.');
+      navigate(`/items/${createdProduct.id}`);
+    } catch (error) {
+      console.error('상품 등록 실패', error);
+      alert(error.response?.data?.message || '상품 등록에 실패했습니다.');
+    }
   };
 
   return (
@@ -58,44 +58,17 @@ function AddItem() {
           <FormTitle>상품 등록하기</FormTitle>
         </FormHeader>
         <FormContent>
-          <Form onSubmit={handleSubmit}>
-            <FormField label="상품 이미지" id="product-image">
-              <UploadImage id="product-image" />
-            </FormField>
-            <FormField label="상품명" id="product-name">
-              <InputBox
-                id="product-name"
-                placeholder="상품명을 입력해주세요"
-                name="productName"
-                value={formValues.productName}
-                onChange={handleChangeFormValue}
-              />
-            </FormField>
-            <FormField label="상품 소개" id="description">
-              <TextareaBox
-                id="description"
-                placeholder="상품 소개를 입력해주세요"
-                name="description"
-                value={formValues.description}
-                onChange={handleChangeFormValue}
-              />
-            </FormField>
-            <FormField label="판매가격" id="price">
-              <InputBox
-                id="price"
-                placeholder="판매 가격을 입력해주세요"
-                name="price"
-                value={formattedPrice}
-                onChange={handleChangeFormValue}
-              />
-            </FormField>
-            <FormField label="태그" id="tag">
-              <Tag tags={tags} setTags={setTags} />
-            </FormField>
-            <SubmitButton type="submit" disabled={!isFormValid}>
-              등록
-            </SubmitButton>
-          </Form>
+          <ProductForm
+            formValues={formValues}
+            formattedPrice={formattedPrice}
+            tags={tags}
+            setTags={setTags}
+            handleChangeFormValue={handleChangeFormValue}
+            onSubmit={handleSubmit}
+            submitText="등록"
+            isFormValid={isFormValid}
+            onChangeImage={setImageFile}
+          />
         </FormContent>
       </Inner>
     </PageWrapper>
@@ -116,36 +89,6 @@ const FormTitle = styled.h2`
   font-weight: 700;
   color: var(--gray-800);
 `;
-const SubmitButton = styled.button`
-  position: absolute;
-  top: -66px;
-  right: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 42px;
-  padding: 12px 23px;
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 600;
-  border-radius: 8px;
-  color: var(--gray-100);
-  background: var(--primary-100);
-
-  &:disabled {
-    background: var(--gray-400);
-  }
-`;
 const FormContent = styled.div`
   position: relative;
-`;
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  @media ${DEVICE.tablet} {
-    gap: 24px;
-  }
 `;
