@@ -9,11 +9,22 @@
     "lint": "eslint"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.15.0",
     "next": "16.2.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"
+=======
+    "axios": "^1.13.6",
+    "date-fns": "^4.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.76.1",
+    "react-router-dom": "^7.13.1",
+    "react-spinners": "^0.17.0",
+    "styled-components": "^6.3.12"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
