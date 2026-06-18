@@ -38,7 +38,7 @@ function PageItems() {
   const bestProducts = bestData?.list || [];
 
   const { data: allData } = useQuery({
-    queryKey: ['product', 'all', { orderBy, currentPage, allPageSize }],
+    queryKey: ['products', 'all', { orderBy, currentPage, allPageSize }],
     queryFn: () =>
       getListProducts({
         page: currentPage,
