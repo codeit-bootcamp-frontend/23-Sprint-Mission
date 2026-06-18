@@ -32,6 +32,14 @@ function PageItems() {
   const [bestPageSize, setBestPageSize] = useState(() => getBestPageSize());
   const [allPageSize, setAllPageSize] = useState(() => getAllPageSize());
 
+  const { data: bestData } = useQuery({
+    queryKey: ['products', 'best', bestPageSize],
+    queryFn: () =>
+      getListProducts({ page: 1, pageSize: bestPageSize, orderBy: 'favorite' }),
+  });
+
+  const bestProducts = bestData?.list || [];
+
   useEffect(() => {
     const fetchBestProducts = async () => {
       try {
