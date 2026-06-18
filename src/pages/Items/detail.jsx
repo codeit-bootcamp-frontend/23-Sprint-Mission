@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getProductDetail } from '../../apis/product/getProductDetail';
@@ -17,6 +18,7 @@ import { DEVICE } from '../../styles/breakpoints';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
 import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
 import IconBack from '/src/assets/icon/icon-back.svg?react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 function PageItemDetail() {
   const { productId } = useParams();
