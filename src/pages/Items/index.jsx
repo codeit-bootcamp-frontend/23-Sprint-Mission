@@ -3,13 +3,10 @@ import {
   useQuery,
   useMutation,
   useQueryClient,
-  useQueryClient,
-  QueryClient,
 } from '@tanstack/react-query';
 import styled from 'styled-components';
 import { getListProducts } from '../apis/product/getListProducts';
 import { toggleFavoriteApi } from '../utils/favorite/favoriteApi';
-import { updateProductList } from '../utils/favorite/updateProductList';
 import DropDown from '../components/Items/DropDown';
 import Pagination from '../components/Items/Pagination';
 import ProductSearch from '../components/Items/ProductSearch';
@@ -85,27 +82,12 @@ function PageItems() {
     };
   }, []);
 
-  const handleFavoriteClick = async (product) => {
-    try {
-      const updatedProduct = await toggleFavoriteApi(product);
-
-      const updateList = (prev) =>
-        updateProductList(prev, product.id, updatedProduct);
-
-      setBestProducts(updateList);
-      setAllProducts(updateList);
-    } catch (error) {
-      console.error('좋아요 실패', error);
-      alert(error.message);
-    }
-  };
-
-  const useQueryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
   const { mutate: toggleFavorite } = useMutation({
     mutationFn: (product) => toggleFavoriteApi(product),
     onSuccess: () => {
-      QueryClient.invalidateQeuries({ queryKey: ['products'] });
+      queryClient.invalidateQueries({ queryKey: ['products'] });
     },
     onError: (error) => {
       alert(error.message);
