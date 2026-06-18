@@ -43,6 +43,11 @@ function PageItemDetail() {
     queryFn: () => getProductDetail(productId),
   });
 
+  const { data: myProfileData } = useQuery({
+    queryKey: 'myProfile',
+    queryFn: () => getMyProfile(),
+  });
+
   useEffect(() => {
     const fetchProductDetail = async () => {
       try {
