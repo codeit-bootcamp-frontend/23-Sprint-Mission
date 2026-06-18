@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import styled from 'styled-components';
 import { getListProducts } from '../apis/product/getListProducts';
 import { toggleFavoriteApi } from '../utils/favorite/favoriteApi';
-import { updateProductList } from '../utils/favorite/updateProductList';
 import DropDown from '../components/Items/DropDown';
 import Pagination from '../components/Items/Pagination';
 import ProductSearch from '../components/Items/ProductSearch';
@@ -23,52 +23,27 @@ const getAllPageSize = () => {
 };
 
 function PageItems() {
-  const [bestProducts, setBestProducts] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
   const [orderBy, setOrderBy] = useState('recent');
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
   const [bestPageSize, setBestPageSize] = useState(() => getBestPageSize());
   const [allPageSize, setAllPageSize] = useState(() => getAllPageSize());
 
-  useEffect(() => {
-    const fetchBestProducts = async () => {
-      try {
-        const bestData = await getListProducts({
-          page: 1,
-          pageSize: bestPageSize,
-          orderBy: 'favorite',
-        });
+  const { data: bestData } = useQuery({
+    queryKey: ['products', 'best', bestPageSize],
+    queryFn: () =>
+      getListProducts({ page: 1, pageSize: bestPageSize, orderBy: 'favorite' }),
+  });
 
-        setBestProducts(bestData?.list || []);
-      } catch (error) {
-        console.error('베스트 상품 로딩 실패', error);
-        alert(error.message);
-      }
-    };
+  const bestProducts = bestData?.list || [];
 
-    fetchBestProducts();
-  }, [bestPageSize]);
+  const { data: allData } = useQuery({
+    queryKey: ['products', 'all', { orderBy, currentPage, allPageSize }],
+    queryFn: () =>
+      getListProducts({ page: currentPage, pageSize: allPageSize, orderBy }),
+  });
 
-  useEffect(() => {
-    const fetchAllProducts = async () => {
-      try {
-        const allData = await getListProducts({
-          page: currentPage,
-          pageSize: allPageSize,
-          orderBy: orderBy,
-        });
-
-        setAllProducts(allData?.list || []);
-        setTotalCount(allData?.totalCount || 0);
-      } catch (error) {
-        console.error('전체 상품 로딩 실패', error);
-        alert(error.message);
-      }
-    };
-
-    fetchAllProducts();
-  }, [orderBy, currentPage, allPageSize]);
+  const allProducts = allData?.list || [];
+  const totalCount = allData?.totalCount || 0;
 
   useEffect(() => {
     const handleResize = () => {
@@ -99,80 +74,75 @@ function PageItems() {
     };
   }, []);
 
-  const handleFavoriteClick = async (product) => {
-    try {
-      const updatedProduct = await toggleFavoriteApi(product);
+  const queryClient = useQueryClient();
 
-      const updateList = (prev) =>
-        updateProductList(prev, product.id, updatedProduct);
-
-      setBestProducts(updateList);
-      setAllProducts(updateList);
-    } catch (error) {
-      console.error('좋아요 실패', error);
+  const { mutate: toggleFavorite } = useMutation({
+    mutationFn: (product) => toggleFavoriteApi(product),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] });
+    },
+    onError: (error) => {
       alert(error.message);
-    }
-  };
+    },
+  });
 
   return (
-    <>
-      <PageWrapper>
-        <GroupProduct>
-          <Inner>
-            <TitleArea>
-              <Title>베스트 상품</Title>
-            </TitleArea>
-            <ContentArea>
-              <ProductList>
-                {bestProducts.map((product) => (
-                  <ProductItem key={product.id}>
-                    <ProductCard
-                      product={product}
-                      onFavoriteClick={handleFavoriteClick}
-                    />
-                  </ProductItem>
-                ))}
-              </ProductList>
-            </ContentArea>
-          </Inner>
-        </GroupProduct>
+    <PageWrapper>
+      <GroupProduct>
+        <Inner>
+          <TitleArea>
+            <Title>베스트 상품</Title>
+          </TitleArea>
+          <ContentArea>
+            <ProductList>
+              {bestProducts.map((product) => (
+                <ProductItem key={product.id}>
+                  <ProductCard
+                    product={product}
+                    onFavoriteClick={toggleFavorite}
+                  />
+                </ProductItem>
+              ))}
+            </ProductList>
+          </ContentArea>
+        </Inner>
+      </GroupProduct>
 
-        <GroupProduct>
-          <Inner>
-            <TitleAllArea>
-              <Title>전체 상품</Title>
-              <ProductControls>
-                <ProductSearch />
-                <DropDown
-                  orderBy={orderBy}
-                  onChangeOrder={(value) => {
-                    setOrderBy(value);
-                  }}
-                />
-              </ProductControls>
-            </TitleAllArea>
-            <ContentArea>
-              <ProductAllList>
-                {allProducts.map((product) => (
-                  <ProductAllItem key={product.id}>
-                    <ProductCard
-                      product={product}
-                      onFavoriteClick={handleFavoriteClick}
-                    />
-                  </ProductAllItem>
-                ))}
-              </ProductAllList>
-              <Pagination
-                currentPage={currentPage}
-                totalCount={totalCount}
-                pageSize={allPageSize}
-                onChangePage={setCurrentPage}
+      <GroupProduct>
+        <Inner>
+          <TitleAllArea>
+            <Title>전체 상품</Title>
+            <ProductControls>
+              <ProductSearch />
+              <DropDown
+                orderBy={orderBy}
+                onChangeOrder={(value) => {
+                  setOrderBy(value);
+                }}
               />
-            </ContentArea>
-          </Inner>
-        </GroupProduct>
-      </PageWrapper>
-    </>
+            </ProductControls>
+          </TitleAllArea>
+          <ContentArea>
+            <ProductAllList>
+              {allProducts.map((product) => (
+                <ProductAllItem key={product.id}>
+                  <ProductCard
+                    product={product}
+                    onFavoriteClick={toggleFavorite}
+                  />
+                </ProductAllItem>
+              ))}
+            </ProductAllList>
+            <Pagination
+              currentPage={currentPage}
+              totalCount={totalCount}
+              pageSize={allPageSize}
+              onChangePage={setCurrentPage}
+            />
+          </ContentArea>
+        </Inner>
+      </GroupProduct>
+    </PageWrapper>
   );
 }
 
