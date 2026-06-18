@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 import { createProduct } from '../apis/product/createProduct';
 import { uploadImage } from '../apis/image/uploadImage';
 import useProductForm from '../hooks/useProductForm';
@@ -21,34 +22,35 @@ function AddItem() {
 
   const [imageFile, setImageFile] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const { mutate: submitProduct, isPending } = useMutation({
+    mutationFn: async () => {
+      let imageUrl = '';
 
-    let imageUrl = '';
+      if (imageFile) {
+        const uploadedImage = await uploadImage(imageFile);
+        imageUrl = uploadedImage.url;
+      }
 
-    if (imageFile) {
-      const uploadedImage = await uploadImage(imageFile);
-      console.log(uploadedImage);
-      imageUrl = uploadedImage.url;
-    }
-
-    const productData = {
-      images: imageUrl ? [imageUrl] : [],
-      tags,
-      price: Number(formValues.price),
-      description: formValues.description,
-      name: formValues.productName,
-    };
-
-    try {
-      const createdProduct = await createProduct(productData);
-
+      return createProduct({
+        images: imageUrl ? [imageUrl] : [],
+        tags,
+        price: Number(formValues.price),
+        description: formValues.description,
+        name: formValues.productName,
+      });
+    },
+    onSuccess: (createdProduct) => {
       alert('상품이 등록되었습니다.');
       navigate(`/items/${createdProduct.id}`);
-    } catch (error) {
-      console.error('상품 등록 실패', error);
+    },
+    onError: (error) => {
       alert(error.response?.data?.message || '상품 등록에 실패했습니다.');
-    }
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitProduct();
   };
 
   return (
