@@ -109,6 +109,23 @@ function PageItemDetail() {
     deleteCommentMutate(commentId);
   };
 
+  const { mutate: editCommentMutate } = useMutation({
+    mutationFn: () => editComment(editingCommentId, editingCommentInput),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comments', productId] });
+      setEditingCommentInput('');
+      setEditingCommentId(null);
+    },
+    onError: (error) => {
+      console.error('댓글 수정 실패', error);
+    },
+  });
+
+  const handleCommentEdit = (e) => {
+    e.preventDefault();
+    editCommentMutate();
+  };
+
   useEffect(() => {
     const handleClickOutside = () => {
       setIsKebabOpen(false);
@@ -131,21 +148,6 @@ function PageItemDetail() {
   const handleCommentSubmit = (e) => {
     e.preventDefault();
     submitComment();
-  };
-
-  const handleCommentEdit = async (e) => {
-    e.preventDefault();
-    try {
-      await editComment(editingCommentId, editingCommentInput);
-
-      const commentsData = await getComments(productId);
-      setCommentList(commentsData.list);
-
-      setEditingCommentInput('');
-      setEditingCommentId(null);
-    } catch (error) {
-      console.error('댓글 수정 실패', error);
-    }
   };
 
   const commentEmpty = (
