@@ -93,6 +93,22 @@ function PageItemDetail() {
     },
   });
 
+  const { mutate: deleteCommentMutate } = useMutation({
+    mutationFn: (commentId) => deleteComment(commentId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comments', productId] });
+    },
+    onError: (error) => {
+      console.error('댓글 삭제 실패', error);
+    },
+  });
+
+  const handleCommentDeleteClick = (commentId) => {
+    const isConfirmed = confirm('정말 삭제하시겠습니까?');
+    if (!isConfirmed) return;
+    deleteCommentMutate(commentId);
+  };
+
   useEffect(() => {
     const handleClickOutside = () => {
       setIsKebabOpen(false);
@@ -111,22 +127,6 @@ function PageItemDetail() {
   if (!product) return <div>상품이 없습니다.</div>;
 
   const isOwner = product.ownerId === myProfile?.id;
-
-  const handleCommentDeleteClick = async (commentId) => {
-    const isConfirmed = confirm('정말 삭제하시겠습니까?');
-
-    if (!isConfirmed) return;
-
-    try {
-      await deleteComment(commentId);
-
-      setCommentList((prev) =>
-        prev.filter((comment) => comment.id !== commentId),
-      );
-    } catch (error) {
-      console.error('댓글 삭제 실패', error);
-    }
-  };
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
