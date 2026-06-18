@@ -68,7 +68,7 @@ function AddItem() {
             handleChangeFormValue={handleChangeFormValue}
             onSubmit={handleSubmit}
             submitText="등록"
-            isFormValid={isFormValid}
+            isFormValid={isFormValid && !isPending}
             onChangeImage={setImageFile}
           />
         </FormContent>
