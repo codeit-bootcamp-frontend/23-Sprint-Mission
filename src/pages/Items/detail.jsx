@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -23,13 +23,8 @@ function PageItemDetail() {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
   const [isKebabOpen, setIsKebabOpen] = useState(false);
-  const [myProfile, setMyProfile] = useState(null);
   const [commentInput, setCommentInput] = useState('');
-  const [commentList, setCommentList] = useState([]);
   const [openedCommentKebabId, setOpenedCommentKebabId] = useState(null);
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editingCommentInput, setEditingCommentInput] = useState('');
@@ -43,8 +38,8 @@ function PageItemDetail() {
     queryFn: () => getProductDetail(productId),
   });
 
-  const { data: myProfileData } = useQuery({
-    queryKey: 'myProfile',
+  const { data: myProfile } = useQuery({
+    queryKey: ['myProfile'],
     queryFn: () => getMyProfile(),
   });
 
@@ -54,30 +49,6 @@ function PageItemDetail() {
   });
 
   const commentList = commentsData?.list ?? [];
-
-  useEffect(() => {
-    const fetchProductDetail = async () => {
-      try {
-        setIsLoading(true);
-
-        const productData = await getProductDetail(productId);
-        setProduct(productData);
-
-        const myProfileData = await getMyProfile();
-        setMyProfile(myProfileData);
-
-        const commentsData = await getComments(productId);
-        setCommentList(commentsData.list);
-      } catch (error) {
-        console.error(error);
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchProductDetail();
-  }, [productId]);
 
   useEffect(() => {
     const handleClickOutside = () => {
