@@ -25,26 +25,23 @@ function EditItem() {
     isFormValid,
   } = useProductForm();
 
+  const { data: productData } = useQuery({
+    queryKey: ['product', productId],
+    queryFn: () => getProductDetail(productId),
+  });
+
   useEffect(() => {
-    const fetchProductDetail = async () => {
-      try {
-        const productData = await getProductDetail(productId);
+    if (!productData) return;
 
-        setFormValues({
-          productName: productData.name,
-          description: productData.description,
-          price: String(productData.price),
-        });
+    setFormValues({
+      productName: productData.name,
+      description: productData.description,
+      price: String(productData.price),
+    });
 
-        setTags(productData.tags);
-        setPreviewImageUrl(productData.images?.[0] || '');
-      } catch (error) {
-        console.error('상품 정보 불러오기 실패', error);
-      }
-    };
-
-    fetchProductDetail();
-  }, [productId, setFormValues, setTags]);
+    setTags(productData.tags);
+    setPreviewImageUrl(productData.images?.[0] || '');
+  }, [productData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
