@@ -78,10 +78,6 @@ function PageItemDetail() {
     },
   });
 
-  const handleFavoriteClick = () => {
-    toggleFavorite();
-  };
-
   const { mutate: submitComment } = useMutation({
     mutationFn: () => createComment(productId, commentInput),
     onSuccess: () => {
@@ -121,6 +117,11 @@ function PageItemDetail() {
     },
   });
 
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
+    submitComment();
+  };
+
   const handleCommentEdit = (e) => {
     e.preventDefault();
     editCommentMutate();
@@ -144,11 +145,6 @@ function PageItemDetail() {
   if (!product) return <div>상품이 없습니다.</div>;
 
   const isOwner = product.ownerId === myProfile?.id;
-
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    submitComment();
-  };
 
   const commentEmpty = (
     <CommentEmpty>
@@ -236,7 +232,7 @@ function PageItemDetail() {
 
               <FavoriteButton
                 type="button"
-                onClick={handleFavoriteClick}
+                onClick={toggleFavorite}
                 $isFavorite={product.isFavorite}
               >
                 <IconHeart />
