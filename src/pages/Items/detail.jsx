@@ -69,18 +69,20 @@ function PageItemDetail() {
 
   const isOwner = product.ownerId === myProfile?.id;
 
-  const handleDeleteClick = async () => {
-    const isConfirmed = confirm('정말 삭제하시겠습니까?');
-
-    if (!isConfirmed) return;
-
-    try {
-      await deleteProduct(productId);
+  const { mutate: deleteProductMutate } = useMutation({
+    mutationFn: () => deleteProduct(productId),
+    onSuccess: () => {
       navigate('/items');
-    } catch (error) {
-      console.error('상품 삭제 실패', error);
+    },
+    onError: (error) => {
       alert(error.response?.data?.message || '상품 삭제에 실패했습니다.');
-    }
+    },
+  });
+
+  const handleDeleteClick = () => {
+    const isConfirmed = confirm('정말 삭제하시겠습니까?');
+    if (!isConfirmed) return;
+    deleteProductMutate();
   };
 
   const handleCommentDeleteClick = async (commentId) => {
