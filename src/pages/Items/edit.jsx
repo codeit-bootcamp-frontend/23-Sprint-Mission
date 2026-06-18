@@ -12,7 +12,6 @@ import { Inner } from '../../styles/layout';
 function EditItem() {
   const { productId } = useParams();
   const navigate = useNavigate();
-  const [previewImageUrl, setPreviewImageUrl] = useState('');
   const [imageFile, setImageFile] = useState(null);
 
   const {
@@ -30,6 +29,8 @@ function EditItem() {
     queryFn: () => getProductDetail(productId),
   });
 
+  const previewImageUrl = productData?.images?.[0] || '';
+
   useEffect(() => {
     if (!productData) return;
 
@@ -40,8 +41,7 @@ function EditItem() {
     });
 
     setTags(productData.tags);
-    setPreviewImageUrl(productData.images?.[0] || '');
-  }, [productData]);
+  }, [productData, setFormValues, setTags]);
 
   const { mutate: submitEdit, isPending } = useMutation({
     mutationFn: async () => {
