@@ -43,33 +43,35 @@ function EditItem() {
     setPreviewImageUrl(productData.images?.[0] || '');
   }, [productData]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const { mutate: submitEdit, isPending } = useMutation({
+    mutationFn: async () => {
+      let imageUrl = previewImageUrl;
 
-    let imageUrl = previewImageUrl;
+      if (imageFile) {
+        const uploadedImage = await uploadImage(imageFile);
+        imageUrl = uploadedImage.url;
+      }
 
-    if (imageFile) {
-      const uploadedImage = await uploadImage(imageFile);
-      imageUrl = uploadedImage.url;
-    }
-
-    const productData = {
-      images: imageUrl ? [imageUrl] : [],
-      tags,
-      price: Number(formValues.price),
-      description: formValues.description,
-      name: formValues.productName,
-    };
-
-    try {
-      const updatedProduct = await editProduct(productId, productData);
-
+      return editProduct(productId, {
+        images: imageUrl ? [imageUrl] : [],
+        tags,
+        price: Number(formValues.price),
+        description: formValues.description,
+        name: formValues.productName,
+      });
+    },
+    onSuccess: (updatedProduct) => {
       alert('상품이 수정되었습니다.');
       navigate(`/items/${updatedProduct.id}`);
-    } catch (error) {
-      console.error('상품 수정 실패', error);
+    },
+    onError: (error) => {
       alert(error.response?.data?.message || '상품 수정에 실패했습니다.');
-    }
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitEdit();
   };
 
   return (
