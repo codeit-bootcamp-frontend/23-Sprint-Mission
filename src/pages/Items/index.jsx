@@ -24,11 +24,8 @@ const getAllPageSize = () => {
 };
 
 function PageItems() {
-  const [bestProducts, setBestProducts] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
   const [orderBy, setOrderBy] = useState('recent');
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
   const [bestPageSize, setBestPageSize] = useState(() => getBestPageSize());
   const [allPageSize, setAllPageSize] = useState(() => getAllPageSize());
 
@@ -40,44 +37,18 @@ function PageItems() {
 
   const bestProducts = bestData?.list || [];
 
-  useEffect(() => {
-    const fetchBestProducts = async () => {
-      try {
-        const bestData = await getListProducts({
-          page: 1,
-          pageSize: bestPageSize,
-          orderBy: 'favorite',
-        });
+  const { data: allData } = useQuery({
+    queryKey: ['product', 'all', { orderBy, currentPage, allPageSize }],
+    queryFn: () =>
+      getListProducts({
+        page: currentPage,
+        pageSize: allPageSize,
+        orderBy,
+      }),
+  });
 
-        setBestProducts(bestData?.list || []);
-      } catch (error) {
-        console.error('베스트 상품 로딩 실패', error);
-        alert(error.message);
-      }
-    };
-
-    fetchBestProducts();
-  }, [bestPageSize]);
-
-  useEffect(() => {
-    const fetchAllProducts = async () => {
-      try {
-        const allData = await getListProducts({
-          page: currentPage,
-          pageSize: allPageSize,
-          orderBy: orderBy,
-        });
-
-        setAllProducts(allData?.list || []);
-        setTotalCount(allData?.totalCount || 0);
-      } catch (error) {
-        console.error('전체 상품 로딩 실패', error);
-        alert(error.message);
-      }
-    };
-
-    fetchAllProducts();
-  }, [orderBy, currentPage, allPageSize]);
+  const allProducts = allData?.list || [];
+  const totalCount = allData?.totalCount || 0;
 
   useEffect(() => {
     const handleResize = () => {
