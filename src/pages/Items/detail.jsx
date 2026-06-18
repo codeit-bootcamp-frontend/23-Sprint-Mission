@@ -50,6 +50,38 @@ function PageItemDetail() {
 
   const commentList = commentsData?.list ?? [];
 
+  const queryClient = useQueryClient();
+
+  const { mutate: deleteProductMutate } = useMutation({
+    mutationFn: () => deleteProduct(productId),
+    onSuccess: () => {
+      navigate('/items');
+    },
+    onError: (error) => {
+      alert(error.response?.data?.message || '상품 삭제에 실패했습니다.');
+    },
+  });
+
+  const handleDeleteClick = () => {
+    const isConfirmed = confirm('정말 삭제하시겠습니까?');
+    if (!isConfirmed) return;
+    deleteProductMutate();
+  };
+
+  const { mutate: toggleFavorite } = useMutation({
+    mutationFn: () => toggleFavoriteApi(product),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['product', productId] });
+    },
+    onError: (error) => {
+      alert(error.message);
+    },
+  });
+
+  const handleFavoriteClick = () => {
+    toggleFavorite();
+  };
+
   useEffect(() => {
     const handleClickOutside = () => {
       setIsKebabOpen(false);
@@ -69,22 +101,6 @@ function PageItemDetail() {
 
   const isOwner = product.ownerId === myProfile?.id;
 
-  const { mutate: deleteProductMutate } = useMutation({
-    mutationFn: () => deleteProduct(productId),
-    onSuccess: () => {
-      navigate('/items');
-    },
-    onError: (error) => {
-      alert(error.response?.data?.message || '상품 삭제에 실패했습니다.');
-    },
-  });
-
-  const handleDeleteClick = () => {
-    const isConfirmed = confirm('정말 삭제하시겠습니까?');
-    if (!isConfirmed) return;
-    deleteProductMutate();
-  };
-
   const handleCommentDeleteClick = async (commentId) => {
     const isConfirmed = confirm('정말 삭제하시겠습니까?');
 
@@ -98,19 +114,6 @@ function PageItemDetail() {
       );
     } catch (error) {
       console.error('댓글 삭제 실패', error);
-    }
-  };
-
-  const handleFavoriteClick = async () => {
-    try {
-      const updatedProduct = await toggleFavoriteApi(product);
-      setProduct((prevProduct) => ({
-        ...prevProduct,
-        ...updatedProduct,
-      }));
-    } catch (error) {
-      console.error('좋아요 실패', error);
-      alert(error.message);
     }
   };
 
