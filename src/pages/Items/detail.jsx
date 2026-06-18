@@ -18,7 +18,6 @@ import { DEVICE } from '../../styles/breakpoints';
 import IconHeart from '/src/assets/icon/icon-heart-lg.svg?react';
 import IconKebab from '/src/assets/icon/icon-kebab.svg?react';
 import IconBack from '/src/assets/icon/icon-back.svg?react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 function PageItemDetail() {
   const { productId } = useParams();
@@ -34,6 +33,15 @@ function PageItemDetail() {
   const [openedCommentKebabId, setOpenedCommentKebabId] = useState(null);
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editingCommentInput, setEditingCommentInput] = useState('');
+
+  const {
+    data: product,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['product', productId],
+    queryFn: () => getProductDetail(productId),
+  });
 
   useEffect(() => {
     const fetchProductDetail = async () => {
