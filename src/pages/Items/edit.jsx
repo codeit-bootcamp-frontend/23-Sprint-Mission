@@ -89,7 +89,7 @@ function EditItem() {
             handleChangeFormValue={handleChangeFormValue}
             onSubmit={handleSubmit}
             submitText="수정 완료"
-            isFormValid={isFormValid}
+            isFormValid={isFormValid && !isPending}
             previewImageUrl={previewImageUrl}
             onChangeImage={setImageFile}
           />
