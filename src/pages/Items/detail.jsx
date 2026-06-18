@@ -82,6 +82,17 @@ function PageItemDetail() {
     toggleFavorite();
   };
 
+  const { mutate: submitComment } = useMutation({
+    mutationFn: () => createComment(productId, commentInput),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comments', productId] });
+      setCommentInput('');
+    },
+    onError: (error) => {
+      alert(error.response?.data?.message || '댓글 등록에 실패했습니다.');
+    },
+  });
+
   useEffect(() => {
     const handleClickOutside = () => {
       setIsKebabOpen(false);
@@ -117,20 +128,9 @@ function PageItemDetail() {
     }
   };
 
-  const handleCommentSubmit = async (e) => {
+  const handleCommentSubmit = (e) => {
     e.preventDefault();
-    try {
-      await createComment(productId, commentInput);
-
-      const commentsData = await getComments(productId);
-      setCommentList(commentsData.list);
-
-      setCommentInput('');
-    } catch (error) {
-      console.error('댓글 등록 실패', error);
-
-      alert(error.response?.data?.message || '댓글 등록에 실패했습니다.');
-    }
+    submitComment();
   };
 
   const handleCommentEdit = async (e) => {
