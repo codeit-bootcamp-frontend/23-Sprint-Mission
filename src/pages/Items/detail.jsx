@@ -48,6 +48,13 @@ function PageItemDetail() {
     queryFn: () => getMyProfile(),
   });
 
+  const { data: commentsData } = useQuery({
+    queryKey: ['comments', productId],
+    queryFn: () => getComments(productId),
+  });
+
+  const commentList = commentsData?.list ?? [];
+
   useEffect(() => {
     const fetchProductDetail = async () => {
       try {
