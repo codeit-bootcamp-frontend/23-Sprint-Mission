@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  useQueryClient,
+  QueryClient,
+} from '@tanstack/react-query';
 import styled from 'styled-components';
 import { getListProducts } from '../apis/product/getListProducts';
 import { toggleFavoriteApi } from '../utils/favorite/favoriteApi';
@@ -94,6 +100,18 @@ function PageItems() {
     }
   };
 
+  const useQueryClient = useQueryClient();
+
+  const { mutate: toggleFavorite } = useMutation({
+    mutationFn: (product) => toggleFavoriteApi(product),
+    onSuccess: () => {
+      QueryClient.invalidateQeuries({ queryKey: ['products'] });
+    },
+    onError: (error) => {
+      alert(error.message);
+    },
+  });
+
   return (
     <PageWrapper>
       <GroupProduct>
@@ -107,7 +125,7 @@ function PageItems() {
                 <ProductItem key={product.id}>
                   <ProductCard
                     product={product}
-                    onFavoriteClick={handleFavoriteClick}
+                    onFavoriteClick={toggleFavorite}
                   />
                 </ProductItem>
               ))}
@@ -136,7 +154,7 @@ function PageItems() {
                 <ProductAllItem key={product.id}>
                   <ProductCard
                     product={product}
-                    onFavoriteClick={handleFavoriteClick}
+                    onFavoriteClick={toggleFavorite}
                   />
                 </ProductAllItem>
               ))}
