@@ -1,0 +1,106 @@
+/***** main - common  *****/
+.page-main{
+    padding-top: 70px;
+    color: var(--color-secondary3);
+}
+.page-main .headline{
+    font-size: 40px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+.group-bnr{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 540px;
+    background: #CFE5FF;
+}
+.group-bnr .bnr-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 7px;
+    margin: 0 auto;
+    max-width: 1142px;
+    padding: 0 16px;
+    width: 100%;
+}
+.group-bnr .bnr-container .img-box{
+    max-width: 746px;
+}
+
+/***** sect-hero *****/
+.sect-hero{}
+.sect-hero .txt-box{}
+.sect-hero .txt-box .headline{
+    padding-top: 40px;
+    margin-bottom: 32px;
+}
+.sect-hero .txt-box .btn-more{
+    display: inline-flex;
+    padding: 12px 124px;
+    font-size: 20px;
+    line-height: 1.333;
+    font-weight: 600;
+    background: var(--color-primary1);
+    color: #fff;
+    border-radius: 40px;
+}
+.sect-hero .img-box img{}
+
+
+/***** sect-service *****/
+.sect-service{}
+.sect-service .container{
+    padding: 0 16px;
+    max-width: 1020px;
+    margin: 0 auto;
+}
+.sect-service .service-area{
+    padding: 138px 0;
+}
+.sect-service .service-area .flex-inner{
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding: 0 24px;
+    background: #fcfcfc;
+    border-radius: 12px;
+}
+.sect-service .service-area:nth-of-type(even) .flex-inner{
+    flex-direction: row-reverse;
+}
+.sect-service .service-area .img-box{
+    width: 58.6%;
+    background: var(--color-secondary8);
+}
+.sect-service .service-area .img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sect-service .service-area .txt-box{}
+.sect-service .service-area:nth-of-type(even) .txt-box{
+    text-align: right;
+}
+.sect-service .service-area .txt-box .tag{
+    display: block;
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.444;
+    font-weight: 700;
+    color: var(--color-primary1);
+}
+.sect-service .service-area .txt-box .headline{
+    margin-bottom: 24px;
+}
+.sect-service .service-area .txt-box p{
+    font-size: 24px;
+    line-height: 1.333;
+    font-weight: 500;
+}
+
+/***** sect-btmbnr *****/
+.sect-btmbnr{}
+.sect-btmbnr .txt-box{
+    padding-top: 112px;
+}
